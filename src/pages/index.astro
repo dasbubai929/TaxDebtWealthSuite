@@ -938,9 +938,30 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-900 bg-slate-950/80 py-6 text-center text-xs text-slate-500">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p>&copy; 2026 FinanceFlow Hub. All financial strategies contain risk. Calculations are estimates. Hosted on Cloudflare Pages.</p>
+    <footer class="border-t border-slate-800 bg-slate-950/90 py-10 text-xs text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <!-- Copyright & Disclaimer info -->
+          <div class="max-w-xl space-y-2">
+            <p class="font-semibold text-slate-300">
+              &copy; 2026 FinanceFlow Hub. All rights reserved.
+            </p>
+            <p class="text-slate-500 leading-relaxed">
+              Disclaimer: The calculators provided on this website are for informational and educational purposes only and do not constitute professional financial or legal advice.
+            </p>
+          </div>
+          <!-- Legal & Info links -->
+          <nav class="flex flex-wrap gap-x-6 gap-y-2 text-slate-400" aria-label="Footer Navigation">
+            <a href="/about" class="hover:text-white transition-colors font-medium">About Us</a>
+            <a href="/contact" class="hover:text-white transition-colors font-medium">Contact Us</a>
+            <a href="/privacy-policy" class="hover:text-white transition-colors font-medium">Privacy Policy</a>
+            <a href="/terms-conditions" class="hover:text-white transition-colors font-medium">Terms & Conditions</a>
+          </nav>
+        </div>
+        <div class="border-t border-slate-900 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600">
+          <p>Calculations are estimates. All financial strategies contain risk.</p>
+          <p>Hosted on Cloudflare Pages.</p>
+        </div>
       </div>
     </footer>
     

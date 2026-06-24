@@ -1,0 +1,102 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { 
+  title = "FinanceFlow Hub — Multi-Tool Wealth & Debt Suite", 
+  description = "Analyze wealth optimization (Buy, Borrow, Die), calculate side-hustle corporate tax benefits, and schedule debt snowballs." 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- JSON-LD Structured Data: SoftwareApplication + FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "FinanceFlow Hub",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "Web Browser",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free interactive financial calculators for the Buy Borrow Die portfolio tax strategy, side-hustle corporate structure optimization (US, UK, CA, AU), and debt snowball vs avalanche payoff planning.",
+          "url": "https://financeflow.hub/",
+          "featureList": [
+            "Buy Borrow Die SBLOC tax calculator",
+            "Side-hustle sole proprietor vs LLC S-Corp tax comparison",
+            "Corporate tax optimizer for UK Ltd, Canadian CCPC, Australian Pty Ltd",
+            "Debt snowball vs avalanche payoff simulator",
+            "Real-time capital gains tax drag calculator",
+            "LTV margin call risk profiler"
+          ],
+          "screenshot": "https://financeflow.hub/og-preview.png",
+          "author": {
+            "@type": "Organization",
+            "name": "FinanceFlow Hub"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What are the risks of borrowing against your stock portfolio (SBLOC)?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A Securities-Based Line of Credit (SBLOC) carries three primary risks: (1) Margin calls — if your portfolio value drops significantly, your lender can demand immediate repayment or force liquidation of assets; (2) Interest rate risk — SBLOC rates are typically variable and linked to SOFR, meaning costs rise in high-rate environments; (3) Collateral concentration — using a single-asset portfolio as collateral amplifies downside exposure. The standard maintenance LTV threshold is 70%, meaning a portfolio decline of more than 30% above your loan amount can trigger forced selling at the worst possible time."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "When should I switch from a sole proprietor to an LLC or S-Corp?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In the US, the general rule of thumb is to consider forming an LLC with S-Corp election when your net side-hustle profit exceeds $40,000–$50,000 per year. Below that threshold, the annual cost of corporate compliance (registered agent fees, accountant costs, payroll setup — typically $1,500–$3,000/yr) outweighs the self-employment tax savings. In the UK, the break-even point for incorporating as a Limited Company is typically around £30,000–£35,000 in profit, when the combined Corporation Tax + dividend tax rate becomes lower than the Sole Trader income tax + Class 4 NI rate. In Canada, a CCPC becomes advantageous at roughly $50,000+ in active business income due to the Small Business Deduction (9% federal rate). Australian Pty Ltd structures make sense above approximately $80,000 in taxable income."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is the debt avalanche method always better than the debt snowball?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mathematically, yes — the Debt Avalanche method (targeting highest interest rate first) always minimizes the total interest paid over the life of your debts. However, behavioral finance research shows that many people struggle to maintain consistency without early wins. The Debt Snowball method (targeting smallest balance first) produces quicker 'debt-free' milestones for individual accounts, providing psychological reinforcement that helps people stay on track. The best method is the one you'll actually stick to. If your debts have similar interest rates, the difference in total interest paid is minimal, and the psychological boost of Snowball wins may outweigh the small mathematical advantage of Avalanche."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="h-full bg-slate-950 text-slate-100 font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-y-auto custom-scrollbar">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(99,102,241,0.12),rgba(255,255,255,0))] pointer-events-none"></div>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,2014 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <!-- Main Outer Container -->
+  <div class="min-h-screen flex flex-col justify-between">
+    
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 sm:h-20">
+          
+          <!-- Logo & Branding -->
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accent-emerald flex items-center justify-center shadow-lg shadow-brand-500/20">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white font-sans">
+                FinanceFlow<span class="text-brand-400">Hub</span>
+              </h1>
+              <p class="text-xs text-slate-400 hidden sm:block">Advanced Strategic Finance Suite</p>
+            </div>
+          </div>
+
+          <!-- Persistence Badge & Refresh Button -->
+          <div class="flex items-center space-x-3">
+            <button id="toggle-autosave" class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 cursor-pointer" title="Click to toggle auto-save state">
+              <span id="autosave-dot" class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400"></span>
+              <span id="autosave-text">Auto-Save: On</span>
+            </button>
+            <button id="reset-state" class="text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-xs font-semibold flex items-center space-x-1.5" title="Reset all calculators">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+              </svg>
+              <span id="reset-btn-text">Reset Suite</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Workspace Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      
+      <!-- Responsive Tab Controller Matrix -->
+      <div class="mb-8">
+        <!-- Horizontal Scrollable Container on Mobile -->
+        <div class="overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 border-b border-slate-800">
+          <div class="flex space-x-1 min-w-max sm:min-w-0 sm:space-x-2" role="tablist" aria-label="Financial Tools">
+            
+            <button id="tab-btn-bbd" class="tab-btn active-tab focus-ring px-4 py-3 sm:px-5 sm:py-4 text-sm font-semibold rounded-t-xl transition-all duration-200 border-b-2 flex items-center space-x-2" role="tab" aria-selected="true" aria-controls="panel-bbd">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+              <span>Buy, Borrow, Die</span>
+            </button>
+
+            <button id="tab-btn-tax" class="tab-btn inactive-tab focus-ring px-4 py-3 sm:px-5 sm:py-4 text-sm font-semibold rounded-t-xl transition-all duration-200 border-b-2 flex items-center space-x-2" role="tab" aria-selected="false" aria-controls="panel-tax">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+              <span>Side-Hustle Tax Predictor</span>
+            </button>
+
+            <button id="tab-btn-debt" class="tab-btn inactive-tab focus-ring px-4 py-3 sm:px-5 sm:py-4 text-sm font-semibold rounded-t-xl transition-all duration-200 border-b-2 flex items-center space-x-2" role="tab" aria-selected="false" aria-controls="panel-debt">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
+              </svg>
+              <span>Debt payoff planner</span>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- TAB 1: Buy, Borrow, Die Portfolio wealth  -->
+      <!-- ========================================== -->
+      <section id="panel-bbd" class="tab-panel space-y-6" role="tabpanel" aria-labelledby="tab-btn-bbd">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          
+          <!-- Parameters Card (Left Column) -->
+          <div class="space-y-6">
+            <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-6 border border-slate-800">
+              <div>
+                <h3 class="text-lg font-bold text-white tracking-wide">Strategy Parameters</h3>
+                <p class="text-xs text-slate-400 mt-1">Configure your portfolio structure and borrowing parameters.</p>
+              </div>
+
+              <!-- Inputs -->
+              <div class="space-y-4">
+                <!-- Currency Selector -->
+                <div>
+                  <label for="bbd-currency" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Currency</label>
+                  <select id="bbd-currency" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+                    <option value="USD">USD ($)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="CAD">CAD (C$)</option>
+                    <option value="AUD">AUD (A$)</option>
+                  </select>
+                </div>
+
+                <!-- Total Portfolio Value -->
+                <div>
+                  <label for="bbd-portfolio" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Total Portfolio Value</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
+                    <input type="number" id="bbd-portfolio" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+                  </div>
+                </div>
+
+                <!-- Asset Cost Basis -->
+                <div>
+                  <label for="bbd-basis" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Cost Basis</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
+                    <input type="number" id="bbd-basis" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+                  </div>
+                  <p class="text-3xs text-slate-500 mt-1">Used to calculate unrealized capital gains for tax drag comparison.</p>
+                </div>
+
+                <!-- Capital Gains Tax Rate -->
+                <div>
+                  <label for="bbd-tax-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Capital Gains Tax Rate (%)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <input type="number" id="bbd-tax-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="100" step="0.1" placeholder="0" />
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+                  </div>
+                  
+                  <!-- Country Presets -->
+                  <div class="flex flex-wrap gap-2 mt-2" aria-label="Country Tax Presets">
+                    <button type="button" class="tax-preset-btn px-2.5 py-1 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition cursor-pointer" data-rate="20">US Preset (20%)</button>
+                    <button type="button" class="tax-preset-btn px-2.5 py-1 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition cursor-pointer" data-rate="20">UK Preset (20%)</button>
+                    <button type="button" class="tax-preset-btn px-2.5 py-1 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition cursor-pointer" data-rate="26.5">CA Preset (26.5%)</button>
+                    <button type="button" class="tax-preset-btn px-2.5 py-1 text-xs rounded bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition cursor-pointer" data-rate="22.5">AU Preset (22.5%)</button>
+                  </div>
+                </div>
+
+                <!-- Desired Cash to Borrow -->
+                <div>
+                  <label for="bbd-borrow-amount" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Desired Cash to Borrow / Draw</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
+                    <input type="number" id="bbd-borrow-amount" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+                  </div>
+                </div>
+
+                <!-- SBLOC Interest Rate -->
+                <div>
+                  <label for="bbd-interest-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">SBLOC / Margin Interest Rate (%)</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <input type="number" id="bbd-interest-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="100" step="0.1" placeholder="0" />
+                    <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+            <!-- Explainer -->
+            <div class="bg-gradient-to-br from-slate-900 to-indigo-950/40 p-5 rounded-2xl border border-slate-850 space-y-3">
+              <h4 class="text-xs font-bold tracking-wider text-brand-300 uppercase">Buy, Borrow, Die Mechanics</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Rather than selling appreciated assets and triggering immediate capital gains taxes (the "Sell Asset" route), high-net-worth investors borrow against their portfolios using a Security-Backed Line of Credit (SBLOC). This keeps the asset compounding unchecked. Upon death, the assets receive a stepped-up basis, erasing capital gains taxes for heirs, who then repay the loan with tax-free funds.
+              </p>
+            </div>
+          </div>
+
+          <!-- Real-Time Outputs (Right Column) -->
+          <div class="space-y-6">
+            
+            <!-- Comparison Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              
+              <!-- Sell Route -->
+              <div class="glass-panel p-6 rounded-2xl border border-slate-800/80 bg-slate-900/20">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 uppercase tracking-widest">Sell Asset Route</span>
+                <p class="text-xs text-slate-400 mt-2.5 font-medium uppercase tracking-wider">Immediate Tax Paid (Drag)</p>
+                <p id="bbd-sell-tax" class="text-3xl font-black text-rose-400 mt-1 Outfit font-extrabold">$0</p>
+                <div class="mt-4 pt-3 border-t border-slate-800/80 flex justify-between text-xs text-slate-400">
+                  <span>Net Remaining Portfolio:</span>
+                  <span id="bbd-sell-net" class="font-bold text-white">$0</span>
+                </div>
+              </div>
+
+              <!-- Borrow Route -->
+              <div class="glass-panel p-6 rounded-2xl border border-indigo-500/10 bg-gradient-to-tr from-slate-900/40 to-indigo-950/10">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 uppercase tracking-widest">Borrow (SBLOC) Route</span>
+                <p class="text-xs text-slate-400 mt-2.5 font-medium uppercase tracking-wider">Annual Interest Cost</p>
+                <p id="bbd-borrow-interest" class="text-3xl font-black text-white mt-1 Outfit font-extrabold">$0</p>
+                <div class="mt-4 pt-3 border-t border-slate-800/80 flex justify-between text-xs text-slate-400">
+                  <span>Current Loan-to-Value (LTV):</span>
+                  <span id="bbd-borrow-ltv" class="font-bold text-white">0%</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Net Savings Banner -->
+            <div id="bbd-savings-banner" class="p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-900 border-slate-800">
+              <div class="flex items-center space-x-3">
+                <div id="bbd-savings-icon" class="p-2.5 rounded-xl bg-slate-800 text-slate-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-white">1-Year Strategy Advantage</h4>
+                  <p class="text-xs text-slate-400">Net wealth saved by borrowing instead of liquidating assets.</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <p class="text-3xs uppercase font-bold text-slate-400 tracking-wider">Net Wealth Saved</p>
+                <p id="bbd-net-saved" class="text-xl sm:text-2xl font-black text-slate-300 Outfit font-extrabold">$0</p>
+              </div>
+            </div>
+
+            <!-- Risk Indicator & Price Drop Warning Meter -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider">Margin Call Risk Profiler</h4>
+                <span id="bbd-risk-status" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700 uppercase">No Loan</span>
+              </div>
+
+              <!-- Warning Alert box -->
+              <div id="bbd-risk-alert" class="p-4 rounded-xl text-xs leading-relaxed transition-all duration-300 bg-slate-900/50 border border-slate-800 text-slate-300">
+                Enter portfolio and loan parameters to analyze liquidation risk and margin call buffers.
+              </div>
+
+              <!-- Risk Zones Progress Bar -->
+              <div class="space-y-2">
+                <div class="flex justify-between text-xs text-slate-400">
+                  <span>Current Loan LTV</span>
+                  <span id="bbd-risk-ltv-label" class="font-bold text-white">0%</span>
+                </div>
+                <div class="relative w-full h-4 bg-slate-900 rounded-full overflow-hidden border border-slate-800 flex">
+                  <!-- Track markers (LTV 30%, 50%) -->
+                  <div class="h-full bg-emerald-500/25 border-r border-emerald-500/10" style="width: 30%"></div>
+                  <div class="h-full bg-amber-500/25 border-r border-amber-500/10" style="width: 20%"></div>
+                  <div class="h-full bg-rose-500/25" style="width: 50%"></div>
+                  
+                  <!-- Current LTV Pointer Overlay -->
+                  <div id="bbd-risk-pointer" class="absolute top-0 bottom-0 w-1.5 bg-white shadow-lg transition-all duration-500" style="left: 0%; transform: translateX(-50%);"></div>
+                </div>
+                
+                <!-- Zone Labels -->
+                <div class="flex justify-between text-4xs uppercase tracking-wider text-slate-500 font-bold px-1">
+                  <span>Low Risk (0-30%)</span>
+                  <span>Moderate (30-50%)</span>
+                  <span>High Risk (50%+)</span>
+                </div>
+              </div>
+
+              <!-- Price Drop Buffer Card -->
+              <div class="p-4 bg-slate-950/80 rounded-xl border border-slate-900 flex justify-between items-center">
+                <div>
+                  <p class="text-2xs font-semibold text-slate-400 uppercase tracking-wider">Margin Call Price Drop Buffer</p>
+                  <p class="text-3xs text-slate-500 mt-0.5">Asset price decline required to hit 70% LTV maintenance margin limit.</p>
+                </div>
+                <p id="bbd-price-drop" class="text-lg sm:text-2xl font-black text-white Outfit font-extrabold">N/A</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 2: Side-Hustle Tax Predictor         -->
+      <!-- ========================================== -->      <section id="panel-tax" class="tab-panel space-y-6 hidden" role="tabpanel" aria-labelledby="tab-btn-tax">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+          <!-- LEFT: Inputs -->
+          <div class="space-y-6">
+            <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+              <div>
+                <h3 class="text-lg font-bold text-white tracking-wide">Business &amp; Income Details</h3>
+                <p class="text-xs text-slate-400 mt-1">Enter your figures to compare unincorporated vs. corporate tax structures.</p>
+              </div>
+
+              <div class="space-y-4">
+                <!-- Country Selector -->
+                <div>
+                  <label for="tax-country" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+                  <select id="tax-country" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+                    <option value="US">🇺🇸 United States</option>
+                    <option value="UK">🇬🇧 United Kingdom</option>
+                    <option value="CA">🇨🇦 Canada</option>
+                    <option value="AU">🇦🇺 Australia</option>
+                  </select>
+                </div>
+
+                <!-- Gross Revenue -->
+                <div>
+                  <label for="tax-revenue" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Annual Side-Hustle Gross Revenue</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
+                    <input type="number" id="tax-revenue" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+                  </div>
+                </div>
+
+                <!-- Business Expenses -->
+                <div>
+                  <label for="tax-expenses" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Annual Deductible Business Expenses</label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
+                    <input type="number" id="tax-expenses" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+                  </div>
+                </div>
+
+                <!-- Day Job Income -->
+                <div>
+                  <label for="tax-w2" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+                    <span id="tax-w2-label">W2 / PAYE Day-Job Annual Income</span>
+                  </label>
+                  <div class="relative rounded-lg shadow-sm">
+                    <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
+                    <input type="number" id="tax-w2" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+                  </div>
+                  <p class="text-3xs text-slate-500 mt-1">Used to calculate your marginal tax bracket — crucial for accuracy.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Country Explainer Card -->
+            <div id="tax-country-tip" class="bg-gradient-to-br from-slate-900 to-indigo-950/40 p-5 rounded-2xl border border-slate-850 space-y-3">
+              <h4 class="text-xs font-bold tracking-wider text-brand-300 uppercase">How Your Country Is Calculated</h4>
+              <p id="tax-country-tip-text" class="text-xs text-slate-300 leading-relaxed">
+                Select your country above to see jurisdiction-specific tax rates and corporate structure guidance.
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT: Real-Time Outputs -->
+          <div class="space-y-6">
+
+            <!-- Break-Even / Recommendation Banner -->
+            <div id="tax-recommendation-banner" class="p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 bg-slate-900 border-slate-800">
+              <div class="flex items-center space-x-4">
+                <div id="tax-rec-icon" class="p-3 rounded-xl bg-slate-800 text-slate-400 hidden sm:flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Optimal Structure</p>
+                  <h4 id="tax-rec-title" class="text-lg font-extrabold text-white mt-0.5">Enter revenue to begin</h4>
+                  <p id="tax-breakeven-msg" class="text-xs text-slate-400 mt-1"></p>
+                </div>
+              </div>
+              <div class="text-left sm:text-right flex-shrink-0">
+                <p class="text-2xs font-semibold uppercase tracking-wider text-slate-400">Annual Tax Saved</p>
+                <p id="tax-rec-savings" class="text-2xl font-black text-white mt-0.5">—</p>
+              </div>
+            </div>
+
+            <!-- Scenario A vs B Comparison Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              <!-- Scenario A: Unincorporated -->
+              <div class="glass-panel p-5 rounded-2xl border border-rose-500/20 bg-rose-500/5 space-y-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-3xs font-bold uppercase tracking-widest text-rose-400">Scenario A</span>
+                    <p id="tax-sole-label" class="text-sm font-bold text-white mt-0.5">Sole Trader / Unincorporated</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-slate-800 text-slate-400 border border-slate-700 uppercase tracking-widest flex-shrink-0">Default</span>
+                </div>
+                <div>
+                  <p class="text-3xs uppercase tracking-wider text-slate-400">Total Annual Tax Burden</p>
+                  <p id="tax-sole-total" class="text-3xl font-black text-rose-400 mt-0.5">$0</p>
+                </div>
+                <div class="space-y-2 pt-3 border-t border-rose-500/10 text-xs text-slate-400">
+                  <div class="flex justify-between">
+                    <span id="tax-sole-se-label">Self-Employment / NI Tax:</span>
+                    <span id="tax-sole-se" class="text-white font-medium">$0</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Income Tax on Profits:</span>
+                    <span id="tax-sole-income" class="text-white font-medium">$0</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Effective Tax Rate:</span>
+                    <span id="tax-sole-rate" class="text-rose-400 font-semibold">0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scenario B: Incorporated -->
+              <div class="glass-panel p-5 rounded-2xl border border-brand-500/20 bg-gradient-to-br from-slate-900/40 to-indigo-950/20 space-y-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-3xs font-bold uppercase tracking-widest text-brand-400">Scenario B</span>
+                    <p id="tax-corp-label" class="text-sm font-bold text-white mt-0.5">S-Corp / Ltd Company</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-brand-500/15 text-brand-300 border border-brand-500/25 uppercase tracking-widest flex-shrink-0">Optimized</span>
+                </div>
+                <div>
+                  <p class="text-3xs uppercase tracking-wider text-slate-400">Total Annual Tax Burden</p>
+                  <p id="tax-scorp-total" class="text-3xl font-black text-brand-300 mt-0.5">$0</p>
+                </div>
+                <div class="space-y-2 pt-3 border-t border-brand-500/10 text-xs text-slate-400">
+                  <div class="flex justify-between">
+                    <span id="tax-scorp-se-label">Payroll / Corp Tax:</span>
+                    <span id="tax-scorp-se" class="text-white font-medium">$0</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span id="tax-scorp-income-label">Salary + Dividend Tax:</span>
+                    <span id="tax-scorp-income" class="text-white font-medium">$0</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Effective Tax Rate:</span>
+                    <span id="tax-corp-rate" class="text-brand-400 font-semibold">0%</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Tax Drag Bar Chart -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider">Tax Burden Comparison</h4>
+                <span class="text-2xs text-slate-500 uppercase font-semibold tracking-wider">Lower = Better</span>
+              </div>
+
+              <div class="space-y-4">
+                <!-- Sole Trader bar -->
+                <div>
+                  <div class="flex justify-between text-xs text-slate-400 mb-1.5">
+                    <span id="chart-sole-bar-label">Sole Trader Tax Burden</span>
+                    <span id="chart-sole-tax-perc" class="font-semibold text-rose-400">0%</span>
+                  </div>
+                  <div class="h-5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                    <div id="chart-sole-tax-bar" class="h-full bg-gradient-to-r from-rose-700 to-rose-400 transition-all duration-500 rounded-full" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <!-- Incorporated bar -->
+                <div>
+                  <div class="flex justify-between text-xs text-slate-400 mb-1.5">
+                    <span id="chart-corp-bar-label">Incorporated Tax Burden</span>
+                    <span id="chart-scorp-tax-perc" class="font-semibold text-brand-400">0%</span>
+                  </div>
+                  <div class="h-5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                    <div id="chart-scorp-tax-bar" class="h-full bg-gradient-to-r from-indigo-700 to-brand-400 transition-all duration-500 rounded-full" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Net Profit & Effective Rates summary row -->
+              <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800/80 text-center">
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Net Profit</p>
+                  <p id="tax-net-profit" class="text-xs sm:text-sm font-bold text-white mt-1">$0</p>
+                </div>
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Sole Rate</p>
+                  <p id="tax-sole-eff-rate" class="text-xs sm:text-sm font-bold text-rose-400 mt-1">0%</p>
+                </div>
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Corp Rate</p>
+                  <p id="tax-corp-eff-rate" class="text-xs sm:text-sm font-bold text-brand-400 mt-1">0%</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- TAB 3: Debt Payoff Planner                -->
+      <!-- ========================================== -->
+      <section id="panel-debt" class="tab-panel space-y-6 hidden" role="tabpanel" aria-labelledby="tab-btn-debt">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+          <!-- LEFT: Dynamic Debt Input -->
+          <div class="space-y-5">
+            <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="text-lg font-bold text-white tracking-wide">Liability Schedules</h3>
+                  <p class="text-xs text-slate-400 mt-1">Add each debt and your extra monthly budget to run both simulations.</p>
+                </div>
+                <button id="debt-add-row" class="flex items-center gap-1.5 px-3 py-1.5 bg-brand-500/15 hover:bg-brand-500/25 border border-brand-500/30 rounded-lg text-brand-300 text-xs font-semibold transition-all duration-200 flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+                  Add Debt
+                </button>
+              </div>
+
+              <!-- Column Headers — desktop only -->
+              <div class="hidden sm:grid grid-cols-12 gap-2 px-1 text-3xs font-bold uppercase tracking-wider text-slate-500">
+                <span class="col-span-4">Debt Name</span>
+                <span class="col-span-2 text-right">Balance</span>
+                <span class="col-span-2 text-right">Rate %</span>
+                <span class="col-span-2 text-right">Min / Mo</span>
+                <span class="col-span-2"></span>
+              </div>
+
+              <!-- Dynamic Debt Rows Container -->
+              <div id="debt-rows-container" class="space-y-3">
+                <!-- Rows injected by JS -->
+              </div>
+
+              <!-- Empty state -->
+              <div id="debt-empty-state" class="py-8 flex flex-col items-center justify-center space-y-2 text-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                <p class="text-sm font-semibold text-slate-500">No debts added yet</p>
+                <p class="text-xs text-slate-600">Click "Add Debt" above to begin</p>
+              </div>
+            </div>
+
+            <!-- Extra Monthly Budget -->
+            <div class="glass-panel p-5 rounded-2xl border border-slate-800">
+              <label for="debt-extra" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">
+                Extra Monthly Payment Budget
+                <span class="ml-1 text-brand-400">(Above all minimums)</span>
+              </label>
+              <div class="relative rounded-lg shadow-sm">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+                <input type="number" id="debt-extra" class="focus-ring block w-full pl-8 pr-16 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="50" placeholder="0" />
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-500 text-xs">/month</div>
+              </div>
+              <p class="text-3xs text-slate-600 mt-2">This "snowball fuel" is applied to the target debt each month after all minimums are paid.</p>
+            </div>
+
+            <!-- Strategy Explainer Card -->
+            <div class="bg-gradient-to-br from-slate-900 to-indigo-950/30 p-5 rounded-2xl border border-slate-850 space-y-3">
+              <h4 class="text-xs font-bold tracking-wider text-brand-300 uppercase">Strategy Difference</h4>
+              <div class="space-y-2 text-xs text-slate-400 leading-relaxed">
+                <p><span class="text-brand-300 font-semibold">Avalanche</span> — Targets the highest interest rate debt first. Minimizes total interest paid. Mathematically optimal.</p>
+                <p><span class="text-emerald-400 font-semibold">Snowball</span> — Targets the smallest balance first. Provides quick psychological wins. Great for motivation.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Real-Time Simulation Outputs -->
+          <div class="space-y-5">
+
+            <!-- Smart Advisory Banner -->
+            <div id="debt-method-banner" class="p-6 rounded-2xl border flex flex-col gap-3 transition-all duration-300 bg-slate-900 border-slate-800">
+              <div class="flex items-start gap-4">
+                <div id="debt-rec-icon" class="p-3 rounded-xl bg-slate-800 text-slate-400 hidden sm:flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                </div>
+                <div class="flex-1">
+                  <p class="text-xs font-bold uppercase tracking-widest text-slate-400">Smart Advisory</p>
+                  <h4 id="debt-rec-title" class="text-lg font-extrabold text-white mt-0.5">Add debts to run simulation</h4>
+                  <p id="debt-rec-subtitle" class="text-xs text-slate-400 mt-1"></p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="text-2xs font-semibold uppercase tracking-wider text-slate-500">Interest Saved</p>
+                  <p id="debt-savings" class="text-xl font-black text-white mt-0.5">—</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Side-by-Side Comparison Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              <!-- Avalanche Card -->
+              <div class="glass-panel p-5 rounded-2xl border border-brand-500/20 bg-gradient-to-br from-indigo-950/20 to-slate-900/40 space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-brand-500/5 rounded-full blur-2xl"></div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-3xs font-bold uppercase tracking-widest text-brand-400">Method 1</span>
+                    <p class="text-sm font-bold text-white mt-0.5">Debt Avalanche</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-brand-500/15 text-brand-300 border border-brand-500/25 uppercase tracking-widest flex-shrink-0">★ Math King</span>
+                </div>
+                <div>
+                  <p class="text-3xs uppercase tracking-wider text-slate-400">Total Interest Paid</p>
+                  <p id="debt-av-interest" class="text-3xl font-black text-brand-300 mt-0.5">$0</p>
+                </div>
+                <div class="space-y-2 pt-3 border-t border-brand-500/10 text-xs text-slate-400">
+                  <div class="flex justify-between">
+                    <span>Payoff Timeline:</span>
+                    <span id="debt-av-time" class="text-white font-semibold">—</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Blended APR:</span>
+                    <span id="debt-av-apr" class="text-white font-medium">0%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>First Debt Cleared:</span>
+                    <span id="debt-av-first" class="text-brand-300 font-semibold">—</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Snowball Card -->
+              <div class="glass-panel p-5 rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-950/10 to-slate-900/40 space-y-4 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-20 h-20 bg-emerald-500/5 rounded-full blur-2xl"></div>
+                <div class="flex justify-between items-start">
+                  <div>
+                    <span class="text-3xs font-bold uppercase tracking-widest text-emerald-400">Method 2</span>
+                    <p class="text-sm font-bold text-white mt-0.5">Debt Snowball</p>
+                  </div>
+                  <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 uppercase tracking-widest flex-shrink-0">♥ Quick Win</span>
+                </div>
+                <div>
+                  <p class="text-3xs uppercase tracking-wider text-slate-400">Total Interest Paid</p>
+                  <p id="debt-sb-interest" class="text-3xl font-black text-emerald-300 mt-0.5">$0</p>
+                </div>
+                <div class="space-y-2 pt-3 border-t border-emerald-500/10 text-xs text-slate-400">
+                  <div class="flex justify-between">
+                    <span>Payoff Timeline:</span>
+                    <span id="debt-sb-time" class="text-white font-semibold">—</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Blended APR:</span>
+                    <span id="debt-sb-apr" class="text-white font-medium">0%</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>First Debt Cleared:</span>
+                    <span id="debt-sb-first" class="text-emerald-300 font-semibold">—</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Visual Timeline Comparison Bar Chart -->
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+              <div class="flex items-center justify-between">
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider">Repayment Timeline</h4>
+                <span class="text-2xs text-slate-500 font-semibold uppercase tracking-wider">Shorter = Better</span>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <div class="flex justify-between text-xs text-slate-400 mb-1.5">
+                    <span>Avalanche</span>
+                    <span id="chart-av-time-val" class="font-semibold text-brand-300">—</span>
+                  </div>
+                  <div class="h-5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                    <div id="chart-av-bar" class="h-full bg-gradient-to-r from-indigo-700 to-brand-400 transition-all duration-500 rounded-full" style="width: 0%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs text-slate-400 mb-1.5">
+                    <span>Snowball</span>
+                    <span id="chart-sb-time-val" class="font-semibold text-emerald-300">—</span>
+                  </div>
+                  <div class="h-5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800">
+                    <div id="chart-sb-bar" class="h-full bg-gradient-to-r from-emerald-700 to-emerald-400 transition-all duration-500 rounded-full" style="width: 0%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Totals summary row -->
+              <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-800/80 text-center">
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Total Debt</p>
+                  <p id="debt-total-balance" class="text-xs sm:text-sm font-bold text-white mt-1">$0</p>
+                </div>
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Debts Listed</p>
+                  <p id="debt-row-count" class="text-xs sm:text-sm font-bold text-white mt-1">0</p>
+                </div>
+                <div>
+                  <p class="text-3xs sm:text-2xs font-semibold text-slate-400 uppercase tracking-wider">Months Saved</p>
+                  <p id="debt-months-saved" class="text-xs sm:text-sm font-bold text-brand-400 mt-1">0</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ============================================================ -->
+    <!-- SEO EDITORIAL CONTENT — Below the Fold                       -->
+    <!-- ============================================================ -->
+    <div class="border-t border-slate-800/60 mt-8 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-20">
+
+        <!-- ─── SECTION 1: Buy, Borrow, Die ─────────────────────── -->
+        <section aria-labelledby="bbd-guide-heading">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Portfolio Strategy</span>
+            <h2 id="bbd-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Demystifying the "Buy, Borrow, Die" Financial Strategy
+            </h2>
+            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+              The <strong class="text-slate-200">portfolio line of credit tax strategy</strong> — colloquially known as "Buy, Borrow, Die" — is a wealth preservation technique used by high-net-worth individuals and family offices to generate liquidity from appreciated assets without triggering a taxable capital gains event.
+            </p>
+          </div>
+
+          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">How the SBLOC Strategy Works</h3>
+              <p>
+                A <strong class="text-slate-300">Securities-Based Line of Credit (SBLOC)</strong> allows investors to pledge their investment portfolio — equities, ETFs, mutual funds, or bonds — as collateral against a revolving credit facility. Rather than selling appreciated stock and paying 20%–37% in combined federal capital gains and income tax (depending on your bracket), the investor simply <strong class="text-slate-300">borrows against stocks to avoid capital gains</strong> and uses that cash for living expenses, real estate purchases, or reinvestment.
+              </p>
+              <p class="mt-3">
+                The strategy becomes generational when paired with the IRS stepped-up cost basis rule: at death, heirs inherit assets at their current market value, completely eliminating the embedded capital gain. This is the "Die" component — the tax liability is legally erased at death, never collected.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">SBLOC Interest Rates vs. Capital Gains Tax — The Break-Even Math</h3>
+              <p>
+                The core <strong class="text-slate-300">SBLOC interest rates vs capital gains tax</strong> comparison is straightforward: if your long-term capital gains tax rate (typically 15%–20% federally, plus state taxes up to 13.3% in California) exceeds the annualized interest cost of your SBLOC (typically Prime + 1%–3%, or roughly 6%–9% in 2026), borrowing generates a structural net saving on every dollar of liquidity generated. In the UK, where Capital Gains Tax reaches 24% for higher-rate taxpayers on investment gains above the £3,000 annual exempt amount, the SBLOC equivalent — often called a <em>Lombard Loan</em> — offers similar advantages.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">Inherent Risks: Margin Calls and LTV Thresholds</h3>
+              <p>
+                The strategy is not without material risks. Most SBLOC lenders enforce a <strong class="text-slate-300">Loan-to-Value (LTV) maintenance threshold</strong> of 65%–75%. If the underlying portfolio declines in value — as all equity portfolios periodically do — the lender can issue a margin call, requiring the borrower to either deposit additional collateral or repay a portion of the loan within 24–72 hours. In a severe market downturn, this can force an investor to sell assets at precisely the worst prices — the very scenario the strategy was designed to avoid.
+              </p>
+              <p class="mt-3">
+                Our <strong class="text-slate-300">Buy, Borrow, Die calculator</strong> above models this in real time, showing your current LTV, the price drop buffer before a margin call is triggered, and a color-coded risk meter (Green &lt;30% LTV, Amber 30%–50%, Red &gt;50%) to help you maintain a safe leverage envelope.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+        <!-- ─── SECTION 2: Corporate Structure ───────────────────── -->
+        <section aria-labelledby="corp-guide-heading">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Business Tax Strategy</span>
+            <h2 id="corp-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Choosing the Right Side-Hustle Business Structure
+            </h2>
+            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+              Understanding <strong class="text-slate-200">when to switch from sole proprietor to LLC</strong> (or Limited Company) is one of the highest-ROI decisions a self-employed professional can make. The answer depends on your jurisdiction, your net profit level, and the cost of corporate compliance overhead.
+            </p>
+          </div>
+
+          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">The Self-Employment Tax Problem</h3>
+              <p>
+                Every dollar of profit from a sole proprietorship or sole trader business is subject to both <strong class="text-slate-300">income tax</strong> and <strong class="text-slate-300">self-employment / payroll taxes</strong>. In the US, this means 15.3% SE tax on top of ordinary income rates — effectively a penalty for entrepreneurship that W-2 employees don't pay in full. In the UK, Class 4 National Insurance adds 6% on profits between £12,570 and £50,270. These <strong class="text-slate-300">side hustle tax write offs</strong> are only partial — the SE tax deduction only offsets 50% of the SE tax burden.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-3">2026 Tax Landscape: Sole Trader vs. Corporate Structure Comparison</h3>
+              <!-- Comparison table -->
+              <div class="overflow-x-auto rounded-xl border border-slate-800">
+                <table class="w-full text-xs text-left">
+                  <thead>
+                    <tr class="bg-slate-900 border-b border-slate-800">
+                      <th class="px-4 py-3 font-bold text-slate-300 uppercase tracking-wider">Metric</th>
+                      <th class="px-4 py-3 font-bold text-slate-400 uppercase tracking-wider">Sole Trader / Self-Employed</th>
+                      <th class="px-4 py-3 font-bold text-brand-400 uppercase tracking-wider">S-Corp / Ltd / CCPC / Pty Ltd</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-800/60">
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">🇺🇸 SE / Payroll Tax</td>
+                      <td class="px-4 py-3 text-rose-400">15.3% on all net profit</td>
+                      <td class="px-4 py-3 text-emerald-400">15.3% on salary only (~40% of profit)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">🇬🇧 NI / Corp Tax</td>
+                      <td class="px-4 py-3 text-rose-400">Class 4 NI: 6% (£12,570–£50,270)</td>
+                      <td class="px-4 py-3 text-emerald-400">Corp Tax 19% + 8.75% dividend tax</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">🇨🇦 CPP / Corp Tax</td>
+                      <td class="px-4 py-3 text-rose-400">CPP: 9.9% both sides (up to ~$73,200)</td>
+                      <td class="px-4 py-3 text-emerald-400">CCPC: 9% SBD federal rate</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">🇦🇺 Medicare / Corp Tax</td>
+                      <td class="px-4 py-3 text-rose-400">Medicare levy 2% + marginal income tax</td>
+                      <td class="px-4 py-3 text-emerald-400">Pty Ltd: 25% + franked dividends</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">Setup Cost / yr</td>
+                      <td class="px-4 py-3 text-slate-400">~$0 (no registration needed)</td>
+                      <td class="px-4 py-3 text-slate-400">$1,200–$2,500 (compliance + accountant)</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">Break-Even Profit</td>
+                      <td class="px-4 py-3 text-slate-400">Below threshold</td>
+                      <td class="px-4 py-3 text-brand-300 font-semibold">US $40k · UK £30k · CA $50k · AU $80k</td>
+                    </tr>
+                    <tr class="hover:bg-slate-900/40 transition-colors">
+                      <td class="px-4 py-3 font-semibold text-slate-300">Liability Protection</td>
+                      <td class="px-4 py-3 text-rose-400">None — personal assets at risk</td>
+                      <td class="px-4 py-3 text-emerald-400">Limited liability shield</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">Corporate Tax Structure for Freelancers — The Bottom Line</h3>
+              <p>
+                The <strong class="text-slate-300">corporate tax structure for freelancers</strong> becomes compelling when your net profit consistently exceeds the break-even threshold and you have the discipline to run payroll, file corporate returns, and maintain a business bank account. Our <strong class="text-slate-300">Side-Hustle Tax Calculator</strong> above models this comparison in real time for all four jurisdictions — simply enter your revenue, expenses, and day-job income to see your instant break-even analysis.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+        <!-- ─── SECTION 3: Debt Strategies ───────────────────────── -->
+        <section aria-labelledby="debt-guide-heading">
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-rose-500/10 text-rose-400 border border-rose-500/20 mb-4">Debt Freedom</span>
+            <h2 id="debt-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Debt Payoff Strategies: Snowball vs. Avalanche Method
+            </h2>
+            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
+              The <strong class="text-slate-200">debt snowball vs avalanche calculator</strong> debate is one of personal finance's most enduring discussions — and the answer genuinely depends on whether you optimize for mathematics or motivation.
+            </p>
+          </div>
+
+          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">The Debt Avalanche: Mathematical Optimum</h3>
+              <p>
+                The <strong class="text-slate-300">Debt Avalanche</strong> method prioritizes your highest-interest-rate debt first while paying minimums on all other balances. Every extra dollar you have beyond the minimum payment total gets directed at the debt costing you the most per month. This is the <strong class="text-slate-300">fastest way to pay off credit card debt</strong> in pure interest-saved terms — because the debt generating the most interest damage is eliminated first, reducing the compounding erosion on your net worth from day one.
+              </p>
+              <p class="mt-3">
+                In a typical scenario with a $20,000 credit card at 22%, a $15,000 car loan at 7%, and a $10,000 personal loan at 14%, an avalanche approach with $500/month extra could save $3,000–$5,000 in total interest compared to Snowball over the same repayment period.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">The Debt Snowball: The Psychology of Momentum</h3>
+              <p>
+                The <strong class="text-slate-300">Debt Snowball</strong> method targets the smallest balance first, regardless of interest rate. When that smallest debt is cleared, the minimum payment that was going to it "rolls" into the next smallest debt — like a snowball gaining mass and momentum. Research by behavioral economists Dave Ramsey and others at Harvard Business School found that Snowball users were more likely to fully eliminate their debt than Avalanche users, because the quick wins reduce "debt fatigue" and reinforce the habit loop of consistent repayment.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-base font-bold text-slate-100 mb-2">How to Accelerate Debt Payoff: The Universal Multiplier</h3>
+              <p>
+                Regardless of which method you choose, the single most powerful lever for <strong class="text-slate-300">how to accelerate debt payoff</strong> is your extra monthly payment budget — the amount you commit above all minimum payments. Even an additional $100/month can cut years off a debt repayment timeline. Our <strong class="text-slate-300">Debt Snowball vs Avalanche Planner</strong> above simulates both strategies simultaneously, showing you the exact month each individual debt is cleared, the total interest paid under each method, and the precise months shaved off your debt-free date.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
+
+        <!-- ─── SECTION 4: FAQ Accordion ──────────────────────────── -->
+        <section aria-labelledby="faq-heading">
+          <div class="mb-8">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
+            <h2 id="faq-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              Frequently Asked Financial Questions
+            </h2>
+          </div>
+
+          <div class="space-y-3" id="faq-accordion">
+
+            <!-- FAQ 1 -->
+            <div class="faq-item border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/40">
+              <button
+                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+                aria-expanded="false"
+                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
+              >
+                <span class="text-sm font-semibold text-white pr-4">What are the risks of borrowing against your stock portfolio (SBLOC)?</span>
+                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-6">
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  A Securities-Based Line of Credit (SBLOC) carries three primary risks: <strong class="text-slate-300">(1) Margin calls</strong> — if your portfolio value drops significantly, your lender can demand immediate repayment or force liquidation of assets at the worst possible prices; <strong class="text-slate-300">(2) Interest rate risk</strong> — SBLOC rates are typically variable and linked to SOFR or the Bank of England base rate, meaning costs rise in high-rate environments; and <strong class="text-slate-300">(3) Collateral concentration</strong> — pledging a single-sector or single-asset portfolio amplifies downside exposure. Most lenders enforce a 70% LTV maintenance threshold — a portfolio decline of more than 30% relative to your outstanding loan amount can trigger a forced sale.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="faq-item border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/40">
+              <button
+                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+                aria-expanded="false"
+                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
+              >
+                <span class="text-sm font-semibold text-white pr-4">When should I switch from a sole proprietor to an LLC or S-Corp?</span>
+                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-6">
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  In the <strong class="text-slate-300">US</strong>, the general threshold is when net profit consistently exceeds <strong class="text-slate-300">$40,000–$50,000/yr</strong> — at that level, S-Corp SE tax savings ($5,000–$9,000/yr) outpace annual corporate compliance costs (~$1,500–$3,000). In the <strong class="text-slate-300">UK</strong>, incorporating as a Limited Company makes sense above approximately <strong class="text-slate-300">£30,000–£35,000</strong> in profit. <strong class="text-slate-300">Canadian</strong> CCPCs become advantageous at <strong class="text-slate-300">$50,000+</strong> in active business income due to the Small Business Deduction (9% federal rate vs 15% general rate). <strong class="text-slate-300">Australian</strong> Pty Ltd structures are cost-effective above <strong class="text-slate-300">$80,000</strong> in taxable business income where the 25% company tax rate beats top personal marginal rates of 45% + 2% Medicare.
+                </p>
+              </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="faq-item border border-slate-800 rounded-2xl overflow-hidden bg-slate-900/40">
+              <button
+                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group"
+                aria-expanded="false"
+                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
+              >
+                <span class="text-sm font-semibold text-white pr-4">Is the debt avalanche method always better than the debt snowball?</span>
+                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
+              <div class="hidden px-6 pb-6">
+                <p class="text-sm text-slate-400 leading-relaxed">
+                  <strong class="text-slate-300">Mathematically, yes</strong> — the Debt Avalanche always minimizes total interest paid. However, behavioral finance research consistently shows that many people abandon mathematically optimal strategies when they don't produce visible progress quickly enough. The <strong class="text-slate-300">Debt Snowball</strong> produces faster individual account payoffs (psychological wins) that reinforce the habit of consistent repayment. If your debts have very similar interest rates, the difference in total interest paid between the two methods is minimal — in that scenario, the psychological advantage of Snowball likely outweighs the small mathematical edge of Avalanche. Use our calculator to run both simulations and see the real-dollar difference for your specific debts.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Disclaimer -->
+        <p class="text-center text-2xs text-slate-600 max-w-2xl mx-auto leading-relaxed pt-4">
+          <strong class="text-slate-500">Disclaimer:</strong> All calculations and content on FinanceFlow Hub are for educational and informational purposes only. They do not constitute financial, tax, or legal advice. Consult a qualified financial advisor, CPA, or tax attorney before making investment, tax structure, or debt management decisions.
+        </p>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 bg-slate-950/80 py-6 text-center text-xs text-slate-500">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p>&copy; 2026 FinanceFlow Hub. All financial strategies contain risk. Calculations are estimates. Hosted on Cloudflare Pages.</p>
+      </div>
+    </footer>
+    
+  </div>
+</Layout>
+
+<style>
+  @reference "../styles/global.css";
+
+  /* Standard tab styles for switching */
+  .active-tab {
+    @apply text-white bg-slate-900/60 font-bold shadow-lg shadow-brand-500/5;
+    background: linear-gradient(to bottom, rgba(30, 41, 59, 0.4), rgba(99, 102, 241, 0.12));
+    border-bottom: 2px solid var(--color-brand-400);
+  }
+  .inactive-tab {
+    @apply text-slate-400 hover:text-slate-200 hover:bg-slate-900/30 font-medium;
+    border-bottom: 2px solid transparent;
+  }
+</style>
+
+<!-- Client-Side State and Calculator Calculations Script -->
+<script is:inline>
+  // Central Local Storage Keys
+  const STORAGE_KEY = "financeflow_hub_state_v1";
+  const AUTOSAVE_KEY = "financeflow_hub_autosave_pref";
+
+  // Beautiful Default Values
+  const DEFAULT_STATE = {
+    activeTab: "bbd",
+    autoSave: true,
+    bbd: {
+      portfolio: 0,
+      basis: 0,
+      taxRate: 0,
+      borrowAmount: 0,
+      interestRate: 0,
+      currency: "USD"
+    },
+    tax: {
+      country: "US",
+      revenue: 0,
+      expenses: 0,
+      w2: 0
+    },
+    debt: {
+      rows: [],
+      extra: 0
+    }
+  };
+
+  let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+  // Helper: Format Money
+  function formatCurrency(val) {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(val);
+  }
+
+  let autoSaveTimeout = null;
+
+  // Load state from local storage or set defaults
+  function loadState() {
+    // Load autosave preference first
+    const autoSaveRaw = localStorage.getItem(AUTOSAVE_KEY);
+    const savedAutoSavePref = autoSaveRaw !== null ? autoSaveRaw === "true" : true;
+
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      try {
+        state = JSON.parse(raw);
+        // Ensure subproperties are complete
+        state.bbd = { ...DEFAULT_STATE.bbd, ...state.bbd };
+        state.tax = { ...DEFAULT_STATE.tax, ...state.tax };
+        // Debt: preserve rows array, merge scalar fields
+        state.debt = {
+          rows: Array.isArray(state.debt?.rows) ? state.debt.rows : [],
+          extra: state.debt?.extra ?? 0
+        };
+        state.autoSave = savedAutoSavePref;
+      } catch (e) {
+        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        state.autoSave = savedAutoSavePref;
+      }
+    } else {
+      state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      state.autoSave = savedAutoSavePref;
+    }
+    saveState();
+  }
+
+  // Save current state to local storage
+  function saveState(force = false) {
+    if (state.autoSave || force) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      if (state.autoSave) {
+        triggerAutosaveIndicator("saving");
+        if (autoSaveTimeout) clearTimeout(autoSaveTimeout);
+        autoSaveTimeout = setTimeout(() => {
+          triggerAutosaveIndicator("saved");
+        }, 800);
+      }
+    }
+  }
+
+  function triggerAutosaveIndicator(status) {
+    const dot = document.getElementById("autosave-dot");
+    const text = document.getElementById("autosave-text");
+    const btn = document.getElementById("toggle-autosave");
+    if (!dot || !text || !btn) return;
+
+    if (!state.autoSave) {
+      // Off State
+      btn.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border bg-slate-800/40 text-slate-400 border-slate-700 hover:bg-slate-800/80 hover:border-slate-600 transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900";
+      dot.className = "w-1.5 h-1.5 mr-1.5 rounded-full bg-slate-500";
+      text.innerText = "Auto-Save: Off";
+    } else if (status === "saving") {
+      // Actively saving (feedback)
+      btn.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border bg-emerald-500/10 text-emerald-400 border-emerald-500/30 transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900";
+      dot.className = "w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400 animate-pulse";
+      text.innerText = "Saving...";
+    } else {
+      // Saved & Idle
+      btn.className = "inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium border bg-emerald-500/5 text-emerald-400/80 border-emerald-500/10 hover:bg-emerald-500/10 hover:border-emerald-500/20 transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900";
+      dot.className = "w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-500";
+      text.innerText = "Saved (Local)";
+    }
+  }
+
+  // Initialize Input Fields DOM based on state
+  function syncStateToInputs() {
+    // Tab active switcher sync
+    setActiveTabDOM(state.activeTab || "bbd");
+    triggerAutosaveIndicator();
+
+    // Tab 1 Inputs
+    document.getElementById("bbd-currency").value = state.bbd.currency || "USD";
+    document.getElementById("bbd-portfolio").value = state.bbd.portfolio;
+    document.getElementById("bbd-basis").value = state.bbd.basis;
+    document.getElementById("bbd-tax-rate").value = state.bbd.taxRate;
+    document.getElementById("bbd-borrow-amount").value = state.bbd.borrowAmount;
+    document.getElementById("bbd-interest-rate").value = state.bbd.interestRate;
+    updateCurrencySymbols(state.bbd.currency || "USD");
+
+    // Tab 2 Inputs
+    document.getElementById("tax-country").value = state.tax.country || "US";
+    document.getElementById("tax-revenue").value = state.tax.revenue;
+    document.getElementById("tax-expenses").value = state.tax.expenses;
+    document.getElementById("tax-w2").value = state.tax.w2;
+    updateTaxCountryUI(state.tax.country || "US");
+
+    // Tab 3 Inputs — dynamic rows
+    renderDebtRows();
+    document.getElementById("debt-extra").value = state.debt.extra || "";
+  }
+
+  // ==========================================
+  // CALCULATOR LOGICS
+  // ==========================================
+
+  // Helper: update currency labels across fields
+  function updateCurrencySymbols(currency) {
+    const symbols = {
+      USD: "$",
+      GBP: "£",
+      CAD: "C$",
+      AUD: "A$"
+    };
+    const symbol = symbols[currency] || "$";
+    document.querySelectorAll(".bbd-currency-symbol").forEach(el => {
+      el.innerText = symbol;
+    });
+  }
+
+  // Tab 1: Buy, Borrow, Die Portfolio Wealth Optimizer
+  function calculateBBD() {
+    const currency = state.bbd.currency || "USD";
+    const P = parseFloat(state.bbd.portfolio) || 0;
+    const B = parseFloat(state.bbd.basis) || 0;
+    const T = (parseFloat(state.bbd.taxRate) || 0) / 100;
+    const C = parseFloat(state.bbd.borrowAmount) || 0;
+    const Ib = (parseFloat(state.bbd.interestRate) || 0) / 100;
+
+    // 1. Sell Route Calculations
+    let taxDrag = 0;
+    let netRemainingPortfolio = P;
+
+    if (P > 0 && C > 0) {
+      // Appreciation Ratio (Gain Ratio)
+      const gainRatio = Math.max(0, (P - B) / P);
+      // Gross assets to sell to net C: C = G * (1 - gainRatio * T)
+      // G = C / (1 - gainRatio * T)
+      const denominator = Math.max(0.01, 1 - gainRatio * T);
+      const grossSale = C / denominator;
+      taxDrag = grossSale - C;
+      netRemainingPortfolio = Math.max(0, P - grossSale);
+    }
+
+    // 2. Borrow (SBLOC) Route Calculations
+    const annualInterest = C * Ib;
+    const ltv = P > 0 ? (C / P) * 100 : 0;
+
+    // 3. Net Savings Advantage
+    const netSaved = taxDrag - annualInterest;
+
+    // Helper: format currency dynamically
+    function formatWithCurrency(val) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: currency,
+        maximumFractionDigits: 0
+      }).format(val);
+    }
+
+    document.getElementById("bbd-sell-tax").innerText = formatWithCurrency(taxDrag);
+    document.getElementById("bbd-sell-net").innerText = formatWithCurrency(netRemainingPortfolio);
+    document.getElementById("bbd-borrow-interest").innerText = formatWithCurrency(annualInterest);
+    document.getElementById("bbd-borrow-ltv").innerText = ltv.toFixed(1) + "%";
+
+    const savedEl = document.getElementById("bbd-net-saved");
+    const savedBanner = document.getElementById("bbd-savings-banner");
+    const savedIcon = document.getElementById("bbd-savings-icon");
+
+    if (C > 0 && P > 0) {
+      savedEl.innerText = formatWithCurrency(netSaved);
+      if (netSaved > 0) {
+        savedEl.className = "text-xl sm:text-2xl font-black text-emerald-400 Outfit font-extrabold";
+        savedBanner.className = "p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-emerald-500/10 border-emerald-500/30";
+        savedIcon.className = "p-2.5 rounded-xl bg-emerald-500/20 text-emerald-400";
+      } else {
+        savedEl.className = "text-xl sm:text-2xl font-black text-rose-400 Outfit font-extrabold";
+        savedBanner.className = "p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-rose-500/10 border-rose-500/30";
+        savedIcon.className = "p-2.5 rounded-xl bg-rose-500/20 text-rose-400";
+      }
+    } else {
+      savedEl.innerText = formatWithCurrency(0);
+      savedEl.className = "text-xl sm:text-2xl font-black text-slate-300 Outfit font-extrabold";
+      savedBanner.className = "p-5 rounded-2xl border transition-all duration-300 flex items-center justify-between bg-slate-900 border-slate-800";
+      savedIcon.className = "p-2.5 rounded-xl bg-slate-800 text-slate-400";
+    }
+
+    // 4. Margin Call & Price Drop Risk Meter
+    const riskStatusEl = document.getElementById("bbd-risk-status");
+    const riskAlertEl = document.getElementById("bbd-risk-alert");
+    const ltvLabelEl = document.getElementById("bbd-risk-ltv-label");
+    const pointerEl = document.getElementById("bbd-risk-pointer");
+    const priceDropEl = document.getElementById("bbd-price-drop");
+
+    ltvLabelEl.innerText = ltv.toFixed(1) + "%";
+    const pointerLeft = Math.min(100, ltv);
+    pointerEl.style.left = pointerLeft + "%";
+
+    if (C <= 0 || P <= 0) {
+      riskStatusEl.innerText = "No Loan";
+      riskStatusEl.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700 uppercase";
+      riskAlertEl.innerText = "Enter portfolio and loan parameters to analyze liquidation risk and margin call buffers.";
+      riskAlertEl.className = "p-4 rounded-xl text-xs leading-relaxed transition-all duration-300 bg-slate-900/50 border border-slate-800 text-slate-300";
+      priceDropEl.innerText = "N/A";
+      priceDropEl.className = "text-lg sm:text-2xl font-black text-slate-400 Outfit font-extrabold";
+    } else {
+      const maintenanceLtv = 70;
+      const priceDropBuffer = Math.max(0, (1 - (ltv / maintenanceLtv)) * 100);
+      priceDropEl.innerText = priceDropBuffer.toFixed(1) + "%";
+
+      if (ltv < 30) {
+        riskStatusEl.innerText = "Low Risk";
+        riskStatusEl.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase";
+        riskAlertEl.innerText = `Your SBLOC strategy is in a highly secure zone (LTV is under 30%). Your portfolio value must drop by ${priceDropBuffer.toFixed(1)}% before triggering a margin call.`;
+        riskAlertEl.className = "p-4 rounded-xl text-xs leading-relaxed transition-all duration-300 bg-emerald-500/10 border border-emerald-500/20 text-emerald-300";
+        priceDropEl.className = "text-lg sm:text-2xl font-black text-emerald-400 Outfit font-extrabold";
+      } else if (ltv <= 50) {
+        riskStatusEl.innerText = "Moderate Risk";
+        riskStatusEl.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-500/10 text-amber-400 border border-amber-500/30 uppercase";
+        riskAlertEl.innerText = `LTV is in the moderate range (30-50%). Avoid additional leverage. A portfolio drop of ${priceDropBuffer.toFixed(1)}% will trigger a margin call.`;
+        riskAlertEl.className = "p-4 rounded-xl text-xs leading-relaxed transition-all duration-300 bg-amber-500/10 border border-amber-500/20 text-emerald-300";
+        priceDropEl.className = "text-lg sm:text-2xl font-black text-amber-400 Outfit font-extrabold";
+      } else {
+        riskStatusEl.innerText = "High Risk";
+        riskStatusEl.className = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/30 uppercase";
+        if (ltv >= 70) {
+          riskAlertEl.innerText = "ALERT: Current LTV is at or above the 70% Maintenance Threshold! You are in danger of immediate liquidation. Reduce debt or add collateral.";
+          priceDropEl.innerText = "0.0%";
+        } else {
+          riskAlertEl.innerText = `WARNING: High LTV detected (>50%). Extremely vulnerable to volatility. A small drop of ${priceDropBuffer.toFixed(1)}% will trigger a margin call.`;
+        }
+        riskAlertEl.className = "p-4 rounded-xl text-xs leading-relaxed transition-all duration-300 bg-rose-500/10 border border-rose-500/20 text-rose-300";
+        priceDropEl.className = "text-lg sm:text-2xl font-black text-rose-400 Outfit font-extrabold";
+      }
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
+  // TAX COUNTRY UI UPDATER
+  // ─────────────────────────────────────────────────────────────────────
+  function updateTaxCountryUI(country) {
+    const cfg = TAX_CONFIGS[country] || TAX_CONFIGS.US;
+    // Currency symbols
+    document.querySelectorAll(".tax-currency-symbol").forEach(el => el.innerText = cfg.symbol);
+    // W2 label
+    document.getElementById("tax-w2-label").innerText = cfg.w2Label;
+    // Scenario labels
+    document.getElementById("tax-sole-label").innerText = cfg.soleLabel;
+    document.getElementById("tax-corp-label").innerText = cfg.corpLabel;
+    document.getElementById("tax-sole-se-label").innerText = cfg.soleSELabel;
+    document.getElementById("tax-scorp-se-label").innerText = cfg.corpTaxLabel;
+    document.getElementById("tax-scorp-income-label").innerText = cfg.corpIncomeLabel;
+    document.getElementById("chart-sole-bar-label").innerText = cfg.soleLabel + " Burden";
+    document.getElementById("chart-corp-bar-label").innerText = cfg.corpLabel + " Burden";
+    // Country tip
+    document.getElementById("tax-country-tip-text").innerText = cfg.tip;
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
+  // MULTI-COUNTRY TAX CONFIGURATION TABLE
+  // ─────────────────────────────────────────────────────────────────────
+  const TAX_CONFIGS = {
+    US: {
+      symbol: "$", currency: "USD",
+      w2Label: "W2 Day-Job Annual Income",
+      soleLabel: "Sole Proprietor / Self-Employed",
+      corpLabel: "LLC with S-Corp Election",
+      soleSELabel: "Self-Employment Tax (15.3%):",
+      corpTaxLabel: "Payroll Tax on Salary (FICA):",
+      corpIncomeLabel: "Income Tax on Pass-Through:",
+      breakEvenRevenue: 40000,
+      corpOverheadCost: 1500,
+      tip: "In the US, Sole Proprietors pay 15.3% SE tax on all net profit up to $184,500 (2026 SS wage base). An S-Corp election lets you split income into a 'reasonable salary' (FICA applies) and profit distributions (no FICA). Savings typically kick in above ~$40k net profit."
+    },
+    UK: {
+      symbol: "£", currency: "GBP",
+      w2Label: "PAYE Employed Income (Gross)",
+      soleLabel: "Sole Trader / Self-Employed",
+      corpLabel: "Private Ltd Company (Ltd)",
+      soleSELabel: "Class 4 National Insurance (6%):",
+      corpTaxLabel: "Corporation Tax (19%):",
+      corpIncomeLabel: "Dividend + Salary Income Tax:",
+      breakEvenRevenue: 30000,
+      corpOverheadCost: 1200,
+      tip: "UK Sole Traders pay Class 4 NI at 6% on profits between £12,570–£50,270 (2% above). An Ltd company pays 19% Corp Tax on profits under £50k (small profits rate), then directors draw a low PAYE salary (~£12,570 tax-free) and top up with dividends taxed at 8.75% basic rate."
+    },
+    CA: {
+      symbol: "$", currency: "CAD",
+      w2Label: "Employment (T4) Annual Income",
+      soleLabel: "Sole Proprietor / Self-Employed",
+      corpLabel: "Canadian Controlled Corp (CCPC)",
+      soleSELabel: "CPP Self-Employed Contributions:",
+      corpTaxLabel: "Small Business Tax (9% SBD):",
+      corpIncomeLabel: "Salary + Dividend Income Tax:",
+      breakEvenRevenue: 50000,
+      corpOverheadCost: 2000,
+      tip: "Canadian Sole Proprietors pay both employee + employer CPP (~9.9% total) on net business income up to ~$73,200. A CCPC qualifies for the Small Business Deduction: 9% federal tax on up to $500k active income (vs 15% general). Retained earnings compound at the low rate."
+    },
+    AU: {
+      symbol: "$", currency: "AUD",
+      w2Label: "PAYG Employer Income (Gross)",
+      soleLabel: "Sole Trader / Self-Employed",
+      corpLabel: "Pty Ltd Company (Small Business)",
+      soleSELabel: "Medicare Levy (2%):",
+      corpTaxLabel: "Company Tax (25%):",
+      corpIncomeLabel: "Div + Salary Income Tax (net):",
+      breakEvenRevenue: 80000,
+      corpOverheadCost: 1800,
+      tip: "Australian Sole Traders add business profit to personal income and face marginal rates up to 45% + 2% Medicare levy. A Pty Ltd with turnover under $50M pays 25% company tax. Directors draw a tax-free salary up to the tax-free threshold ($18,200), then distribute franked dividends."
+    }
+  };
+
+  // ─────────────────────────────────────────────────────────────────────
+  // TAX MATH ENGINE
+  // ─────────────────────────────────────────────────────────────────────
+  function calculateTax() {
+    const country = state.tax.country || "US";
+    const cfg = TAX_CONFIGS[country] || TAX_CONFIGS.US;
+    const rev  = parseFloat(state.tax.revenue)  || 0;
+    const exp  = parseFloat(state.tax.expenses) || 0;
+    const w2   = parseFloat(state.tax.w2)       || 0;
+    const netProfit = Math.max(0, rev - exp);
+
+    let soleSE = 0, soleIT = 0, soleTotalTax = 0;
+    let corpTax = 0, corpIT = 0, corpTotalTax = 0;
+
+    // ── US ──────────────────────────────────────────────────────────────
+    if (country === "US") {
+      function usIT(income) {
+        const i = Math.max(0, income - 15000); // standard deduction 2026 est.
+        if (i <= 11925)  return i * 0.10;
+        if (i <= 48475)  return 1192.5 + (i - 11925) * 0.12;
+        if (i <= 103350) return 5578.5 + (i - 48475) * 0.22;
+        if (i <= 197300) return 17651 + (i - 103350) * 0.24;
+        if (i <= 250525) return 40199 + (i - 197300) * 0.32;
+        if (i <= 626350) return 57231 + (i - 250525) * 0.35;
+        return 188769.75 + (i - 626350) * 0.37;
+      }
+      // SE tax: 15.3% on 92.35% of net profit (SS cap $184,500, Medicare unlimited)
+      const ssCap = 184500;
+      const net9235 = netProfit * 0.9235;
+      const ssPortion = Math.min(net9235, ssCap) * 0.124; // 12.4% SS
+      const medPortion = net9235 * 0.029;                  // 2.9% Medicare
+      soleSE = ssPortion + medPortion;
+      const soleDeduction = soleSE * 0.5;
+      soleIT = Math.max(0, usIT(w2 + netProfit - soleDeduction) - usIT(w2));
+      soleTotalTax = soleSE + soleIT;
+
+      // S-Corp: optimal salary = 40% of net profit (reasonable salary floor)
+      const sSalary = Math.min(netProfit * 0.40, 150000);
+      const sDist = Math.max(0, netProfit - sSalary);
+      const ssCapCorpSalary = Math.min(sSalary * 0.9235, ssCap);
+      corpTax = ssCapCorpSalary * 0.124 + sSalary * 0.9235 * 0.029; // FICA
+      const corpDeductEmployer = corpTax * 0.5;
+      corpIT = Math.max(0, usIT(w2 + sSalary + sDist - corpDeductEmployer) - usIT(w2));
+      corpTotalTax = corpTax + corpIT;
+    }
+
+    // ── UK ──────────────────────────────────────────────────────────────
+    else if (country === "UK") {
+      function ukIT(income) {
+        const pa = 12570; // Personal Allowance
+        const taxable = Math.max(0, income - pa);
+        if (taxable <= 37700)  return taxable * 0.20;                          // Basic
+        if (taxable <= 125140) return 7540 + (taxable - 37700) * 0.40;         // Higher
+        return 42140 + (taxable - 125140) * 0.45;                              // Additional
+      }
+      // Sole Trader: Class 4 NI 6% on £12,570–£50,270, then 2%; income tax
+      const cls4Low = 12570, cls4High = 50270;
+      const cl4Base = Math.max(0, Math.min(netProfit, cls4High) - cls4Low) * 0.06;
+      const cl4Extra = Math.max(0, netProfit - cls4High) * 0.02;
+      soleSE = cl4Base + cl4Extra;
+      soleIT = Math.max(0, ukIT(w2 + netProfit) - ukIT(w2));
+      soleTotalTax = soleSE + soleIT;
+
+      // Ltd Company: optimal = small salary £12,570 + dividends
+      const ltdSalary = Math.min(netProfit, 12570);
+      const corpProfit = Math.max(0, netProfit - ltdSalary);
+      corpTax = corpProfit <= 50000 ? corpProfit * 0.19 : // small profits rate
+                corpProfit <= 250000 ? corpProfit * (0.19 + (corpProfit - 50000) / 200000 * 0.06) :
+                corpProfit * 0.25; // marginal relief
+      const dividendIncome = Math.max(0, corpProfit - corpTax);
+      // Dividend tax: £500 allowance then 8.75% basic, 33.75% higher
+      function divTax(div, totalIncome) {
+        const allowance = 500;
+        const taxableDiv = Math.max(0, div - allowance);
+        const baseSpace = Math.max(0, 50270 - totalIncome);
+        const basicDiv = Math.min(taxableDiv, baseSpace);
+        const higherDiv = Math.max(0, taxableDiv - basicDiv);
+        return basicDiv * 0.0875 + higherDiv * 0.3375;
+      }
+      corpIT = divTax(dividendIncome, w2 + ltdSalary);
+      corpTotalTax = corpTax + corpIT;
+    }
+
+    // ── CA ──────────────────────────────────────────────────────────────
+    else if (country === "CA") {
+      function caIT(income) {
+        if (income <= 57375)  return income * 0.15;
+        if (income <= 114750) return 8606.25 + (income - 57375) * 0.205;
+        if (income <= 177882) return 20349.38 + (income - 114750) * 0.26;
+        if (income <= 253414) return 36764.70 + (income - 177882) * 0.29;
+        return 58676.78 + (income - 253414) * 0.33;
+      }
+      // CPP: 9.9% on earnings ~$3,500–$73,200 (2026 estimates)
+      const cppMax = 73200, cppMin = 3500;
+      const cppBase = Math.max(0, Math.min(netProfit, cppMax) - cppMin);
+      soleSE = cppBase * 0.099; // self-employed pays both sides
+      // Federal + typical provincial (ON ~9.15%) combined IT
+      const soleTaxable = w2 + netProfit;
+      soleIT = Math.max(0, (caIT(soleTaxable) + soleTaxable * 0.0915) - (caIT(w2) + w2 * 0.0915));
+      soleTotalTax = soleSE + soleIT;
+
+      // CCPC: 9% SBD on active income (federal) + ~3% provincial combined = ~12%
+      corpTax = Math.min(netProfit, 500000) * 0.12;
+      const retained = Math.max(0, netProfit - corpTax);
+      // Pay reasonable salary + eligible dividends (EDR ~15.02%)
+      const corpSalary = Math.min(retained * 0.5, 100000);
+      const dividends = Math.max(0, retained - corpSalary);
+      const corpSalaryCPP = Math.max(0, Math.min(corpSalary, cppMax) - cppMin) * 0.0495; // employee side
+      const divIncomeTax = dividends * 0.1502; // eligible dividend tax rate
+      corpIT = Math.max(0, (caIT(w2 + corpSalary) + (w2 + corpSalary) * 0.0915) - (caIT(w2) + w2 * 0.0915)) + divIncomeTax;
+      corpTotalTax = corpTax + corpSalaryCPP + corpIT;
+    }
+
+    // ── AU ──────────────────────────────────────────────────────────────
+    else if (country === "AU") {
+      function auIT(income) {
+        if (income <= 18200)  return 0;
+        if (income <= 45000)  return (income - 18200) * 0.19;
+        if (income <= 120000) return 5092 + (income - 45000) * 0.325;
+        if (income <= 180000) return 29467 + (income - 120000) * 0.37;
+        return 51667 + (income - 180000) * 0.45;
+      }
+      // Medicare levy 2% on all income above low-income threshold
+      const medicareLevy = (income) => income > 26000 ? income * 0.02 : 0;
+      soleSE = medicareLevy(netProfit); // additional medicare on business income
+      soleIT = Math.max(0, auIT(w2 + netProfit) + medicareLevy(w2 + netProfit) - auIT(w2) - medicareLevy(w2));
+      soleTotalTax = soleSE + soleIT;
+
+      // Pty Ltd: 25% company tax (small business entity < $50M turnover)
+      corpTax = netProfit * 0.25;
+      const retained = Math.max(0, netProfit - corpTax);
+      // Pay small salary (up to $18,200 tax free) + franked dividends
+      const auSalary = Math.min(retained, 18200);
+      const dividends = Math.max(0, retained - auSalary);
+      // Franked dividend: grossed up at 25% rate, offset by franking credits
+      const grossDiv = dividends / 0.75;
+      const frankingCredit = grossDiv - dividends;
+      const divMarginalTax = Math.max(0, auIT(w2 + auSalary + grossDiv) + medicareLevy(w2 + auSalary + grossDiv)
+        - auIT(w2 + auSalary) - medicareLevy(w2 + auSalary));
+      corpIT = Math.max(0, divMarginalTax - frankingCredit);
+      corpTotalTax = corpTax + corpIT;
+    }
+
+    // ── SHARED OUTPUTS ───────────────────────────────────────────────────
+    function fmt(v) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: cfg.currency, maximumFractionDigits: 0 }).format(v);
+    }
+
+    const savings = Math.max(0, soleTotalTax - corpTotalTax);
+    const soleEffRate = netProfit > 0 ? (soleTotalTax / netProfit) * 100 : 0;
+    const corpEffRate = netProfit > 0 ? (corpTotalTax / netProfit) * 100 : 0;
+
+    document.getElementById("tax-sole-total").innerText = fmt(soleTotalTax);
+    document.getElementById("tax-sole-se").innerText    = fmt(soleSE);
+    document.getElementById("tax-sole-income").innerText = fmt(soleIT);
+    document.getElementById("tax-sole-rate").innerText  = soleEffRate.toFixed(1) + "%";
+    document.getElementById("tax-sole-eff-rate").innerText = soleEffRate.toFixed(1) + "%";
+
+    document.getElementById("tax-scorp-total").innerText  = fmt(corpTotalTax);
+    document.getElementById("tax-scorp-se").innerText     = fmt(corpTax);
+    document.getElementById("tax-scorp-income").innerText = fmt(corpIT);
+    document.getElementById("tax-corp-rate").innerText    = corpEffRate.toFixed(1) + "%";
+    document.getElementById("tax-corp-eff-rate").innerText = corpEffRate.toFixed(1) + "%";
+
+    document.getElementById("tax-net-profit").innerText  = fmt(netProfit);
+    document.getElementById("tax-rec-savings").innerText = savings > 0 ? fmt(savings) : "—";
+
+    // Break-even logic
+    const banner    = document.getElementById("tax-recommendation-banner");
+    const recTitle  = document.getElementById("tax-rec-title");
+    const recIcon   = document.getElementById("tax-rec-icon");
+    const msgEl     = document.getElementById("tax-breakeven-msg");
+    const isWorthIt = netProfit > cfg.breakEvenRevenue && savings > cfg.corpOverheadCost;
+
+    if (netProfit === 0) {
+      banner.className = "p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 bg-slate-900 border-slate-800";
+      recTitle.innerText = "Enter revenue to begin";
+      recIcon.className  = "p-3 rounded-xl bg-slate-800 text-slate-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`;
+      msgEl.innerText   = "";
+    } else if (isWorthIt) {
+      banner.className = "p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 bg-emerald-500/10 border-emerald-500/30";
+      recTitle.innerText = `Incorporate — Switch to ${cfg.corpLabel}`;
+      recIcon.className  = "p-3 rounded-xl bg-emerald-500/20 text-emerald-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`;
+      msgEl.innerText   = `Incorporation overhead ~${fmt(cfg.corpOverheadCost)}/yr. You save ${fmt(savings)}/yr — net advantage ${fmt(savings - cfg.corpOverheadCost)}.`;
+    } else {
+      const stillNeeded = Math.max(0, cfg.breakEvenRevenue - netProfit);
+      banner.className = "p-6 rounded-2xl border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 transition-all duration-300 bg-amber-500/10 border-amber-500/30";
+      recTitle.innerText = `Stay ${cfg.soleLabel} For Now`;
+      recIcon.className  = "p-3 rounded-xl bg-amber-500/20 text-amber-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>`;
+      msgEl.innerText   = stillNeeded > 0
+        ? `Grow net profit by another ${fmt(stillNeeded)} to hit the break-even milestone for corporate overhead.`
+        : `Savings (${fmt(savings)}) don't yet cover annual corporate overheads (~${fmt(cfg.corpOverheadCost)}). Keep scaling.`;
+    }
+
+    // Bar chart update
+    const maxBurden = Math.max(soleTotalTax, corpTotalTax, 1);
+    document.getElementById("chart-sole-tax-perc").innerText = soleEffRate.toFixed(1) + "%";
+    document.getElementById("chart-sole-tax-bar").style.width = Math.round((soleTotalTax / maxBurden) * 100) + "%";
+    document.getElementById("chart-scorp-tax-perc").innerText = corpEffRate.toFixed(1) + "%";
+    document.getElementById("chart-scorp-tax-bar").style.width = Math.round((corpTotalTax / maxBurden) * 100) + "%";
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
+  // DEBT DYNAMIC ROW RENDERER
+  // ─────────────────────────────────────────────────────────────────────
+  function renderDebtRows() {
+    const container = document.getElementById("debt-rows-container");
+    const emptyState = document.getElementById("debt-empty-state");
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    const rows = state.debt.rows || [];
+    emptyState.style.display = rows.length === 0 ? "flex" : "none";
+
+    rows.forEach((row, idx) => {
+      const el = document.createElement("div");
+      el.className = "debt-row group relative";
+      el.setAttribute("data-idx", idx);
+      el.innerHTML = `
+        <!-- Mobile layout: stacked -->
+        <div class="sm:hidden p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="text-3xs font-bold uppercase tracking-widest text-slate-500">Debt #${idx + 1}</span>
+            <button class="debt-remove-btn text-slate-600 hover:text-rose-400 transition-colors p-1 rounded" data-idx="${idx}" title="Remove debt">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <input type="text" class="debt-row-input focus-ring block w-full px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs" data-idx="${idx}" data-field="name" placeholder="Debt name (e.g. Visa, Student Loan)" value="${row.name || ''}" />
+          <div class="grid grid-cols-3 gap-1.5">
+            <div>
+              <label class="block text-4xs font-bold uppercase tracking-wider text-slate-600 mb-0.5">Balance</label>
+              <input type="number" class="debt-row-input focus-ring block w-full px-2 py-1.5 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs" data-idx="${idx}" data-field="balance" placeholder="0" min="0" step="100" value="${row.balance || ''}" />
+            </div>
+            <div>
+              <label class="block text-4xs font-bold uppercase tracking-wider text-slate-600 mb-0.5">Rate %</label>
+              <input type="number" class="debt-row-input focus-ring block w-full px-2 py-1.5 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs" data-idx="${idx}" data-field="rate" placeholder="0" min="0" max="100" step="0.1" value="${row.rate || ''}" />
+            </div>
+            <div>
+              <label class="block text-4xs font-bold uppercase tracking-wider text-slate-600 mb-0.5">Min / Mo</label>
+              <input type="number" class="debt-row-input focus-ring block w-full px-2 py-1.5 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs" data-idx="${idx}" data-field="min" placeholder="0" min="0" step="5" value="${row.min || ''}" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Desktop layout: row grid -->
+        <div class="hidden sm:grid grid-cols-12 gap-2 items-center p-2 bg-slate-900/40 border border-slate-800/60 rounded-xl hover:border-slate-700/80 transition-all duration-150">
+          <div class="col-span-4">
+            <input type="text" class="debt-row-input focus-ring block w-full px-2.5 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs h-9" data-idx="${idx}" data-field="name" placeholder="e.g. Visa Card" value="${row.name || ''}" />
+          </div>
+          <div class="col-span-2">
+            <input type="number" class="debt-row-input focus-ring block w-full px-2 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs h-9 text-right" data-idx="${idx}" data-field="balance" placeholder="0" min="0" step="100" value="${row.balance || ''}" />
+          </div>
+          <div class="col-span-2">
+            <input type="number" class="debt-row-input focus-ring block w-full px-2 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs h-9 text-right" data-idx="${idx}" data-field="rate" placeholder="0.00" min="0" max="100" step="0.1" value="${row.rate || ''}" />
+          </div>
+          <div class="col-span-2">
+            <input type="number" class="debt-row-input focus-ring block w-full px-2 py-2 bg-slate-950 border border-slate-800 rounded-lg text-white font-medium text-xs h-9 text-right" data-idx="${idx}" data-field="min" placeholder="0" min="0" step="5" value="${row.min || ''}" />
+          </div>
+          <div class="col-span-2 flex justify-end">
+            <button class="debt-remove-btn text-slate-600 hover:text-rose-400 transition-colors p-1.5 rounded-lg hover:bg-rose-500/10 opacity-0 group-hover:opacity-100" data-idx="${idx}" title="Remove debt">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            </button>
+          </div>
+        </div>
+      `;
+      container.appendChild(el);
+    });
+
+    // Bind row input events (event delegation already set on container)
+    calculateDebt();
+  }
+
+  function addDebtRow() {
+    if (!state.debt.rows) state.debt.rows = [];
+    state.debt.rows.push({ name: "", balance: 0, rate: 0, min: 0 });
+    saveState();
+    renderDebtRows();
+  }
+
+  function removeDebtRow(idx) {
+    state.debt.rows.splice(idx, 1);
+    saveState();
+    renderDebtRows();
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
+  // DEBT SIMULATION ENGINE
+  // ─────────────────────────────────────────────────────────────────────
+  function calculateDebt() {
+    const rows = state.debt.rows || [];
+    const debts = rows
+      .map((r, i) => ({
+        idx: i,
+        name: r.name || `Debt #${i + 1}`,
+        balance: parseFloat(r.balance) || 0,
+        rate:    parseFloat(r.rate)    || 0,
+        min:     parseFloat(r.min)     || 0
+      }))
+      .filter(d => d.balance > 0);
+
+    const extraPayment = parseFloat(state.debt.extra) || 0;
+    const totalBalance = rows.reduce((s, r) => s + (parseFloat(r.balance) || 0), 0);
+
+    // Summary row stats
+    document.getElementById("debt-total-balance").innerText = formatCurrency(totalBalance);
+    document.getElementById("debt-row-count").innerText = debts.length;
+
+    if (debts.length === 0) {
+      const dash = "—";
+      document.getElementById("debt-av-interest").innerText = "$0";
+      document.getElementById("debt-av-time").innerText = dash;
+      document.getElementById("debt-av-apr").innerText = "0%";
+      document.getElementById("debt-av-first").innerText = dash;
+      document.getElementById("debt-sb-interest").innerText = "$0";
+      document.getElementById("debt-sb-time").innerText = dash;
+      document.getElementById("debt-sb-apr").innerText = "0%";
+      document.getElementById("debt-sb-first").innerText = dash;
+      document.getElementById("debt-savings").innerText = dash;
+      document.getElementById("debt-months-saved").innerText = "0";
+      document.getElementById("chart-av-time-val").innerText = dash;
+      document.getElementById("chart-sb-time-val").innerText = dash;
+      document.getElementById("chart-av-bar").style.width = "0%";
+      document.getElementById("chart-sb-bar").style.width = "0%";
+      const banner = document.getElementById("debt-method-banner");
+      banner.className = "p-6 rounded-2xl border flex flex-col gap-3 transition-all duration-300 bg-slate-900 border-slate-800";
+      document.getElementById("debt-rec-title").innerText = "Add debts to run simulation";
+      document.getElementById("debt-rec-subtitle").innerText = "";
+      return;
+    }
+
+    // Blended APR for display
+    const initialTotal = debts.reduce((s, d) => s + d.balance, 0);
+    const weightedRate = debts.reduce((s, d) => s + d.balance * d.rate, 0);
+    const blendedApr = initialTotal > 0 ? (weightedRate / initialTotal) : 0;
+
+    // ── CORE SIMULATOR ─────────────────────────────────────────────────
+    function simulate(sortFn) {
+      let pool = debts.map(d => ({ ...d })); // deep clone
+      let totalInterest = 0;
+      let months = 0;
+      let firstClearedName = null;
+      let firstClearedMonth = null;
+
+      while (pool.some(d => d.balance > 0.01) && months < 600) {
+        months++;
+        pool.sort(sortFn);
+
+        // 1. Accrue monthly interest
+        for (const d of pool) {
+          if (d.balance > 0) {
+            const interest = (d.balance * (d.rate / 100)) / 12;
+            totalInterest += interest;
+            d.balance += interest;
+          }
+        }
+
+        // 2. Apply minimum payments
+        let rollover = extraPayment;
+        for (const d of pool) {
+          if (d.balance > 0) {
+            const payment = Math.min(d.balance, d.min);
+            d.balance = Math.max(0, d.balance - payment);
+          }
+        }
+
+        // 3. Apply extra payment cascade (snowball / avalanche target = first in sorted pool)
+        for (const d of pool) {
+          if (d.balance > 0.01 && rollover > 0) {
+            const payment = Math.min(d.balance, rollover);
+            d.balance = Math.max(0, d.balance - payment);
+            rollover -= payment;
+          }
+        }
+
+        // 4. Track first-cleared milestone
+        if (firstClearedName === null) {
+          const cleared = pool.find(d => d.balance <= 0.01 && d.balance >= 0);
+          if (cleared && months > 0) {
+            firstClearedName = cleared.name;
+            firstClearedMonth = months;
+          }
+        }
+      }
+
+      return {
+        interest: totalInterest,
+        months,
+        firstClearedName,
+        firstClearedMonth,
+        apr: blendedApr
+      };
+    }
+
+    const avResult = simulate((a, b) => b.rate - a.rate);    // Avalanche: highest rate first
+    const sbResult = simulate((a, b) => a.balance - b.balance); // Snowball: smallest balance first
+
+    // Helper: months → human readable
+    function fmtMonths(m) {
+      if (m >= 600) return ">50 yrs";
+      const yrs = Math.floor(m / 12);
+      const mos = m % 12;
+      if (yrs === 0) return `${mos} mo`;
+      if (mos === 0) return `${yrs} yr`;
+      return `${yrs} yr ${mos} mo`;
+    }
+
+    // ── UPDATE DOM ─────────────────────────────────────────────────────
+    document.getElementById("debt-av-interest").innerText = formatCurrency(avResult.interest);
+    document.getElementById("debt-av-time").innerText     = fmtMonths(avResult.months);
+    document.getElementById("debt-av-apr").innerText      = blendedApr.toFixed(1) + "%";
+    document.getElementById("debt-av-first").innerText    = avResult.firstClearedName
+      ? `${avResult.firstClearedName} (mo. ${avResult.firstClearedMonth})`
+      : "—";
+
+    document.getElementById("debt-sb-interest").innerText = formatCurrency(sbResult.interest);
+    document.getElementById("debt-sb-time").innerText     = fmtMonths(sbResult.months);
+    document.getElementById("debt-sb-apr").innerText      = blendedApr.toFixed(1) + "%";
+    document.getElementById("debt-sb-first").innerText    = sbResult.firstClearedName
+      ? `${sbResult.firstClearedName} (mo. ${sbResult.firstClearedMonth})`
+      : "—";
+
+    const interestSaved = Math.max(0, sbResult.interest - avResult.interest);
+    const monthsSaved   = Math.max(0, sbResult.months   - avResult.months);
+
+    document.getElementById("debt-savings").innerText      = interestSaved > 0 ? formatCurrency(interestSaved) : "—";
+    document.getElementById("debt-months-saved").innerText = monthsSaved > 0 ? monthsSaved : "0";
+
+    // Chart bars (shorter timeline = wider bar = more "progress" visually)
+    const maxMonths = Math.max(avResult.months, sbResult.months, 1);
+    document.getElementById("chart-av-time-val").innerText = fmtMonths(avResult.months);
+    document.getElementById("chart-sb-time-val").innerText = fmtMonths(sbResult.months);
+    document.getElementById("chart-av-bar").style.width = Math.round((avResult.months / maxMonths) * 100) + "%";
+    document.getElementById("chart-sb-bar").style.width = Math.round((sbResult.months / maxMonths) * 100) + "%";
+
+    // Smart Advisory Banner
+    const banner   = document.getElementById("debt-method-banner");
+    const recTitle = document.getElementById("debt-rec-title");
+    const recSub   = document.getElementById("debt-rec-subtitle");
+    const recIcon  = document.getElementById("debt-rec-icon");
+
+    if (interestSaved > 50) {
+      // Avalanche wins mathematically
+      banner.className = "p-6 rounded-2xl border flex flex-col gap-3 transition-all duration-300 bg-brand-500/10 border-brand-500/30";
+      recTitle.innerText = `🏆 Choose Avalanche — Save ${formatCurrency(interestSaved)}`;
+      recSub.innerText   = monthsSaved > 0
+        ? `By targeting highest-rate debt first, you'll be debt-free ${monthsSaved} month${monthsSaved > 1 ? 's' : ''} sooner and pay ${formatCurrency(interestSaved)} less interest.`
+        : `Mathematically optimal. Saves ${formatCurrency(interestSaved)} in total interest over the Snowball method.`;
+      recIcon.className  = "p-3 rounded-xl bg-brand-500/20 text-brand-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>`;
+    } else if (sbResult.months < avResult.months) {
+      // Snowball wins on speed (unusual but possible)
+      banner.className = "p-6 rounded-2xl border flex flex-col gap-3 transition-all duration-300 bg-emerald-500/10 border-emerald-500/30";
+      recTitle.innerText = `♥ Snowball Wins On Speed — ${Math.abs(monthsSaved)} Months Faster`;
+      recSub.innerText   = "With these debts, Snowball clears balances faster. Stick with Snowball for the quickest debt-free date.";
+      recIcon.className  = "p-3 rounded-xl bg-emerald-500/20 text-emerald-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`;
+    } else {
+      // Essentially tied
+      banner.className = "p-6 rounded-2xl border flex flex-col gap-3 transition-all duration-300 bg-amber-500/10 border-amber-500/30";
+      recTitle.innerText = `Both Methods Are Essentially Equal`;
+      recSub.innerText   = "Your debts have similar rates/balances. Either method works — pick Snowball for motivation, Avalanche for discipline.";
+      recIcon.className  = "p-3 rounded-xl bg-amber-500/20 text-amber-400 hidden sm:flex items-center justify-center flex-shrink-0";
+      recIcon.innerHTML  = `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>`;
+    }
+  }
+
+  // Unified Run Calculations
+  function runCalculations() {
+    calculateBBD();
+    calculateTax();
+    calculateDebt();
+  }
+
+  // ==========================================
+  // TAB CONTROLLERS
+  // ==========================================
+
+  function setActiveTabDOM(tabId) {
+    // Buttons toggling
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      const isSelected = btn.id === `tab-btn-${tabId}`;
+      btn.setAttribute("aria-selected", isSelected);
+      if (isSelected) {
+        btn.classList.add("active-tab");
+        btn.classList.remove("inactive-tab");
+      } else {
+        btn.classList.remove("active-tab");
+        btn.classList.add("inactive-tab");
+      }
+    });
+
+    // Panels toggling
+    document.querySelectorAll(".tab-panel").forEach(panel => {
+      if (panel.id === `panel-${tabId}`) {
+        panel.classList.remove("hidden");
+      } else {
+        panel.classList.add("hidden");
+      }
+    });
+  }
+
+  function handleTabClick(e) {
+    const btn = e.currentTarget;
+    const tabId = btn.id.replace("tab-btn-", "");
+    state.activeTab = tabId;
+    setActiveTabDOM(tabId);
+    saveState();
+  }
+
+  // Bind Listeners to state changes
+  function bindListeners() {
+    
+    // Tab Button bindings
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", handleTabClick);
+    });
+
+    // Auto-save toggle binding
+    document.getElementById("toggle-autosave").addEventListener("click", () => {
+      state.autoSave = !state.autoSave;
+      localStorage.setItem(AUTOSAVE_KEY, state.autoSave ? "true" : "false");
+      saveState(true);
+      triggerAutosaveIndicator();
+    });
+
+    // Reset button binding
+    document.getElementById("reset-state").addEventListener("click", () => {
+      if (confirm("Are you sure you want to clear all calculations and reset to baseline empty states?")) {
+        // 1. Clear LocalStorage
+        localStorage.removeItem(STORAGE_KEY);
+        
+        const currentActiveTab = state.activeTab;
+        const currentAutoSave = state.autoSave;
+        
+        // Reset in-memory state to baseline empty states
+        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        state.activeTab = currentActiveTab;
+        state.autoSave = currentAutoSave;
+
+        // 2. Reset HTML Form Inputs
+        document.querySelectorAll(".tab-panel input, .tab-panel select, .tab-panel textarea").forEach(input => {
+          if (input.tagName === "SELECT") {
+            input.value = input.options[0].value;
+          } else if (input.type === "range") {
+            input.value = input.min || 5;
+          } else {
+            input.value = "0";
+          }
+        });
+
+        // Reset display values
+        updateCurrencySymbols("USD");
+
+        // Re-run calculations with empty state
+        runCalculations();
+
+        // 3. Dispatch Custom Event
+        window.dispatchEvent(new Event('financial-hub-reset'));
+
+        // 4. Provide Visual Feedback
+        const btn = document.getElementById("reset-state");
+        const btnText = document.getElementById("reset-btn-text");
+        if (btn && btnText) {
+          const originalText = btnText.innerText;
+          const originalClass = btn.className;
+
+          btnText.innerText = "Cleared! ✓";
+          btn.className = btn.className.replace("text-slate-400", "text-emerald-400 bg-emerald-500/10 border-emerald-500/30");
+
+          setTimeout(() => {
+            btnText.innerText = originalText;
+            btn.className = originalClass;
+          }, 1500);
+        }
+      }
+    });
+
+    // Form inputs bindings (dynamic input changes trigger calculations & local storage saves)
+    
+    // BBD inputs
+    const bbdInputs = [
+      { id: "bbd-portfolio", prop: "portfolio" },
+      { id: "bbd-basis", prop: "basis" },
+      { id: "bbd-tax-rate", prop: "taxRate" },
+      { id: "bbd-borrow-amount", prop: "borrowAmount" },
+      { id: "bbd-interest-rate", prop: "interestRate" }
+    ];
+    bbdInputs.forEach(({ id, prop }) => {
+      const el = document.getElementById(id);
+      el.addEventListener("input", (e) => {
+        const val = parseFloat(e.target.value) || 0;
+        state.bbd[prop] = val;
+        saveState();
+        calculateBBD();
+      });
+    });
+
+    // Currency selector listener
+    document.getElementById("bbd-currency").addEventListener("change", (e) => {
+      const currency = e.target.value;
+      state.bbd.currency = currency;
+      saveState();
+      updateCurrencySymbols(currency);
+      calculateBBD();
+    });
+
+    // Tax preset button listener
+    document.querySelectorAll(".tax-preset-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const rate = parseFloat(e.currentTarget.getAttribute("data-rate")) || 0;
+        const taxInput = document.getElementById("bbd-tax-rate");
+        taxInput.value = rate;
+        state.bbd.taxRate = rate;
+        saveState();
+        calculateBBD();
+      });
+    });
+
+    // Tax country selector
+    document.getElementById("tax-country").addEventListener("change", (e) => {
+      state.tax.country = e.target.value;
+      updateTaxCountryUI(state.tax.country);
+      saveState();
+      calculateTax();
+    });
+
+    // Tax number inputs
+    const taxInputs = [
+      { id: "tax-revenue",  prop: "revenue"  },
+      { id: "tax-expenses", prop: "expenses" },
+      { id: "tax-w2",       prop: "w2"       }
+    ];
+    taxInputs.forEach(({ id, prop }) => {
+      const el = document.getElementById(id);
+      el.addEventListener("input", (e) => {
+        state.tax[prop] = parseFloat(e.target.value) || 0;
+        saveState();
+        calculateTax();
+      });
+    });
+
+    // Listen for financial-hub-reset to clear tax panel outputs
+    window.addEventListener("financial-hub-reset", () => {
+      updateTaxCountryUI("US");
+    });
+
+    // ── DEBT: Add row button
+    document.getElementById("debt-add-row").addEventListener("click", addDebtRow);
+
+    // ── DEBT: Event delegation for row inputs (name/balance/rate/min)
+    document.getElementById("debt-rows-container").addEventListener("input", (e) => {
+      const target = e.target;
+      if (!target.classList.contains("debt-row-input")) return;
+      const idx   = parseInt(target.getAttribute("data-idx"), 10);
+      const field = target.getAttribute("data-field");
+      if (isNaN(idx) || !field) return;
+      if (!state.debt.rows[idx]) return;
+      if (field === "name") {
+        state.debt.rows[idx][field] = target.value;
+      } else {
+        state.debt.rows[idx][field] = parseFloat(target.value) || 0;
+      }
+      saveState();
+      calculateDebt();
+    });
+
+    // ── DEBT: Event delegation for remove buttons
+    document.getElementById("debt-rows-container").addEventListener("click", (e) => {
+      const btn = e.target.closest(".debt-remove-btn");
+      if (!btn) return;
+      const idx = parseInt(btn.getAttribute("data-idx"), 10);
+      if (!isNaN(idx)) removeDebtRow(idx);
+    });
+
+    // ── DEBT: Extra payment input
+    document.getElementById("debt-extra").addEventListener("input", (e) => {
+      state.debt.extra = parseFloat(e.target.value) || 0;
+      saveState();
+      calculateDebt();
+    });
+
+    // ── DEBT: Reset handler — clear all rows
+    window.addEventListener("financial-hub-reset", () => {
+      state.debt.rows = [];
+      state.debt.extra = 0;
+      renderDebtRows();
+      document.getElementById("debt-extra").value = "";
+    });
+  }
+
+  // Execution Lifecycles
+  window.addEventListener("DOMContentLoaded", () => {
+    loadState();
+    syncStateToInputs();
+    bindListeners();
+    runCalculations();
+  });
+</script>

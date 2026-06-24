@@ -1,0 +1,17 @@
+# Cache all hashed assets from Astro build for 1 year
+# These are immutable as they have unique content hashes in filenames
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+  X-Content-Type-Options: nosniff
+
+# Cache other static assets from the public directory for 1 week
+/favicon.svg
+  Cache-Control: public, max-age=604800, must-revalidate
+
+/images/*
+  Cache-Control: public, max-age=604800, must-revalidate
+
+# Fallback for HTML pages - must revalidate with edge server on every request
+# to ensure users always receive the latest content
+/*
+  Cache-Control: public, max-age=0, must-revalidate

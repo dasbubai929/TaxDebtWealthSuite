@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Premium Indigo to Emerald gradient aligned to the upward trend direction -->
+    <linearGradient id="brand-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Premium Geometric Shield Background with subtle borders -->
+  <path d="M 16,4 L 26,8 V 16 C 26,22 21,26.5 16,29 C 11,26.5 6,22 6,16 V 8 Z" fill="#020617" stroke="url(#brand-grad)" stroke-width="2" stroke-linejoin="round" />
+  
+  <!-- Stylized Currency ($) Vertical Ticks -->
+  <path d="M 16,8 V 10.5 M 16,21.5 V 24" fill="none" stroke="url(#brand-grad)" stroke-width="2.5" stroke-linecap="round" />
+  
+  <!-- Stylized Currency ($) S-Curve -->
+  <path d="M 19.5,13.5 C 19.5,11.8 18,10.5 16,10.5 C 14,10.5 12.5,11.8 12.5,13.5 C 12.5,16 19.5,16 19.5,18.5 C 19.5,20.2 18,21.5 16,21.5 C 14,21.5 12.5,20.2 12.5,18.5" fill="none" stroke="url(#brand-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Stylized Upward Trend Line intersecting the dollar sign -->
+  <path d="M 11,21 L 21,11 M 17,11 H 21 V 15" fill="none" stroke="url(#brand-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

@@ -1,77 +1,165 @@
 @import "tailwindcss";
 
+:root {
+  --bg-main: #0A0F1D;          /* Deep space slate-blue canvas */
+  --bg-surface: #141C32;       /* Structured card surfaces */
+  --border-color: #1E294B;     /* Computational divider lines */
+  --accent-primary: #00F5D4;   /* Cyber-Teal glow for active states */
+  --text-primary: #F8FAFC;     /* Bright stark white data indicators */
+  --text-muted: #94A3B8;       /* Clean gray slate text for labels */
+  --color-safe: #10B981;       /* Emerald Green for positive deltas/low risk */
+  --color-risk: #EF4444;       /* Crimson Red for tax drag/interest costs */
+}
+
 @theme {
-  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+
+  /* Quantum Terminal — Core Palette */
+  --color-bg-main: var(--bg-main);
+  --color-bg-surface: var(--bg-surface);
+  --color-border: var(--border-color);
+  --color-accent: var(--accent-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-safe: var(--color-safe);
+  --color-risk: var(--color-risk);
+
+  /* Legacy brand tokens (kept for backward compat) */
   --color-brand-50: #eef2ff;
   --color-brand-100: #e0e7ff;
   --color-brand-200: #c7d2fe;
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
-  --color-brand-950: #1e1b4b;
-  
-  --color-accent-emerald: #10b981;
-  --color-accent-rose: #f43f5e;
-  --color-accent-amber: #f59e0b;
+  --color-brand-300: var(--accent-primary);
+  --color-brand-400: var(--accent-primary);
+  --color-brand-500: var(--accent-primary);
+  --color-brand-600: var(--accent-primary);
+  --color-brand-700: var(--accent-primary);
+  --color-brand-850: var(--border-color);
+  --color-slate-800: var(--border-color);
+  --color-slate-850: var(--border-color);
+  --color-slate-900: var(--bg-main);
+  --color-slate-950: var(--bg-main);
 }
 
-/* Custom Scrollbar Styles */
-.custom-scrollbar::-webkit-scrollbar {
-  height: 6px;
-  width: 6px;
-}
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.6);
-}
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.4);
-  border-radius: 4px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.7);
+/* ───────────────────────────────────────────────
+   QUANTUM TERMINAL — Base Canvas
+   ─────────────────────────────────────────────── */
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
-
-/* Focus ring standard */
-.focus-ring {
-  @apply focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900;
-}
-
-/* Glassmorphism panel */
+/* ───────────────────────────────────────────────
+   Terminal Surface Panels (replaces .glass-panel)
+   ─────────────────────────────────────────────── */
 .glass-panel {
-  background: rgba(30, 41, 59, 0.45);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  backdrop-filter: none;
+  box-shadow: none;
 }
 
-/* Neon glow card */
+/* Glow card — flat terminal style */
 .glow-card {
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .glow-card::after {
   content: '';
   position: absolute;
   inset: -1px;
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
   border-radius: inherit;
   z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 .glow-card:hover::after {
   opacity: 1;
+}
+
+/* ───────────────────────────────────────────────
+   Terminal Input Fields
+   ─────────────────────────────────────────────── */
+input[type="number"],
+input[type="text"],
+select,
+textarea {
+  background-color: var(--color-bg-main) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+  transition: border-color 0s ease;
+  font-family: var(--font-mono) !important;
+  letter-spacing: -0.02em;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-accent) !important;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+/* Select dropdown keeps sans-serif for readability */
+select {
+  font-family: var(--font-sans) !important;
+}
+
+/* Focus ring override for terminal accent */
+.focus-ring:focus {
+  --tw-ring-color: var(--color-accent);
+  --tw-ring-offset-color: var(--color-bg-main);
+}
+
+/* ───────────────────────────────────────────────
+   Scrollbar — Terminal themed
+   ─────────────────────────────────────────────── */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-bg-main);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 2px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ───────────────────────────────────────────────
+   Focal Data — amplified primary metrics
+   ─────────────────────────────────────────────── */
+.focal-metric {
+  font-size: 2.25rem;
+  line-height: 1;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  letter-spacing: -0.03em;
+}
+@media (min-width: 640px) {
+  .focal-metric {
+    font-size: 2.75rem;
+  }
+}
+
+/* ───────────────────────────────────────────────
+   Monospaced data values
+   ─────────────────────────────────────────────── */
+.mono-data {
+  font-family: var(--font-mono);
+  letter-spacing: -0.02em;
 }

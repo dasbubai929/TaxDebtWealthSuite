@@ -2,7 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout 
+  title="TaxDebtWealthSuite | Free Interactive Tax, Debt, and Wealth Suite"
+  description="Analyze portfolio borrowing strategy (Buy, Borrow, Die), calculate side-hustle corporate tax benefits, and model debt payoff schedules."
+>
   <!-- Main Outer Container -->
   <div class="min-h-screen flex flex-col justify-between">
     
@@ -20,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
             </div>
             <div>
               <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white font-sans">
-                FinanceFlow<span class="text-brand-400">Hub</span>
+                TaxDebtWealth<span class="text-brand-400">Suite</span>
               </h1>
               <p class="text-xs text-slate-400 hidden sm:block">Advanced Strategic Finance Suite</p>
             </div>
@@ -931,7 +934,7 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Disclaimer -->
         <p class="text-center text-2xs text-slate-600 max-w-2xl mx-auto leading-relaxed pt-4">
-          <strong class="text-slate-500">Disclaimer:</strong> All calculations and content on FinanceFlow Hub are for educational and informational purposes only. They do not constitute financial, tax, or legal advice. Consult a qualified financial advisor, CPA, or tax attorney before making investment, tax structure, or debt management decisions.
+          <strong class="text-slate-500">Disclaimer:</strong> All calculations and content on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute financial, tax, or legal advice. Consult a qualified financial advisor, CPA, or tax attorney before making investment, tax structure, or debt management decisions.
         </p>
 
       </div>
@@ -944,7 +947,7 @@ import Layout from "../layouts/Layout.astro";
           <!-- Copyright & Disclaimer info -->
           <div class="max-w-xl space-y-2">
             <p class="font-semibold text-slate-300">
-              &copy; 2026 FinanceFlow Hub. All rights reserved.
+              &copy; 2026 TaxDebtWealthSuite. All rights reserved.
             </p>
             <p class="text-slate-500 leading-relaxed">
               Disclaimer: The calculators provided on this website are for informational and educational purposes only and do not constitute professional financial or legal advice.
@@ -986,8 +989,8 @@ import Layout from "../layouts/Layout.astro";
 <!-- Client-Side State and Calculator Calculations Script -->
 <script is:inline>
   // Central Local Storage Keys
-  const STORAGE_KEY = "financeflow_hub_state_v1";
-  const AUTOSAVE_KEY = "financeflow_hub_autosave_pref";
+  const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
+  const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
 
   // Beautiful Default Values
   const DEFAULT_STATE = {

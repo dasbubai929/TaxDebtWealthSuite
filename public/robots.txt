@@ -7,4 +7,4 @@ Disallow: /404
 Disallow: /500
 
 # Reference the sitemap location
-Sitemap: https://financeflow.hub/sitemap.xml
+Sitemap: https://taxdebtwealthsuite.com/sitemap.xml

@@ -1175,11 +1175,16 @@ import Layout from "../layouts/Layout.astro";
 
     // Helper: format currency dynamically
     function formatWithCurrency(val) {
-      return new Intl.NumberFormat('en-US', {
+      let formatted = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: currency,
         maximumFractionDigits: 0
       }).format(val);
+      
+      if (currency === 'CAD') {
+        formatted = formatted.replace('CA$', 'C$');
+      }
+      return formatted;
     }
 
     document.getElementById("bbd-sell-tax").innerText = formatWithCurrency(taxDrag);
@@ -1863,56 +1868,65 @@ import Layout from "../layouts/Layout.astro";
       triggerAutosaveIndicator();
     });
 
-    // Reset button binding
+    // Reset button binding — two-click confirmation pattern (avoids confirm() dialog issues)
+    let resetPending = false;
+    let resetTimeout = null;
     document.getElementById("reset-state").addEventListener("click", () => {
-      if (confirm("Are you sure you want to clear all calculations and reset to baseline empty states?")) {
-        // 1. Clear LocalStorage
-        localStorage.removeItem(STORAGE_KEY);
-        
-        const currentActiveTab = state.activeTab;
-        const currentAutoSave = state.autoSave;
-        
-        // Reset in-memory state to baseline empty states
-        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
-        state.activeTab = currentActiveTab;
-        state.autoSave = currentAutoSave;
+      const btn = document.getElementById("reset-state");
+      const btnText = document.getElementById("reset-btn-text");
+      if (!btn || !btnText) return;
 
-        // 2. Reset HTML Form Inputs
-        document.querySelectorAll(".tab-panel input, .tab-panel select, .tab-panel textarea").forEach(input => {
-          if (input.tagName === "SELECT") {
-            input.value = input.options[0].value;
-          } else if (input.type === "range") {
-            input.value = input.min || 5;
-          } else {
-            input.value = "0";
-          }
-        });
+      if (!resetPending) {
+        // First click: show confirmation state
+        resetPending = true;
+        const originalText = btnText.innerText;
+        const originalClass = btn.className;
+        btnText.innerText = "Confirm Reset?";
+        btn.className = btn.className.replace("text-slate-400", "text-amber-400 bg-amber-500/10 border border-amber-500/30");
 
-        // Reset display values
-        updateCurrencySymbols("USD");
-
-        // Re-run calculations with empty state
-        runCalculations();
-
-        // 3. Dispatch Custom Event
-        window.dispatchEvent(new Event('financial-hub-reset'));
-
-        // 4. Provide Visual Feedback
-        const btn = document.getElementById("reset-state");
-        const btnText = document.getElementById("reset-btn-text");
-        if (btn && btnText) {
-          const originalText = btnText.innerText;
-          const originalClass = btn.className;
-
-          btnText.innerText = "Cleared! ✓";
-          btn.className = btn.className.replace("text-slate-400", "text-emerald-400 bg-emerald-500/10 border-emerald-500/30");
-
-          setTimeout(() => {
-            btnText.innerText = originalText;
-            btn.className = originalClass;
-          }, 1500);
-        }
+        // Auto-cancel after 3 seconds if not confirmed
+        resetTimeout = setTimeout(() => {
+          resetPending = false;
+          btnText.innerText = originalText;
+          btn.className = originalClass;
+        }, 3000);
+        return;
       }
+
+      // Second click: perform the actual reset
+      resetPending = false;
+      clearTimeout(resetTimeout);
+
+      // 1. Clear LocalStorage
+      localStorage.removeItem(STORAGE_KEY);
+      
+      const currentActiveTab = state.activeTab;
+      const currentAutoSave = state.autoSave;
+      
+      // Reset in-memory state to baseline empty states
+      state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      state.activeTab = currentActiveTab;
+      state.autoSave = currentAutoSave;
+
+      // 2. Sync state back to DOM inputs & clear dynamic lists
+      syncStateToInputs();
+
+      // 3. Re-run calculations with empty state
+      runCalculations();
+
+      // 4. Dispatch Custom Event
+      window.dispatchEvent(new Event('financial-hub-reset'));
+
+      // 5. Provide Visual Feedback
+      const originalText2 = "Reset Suite";
+      const originalClass2 = btn.className.replace("text-amber-400 bg-amber-500/10 border border-amber-500/30", "text-slate-400");
+      btnText.innerText = "Cleared! ✓";
+      btn.className = btn.className.replace("text-amber-400 bg-amber-500/10 border border-amber-500/30", "text-emerald-400 bg-emerald-500/10 border-emerald-500/30");
+
+      setTimeout(() => {
+        btnText.innerText = originalText2;
+        btn.className = originalClass2;
+      }, 1500);
     });
 
     // Form inputs bindings (dynamic input changes trigger calculations & local storage saves)

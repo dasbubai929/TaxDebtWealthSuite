@@ -344,6 +344,81 @@ import Layout from "../layouts/Layout.astro";
               </div>
             </div>
 
+            <!-- S-Corp Salary vs. Distributions Optimizer Card -->
+            <div id="tax-optimizer-card" class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800 hidden">
+              <div>
+                <h3 id="opt-title" class="text-lg font-bold text-white tracking-wide">S-Corp Salary vs. Distributions Optimizer</h3>
+                <p id="opt-subtitle" class="text-xs text-slate-400 mt-1">Optimize your corporate salary split to minimize taxes and audit risk.</p>
+              </div>
+
+              <!-- Notice Banner for Low Net Profit -->
+              <div id="opt-notice-banner" class="p-4 rounded-xl text-xs leading-relaxed bg-amber-500/10 border border-amber-500/20 text-amber-300 hidden">
+                S-Corp optimization is generally not cost-effective below $40,000 in net profit due to compliance overhead.
+              </div>
+
+              <!-- Interactive Controls (Shown when net profit > threshold) -->
+              <div id="opt-controls" class="space-y-5">
+                <!-- Slider -->
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <label id="opt-slider-label" for="opt-salary-pct" class="font-semibold uppercase tracking-wider text-slate-300">Salary Percentage</label>
+                    <span id="opt-salary-pct-val" class="font-mono text-brand-300 font-bold text-sm">40%</span>
+                  </div>
+                  <input type="range" id="opt-salary-pct" min="30" max="70" step="1" class="w-full accent-[#00F5D4] cursor-pointer bg-slate-900 h-2 rounded-lg border border-slate-700 appearance-none" />
+                  <div class="flex justify-between text-4xs uppercase tracking-wider text-slate-500 font-bold px-1">
+                    <span>30% (Aggressive)</span>
+                    <span>50%</span>
+                    <span>70% (Conservative)</span>
+                  </div>
+                </div>
+
+                <!-- Visual Audit Risk Gauge -->
+                <div class="space-y-2">
+                  <div class="flex justify-between items-center text-xs">
+                    <span class="font-semibold uppercase tracking-wider text-slate-300">Audit Risk Level</span>
+                    <!-- Spacing container for status text to prevent layout shifts on mobile -->
+                    <div class="h-6 flex items-center justify-end min-w-[7.5rem]">
+                      <span id="opt-risk-status" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase transition-all duration-300">Safe</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Progress/Gauge Bar -->
+                  <div class="relative w-full h-3 bg-slate-950 rounded-full overflow-hidden border border-slate-800 flex">
+                    <div class="h-full bg-rose-500/80 border-r border-rose-500/20" style="width: 25%"></div>
+                    <div class="h-full bg-amber-500/80 border-r border-amber-500/20" style="width: 25%"></div>
+                    <div class="h-full bg-emerald-500/80" style="width: 50%"></div>
+                    <!-- Pointer -->
+                    <div id="opt-risk-pointer" class="absolute top-0 bottom-0 w-1.5 bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all duration-300" style="left: 25%; transform: translateX(-50%);"></div>
+                  </div>
+
+                  <!-- Risk explanation / tooltip text area - height-constrained to prevent layout shift -->
+                  <div class="min-h-[3.25rem] flex items-center p-3 bg-slate-950/50 border border-slate-900 rounded-xl text-3xs text-slate-400 leading-relaxed overflow-hidden">
+                    <p id="opt-risk-desc" class="m-0"></p>
+                  </div>
+                </div>
+
+                <!-- Interactive Results Breakdown -->
+                <div class="grid grid-cols-2 gap-4 pt-2 border-t border-slate-800/80">
+                  <div>
+                    <p id="opt-salary-label" class="text-3xs uppercase tracking-wider text-slate-400">Salary Amount</p>
+                    <p id="opt-salary-val" class="text-sm font-bold text-white mt-0.5">$0</p>
+                  </div>
+                  <div>
+                    <p id="opt-dist-label" class="text-3xs uppercase tracking-wider text-slate-400">Distributions</p>
+                    <p id="opt-dist-val" class="text-sm font-bold text-white mt-0.5">$0</p>
+                  </div>
+                </div>
+                
+                <div class="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl flex justify-between items-center">
+                  <div>
+                    <p id="opt-savings-label" class="text-2xs font-semibold text-slate-300 uppercase tracking-wider">Salary Split Net Savings</p>
+                    <p class="text-3xs text-slate-500 mt-0.5">Additional tax saved vs. default unincorporated route.</p>
+                  </div>
+                  <p id="opt-savings-val" class="text-lg font-black text-[#00F5D4] mono-data">$0</p>
+                </div>
+              </div>
+            </div>
+
             <!-- Country Explainer Card -->
             <div id="tax-country-tip" class="bg-gradient-to-br from-slate-900 to-indigo-950/40 p-5 rounded-2xl border border-slate-850 space-y-3">
               <h4 class="text-xs font-bold tracking-wider text-brand-300 uppercase">How Your Country Is Calculated</h4>
@@ -1176,7 +1251,8 @@ import Layout from "../layouts/Layout.astro";
       country: "US",
       revenue: 0,
       expenses: 0,
-      w2: 0
+      w2: 0,
+      salaryPct: 40
     },
     debt: {
       rows: [],
@@ -1273,18 +1349,22 @@ import Layout from "../layouts/Layout.astro";
 
     // Tab 1 Inputs
     document.getElementById("bbd-currency").value = state.bbd.currency || "USD";
-    document.getElementById("bbd-portfolio").value = state.bbd.portfolio;
-    document.getElementById("bbd-basis").value = state.bbd.basis;
-    document.getElementById("bbd-tax-rate").value = state.bbd.taxRate;
-    document.getElementById("bbd-borrow-amount").value = state.bbd.borrowAmount;
-    document.getElementById("bbd-interest-rate").value = state.bbd.interestRate;
+    document.getElementById("bbd-portfolio").value = state.bbd.portfolio || "";
+    document.getElementById("bbd-basis").value = state.bbd.basis || "";
+    document.getElementById("bbd-tax-rate").value = state.bbd.taxRate || "";
+    document.getElementById("bbd-borrow-amount").value = state.bbd.borrowAmount || "";
+    document.getElementById("bbd-interest-rate").value = state.bbd.interestRate || "";
     updateCurrencySymbols(state.bbd.currency || "USD");
 
     // Tab 2 Inputs
     document.getElementById("tax-country").value = state.tax.country || "US";
-    document.getElementById("tax-revenue").value = state.tax.revenue;
-    document.getElementById("tax-expenses").value = state.tax.expenses;
-    document.getElementById("tax-w2").value = state.tax.w2;
+    document.getElementById("tax-revenue").value = state.tax.revenue || "";
+    document.getElementById("tax-expenses").value = state.tax.expenses || "";
+    document.getElementById("tax-w2").value = state.tax.w2 || "";
+    const optSlider = document.getElementById("opt-salary-pct");
+    if (optSlider) {
+      optSlider.value = state.tax.salaryPct || 40;
+    }
     updateTaxCountryUI(state.tax.country || "US");
 
     // Tab 3 Inputs — dynamic rows
@@ -1523,6 +1603,37 @@ import Layout from "../layouts/Layout.astro";
     }
   };
 
+  function getSalaryAndDist(country, netProfit, pct, isSliderDirty) {
+    let salary = 0;
+    if (country === "US") {
+      if (!isSliderDirty) {
+        // Use default with floor and cap
+        salary = Math.max(netProfit * 0.40, 45000);
+        salary = Math.min(salary, 160000);
+        salary = Math.min(salary, netProfit);
+      } else {
+        // Use slider percentage directly
+        salary = netProfit * (pct / 100);
+      }
+    } else if (country === "UK") {
+      if (!isSliderDirty) {
+        salary = Math.min(netProfit, 12570);
+      } else {
+        salary = netProfit * (pct / 100);
+      }
+    } else if (country === "CA") {
+      salary = netProfit * (pct / 100);
+    } else if (country === "AU") {
+      if (!isSliderDirty) {
+        salary = Math.min(netProfit, 18200);
+      } else {
+        salary = netProfit * (pct / 100);
+      }
+    }
+    const dist = Math.max(0, netProfit - salary);
+    return { salary, dist };
+  }
+
   // ─────────────────────────────────────────────────────────────────────
   // TAX MATH ENGINE
   // ─────────────────────────────────────────────────────────────────────
@@ -1536,6 +1647,21 @@ import Layout from "../layouts/Layout.astro";
 
     let soleSE = 0, soleIT = 0, soleTotalTax = 0;
     let corpTax = 0, corpIT = 0, corpTotalTax = 0;
+
+    // Calculate default percentage if slider has not been manually touched
+    let salaryPct = state.tax.salaryPct || 40;
+    if (!state.tax.isSliderDirty) {
+      const { salary: defaultSalary } = getSalaryAndDist(country, netProfit, 40, false);
+      const defaultPct = netProfit > 0 ? Math.round((defaultSalary / netProfit) * 100) : 40;
+      salaryPct = Math.max(30, Math.min(70, defaultPct));
+      state.tax.salaryPct = salaryPct;
+    }
+
+    // Force sync the slider thumb element in the DOM
+    const optSlider = document.getElementById("opt-salary-pct");
+    if (optSlider) {
+      optSlider.value = salaryPct;
+    }
 
     // ── US ──────────────────────────────────────────────────────────────
     if (country === "US") {
@@ -1559,9 +1685,8 @@ import Layout from "../layouts/Layout.astro";
       soleIT = Math.max(0, usIT(w2 + netProfit - soleDeduction) - usIT(w2));
       soleTotalTax = soleSE + soleIT;
 
-      // S-Corp: optimal salary = 40% of net profit (reasonable salary floor)
-      const sSalary = Math.min(netProfit * 0.40, 150000);
-      const sDist = Math.max(0, netProfit - sSalary);
+      // S-Corp split calculations
+      const { salary: sSalary, dist: sDist } = getSalaryAndDist("US", netProfit, salaryPct, state.tax.isSliderDirty);
       const ssCapCorpSalary = Math.min(sSalary * 0.9235, ssCap);
       corpTax = ssCapCorpSalary * 0.124 + sSalary * 0.9235 * 0.029; // FICA
       const corpDeductEmployer = corpTax * 0.5;
@@ -1586,8 +1711,8 @@ import Layout from "../layouts/Layout.astro";
       soleIT = Math.max(0, ukIT(w2 + netProfit) - ukIT(w2));
       soleTotalTax = soleSE + soleIT;
 
-      // Ltd Company: optimal = small salary £12,570 + dividends
-      const ltdSalary = Math.min(netProfit, 12570);
+      // Ltd Company split calculations
+      const { salary: ltdSalary } = getSalaryAndDist("UK", netProfit, salaryPct, state.tax.isSliderDirty);
       const corpProfit = Math.max(0, netProfit - ltdSalary);
       corpTax = corpProfit <= 50000 ? corpProfit * 0.19 : // small profits rate
                 corpProfit <= 250000 ? corpProfit * (0.19 + (corpProfit - 50000) / 200000 * 0.06) :
@@ -1624,12 +1749,11 @@ import Layout from "../layouts/Layout.astro";
       soleIT = Math.max(0, (caIT(soleTaxable) + soleTaxable * 0.0915) - (caIT(w2) + w2 * 0.0915));
       soleTotalTax = soleSE + soleIT;
 
-      // CCPC: 9% SBD on active income (federal) + ~3% provincial combined = ~12%
-      corpTax = Math.min(netProfit, 500000) * 0.12;
-      const retained = Math.max(0, netProfit - corpTax);
-      // Pay reasonable salary + eligible dividends (EDR ~15.02%)
-      const corpSalary = Math.min(retained * 0.5, 100000);
-      const dividends = Math.max(0, retained - corpSalary);
+      // CCPC split calculations
+      const { salary: corpSalary } = getSalaryAndDist("CA", netProfit, salaryPct, state.tax.isSliderDirty);
+      const corpTaxable = Math.max(0, netProfit - corpSalary);
+      corpTax = Math.min(corpTaxable, 500000) * 0.12; // 12% blended SBD
+      const dividends = Math.max(0, corpTaxable - corpTax);
       const corpSalaryCPP = Math.max(0, Math.min(corpSalary, cppMax) - cppMin) * 0.0495; // employee side
       const divIncomeTax = dividends * 0.1502; // eligible dividend tax rate
       corpIT = Math.max(0, (caIT(w2 + corpSalary) + (w2 + corpSalary) * 0.0915) - (caIT(w2) + w2 * 0.0915)) + divIncomeTax;
@@ -1651,12 +1775,11 @@ import Layout from "../layouts/Layout.astro";
       soleIT = Math.max(0, auIT(w2 + netProfit) + medicareLevy(w2 + netProfit) - auIT(w2) - medicareLevy(w2));
       soleTotalTax = soleSE + soleIT;
 
-      // Pty Ltd: 25% company tax (small business entity < $50M turnover)
-      corpTax = netProfit * 0.25;
-      const retained = Math.max(0, netProfit - corpTax);
-      // Pay small salary (up to $18,200 tax free) + franked dividends
-      const auSalary = Math.min(retained, 18200);
-      const dividends = Math.max(0, retained - auSalary);
+      // Pty Ltd split calculations
+      const { salary: auSalary } = getSalaryAndDist("AU", netProfit, salaryPct, state.tax.isSliderDirty);
+      const corpTaxable = Math.max(0, netProfit - auSalary);
+      corpTax = corpTaxable * 0.25; // 25% company tax rate
+      const dividends = Math.max(0, corpTaxable - corpTax);
       // Franked dividend: grossed up at 25% rate, offset by franking credits
       const grossDiv = dividends / 0.75;
       const frankingCredit = grossDiv - dividends;
@@ -1689,6 +1812,137 @@ import Layout from "../layouts/Layout.astro";
 
     document.getElementById("tax-net-profit").innerText  = fmt(netProfit);
     document.getElementById("tax-rec-savings").innerText = savings > 0 ? fmt(savings) : "—";
+
+    // ── OPTIMIZER INTERACTIVE CARD CONTROLS ──────────────────────────────────
+    const optimizerCard = document.getElementById("tax-optimizer-card");
+    if (optimizerCard) {
+      if (netProfit > 0) {
+        optimizerCard.classList.remove("hidden");
+        const threshold = cfg.breakEvenRevenue;
+        const noticeBanner = document.getElementById("opt-notice-banner");
+        const controls = document.getElementById("opt-controls");
+        
+        if (netProfit < threshold) {
+          noticeBanner.classList.remove("hidden");
+          controls.classList.add("hidden");
+          noticeBanner.innerText = `${cfg.corpLabel.replace("LLC with ", "")} optimization is generally not cost-effective below ${fmt(threshold)} in net profit due to compliance overhead.`;
+        } else {
+          noticeBanner.classList.add("hidden");
+          controls.classList.remove("hidden");
+
+          // Rename titles dynamically
+          document.getElementById("opt-title").innerText = `${cfg.symbol}-Corp Salary vs. Distributions Optimizer`.replace("$-Corp", "S-Corp").replace("£-Corp", "Ltd Company").replace("C$-Corp", "CCPC").replace("A$-Corp", "Pty Ltd");
+          
+          // Rename input/slider labels dynamically
+          const sliderLabel = document.getElementById("opt-slider-label");
+          const salaryLabel = document.getElementById("opt-salary-label");
+          const distLabel = document.getElementById("opt-dist-label");
+          const savingsLabel = document.getElementById("opt-savings-label");
+
+          if (country === "UK") {
+            sliderLabel.innerText = "Director's Salary %";
+            salaryLabel.innerText = "Director's Salary";
+            distLabel.innerText = "Dividend Distributions";
+            savingsLabel.innerText = "Ltd Dividend Split Savings";
+          } else if (country === "CA") {
+            sliderLabel.innerText = "Salary Split %";
+            salaryLabel.innerText = "Director's Salary";
+            distLabel.innerText = "Dividends / Retained";
+            savingsLabel.innerText = "CCPC Integration Savings";
+          } else if (country === "AU") {
+            sliderLabel.innerText = "Salary Split %";
+            salaryLabel.innerText = "Director's Salary";
+            distLabel.innerText = "Franked Dividends";
+            savingsLabel.innerText = "Pty Ltd Net Savings";
+          } else {
+            sliderLabel.innerText = "Salary Percentage";
+            salaryLabel.innerText = "Salary Amount";
+            distLabel.innerText = "Distributions";
+            savingsLabel.innerText = "Salary Split Net Savings";
+          }
+
+          // Calculate Salary/Distributions
+          const { salary, dist } = getSalaryAndDist(country, netProfit, salaryPct, state.tax.isSliderDirty);
+          document.getElementById("opt-salary-pct-val").innerText = salaryPct + "%";
+          document.getElementById("opt-salary-val").innerText = fmt(salary);
+          document.getElementById("opt-dist-val").innerText = fmt(dist);
+          document.getElementById("opt-savings-val").innerText = savings > 0 ? fmt(savings) : fmt(0);
+
+          // Update Audit Risk Meter
+          const riskStatus = document.getElementById("opt-risk-status");
+          const riskDesc = document.getElementById("opt-risk-desc");
+          const riskPointer = document.getElementById("opt-risk-pointer");
+
+          const pointerLeft = Math.max(0, Math.min(100, ((salaryPct - 30) / 40) * 100));
+          riskPointer.style.left = pointerLeft + "%";
+
+          let riskLevel = "Safe";
+          let riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+          let descText = "";
+
+          if (country === "US") {
+            // US S-Corp reasonable compensation
+            const actualPct = (salary / netProfit) * 100;
+            if (actualPct >= 40 && actualPct <= 60) {
+              riskLevel = "Safe";
+              riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+              descText = "Low risk. The salary is within the recommended 40%-60% range, satisfying the IRS 'reasonable compensation' guideline.";
+            } else if (actualPct >= 30 && actualPct < 40) {
+              riskLevel = "Moderate";
+              riskClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+              descText = "Moderate risk. A salary between 30%-39% is aggressive. Ensure you can support this with industry wage surveys for your role.";
+            } else if (actualPct < 30) {
+              riskLevel = "High Risk";
+              riskClass = "bg-rose-500/10 text-[var(--color-risk)] border border-[var(--color-risk)]/30";
+              descText = "High risk! A salary below 30% is a primary audit trigger for S-Corporations. The IRS may recharacterize distributions as salary.";
+            } else {
+              riskLevel = "Conservative";
+              riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+              descText = "Very safe from audit, but higher salary reduces your FICA tax savings advantage.";
+            }
+          } else if (country === "UK") {
+            // UK Optimal HMRC salary
+            if (salary <= 12570) {
+              riskLevel = "Optimal";
+              riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+              descText = "Optimal UK setup. Paying a salary around £12,570 minimizes National Insurance while maintaining state pension credits.";
+            } else {
+              riskLevel = "Sub-optimal";
+              riskClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+              descText = "Sub-optimal tax setup. Salaries above the NI threshold trigger Income Tax and National Insurance contributions.";
+            }
+          } else if (country === "CA") {
+            // CA corporate tax integration
+            if (salaryPct <= 50) {
+              riskLevel = "Optimal";
+              riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+              descText = "Low risk. The salary/dividend mix leverages the Small Business Deduction and fits standard corporate tax integration.";
+            } else {
+              riskLevel = "Sub-optimal";
+              riskClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+              descText = "Sub-optimal. High salary reduces corporate retained earnings that could benefit from tax-deferred compounding under SBD.";
+            }
+          } else if (country === "AU") {
+            // AU Division 7A tax compliance
+            if (salaryPct <= 50) {
+              riskLevel = "Safe";
+              riskClass = "bg-emerald-500/10 text-[var(--color-safe)] border border-[var(--color-safe)]/30";
+              descText = "Low risk. Dividends are fully franked and director salary is processed under standard Single Touch Payroll (STP).";
+            } else {
+              riskLevel = "Div 7A Alert";
+              riskClass = "bg-amber-500/10 text-amber-400 border border-amber-500/30";
+              descText = "Ensure all payments to directors are formalised as salary or franked dividends to prevent Division 7A deemed dividend triggers.";
+            }
+          }
+
+          riskStatus.innerText = riskLevel;
+          riskStatus.className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase transition-all duration-300 ${riskClass}`;
+          riskDesc.innerText = descText;
+        }
+      } else {
+        optimizerCard.classList.add("hidden");
+      }
+    }
 
     // Break-even logic
     const banner    = document.getElementById("tax-recommendation-banner");
@@ -2157,6 +2411,7 @@ import Layout from "../layouts/Layout.astro";
     // Tax country selector
     document.getElementById("tax-country").addEventListener("change", (e) => {
       state.tax.country = e.target.value;
+      state.tax.isSliderDirty = false; // Reset slider dirty flag
       updateTaxCountryUI(state.tax.country);
       saveState();
       calculateTax();
@@ -2172,14 +2427,30 @@ import Layout from "../layouts/Layout.astro";
       const el = document.getElementById(id);
       el.addEventListener("input", (e) => {
         state.tax[prop] = parseFloat(e.target.value) || 0;
+        state.tax.isSliderDirty = false; // Reset slider dirty flag
         saveState();
         calculateTax();
       });
     });
 
+    // Slider optimizer split input
+    const optSlider = document.getElementById("opt-salary-pct");
+    if (optSlider) {
+      optSlider.addEventListener("input", (e) => {
+        state.tax.salaryPct = parseFloat(e.target.value) || 40;
+        state.tax.isSliderDirty = true; // Set slider dirty flag
+        saveState();
+        calculateTax();
+      });
+    }
+
     // Listen for financial-hub-reset to clear tax panel outputs
     window.addEventListener("financial-hub-reset", () => {
       updateTaxCountryUI("US");
+      const slider = document.getElementById("opt-salary-pct");
+      if (slider) {
+        slider.value = 40;
+      }
     });
 
     // ── DEBT: Add row button

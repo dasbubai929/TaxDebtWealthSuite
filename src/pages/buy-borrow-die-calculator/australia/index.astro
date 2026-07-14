@@ -1,7 +1,13 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import BuyBorrowDieCalculator from "../../../components/BuyBorrowDieCalculator.astro";
+import { getCollection } from "astro:content";
+const relatedPosts = (await getCollection("blog"))
+  .filter(post => post.data.relatedTool === "buy-borrow-die-calculator")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
 ---
+
 
 <Layout 
   title="Buy, Borrow, Die Calculator Australia — Margin Lending vs CGT | TaxDebtWealthSuite"
@@ -240,8 +246,9 @@ import BuyBorrowDieCalculator from "../../../components/BuyBorrowDieCalculator.a
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
             <div class="flex flex-col space-y-2">
-              <a href="/blog/is-buy-borrow-die-legal-irs/" class="text-slate-400 hover:text-white transition-colors">Is Buy, Borrow, Die Legal with the IRS?</a>
-              <a href="/blog/what-happens-to-sbloc-when-you-die/" class="text-slate-400 hover:text-white transition-colors">What Happens to an SBLOC When You Die?</a>
+              {relatedPosts.map(post => (
+                <a href={`/blog/${post.slug}/`} class="text-slate-400 hover:text-white transition-colors">{post.data.title}</a>
+              ))}
             </div>
           </div>
         

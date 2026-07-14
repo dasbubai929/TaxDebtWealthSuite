@@ -1,7 +1,13 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import DebtPayoffCalculator from "../../../components/DebtPayoffCalculator.astro";
+import { getCollection } from "astro:content";
+const relatedPosts = (await getCollection("blog"))
+  .filter(post => post.data.relatedTool === "debt-payoff-calculator")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
 ---
+
 
 <Layout 
   title="Debt Snowball vs Avalanche Calculator (United Kingdom) | TaxDebtWealthSuite"
@@ -217,8 +223,9 @@ import DebtPayoffCalculator from "../../../components/DebtPayoffCalculator.astro
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
             <div class="flex flex-col space-y-2">
-              <a href="/blog/debt-snowball-vs-avalanche-personality/" class="text-slate-400 hover:text-white transition-colors">The Debt Snowball vs Avalanche Personality Test</a>
-              <a href="/blog/extra-payment-speeds-up-debt-payoff/" class="text-slate-400 hover:text-white transition-colors">How Extra Payments Speed Up Debt Payoff</a>
+              {relatedPosts.map(post => (
+                <a href={`/blog/${post.slug}/`} class="text-slate-400 hover:text-white transition-colors">{post.data.title}</a>
+              ))}
             </div>
           </div>
         

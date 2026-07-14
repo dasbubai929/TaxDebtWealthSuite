@@ -1,7 +1,13 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
+import { getCollection } from "astro:content";
+const relatedPosts = (await getCollection("blog"))
+  .filter(post => post.data.relatedTool === "s-corp-tax-calculator")
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
 ---
+
 
 <Layout 
   title="CCPC vs Sole Proprietor Tax Calculator (Canada) | TaxDebtWealthSuite"
@@ -208,8 +214,9 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
             <div class="flex flex-col space-y-2">
-              <a href="/blog/s-corp-election-deadline-form-2553/" class="text-slate-400 hover:text-white transition-colors">S-Corp Election Deadline (Form 2553)</a>
-              <a href="/blog/llc-vs-s-corp-actual-differences/" class="text-slate-400 hover:text-white transition-colors">LLC vs S-Corp Actual Differences</a>
+              {relatedPosts.map(post => (
+                <a href={`/blog/${post.slug}/`} class="text-slate-400 hover:text-white transition-colors">{post.data.title}</a>
+              ))}
             </div>
           </div>
         

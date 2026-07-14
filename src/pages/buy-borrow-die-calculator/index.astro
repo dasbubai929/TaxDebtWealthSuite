@@ -4,8 +4,8 @@ import BuyBorrowDieCalculator from "../../components/BuyBorrowDieCalculator.astr
 ---
 
 <Layout 
-  title="Buy, Borrow, Die Calculator — SBLOC vs Capital Gains Tax Tool | TaxDebtWealthSuite"
-  description="Model the Buy, Borrow, Die strategy free. Compare SBLOC borrowing costs vs capital gains tax, check your margin call risk, and see your 1-year net wealth advantage."
+  title="Buy, Borrow, Die Calculator United States — SBLOC vs Capital Gains Tax | TaxDebtWealthSuite"
+  description="Model the Buy, Borrow, Die strategy in the United States. Compare SBLOC borrowing costs vs Capital Gains Tax, check your margin call risk, and see your net wealth advantage."
   ogImage="https://taxdebtwealthsuite.com/images/og-buy-borrow-die.png"
 >
   <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/buy-borrow-die-calculator/" slot="head" />
@@ -20,26 +20,47 @@ import BuyBorrowDieCalculator from "../../components/BuyBorrowDieCalculator.astr
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "Buy, Borrow, Die Calculator",
+        "name": "Buy, Borrow, Die Calculator (United States)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
         },
-        "description": "Model the Buy, Borrow, Die strategy free. Compare SBLOC borrowing costs vs capital gains tax, check your margin call risk, and see your 1-year net wealth advantage."
+        "description": "Model the Buy, Borrow, Die strategy in the United States. Compare SBLOC borrowing costs vs Capital Gains Tax."
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "What are the risks of borrowing against your stock portfolio (SBLOC)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A Securities-Based Line of Credit (SBLOC) carries three primary risks: (1) Margin calls — if your portfolio value drops significantly, your lender can demand immediate repayment or force liquidation of assets; (2) Interest rate risk — SBLOC rates are typically variable and linked to SOFR, meaning costs rise in high-rate environments; and (3) Collateral concentration — pledging a single-asset portfolio amplifies downside exposure. The standard maintenance LTV threshold is 70% — meaning a portfolio decline of more than 30% above your loan amount can trigger a forced sale."
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What are the risks of a SBLOC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The primary risk is a margin call. If your portfolio drops below the maintenance LTV threshold, the lender can force liquidation of your assets at market lows."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the Buy, Borrow, Die strategy legal in the United States?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, borrowing against your own assets is a standard financial practice and does not trigger a taxable event under current IRS guidelines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does interest affect the strategy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If your SBLOC interest rate is higher than your portfolio yield or long-term capital gains tax rate, it creates a negative tax drag. You must ensure borrowing costs remain lower than tax costs."
+            }
           }
-        }]
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -67,17 +88,25 @@ import BuyBorrowDieCalculator from "../../components/BuyBorrowDieCalculator.astr
     <!-- Title Section -->
     <div class="mb-8 text-center sm:text-left">
       <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
-        Buy, Borrow, Die Calculator: SBLOC vs Selling Assets
+        Buy, Borrow, Die Calculator (United States): SBLOC vs Capital Gains Tax
       </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-07" class="text-slate-400">Updated: July 2026</time>
+      </div>
       <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
-        Model Securities-Based Lines of Credit (SBLOC) vs. asset liquidation to analyze interest cost, tax drag savings, and margin call safety buffers.
+        Model SBLOC costs vs. asset liquidation to analyze interest cost, tax drag savings, and margin call safety buffers in the United States.
       </p>
       <div class="mt-4 text-xs text-slate-400">
         Switch to another country variant: 
         <span class="text-slate-300 font-semibold">United States (Default)</span> | 
-        <a href="/buy-borrow-die-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom (Lombard Loan)</a> | 
-        <a href="/buy-borrow-die-calculator/canada/" class="text-[#00F5D4] hover:underline">Canada (Margin Loan)</a> | 
-        <a href="/buy-borrow-die-calculator/australia/" class="text-[#00F5D4] hover:underline">Australia (Margin Lending)</a>
+        <a href="/buy-borrow-die-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom</a> | 
+        <a href="/buy-borrow-die-calculator/canada/" class="text-[#00F5D4] hover:underline">Canada</a> | 
+        <a href="/buy-borrow-die-calculator/australia/" class="text-[#00F5D4] hover:underline">Australia</a>
       </div>
     </div>
 
@@ -87,42 +116,68 @@ import BuyBorrowDieCalculator from "../../components/BuyBorrowDieCalculator.astr
     <!-- Explainer Content -->
     <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
       <div class="max-w-4xl mx-auto py-16">
-        <section aria-labelledby="bbd-guide-heading">
+        <section>
           <div class="mb-6">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Portfolio Strategy</span>
-            <h2 id="bbd-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Portfolio Strategy (United States)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
               Demystifying the "Buy, Borrow, Die" Financial Strategy
             </h2>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              The <strong class="text-slate-200">portfolio line of credit tax strategy</strong> — colloquially known as "Buy, Borrow, Die" — is a wealth preservation technique used by high-net-worth individuals and family offices to generate liquidity from appreciated assets without triggering a taxable capital gains event.
-            </p>
           </div>
 
-          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">How the SBLOC Strategy Works</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
               <p>
-                A <strong class="text-slate-300">Securities-Based Line of Credit (SBLOC)</strong> allows investors to pledge their investment portfolio — equities, ETFs, mutual funds, or bonds — as collateral against a revolving credit facility. Rather than selling appreciated stock and paying 20%–37% in combined federal capital gains and income tax (depending on your bracket), the investor simply <strong class="text-slate-300">borrows against stocks to avoid capital gains</strong> and uses that cash for living expenses, real estate purchases, or reinvestment.
-              </p>
-              <p class="mt-3">
-                The strategy becomes generational when paired with the IRS stepped-up cost basis rule: at death, heirs inherit assets at their current market value, completely eliminating the embedded capital gain. This is the "Die" component — the tax liability is legally erased at death, never collected.
+                The <strong>Buy, Borrow, Die</strong> strategy is a wealth preservation technique utilized by high-net-worth individuals globally, including in the United States. Instead of selling highly appreciated assets and paying massive Capital Gains Tax, investors leverage a <strong>SBLOC</strong>. By borrowing against their portfolio, they generate tax-free liquidity to fund real estate, living expenses, or further investments.
               </p>
             </article>
 
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">SBLOC Interest Rates vs. Capital Gains Tax — The Break-Even Math</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Benefits of the Strategy</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Zero Tax Trigger:</strong> Access cash without triggering a taxable event with the IRS.</li>
+                <li><strong>Uninterrupted Compounding:</strong> Your entire portfolio remains invested, continuing to generate dividends and capital growth.</li>
+                <li><strong>Generational Wealth Transfer:</strong> In many jurisdictions, assets receive a step-up in basis at death, essentially erasing the capital gains tax liability for heirs.</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Step-by-Step Usage Guide</h3>
+              <ol class="list-decimal pl-5 space-y-2">
+                <li><strong>Enter Portfolio Value:</strong> Input the total value of the assets you plan to pledge.</li>
+                <li><strong>Enter Cost Basis:</strong> Input the original purchase price of the assets to calculate embedded gains.</li>
+                <li><strong>Input Loan Amount:</strong> Enter the amount of liquidity you need via the SBLOC.</li>
+                <li><strong>Set Interest & Tax Rates:</strong> Provide your expected borrowing rate and your estimated Capital Gains Tax rate.</li>
+                <li><strong>Analyze Results:</strong> Review the net wealth advantage, interest cost, and critical margin call thresholds.</li>
+              </ol>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Mathematical Methodology</h3>
               <p>
-                The core <strong class="text-slate-300">SBLOC interest rates vs capital gains tax</strong> comparison is straightforward: if your long-term capital gains tax rate (typically 15%–20% federally, plus state taxes up to 13.3% in California) exceeds the annualized interest cost of your SBLOC (typically Prime + 1%–3%, or roughly 6%–9% in 2026), borrowing generates a structural net saving on every dollar of liquidity generated. In the UK, where Capital Gains Tax reaches 24% for higher-rate taxpayers on investment gains above the £3,000 annual exempt amount, the SBLOC equivalent — often called a <em>Lombard Loan</em> — offers similar advantages.
+                The calculator determines the <strong>Net Wealth Advantage</strong> by comparing two scenarios over a 1-year period:
+              </p>
+              <p class="mt-2">
+                <em>Scenario A (Sell):</em> You sell enough stock to net your required cash after paying Capital Gains Tax. The remaining portfolio continues to grow at your assumed market return.
+              </p>
+              <p class="mt-2">
+                <em>Scenario B (Borrow):</em> You take a SBLOC for the exact cash amount. Your entire portfolio grows at the market return, but you accrue interest on the loan. The advantage is the difference in ending net worth between Scenario B and Scenario A.
               </p>
             </article>
 
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">Inherent Risks: Margin Calls and LTV Thresholds</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Common Mistakes to Avoid</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Over-leveraging:</strong> Taking a loan too close to the maximum LTV threshold significantly increases the risk of a margin call during market corrections.</li>
+                <li><strong>Ignoring Variable Rates:</strong> SBLOC rates are typically variable. A sharp rise in interest rates can quickly negate the tax benefits.</li>
+                <li><strong>Concentration Risk:</strong> Borrowing against a highly concentrated portfolio (e.g., a single company's stock) is far riskier than borrowing against a diversified index fund.</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Real-World Case Study</h3>
               <p>
-                The strategy is not without material risks. Most SBLOC lenders enforce a <strong class="text-slate-300">Loan-to-Value (LTV) maintenance threshold</strong> of 65%–75%. If the underlying portfolio declines in value — as all equity portfolios periodically do — the lender can issue a margin call, requiring the borrower to either deposit additional collateral or repay a portion of the loan within 24–72 hours. In a severe market downturn, this can force an investor to sell assets at precisely the worst prices — the very scenario the strategy was designed to avoid.
-              </p>
-              <p class="mt-3">
-                Our <strong class="text-slate-300">Buy, Borrow, Die calculator</strong> above models this in real time, showing your current LTV, the price drop buffer before a margin call is triggered, and a color-coded risk meter (Green &lt;30% LTV, Amber 30%–50%, Red &gt;50%) to help you maintain a safe leverage envelope. Before leveraging stock portfolio debt, ensure your high-interest personal liabilities are resolved using our <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>, and if your borrowing is aimed at funding a new business, compare incorporation benefits with the <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">S-Corp vs sole proprietor tax calculator</a>.
+                Imagine an investor in the United States with a USD2,000,000 portfolio needing USD200,000 for a down payment. Selling assets might trigger a 20% tax on gains, requiring them to liquidate USD250,000 just to net the USD200,000. By using a SBLOC at 6%, they keep the entire USD2,000,000 invested. If the market returns 8%, the portfolio grows by USD160,000, while loan interest is only USD12,000. The investor comes out massively ahead.
               </p>
             </article>
           </div>
@@ -130,23 +185,68 @@ import BuyBorrowDieCalculator from "../../components/BuyBorrowDieCalculator.astr
           <!-- FAQ Accordion -->
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
-            <h3 class="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
-            <div class="faq-item border border-[#1E294B] rounded-lg overflow-hidden bg-[#141C32]">
-              <button
-                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer"
-                aria-expanded="false"
-                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
-              >
-                <span class="text-sm font-semibold text-white pr-4">What are the risks of borrowing against your stock portfolio (SBLOC)?</span>
-                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-              <div class="hidden px-6 pb-6">
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  A Securities-Based Line of Credit (SBLOC) carries three primary risks: <strong class="text-slate-300">(1) Margin calls</strong> — if your portfolio value drops significantly, your lender can demand immediate repayment or force liquidation of assets; <strong class="text-slate-300">(2) Interest rate risk</strong> — SBLOC rates are typically variable and linked to SOFR, meaning costs rise in high-rate environments; and <strong class="text-slate-300">(3) Collateral concentration</strong> — pledging a single-asset portfolio amplifies downside exposure. The standard maintenance LTV threshold is 70% — meaning a portfolio decline of more than 30% above your loan amount can trigger a forced sale.
-                </p>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+            
+            <div class="space-y-4">
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">What are the risks of a SBLOC?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  The primary risk is a margin call. If your portfolio drops below the maintenance LTV threshold, the lender can force liquidation of your assets at market lows.
+                </div>
               </div>
+              
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">Is the Buy, Borrow, Die strategy legal in the United States?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Yes, borrowing against your own assets is a standard financial practice and does not trigger a taxable event under current IRS guidelines.
+                </div>
+              </div>
+
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">How does interest affect the strategy?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  If your SBLOC interest rate is higher than your portfolio yield or long-term capital gains tax rate, it creates a negative tax drag. You must ensure borrowing costs remain lower than tax costs.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline">Compare S-Corp Tax Savings</a>
+              <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline">Debt Avalanche vs Snowball Planner</a>
+            </div>
+          </div>
+
+        
+          <!-- Related Articles -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/blog/is-buy-borrow-die-legal-irs/" class="text-slate-400 hover:text-white transition-colors">Is Buy, Borrow, Die Legal with the IRS?</a>
+              <a href="/blog/what-happens-to-sbloc-when-you-die/" class="text-slate-400 hover:text-white transition-colors">What Happens to an SBLOC When You Die?</a>
+            </div>
+          </div>
+        
+          <!-- Methodology & Sources -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Methodology</span>
+            <h3 class="text-2xl font-bold text-white mb-4">How This is Calculated</h3>
+            <div class="text-sm text-slate-400 space-y-3 leading-relaxed">
+              <p>This calculator models the opportunity cost of portfolio liquidation vs margin borrowing. When selling, it immediately reduces your total portfolio size by your marginal capital gains rate, preventing those funds from compounding.</p>
+              <p>When borrowing (SBLOC / Margin), the portfolio remains fully invested, but accrues monthly compounding margin interest. The "Margin Call Liquidation Price" is calculated using the formula: <code>Loan Amount / (1 - Maintenance Margin Requirement)</code>. A standard Reg T maintenance margin is assumed unless modified in advanced settings.</p>
+              <p><strong>Reference:</strong> <a href="https://www.finra.org/rules-guidance/rulebooks/finra-rules/4210" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">FINRA Rule 4210 (Margin Requirements)</a></p>
             </div>
           </div>
         </section>

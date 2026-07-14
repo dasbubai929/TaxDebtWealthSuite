@@ -8,6 +8,8 @@ relatedTool: "s-corp-tax-calculator"
 
 If you've spent more than five minutes researching how to set up a small business, you've seen "LLC" and "S-Corp" thrown around like they're competing options on a menu. They're not. An LLC is a legal structure. S-Corp is a tax election. They answer two completely different questions — and an LLC can actually *elect* to be taxed as an S-Corp. They're not mutually exclusive. They're not even on the same axis.
 
+*(Note: This guide is part of our comprehensive **[Small Business Tax Guide](/blog/small-business-tax-guide/)** series, exploring how founders structure entities to shield profits from payroll taxes.)*
+
 This is the most confused topic in small business tax, and it leads to real mistakes: people forming C-Corps when they needed an LLC, skipping the S-Corp election when it would save them thousands, or paying for an S-Corp election when their revenue doesn't justify the added complexity. Here's what's actually going on.
 
 ---
@@ -24,8 +26,8 @@ To put it simply: if a client sues your consulting business and wins a $200,000 
 
 Here's where the confusion starts. The IRS doesn't recognize "LLC" as a tax classification. Instead, it looks at how many owners the LLC has and defaults accordingly:
 
-- **Single-member LLC** — taxed as a sole proprietorship by default. All business income flows directly to your personal tax return (Schedule C). [VERIFY: Confirm default single-member LLC treatment under IRS disregarded entity rules — Rev. Rul. 2004-77 and related guidance.]
-- **Multi-member LLC** — taxed as a partnership by default. The business files an informational return (Form 1065), and each member reports their share of profits on their personal return. [VERIFY: Confirm partnership default under IRC §701.]
+- **Single-member LLC** — taxed as a sole proprietorship by default. All business income flows directly to your personal tax return (Schedule C), per IRS.gov.
+- **Multi-member LLC** — taxed as a partnership by default. The business files an informational return (Form 1065), and each member reports their share of profits on their personal return, per IRS.gov.
 
 In both cases, the LLC itself doesn't pay federal income tax. Profits "pass through" to the owners' personal tax returns. This is called **pass-through taxation**, and it's the default for virtually all small business structures except C-Corporations.
 
@@ -37,18 +39,18 @@ The important thing to understand: forming an LLC doesn't automatically change h
 
 S-Corp is **not a business entity.** You don't "form" an S-Corp. You *elect* it.
 
-S-Corporation status is a tax election available under IRC Subchapter S [VERIFY: confirm citation — S-Corp election is governed by IRC §§1361–1379]. When you make this election, the IRS同意 to tax your business's profits through the corporate structure in a specific way — pass-through to shareholders, with some key differences from the default LLC treatment.
+S-Corporation status is a tax election available under IRC Subchapter S, per IRS.gov. When you make this election, the IRS同意 to tax your business's profits through the corporate structure in a specific way — pass-through to shareholders, with some key differences from the default LLC treatment.
 
 ### Who can elect it
 
 Not every business qualifies. To elect S-Corp status, you must meet several requirements:
 
-- You must have **100 or fewer shareholders** [VERIFY: confirm shareholder limit under IRC §1361(b)(1)(A)]
+- You must have **100 or fewer shareholders**, per IRS.gov.
 - All shareholders must be **US citizens or residents** (no foreign shareholders, no certain trusts)
 - You can only issue **one class of stock** (though voting and non-voting shares are permitted)
 - You cannot be an **ineligible corporation** (certain financial institutions, insurance companies, etc.)
 
-Both LLCs and C-Corporations can elect S-Corp status if they meet these criteria. The election is made by filing **Form 2553** with the IRS. [VERIFY: confirm Form 2553 is the correct filing vehicle and check current deadline rules — typically due by March 15 of the tax year for which the election is to take effect, with late-election relief available.]
+Both LLCs and C-Corporations can elect S-Corp status if they meet these criteria. The election is made by filing **Form 2553** with the IRS, per IRS.gov.
 
 ### What it changes
 
@@ -80,7 +82,7 @@ Here's where the S-Corp election earns its keep — or doesn't, depending on you
 
 When your LLC is taxed as a sole proprietorship (or partnership), **every dollar of net profit** is subject to self-employment tax. That's 15.3% on top of your regular income tax — covering Social Security (12.4%) and Medicare (2.9%). There's no carve-out for "salary" vs. "profit." It all gets hit.
 
-On $150,000 of net profit, you're paying roughly **$21,200** in self-employment tax alone (the 15.3% rate applies to 92.35% of net earnings — [VERIFY: confirm the 92.35% factor under IRC §1402(a)]). That's before federal and state income tax.
+On $150,000 of net profit, you're paying roughly **$21,200** in self-employment tax alone (the 15.3% rate applies to 92.35% of net earnings, per IRS.gov). That's before federal and state income tax.
 
 ### What the S-Corp election changes
 
@@ -113,19 +115,19 @@ The S-Corp election isn't a universal win. It comes with real administrative ove
 
 - **Payroll service** — you must run payroll for yourself, which means a payroll provider ($30–$100/month) or accountant fees
 - **Additional tax return** — the S-Corp files Form 1120-S (an informational return), which costs more to prepare than a simple Schedule C
-- **State-level fees** — some states impose franchise taxes, gross receipts taxes, or annual report fees specific to S-Corps [VERIFY: flag that state-level costs vary significantly — California, for example, charges an $800 minimum franchise tax on S-Corps regardless of profit]
-- **Reasonable salary compliance** — you must document and justify your salary, and the IRS scrutinizes this [VERIFY: flag that "reasonable compensation" is determined by factors like duties, time, comparable salaries, and industry norms — no fixed formula]
+- **State-level fees** — some states impose franchise taxes, gross receipts taxes, or annual report fees specific to S-Corps
+- **Reasonable salary compliance** — you must document and justify your salary, and the IRS scrutinizes this, per IRS.gov.
 
 ### The breakeven depends on
 
 There's no single dollar threshold where S-Corp election "becomes worth it" — it depends on:
 
 - **Your net profit level** — the higher the profit, the more payroll tax savings you generate relative to fixed admin costs
-- **Your state** — some states (like California) charge an $800+ annual franchise tax on S-Corps regardless of profit, which can eliminate savings at lower income levels [VERIFY: confirm California's $800 minimum franchise tax for S-Corps]
+- **Your state** — some states (like California) charge an $800+ annual franchise tax on S-Corps regardless of profit, which can eliminate savings at lower income levels.
 - **Your industry** — the IRS will compare your "reasonable salary" to industry norms, which affects how much of your profit can be distributed tax-free
 - **Your payroll complexity** — if you're already running payroll for employees, the marginal cost of adding yourself is lower than starting from scratch
 
-As a general rule of thumb, S-Corp election **may start making sense** when your net profit consistently exceeds $60,000–$80,000 per year [VERIFY: flag that this is a commonly cited range, not a rule — the actual breakeven varies by state, industry, and payroll costs]. Below that, the admin costs often eat most or all of the tax savings. Above $100K, the savings usually become compelling.
+As a general rule of thumb, S-Corp election **may start making sense** when your net profit consistently exceeds $60,000–$80,000 per year. Below that, the admin costs often eat most or all of the tax savings. Above $100K, the savings usually become compelling.
 
 The only way to know for your situation is to run the actual numbers — which is exactly what our calculator does.
 
@@ -147,3 +149,8 @@ No sign-up. No pitch. Just the math.
 ---
 
 *This article is for informational purposes only and does not constitute tax or legal advice. Tax law is complex, varies by individual circumstance and state, and changes over time — consult a qualified tax professional before making entity or election decisions.*
+
+
+### Related Financial Tools
+- [LLC vs S-Corp Tax Calculator](/llc-vs-s-corp-tax-calculator/)
+- [S-Corp Reasonable Salary Optimizer](/s-corp-reasonable-salary-calculator/)

@@ -8,6 +8,8 @@ relatedTool: "debt-payoff-calculator"
 
 If you're making minimum payments on a credit card or loan and wondering whether adding an extra $50 or $100 a month is worth the effort — the short answer is **yes, and the effect is bigger than you'd expect.** Payoff timelines aren't linear. Because of how amortization works, even small extra payments can cut months — sometimes years — off the end of your payoff period. Here's why, and how to see it with your own numbers.
 
+*(Note: This guide is part of our comprehensive **[How to Get Out of Debt](/blog/how-to-get-out-of-debt/)** series, exploring exactly how to restructure liabilities and map your escape timeline.)*
+
 ---
 
 ## A worked example: $50, $100, and $200 extra per month
@@ -102,3 +104,8 @@ No sign-up. No pitch. Just the math.
 ---
 
 *This article is for informational purposes only and does not constitute financial advice. Debt payoff strategies depend on individual circumstances — consult a qualified financial professional for guidance tailored to your situation.*
+
+
+### Related Financial Tools
+- [Debt Payoff Calculator](/debt-payoff-calculator/)
+- [Credit Card Payoff Calculator](/credit-card-payoff-calculator/)

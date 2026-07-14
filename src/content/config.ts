@@ -9,11 +9,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     country: z.enum(['US', 'UK', 'Canada', 'Australia']).optional(),
-    relatedTool: z.enum([
-      'buy-borrow-die-calculator',
-      's-corp-tax-calculator',
-      'debt-payoff-calculator',
-    ]),
+    relatedTool: z.string(),
     /** Slug of the og:image to use — defaults to the related tool's banner */
     ogImage: z.string().optional(),
   }),

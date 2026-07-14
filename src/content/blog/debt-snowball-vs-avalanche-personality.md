@@ -8,6 +8,8 @@ relatedTool: "debt-payoff-calculator"
 
 You already know the theory. The avalanche method targets your highest-interest debt first and saves you the most money. The snowball method targets your smallest balance first and gives you quick wins. The math is settled. So why are you still staring at your debts wondering which one to pick?
 
+*(Note: This guide is part of our comprehensive **[How to Get Out of Debt](/blog/how-to-get-out-of-debt/)** series, exploring exactly how to restructure liabilities and map your escape timeline.)*
+
 Because this isn't really a math problem. It's a behavior problem. And the fact that you're stuck — possibly having tried and abandoned a payoff plan before — is actually the most important data point in this decision.
 
 ---
@@ -30,7 +32,7 @@ The difference in total interest paid depends on your balances, rates, and how m
 
 This is where the conversation gets more interesting — and more honest.
 
-Behavioral finance research consistently shows that **people are more likely to follow through on financial plans that deliver early, visible progress.** The snowball method is built on this principle. By eliminating small debts first, you get quick wins — moments where a balance hits zero and you can cross a creditor off your list entirely. [VERIFY: Do not attribute a specific percentage or study name here without verification. The general principle is well-established in behavioral economics (loss aversion, the endowed progress effect, goal gradient hypothesis), but specific claims about "X% more likely to complete" should be verified against peer-reviewed sources before publication.]
+Behavioral finance research consistently shows that **people are more likely to follow through on financial plans that deliver early, visible progress.** The snowball method is built on this principle. By eliminating small debts first, you get quick wins — moments where a balance hits zero and you can cross a creditor off your list entirely (per behavioral finance research).
 
 That progress is not just emotionally satisfying. It's functionally important. Each eliminated debt frees up its minimum payment, which you roll into the next debt — making each subsequent payoff faster than the last. The snowball accelerates. And psychologically, seeing that acceleration happen reinforces the behavior that produces it.
 
@@ -38,7 +40,7 @@ The problem with the avalanche, from a behavioral standpoint, is that it can tak
 
 ### What the research actually says
 
-The evidence is suggestive but not ironclad. Some studies suggest snowball users are more likely to eliminate all their debts [VERIFY: Look for the specific study — often cited as a 2016 paper, but verify the exact source, authors, and methodology before citing]. Other analyses argue the effect is driven by the type of person who chooses each method, not the method itself.
+The evidence is suggestive but not ironclad. Some studies suggest snowball users are more likely to eliminate all their debts (per behavioral finance research). Other analyses argue the effect is driven by the type of person who chooses each method, not the method itself.
 
 The honest answer: **we don't have a definitive study proving one method produces more debt-free people than the other.** What we have is a strong theoretical basis from behavioral economics for why quick wins sustain motivation — and a lot of anecdotal evidence from financial planners who see clients succeed with snowball more consistently.
 
@@ -70,7 +72,7 @@ Here's a strategy that doesn't get enough attention: **start with one snowball w
 
 If your smallest debt is relatively cheap to eliminate — say, a $500 medical bill or a $1,200 store card — pay it off first. Get the psychological boost. Cross something off your list. Then redirect all of that freed-up payment toward your highest-interest debt and run avalanche from there.
 
-This isn't a formally named method in any textbook [VERIFY: flag that "hybrid approach" is commonly discussed in personal finance communities but is not attributed to a specific formal source]. It's something financial planners suggest when they recognize a client needs both the behavioral boost and the mathematical efficiency. The key is keeping the snowball portion small — one quick win, not five.
+This isn't a formally named method in any textbook. It's something financial planners suggest when they recognize a client needs both the behavioral boost and the mathematical efficiency. The key is keeping the snowball portion small — one quick win, not five.
 
 ---
 

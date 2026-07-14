@@ -1,0 +1,182 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DebtPayoffCalculator from "../../components/DebtPayoffCalculator.astro";
+---
+
+<Layout 
+  title="Debt Avalanche Calculator | Save Maximum Interest"
+  description="Mathematically optimize your debt payoff. The Debt Avalanche calculator targets your highest-interest debt first to save you the absolute maximum amount of money."
+>
+  <script type="application/ld+json" slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Debt Avalanche Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Mathematically optimize your debt payoff. The Debt Avalanche calculator targets your highest-interest debt first to save you the absolute maximum amount of money."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Avalanche and Snowball?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Avalanche method sorts by highest interest rate, while the Snowball method sorts by smallest balance. Avalanche is mathematically superior; Snowball is psychologically superior."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is it called an avalanche?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because as you eliminate the high-interest debts, the freed-up capital you apply to the remaining lower-rate debts creates a massive, fast-moving financial impact—like an avalanche."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://taxdebtwealthsuite.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Debt Avalanche Calculator",
+            "item": "https://taxdebtwealthsuite.com/debt-avalanche-calculator/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+    
+    <!-- Title Section -->
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Debt Avalanche Calculator
+      </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-07" class="text-slate-400">Updated: July 2026</time>
+      </div>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Mathematically optimize your debt payoff. The Debt Avalanche calculator targets your highest-interest debt first to save you the absolute maximum amount of money.
+      </p>
+    </div>
+
+    <!-- Calculator Component Island -->
+    <DebtPayoffCalculator />
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16">
+        <section>
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Financial Tool</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              The Mathematically Optimal Way to Destroy Debt
+            </h2>
+          </div>
+
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
+              <p>For the mathematically minded optimizer, the Debt Avalanche method is the only logical choice. By sorting your debts from the highest interest rate down to the lowest, you ruthlessly attack the most expensive debt first. This calculator proves exactly how many thousands of dollars you will save by choosing Avalanche over Snowball.</p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Key Benefits</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Save the absolute maximum amount of money on interest charges.</li>
+                <li>Achieve debt-freedom faster than any other repayment method.</li>
+                <li>Stop the bleeding from predatory 25%+ APR credit cards.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+            
+            <div class="space-y-4">
+              
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">What is the difference between Avalanche and Snowball?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  The Avalanche method sorts by highest interest rate, while the Snowball method sorts by smallest balance. Avalanche is mathematically superior; Snowball is psychologically superior.
+                </div>
+              </div>
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">Why is it called an avalanche?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Because as you eliminate the high-interest debts, the freed-up capital you apply to the remaining lower-rate debts creates a massive, fast-moving financial impact—like an avalanche.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators & Resources</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/debt-snowball-calculator/" class="text-[#00F5D4] hover:underline">Compare with Debt Snowball</a>
+              <a href="/credit-card-payoff-calculator/" class="text-[#00F5D4] hover:underline">Credit Card Specific Planner</a>
+            </div>
+          </div>
+
+        
+          <!-- Related Articles -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/blog/debt-avalanche-method-step-by-step/" class="text-slate-400 hover:text-white transition-colors">Debt Avalanche Method Step-by-Step</a>
+              <a href="/blog/extra-payment-speeds-up-debt-payoff/" class="text-slate-400 hover:text-white transition-colors">How Extra Payments Speed Up Debt Payoff</a>
+            </div>
+          </div>
+        
+          <!-- Methodology & Sources -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-rose-500/10 text-rose-400 border border-rose-500/20 mb-4">Methodology</span>
+            <h3 class="text-2xl font-bold text-white mb-4">How This is Calculated</h3>
+            <div class="text-sm text-slate-400 space-y-3 leading-relaxed">
+              <p>This payoff planner uses standard daily/monthly compounding amortization algorithms. The formula to determine the number of months required to hit a $0 balance is <code>N = -log(1 - (r * P) / A) / log(1 + r)</code>.</p>
+              <p>When comparing Avalanche vs Snowball, the logic recursively calculates monthly interest, applies the minimum payment to all accounts, and rolls the remaining "extra payment" capital into the targeted debt (highest APR for Avalanche, lowest balance for Snowball) until the balance reaches zero, then cascades to the next debt.</p>
+              <p><strong>Reference:</strong> <a href="/methodology/" class="text-rose-400 hover:underline">Read our full mathematical methodology here.</a></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>

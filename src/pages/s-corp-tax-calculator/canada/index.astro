@@ -4,8 +4,8 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 ---
 
 <Layout 
-  title="CCPC vs Sole Proprietor Tax Calculator (Free) | TaxDebtWealthSuite"
-  description="Compare your Canadian tax bill as a sole proprietor vs CCPC. Free salary-vs-dividend distribution optimizer for side hustles and freelancers in Canada."
+  title="CCPC vs Sole Proprietor Tax Calculator (Canada) | TaxDebtWealthSuite"
+  description="Compare your tax bill as a sole trader vs CCPC in the Canada. Free salary vs distribution optimizer for freelancers and contractors."
   ogImage="https://taxdebtwealthsuite.com/images/og-s-corp-tax.png"
 >
   <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/s-corp-tax-calculator/" slot="head" />
@@ -20,26 +20,39 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "CCPC vs Sole Proprietor Tax Calculator",
+        "name": "CCPC Tax Calculator (Canada)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
         },
-        "description": "Compare your Canadian tax bill as a sole proprietor vs CCPC. Free salary-vs-dividend distribution optimizer for side hustles and freelancers in Canada."
+        "description": "Compare your tax bill as a sole trader vs CCPC in the Canada."
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "When should I switch from a sole proprietor to an LLC or S-Corp?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In the US, the general threshold is when net profit consistently exceeds $40,000–$50,000/yr — at that level, corporate tax savings exceed compliance costs (~$1,500–$3,000). In the UK, incorporating as a Limited Company makes sense above approximately £30,000–£35,000. Canadian CCPCs become advantageous at $50,000+ due to the Small Business Deduction (9% blended rate). Australian Pty Ltd structures are cost-effective above $80,000 where the 25% company tax rate beats top personal marginal rates of 45% + 2% Medicare."
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When should I incorporate as a CCPC?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to pay myself a salary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the CRA requires you to pay yourself a 'reasonable salary' for the services you perform before taking tax-advantaged distributions."
+            }
           }
-        }]
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -70,20 +83,27 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
     
-    <!-- Title Section -->
     <div class="mb-8 text-center sm:text-left">
       <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
-        CCPC Director Salary vs Dividends Tax Calculator
+        CCPC vs Sole Proprietor Tax Calculator (Canada)
       </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-07" class="text-slate-400">Updated: July 2026</time>
+      </div>
       <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
-        Compare Canadian Sole Proprietor taxes against Canadian-Controlled Private Corporation (CCPC) structures. Model Small Business Deductions and CPP adjustments.
+        Compare unincorporated vs. incorporated business structures in the Canada. Run instant break-even compensation audits to optimize your taxes.
       </p>
       <div class="mt-4 text-xs text-slate-400">
         Switch to another country variant: 
         <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline">United States (Default)</a> | 
-        <a href="/s-corp-tax-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom (Ltd Company)</a> | 
+        <a href="/s-corp-tax-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom</a> | 
         <span class="text-slate-300 font-semibold">Canada</span> | 
-        <a href="/s-corp-tax-calculator/australia/" class="text-[#00F5D4] hover:underline">Australia (Pty Ltd)</a>
+        <a href="/s-corp-tax-calculator/australia/" class="text-[#00F5D4] hover:underline">Australia</a>
       </div>
     </div>
 
@@ -93,56 +113,114 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     <!-- Explainer Content -->
     <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
       <div class="max-w-4xl mx-auto py-16">
-        <section aria-labelledby="corp-guide-heading">
+        <section>
           <div class="mb-6">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Business Tax Strategy (Canada)</span>
-            <h2 id="corp-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-              Choosing Between Sole Proprietor and CCPC Incorporation in Canada
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Choosing the Right Business Structure
             </h2>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              Canadian freelancers, consultants, and business owners face a critical decision when scaling: whether to remain a Sole Proprietor or incorporate as a Canadian-Controlled Private Corporation (CCPC). As a Sole Proprietor, all net business income is added to your personal income, taxed at your marginal rate (provincial plus federal), and subject to both employee and employer portions of Canada Pension Plan (CPP) contributions, totaling 9.9% up to the pensionable earnings cap.
-            </p>
           </div>
 
-          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">The Canadian Small Business Deduction (SBD) Edge</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
               <p>
-                Incorporating as a CCPC provides significant tax advantages, primarily through the federal Small Business Deduction (SBD). This SBD reduces the federal tax rate on active business income to just 9% (on the first $500,000 of profit), which combined with provincial small business rates leads to a total corporate tax rate of 11% to 12.2% depending on the province. This is far lower than personal tax brackets.
-              </p>
-              <p class="mt-3">
-                If the business owner does not need all the profit for personal living expenses, they can leave the funds inside the corporation, letting them compound at the lower corporate tax rate. For personal income, directors can pay themselves a mix of salary (which requires paying CPP but generates RRSP room) and non-eligible dividends (which are taxed at lower rates and do not require CPP contributions). Use our Canadian tax calculator to model your revenue, business expenses, and employment income to find the optimal structure and salary-to-dividend mix for your situation.
+                Deciding when to transition from a sole proprietor/trader to a <strong>CCPC</strong> is one of the most impactful financial decisions a freelancer or small business owner in the Canada can make. Our calculator helps you pinpoint the exact profit threshold where incorporation saves you money.
               </p>
             </article>
 
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">Corporate Overhead Break-Even Milestones</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Benefits of a CCPC</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Tax Arbitrage:</strong> Separate your income into salary and distributions to minimize payroll/self-employment taxes.</li>
+                <li><strong>Liability Protection:</strong> Incorporating shields your personal assets from business liabilities.</li>
+                <li><strong>Professional Image:</strong> Operating as a corporate entity can improve credibility with clients and vendors.</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Step-by-Step Usage Guide</h3>
+              <ol class="list-decimal pl-5 space-y-2">
+                <li><strong>Enter Revenue:</strong> Input your expected gross annual business revenue.</li>
+                <li><strong>Enter Expenses:</strong> Input your deductible business expenses to determine net profit.</li>
+                <li><strong>Set Salary:</strong> Determine a "reasonable salary" as required by the CRA.</li>
+                <li><strong>W-2/PAYE Income:</strong> Enter any income from a separate day job, as this affects your marginal tax bracket.</li>
+                <li><strong>Compare:</strong> The calculator outputs your total tax burden as a sole trader versus a CCPC.</li>
+              </ol>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Mathematical Methodology</h3>
               <p>
-                Because corporate administration (annual corporate tax filings, bookkeeping, corporate minutes) requires significant overhead, we model an average annual maintenance cost of $2,000 CAD. For most Canadian side-hustlers, the break-even net profit threshold sits at $50,000 CAD. Entering your details in the calculator above maps this boundary instantly. If you are using business profit to clear personal liabilities, map your repayment timeline using our <a href="/debt-payoff-calculator/canada/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>. Alternatively, if you plan to accumulate wealth inside your business and borrow against company assets later, read about the <a href="/buy-borrow-die-calculator/canada/" class="text-[#00F5D4] hover:underline font-semibold">Canadian portfolio margin loan strategy</a>.
+                As a sole proprietor, every dollar of net profit is subject to both ordinary income tax and self-employment/payroll taxes. By electing CCPC status, you only pay the payroll taxes on the portion of profits taken as a W-2/PAYE salary. The remaining profit is distributed as a dividend/distribution, which is generally free of the payroll tax burden (though still subject to income or dividend taxes).
               </p>
+            </article>
+            
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Common Mistakes to Avoid</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Unreasonable Salary:</strong> Setting your salary too low to maximize distributions is a red flag for the CRA and can trigger an audit.</li>
+                <li><strong>Ignoring Compliance Costs:</strong> A CCPC requires payroll processing, separate tax returns, and corporate filing fees. Make sure the tax savings exceed these overhead costs.</li>
+                <li><strong>Commingling Funds:</strong> You must maintain strict separation between personal and business bank accounts.</li>
+              </ul>
             </article>
           </div>
 
           <!-- FAQ Accordion -->
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
-            <h3 class="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
-            <div class="faq-item border border-[#1E294B] rounded-lg overflow-hidden bg-[#141C32]">
-              <button
-                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer"
-                aria-expanded="false"
-                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
-              >
-                <span class="text-sm font-semibold text-white pr-4">When should I switch from a sole proprietor to an LLC or S-Corp?</span>
-                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-              <div class="hidden px-6 pb-6">
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  In the <strong class="text-slate-300">US</strong>, the general threshold is when net profit consistently exceeds <strong class="text-slate-300">$40,000–$50,000/yr</strong> — at that level, corporate tax savings exceed compliance costs (~$1,500–$3,000). In the <strong class="text-slate-300">UK</strong>, incorporating as a Limited Company makes sense above approximately <strong class="text-slate-300">£30,000–£35,000</strong>. <strong class="text-slate-300">Canadian</strong> CCPCs become advantageous at <strong class="text-slate-300">$50,000+</strong> due to the Small Business Deduction (9% blended rate). <strong class="text-slate-300">Australian</strong> Pty Ltd structures are cost-effective above <strong class="text-slate-300">$80,000</strong> where the 25% company tax rate beats top personal marginal rates of 45% + 2% Medicare.
-                </p>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+            
+            <div class="space-y-4">
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">When should I incorporate as a CCPC?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting and payroll compliance costs.
+                </div>
               </div>
+              
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">Do I have to pay myself a salary?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Yes, the CRA requires you to pay yourself a "reasonable salary" for the services you perform before taking tax-advantaged distributions.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/debt-payoff-calculator/canada/" class="text-[#00F5D4] hover:underline">Debt Payoff Planner</a>
+              <a href="/buy-borrow-die-calculator/canada/" class="text-[#00F5D4] hover:underline">Buy Borrow Die Strategy</a>
+            </div>
+          </div>
+
+        
+          <!-- Related Articles -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/blog/s-corp-election-deadline-form-2553/" class="text-slate-400 hover:text-white transition-colors">S-Corp Election Deadline (Form 2553)</a>
+              <a href="/blog/llc-vs-s-corp-actual-differences/" class="text-slate-400 hover:text-white transition-colors">LLC vs S-Corp Actual Differences</a>
+            </div>
+          </div>
+        
+          <!-- Methodology & Sources -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Methodology</span>
+            <h3 class="text-2xl font-bold text-white mb-4">How This is Calculated</h3>
+            <div class="text-sm text-slate-400 space-y-3 leading-relaxed">
+              <p>This calculator relies on official tax brackets and employer/employee payroll logic provided by government authorities. In the US, it applies the standard 15.3% self-employment tax (12.4% OASDI, 2.9% Medicare) to 92.35% of net business earnings for sole proprietors.</p>
+              <p>For S-Corporations, FICA taxes are only applied to the W2 "Reasonable Salary" portion, exempting the remaining owner distribution from self-employment taxes (though standard income taxes still apply).</p>
+              <p><strong>Official Source:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">IRS.gov Self-Employment Tax Rules</a></p>
             </div>
           </div>
         </section>

@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout 
+  title="Calculation Methodology | TaxDebtWealthSuite"
+  description="Understand the mathematical frameworks, algorithms, and official sources used to power our financial calculators."
+>
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+    <div class="mb-12 text-center">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">The Math</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">Calculator Methodology</h1>
+    </div>
+
+    <div class="prose prose-invert prose-slate max-w-none">
+      <p class="text-lg text-slate-300 leading-relaxed mb-8">
+        We believe in complete transparency. You should never trust a "black box" calculator with your financial future. Below is an outline of the mathematical frameworks and official sources that power the tools on TaxDebtWealthSuite.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Debt Payoff Algorithms</h2>
+      <p class="text-slate-400">
+        Our Debt Payoff tools (Snowball, Avalanche, Credit Card Payoff) utilize standard daily/monthly compounding amortization formulas. 
+        <br><br>
+        <strong>Formulas Used:</strong><br>
+        For calculating the number of months required to pay off a balance given a fixed payment: <br>
+        <code>N = -log(1 - (r * P) / A) / log(1 + r)</code>
+        <br>Where <em>P</em> is the principal, <em>r</em> is the monthly interest rate (APR / 12), and <em>A</em> is the monthly payment.
+      </p>
+      <p class="text-slate-400 mt-2">
+        <strong>Avalanche vs Snowball Logic:</strong> The Avalanche algorithm aggressively sorts your debts by <code>APR (descending)</code>, while the Snowball algorithm sorts by <code>Balance (ascending)</code>. Extra payments are dynamically rolled over to the next targeted debt once the current target reaches $0.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">S-Corp Tax Optimization</h2>
+      <p class="text-slate-400">
+        Our business tax calculators compare the tax burden of a standard Sole Proprietorship / Single-Member LLC against an S-Corporation structure.
+      </p>
+      <ul class="list-disc pl-6 text-slate-400 space-y-2 mb-6">
+        <li><strong>United States:</strong> Calculations are based on the IRS self-employment tax rate of 15.3% (12.4% Social Security, 2.9% Medicare) applied to 92.35% of net earnings. The S-Corp model applies FICA taxes only to the W2 salary, shielding the remaining distribution.</li>
+        <li><strong>Official Sources:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline">IRS.gov - Self-Employment Tax</a></li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Buy, Borrow, Die (Margin Loans)</h2>
+      <p class="text-slate-400">
+        The SBLOC (Securities-Based Line of Credit) calculators model the opportunity cost of selling equities (triggering capital gains) versus borrowing against them.
+      </p>
+      <ul class="list-disc pl-6 text-slate-400 space-y-2 mb-6">
+        <li><strong>Tax Drag:</strong> Selling stock instantly reduces your compoundable capital by your marginal capital gains rate (e.g., 15% or 20% in the US, plus NII tax).</li>
+        <li><strong>Margin Call Risk (LTV):</strong> We calculate your liquidation price based on standard broker Maintenance Margin Requirements (typically 25-30% for Regulation T accounts, though we allow custom inputs).</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Data Privacy</h2>
+      <p class="text-slate-400">
+        All mathematical functions execute in your local browser using client-side JavaScript. We do not use server-side APIs to crunch your numbers, ensuring your financial inputs cannot be intercepted or stored.
+      </p>
+    </div>
+  </main>
+</Layout>

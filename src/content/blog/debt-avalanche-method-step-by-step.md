@@ -8,6 +8,8 @@ relatedTool: "debt-payoff-calculator"
 
 The debt avalanche method is simple: pay minimums on every debt, then throw every extra dollar at the **highest-interest-rate debt first.** When that one's gone, roll the entire payment into the next-highest rate. Repeat until you're debt-free.
 
+*(Note: This guide is part of our comprehensive **[How to Get Out of Debt](/blog/how-to-get-out-of-debt/)** series, exploring exactly how to restructure liabilities and map your escape timeline.)*
+
 It's the mathematically optimal payoff strategy. Every dollar goes where it saves you the most in interest. Here's exactly how it works — step by step, with real numbers.
 
 ---
@@ -129,3 +131,8 @@ No sign-up. No pitch. Just the math.
 ---
 
 *This article is for informational purposes only and does not constitute financial advice. Debt payoff strategies depend on individual circumstances — consult a qualified financial professional for guidance tailored to your situation.*
+
+
+### Related Financial Tools
+- [Debt Avalanche Calculator](/debt-avalanche-calculator/)
+- [Credit Card Payoff Planner](/credit-card-payoff-calculator/)

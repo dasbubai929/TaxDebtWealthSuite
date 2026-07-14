@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout 
+  title="Editorial Policy | TaxDebtWealthSuite"
+  description="Read about our strict editorial standards, review process, and commitment to mathematical accuracy and financial objectivity."
+>
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+    <div class="mb-12 text-center">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Standards</span>
+      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">Editorial Policy</h1>
+    </div>
+
+    <div class="prose prose-invert prose-slate max-w-none">
+      <p class="text-lg text-slate-300 leading-relaxed mb-8">
+        At TaxDebtWealthSuite, our primary mandate is to provide mathematically accurate, unbiased, and privacy-first financial tools. Because our calculators deal with YMYL (Your Money or Your Life) topics, we adhere to strict editorial standards.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">1. Commitment to Mathematical Accuracy</h2>
+      <p class="text-slate-400">
+        Every calculator on this platform is built using established mathematical formulas (e.g., standard loan amortization schedules) and official tax brackets sourced directly from government authorities like the IRS (US), HMRC (UK), CRA (Canada), and ATO (Australia). Our logic undergoes rigorous automated testing to ensure calculations are correct down to the cent.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">2. The Review Process</h2>
+      <p class="text-slate-400">
+        Before any new tool or article is published, it must pass a three-step review process:
+      </p>
+      <ul class="list-disc pl-6 text-slate-400 space-y-2 mb-6">
+        <li><strong>Code Review:</strong> A senior software architect reviews the algorithms to ensure correct logic and adherence to best practices.</li>
+        <li><strong>Financial Fact-Checking:</strong> The formulas and logic are cross-referenced against official tax codes and standard accounting principles.</li>
+        <li><strong>Privacy Audit:</strong> We ensure that no data inputs are ever transmitted to a server. All calculations must occur 100% locally in the user's browser.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">3. Objectivity and Independence</h2>
+      <p class="text-slate-400">
+        TaxDebtWealthSuite is an independent platform. We do not accept payment to alter calculation results in favor of any specific financial product, broker, or lender. Our content is designed purely to help you mathematically optimize your net worth.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white mt-10 mb-4">4. Updating Outdated Content</h2>
+      <p class="text-slate-400">
+        Tax codes change annually. We actively monitor federal budgets and IRS/HMRC/CRA/ATO announcements. When a new tax year begins, our calculators are updated to reflect the new marginal brackets and standard deductions. Every calculator displays a "Last Updated" timestamp to ensure you are using current data.
+      </p>
+    </div>
+  </main>
+</Layout>

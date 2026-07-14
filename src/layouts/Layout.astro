@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { getCollection } from "astro:content";
 
 interface Props {
   title?: string;
@@ -15,11 +16,18 @@ const {
   ogImage = "https://taxdebtwealthsuite.com/images/og-home.png"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, "https://taxdebtwealthsuite.com").toString();
+const canonicalPath = Astro.url.pathname.replace(/\/$/, "");
+const canonicalURL = new URL(canonicalPath || "/", Astro.site || "https://taxdebtwealthsuite.com").toString();
 
 // Determine if we are on one of the calculator tool pages
-const path = Astro.url.pathname.replace(/\/$/, "");
+const path = canonicalPath;
 const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator", "/debt-payoff-calculator"].includes(path);
+
+// Fetch latest 3 blog posts for the footer
+const allPosts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+const latestPosts = allPosts.slice(0, 3);
 ---
 
 <!DOCTYPE html>
@@ -49,9 +57,12 @@ const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator"
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TaxDebtWealthSuite" />
+    <meta name="twitter:creator" content="@TaxDebtWealthSuite" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -59,18 +70,51 @@ const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator"
     <!-- Premium Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" fetchpriority="high">
 
-    <!-- JSON-LD Structured Data: Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TaxDebtWealthSuite",
-      "url": "https://taxdebtwealthsuite.com/",
-      "logo": "https://taxdebtwealthsuite.com/favicon.svg"
-    }
-    </script>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://taxdebtwealthsuite.com/#organization",
+        "name": "TaxDebtWealthSuite",
+        "url": "https://taxdebtwealthsuite.com/",
+        "logo": "https://taxdebtwealthsuite.com/favicon.svg",
+        "sameAs": [
+          "https://twitter.com/TaxDebtWealthSuite"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://taxdebtwealthsuite.com/#website",
+        "name": "TaxDebtWealthSuite",
+        "url": "https://taxdebtwealthsuite.com/",
+        "publisher": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://taxdebtwealthsuite.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": `${canonicalURL}#webpage`,
+        "url": canonicalURL,
+        "name": title,
+        "description": description,
+        "isPartOf": {
+          "@id": "https://taxdebtwealthsuite.com/#website"
+        },
+        "about": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        }
+      }
+    ])} />
   </head>
   <body class="h-full bg-[#0A0F1D] text-[#F8FAFC] font-sans antialiased selection:bg-[#00F5D4]/30 selection:text-white overflow-y-auto custom-scrollbar">
     <div class="min-h-screen flex flex-col justify-between">
@@ -162,16 +206,21 @@ const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator"
             <div>
               <p class="font-bold text-slate-200 mb-3 font-sans tracking-wide uppercase text-3xs text-[#00F5D4]/80">Blog</p>
               <ul class="space-y-2 text-[#94A3B8]">
-                <li><a href="/blog/s-corp-election-deadline-form-2553/" class="hover:text-[#00F5D4] transition-colors">S-Corp Election Deadline</a></li>
-                <li><a href="/blog/s-corp-reasonable-salary-irs-rules/" class="hover:text-[#00F5D4] transition-colors">Reasonable Salary for S-Corp</a></li>
-                <li><a href="/blog/llc-vs-s-corp-actual-differences/" class="hover:text-[#00F5D4] transition-colors">LLC vs S-Corp Differences</a></li>
-                <li><a href="/blog/sbloc-vs-heloc-accessing-cash/" class="hover:text-[#00F5D4] transition-colors">SBLOC vs HELOC</a></li>
-                <li><a href="/blog/is-buy-borrow-die-legal-irs/" class="hover:text-[#00F5D4] transition-colors">Is Buy Borrow Die Legal?</a></li>
-                <li><a href="/blog/what-happens-to-sbloc-when-you-die/" class="hover:text-[#00F5D4] transition-colors">SBLOC at Death</a></li>
-                <li><a href="/blog/margin-call-ltv-threshold-explained/" class="hover:text-[#00F5D4] transition-colors">Margin Call: LTV Threshold</a></li>
-                <li><a href="/blog/debt-avalanche-method-step-by-step/" class="hover:text-[#00F5D4] transition-colors">Debt Avalanche Step-by-Step</a></li>
-                <li><a href="/blog/extra-payment-speeds-up-debt-payoff/" class="hover:text-[#00F5D4] transition-colors">Extra Payment Speed-Up</a></li>
-                <li><a href="/blog/debt-snowball-vs-avalanche-personality/" class="hover:text-[#00F5D4] transition-colors">Snowball vs Avalanche: Personality</a></li>
+                {latestPosts.map(post => (
+                  <li>
+                    <a href={`/blog/${post.slug}/`} class="hover:text-[#00F5D4] transition-colors leading-snug block">
+                      {post.data.title}
+                    </a>
+                  </li>
+                ))}
+                <li class="pt-2">
+                  <a href="/blog/" class="text-[#00F5D4] hover:text-white transition-colors font-medium flex items-center gap-1 group">
+                    View all articles
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -187,10 +236,14 @@ const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator"
             </div>
             <!-- Legal & Info links -->
             <nav class="flex flex-wrap gap-x-6 gap-y-2 text-slate-400" aria-label="Footer Navigation">
+              <a href="/author/" class="hover:text-white transition-colors font-medium">About the Author</a>
+              <a href="/editorial-policy/" class="hover:text-white transition-colors font-medium">Editorial Policy</a>
+              <a href="/methodology/" class="hover:text-white transition-colors font-medium">Methodology</a>
               <a href="/about/" class="hover:text-white transition-colors font-medium">About Us</a>
               <a href="/contact/" class="hover:text-white transition-colors font-medium">Contact Us</a>
               <a href="/privacy-policy/" class="hover:text-white transition-colors font-medium">Privacy Policy</a>
               <a href="/terms-conditions/" class="hover:text-white transition-colors font-medium">Terms & Conditions</a>
+              <a href="/disclosure/" class="hover:text-white transition-colors font-medium">Disclosure</a>
             </nav>
           </div>
           <div class="border-t border-slate-900 pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-slate-600">
@@ -334,7 +387,7 @@ const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator"
 </style>
 
 <!-- Client-Side State Controller Script -->
-<script is:inline>
+<script>
   (function() {
     const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
     const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";

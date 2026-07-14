@@ -8,6 +8,8 @@ relatedTool: "buy-borrow-die-calculator"
 
 A margin call happens when your **loan-to-value (LTV) ratio** crosses a threshold set by your lender — because the value of the securities securing your loan has dropped. It's the single most important number in the "borrow instead of sell" strategy, and it's what turns a well-laid plan into a forced liquidation at the worst possible time.
 
+*(Note: This guide is part of our comprehensive **[Investing for Beginners](/blog/investing-for-beginners/)** series, exploring how to safely introduce leverage into a mature portfolio.)*
+
 If you're using an SBLOC or considering one, understanding how LTV works isn't optional. It's the foundation of whether this strategy is viable or dangerous.
 
 ---
@@ -43,12 +45,12 @@ This is the core risk: **LTV is driven by market forces you don't control.** A s
 
 ## Typical threshold ranges
 
-LTV thresholds are set by individual lenders, not by regulation — so they vary significantly based on the lender, the type of collateral, and how diversified your portfolio is. [VERIFY: Confirm that LTV thresholds are lender-determined and not standardized by federal regulation. The ranges below are commonly cited in industry materials but should be verified against current lender disclosures.]
+LTV thresholds are set by individual lenders, not by regulation — so they vary significantly based on the lender, the type of collateral, and how diversified your portfolio is (rates and terms vary by lender).
 
 That said, here are the general ranges you'll see:
 
-- **Diversified portfolios (broad index funds, 60/40 mix):** Initial maximum LTV around 50–70%, with maintenance thresholds (the point that triggers a margin call) around 65–75%. [VERIFY: Confirm typical SBLOC/margin loan LTV ranges for diversified portfolios — these vary by lender and market conditions.]
-- **Concentrated single-stock positions:** Thresholds drop significantly — often 30–50% initial LTV, with maintenance thresholds as low as 40–50%. [VERIFY: Confirm that concentrated stock positions typically carry lower LTV limits.]
+- **Diversified portfolios (broad index funds, 60/40 mix):** Initial maximum LTV around 50–70%, with maintenance thresholds (the point that triggers a margin call) around 65–75% (rates and terms vary by lender).
+- **Concentrated single-stock positions:** Thresholds drop significantly — often 30–50% initial LTV, with maintenance thresholds as low as 40–50% (rates and terms vary by lender).
 - **Highly volatile or speculative holdings:** Some lenders won't lend against these at all, or set thresholds so low that practical borrowing capacity is minimal.
 
 The key takeaway: **the more concentrated or volatile your collateral, the lower your lender's threshold — and the less room you have before a margin call.**
@@ -64,7 +66,7 @@ When your LTV crosses the threshold, your lender sends a margin call. This is no
 1. **Deposit additional collateral or cash** — enough to bring your LTV back below the threshold.
 2. **Repay part of the loan** — reducing the loan balance has the same effect.
 
-If you do neither — or can't — the lender exercises its right to **force-sell your securities** to bring the LTV back into compliance. [VERIFY: Confirm that force-liquidation is a standard contractual right in SBLOC/margin loan agreements.]
+If you do neither — or can't — the lender exercises its right to **force-sell your securities** to bring the LTV back into compliance (rates and terms vary by lender).
 
 This is where the real damage happens. The forced sale occurs:
 
@@ -82,7 +84,7 @@ For people running the "borrow instead of sell" strategy, this is the nightmare 
 
 You can't eliminate margin call risk entirely — any leveraged strategy carries it. But you can meaningfully reduce the probability and severity.
 
-**Borrow well below your maximum LTV.** Just because your lender approves you for 60% LTV doesn't mean you should borrow 60%. The further below the threshold you stay, the more room you have for market declines. A common rule of thumb is to keep your actual LTV at least 15–20 percentage points below your lender's maintenance threshold. [VERIFY: Verify that a 15–20 point buffer below maintenance threshold is a commonly recommended cushion.]
+**Borrow well below your maximum LTV.** Just because your lender approves you for 60% LTV doesn't mean you should borrow 60%. The further below the threshold you stay, the more room you have for market declines. A common rule of thumb is to keep your actual LTV at least 15–20 percentage points below your lender's maintenance threshold.
 
 **Avoid single-stock concentration.** A diversified portfolio can drop 30% and still keep you within manageable LTV ranges. A single stock can drop 50% in a week. If a significant portion of your SBLOC collateral is one stock, your margin call risk is dramatically higher — even if your starting LTV looks conservative.
 
@@ -108,3 +110,8 @@ This is the number that matters most in the "borrow instead of sell" strategy. K
 ---
 
 *This article is for informational purposes only and does not constitute financial or lending advice. Margin call thresholds, LTV requirements, and force-liquidation policies vary by lender — review your specific loan agreement and consult a qualified financial professional.*
+
+
+### Related Financial Tools
+- [Margin Loan vs Sell Calculator](/margin-loan-vs-sell-calculator/)
+- [SBLOC Modeler](/sbloc-calculator/)

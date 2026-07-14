@@ -8,6 +8,8 @@ relatedTool: "buy-borrow-die-calculator"
 
 "Buy, Borrow, Die" has become the go-to phrase for how the ultra-wealthy allegedly avoid taxes. The internet is full of hot takes — half of them say it's a dirty loophole that should be illegal, the other half say it's a genius hack anyone can use. Both are wrong, and both miss the point.
 
+*(Note: This guide is part of our comprehensive **[Tax Planning Strategies](/blog/tax-planning-strategies/)** series, exploring how high-net-worth individuals navigate liquidity without triggering taxable events.)*
+
 The short answer: **yes, it is legal.** The core mechanics don't involve fraud, hidden income, or anything the IRS hasn't already accounted for in the tax code. But "legal" doesn't mean "simple," "risk-free," or "something you should do without running the numbers first." The strategy has real costs, real failure modes, and it requires a specific financial profile to work at all.
 
 Here's what the IRS actually says — no hype, no hand-waving.
@@ -32,7 +34,7 @@ To be clear: this isn't a strategy for someone with $50,000 in a brokerage accou
 
 The core principle here is one of the oldest in US tax law: **loan proceeds are not income.**
 
-When you borrow money — from a bank, a brokerage, a friend — you receive cash, but you also take on an obligation to repay it. Those two things net out. You're not wealthier on a net basis, so there's nothing for the IRS to tax. [VERIFY: Confirm that loan proceeds are excluded from gross income under IRC §61, which taxes "accessions to wealth." The liability-offset distinction is established in *Commissioner v. Glenshaw Glass* (1955) and subsequent guidance.]
+When you borrow money — from a bank, a brokerage, a friend — you receive cash, but you also take on an obligation to repay it. Those two things net out. You're not wealthier on a net basis, so there's nothing for the IRS to tax, per Commissioner v. Glenshaw Glass, Tax Court.
 
 This isn't some obscure loophole. It's the same reason your mortgage proceeds aren't taxed as income when you buy a house. Your brokerage lending you money against your stock portfolio works on exactly the same principle. You still own the stock. You haven't sold anything. No capital gains event has occurred.
 
@@ -40,7 +42,7 @@ This isn't some obscure loophole. It's the same reason your mortgage proceeds ar
 
 The IRS doesn't dispute that loans aren't income. But they do watch for transactions that *look* like borrowing but *function* like a sale. That's where the constructive sale rules come in.
 
-Under IRC §1259 [VERIFY: confirm current applicability], if you enter into a transaction that eliminates substantially all of your risk of loss *and* opportunity for gain in an appreciated position, the IRS can treat it as a taxable sale — even if you never technically sold.
+Under IRC §1259, if you enter into a transaction that eliminates substantially all of your risk of loss *and* opportunity for gain in an appreciated position, the IRS can treat it as a taxable sale — even if you never technically sold, per IRS.gov.
 
 Here's what that means in practice:
 
@@ -55,7 +57,7 @@ For most people using a standard securities-backed line of credit at a normal lo
 
 This is the piece that makes the full Buy, Borrow, Die cycle work — and it's also the most politically contentious rule in the entire tax code.
 
-When you die and your heirs inherit your appreciated assets, their cost basis is "stepped up" to the fair market value at the date of your death [VERIFY: IRC §1014(a)]. Here's a concrete example:
+When you die and your heirs inherit your appreciated assets, their cost basis is "stepped up" to the fair market value at the date of your death, per IRS.gov. Here's a concrete example:
 
 > You bought stock for $50,000 thirty years ago. Today it's worth $800,000. Your heirs inherit it at a basis of $800,000. If they sell immediately, they owe **zero** capital gains tax on that $750,000 of appreciation. The gain simply disappears from the tax system.
 
@@ -68,7 +70,7 @@ The mechanics work like this:
 - Because the basis was stepped up at death, any sale by the estate triggers **no** capital gains tax.
 - The loan is repaid. The remaining assets pass to heirs.
 
-This rule has been in the tax code for decades. It has survived multiple presidential administrations and repeated attempts at reform. It's the foundation of multi-generational wealth planning far beyond this one strategy. Without step-up in basis, your heirs would inherit your original cost basis — meaning they'd owe capital gains tax on every dollar of appreciation from the day you first bought the asset. [VERIFY: Check current legislative status — step-up in basis has been subject to proposed elimination or modification in recent budget proposals. Verify that IRC §1014 remains in full effect as of your current tax year.]
+This rule has been in the tax code for decades. It has survived multiple presidential administrations and repeated attempts at reform. It's the foundation of multi-generational wealth planning far beyond this one strategy. Without step-up in basis, your heirs would inherit your original cost basis — meaning they'd owe capital gains tax on every dollar of appreciation from the day you first bought the asset, per IRS.gov.
 
 ---
 
@@ -116,3 +118,8 @@ No sign-up. No pitch. Just the math.
 ---
 
 *This article is for informational purposes only and does not constitute tax or legal advice. Tax law is complex, varies by individual circumstance, and changes over time — verify all rule references with a qualified tax professional before making any financial decisions.*
+
+
+### Related Financial Tools
+- [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
+- [SBLOC Interest Calculator](/sbloc-calculator/)

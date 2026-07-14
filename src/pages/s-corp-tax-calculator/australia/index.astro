@@ -4,8 +4,8 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 ---
 
 <Layout 
-  title="Pty Ltd vs Sole Trader Tax Calculator (Free) | TaxDebtWealthSuite"
-  description="Compare your Australian tax bill as a sole trader vs Pty Ltd company. Free salary-vs-dividend distribution optimizer for side hustles and freelancers in Australia."
+  title="Pty Ltd vs Sole Proprietor Tax Calculator (Australia) | TaxDebtWealthSuite"
+  description="Compare your tax bill as a sole trader vs Pty Ltd in the Australia. Free salary vs distribution optimizer for freelancers and contractors."
   ogImage="https://taxdebtwealthsuite.com/images/og-s-corp-tax.png"
 >
   <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/s-corp-tax-calculator/" slot="head" />
@@ -20,26 +20,39 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     "@graph": [
       {
         "@type": "SoftwareApplication",
-        "name": "Pty Ltd vs Sole Trader Tax Calculator",
+        "name": "Pty Ltd Tax Calculator (Australia)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
         "offers": {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "USD"
         },
-        "description": "Compare your Australian tax bill as a sole trader vs Pty Ltd company. Free salary-vs-dividend distribution optimizer for side hustles and freelancers in Australia."
+        "description": "Compare your tax bill as a sole trader vs Pty Ltd in the Australia."
       },
       {
         "@type": "FAQPage",
-        "mainEntity": [{
-          "@type": "Question",
-          "name": "When should I switch from a sole proprietor to an LLC or S-Corp?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In the US, the general threshold is when net profit consistently exceeds $40,000–$50,000/yr — at that level, corporate tax savings exceed compliance costs (~$1,500–$3,000). In the UK, incorporating as a Limited Company makes sense above approximately £30,000–£35,000. Canadian CCPCs become advantageous at $50,000+ due to the Small Business Deduction (9% blended rate). Australian Pty Ltd structures are cost-effective above $80,000 where the 25% company tax rate beats top personal marginal rates of 45% + 2% Medicare."
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When should I incorporate as a Pty Ltd?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I have to pay myself a salary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the ATO requires you to pay yourself a 'reasonable salary' for the services you perform before taking tax-advantaged distributions."
+            }
           }
-        }]
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -70,19 +83,26 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
     
-    <!-- Title Section -->
     <div class="mb-8 text-center sm:text-left">
       <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
-        Pty Ltd Director Salary vs Dividends Tax Calculator
+        Pty Ltd vs Sole Proprietor Tax Calculator (Australia)
       </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-07" class="text-slate-400">Updated: July 2026</time>
+      </div>
       <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
-        Compare Australian Sole Trader tax rates against Pty Ltd corporate structures. Optimize your director salary draw and model franked dividend distributions.
+        Compare unincorporated vs. incorporated business structures in the Australia. Run instant break-even compensation audits to optimize your taxes.
       </p>
       <div class="mt-4 text-xs text-slate-400">
         Switch to another country variant: 
         <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline">United States (Default)</a> | 
-        <a href="/s-corp-tax-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom (Ltd Company)</a> | 
-        <a href="/s-corp-tax-calculator/canada/" class="text-[#00F5D4] hover:underline">Canada (CCPC)</a> | 
+        <a href="/s-corp-tax-calculator/uk/" class="text-[#00F5D4] hover:underline">United Kingdom</a> | 
+        <a href="/s-corp-tax-calculator/canada/" class="text-[#00F5D4] hover:underline">Canada</a> | 
         <span class="text-slate-300 font-semibold">Australia</span>
       </div>
     </div>
@@ -93,56 +113,114 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     <!-- Explainer Content -->
     <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
       <div class="max-w-4xl mx-auto py-16">
-        <section aria-labelledby="corp-guide-heading">
+        <section>
           <div class="mb-6">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Business Tax Strategy (Australia)</span>
-            <h2 id="corp-guide-heading" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
-              Choosing Between Sole Trader and Pty Ltd Incorporation in Australia
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Choosing the Right Business Structure
             </h2>
-            <p class="mt-3 text-slate-400 text-sm leading-relaxed">
-              In Australia, operating as a Sole Trader is the default for most side-hustlers, but as your income grows, transitioning to a Proprietary Limited (Pty Ltd) company becomes financially compelling. Sole traders pay tax at their individual marginal tax rates (which can be up to 45% plus the 2% Medicare levy) on all net business profits. This means high-earning freelancers are heavily penalized on their business income.
-            </p>
           </div>
 
-          <div class="space-y-6 text-sm text-slate-400 leading-relaxed">
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">How Australian Company Tax & Franking Credits Work</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
               <p>
-                A Pty Ltd company is a separate legal entity. Small business companies (with aggregated turnover under $50 million) enjoy a flat corporate tax rate of 25%. If you incorporate, the company pays this 25% tax on its profits. When the company distributes dividends to you as a shareholder, they are typically "fully franked," meaning they carry a tax credit (franking credit) for the 25% tax the company has already paid.
-              </p>
-              <p class="mt-3">
-                This integration system prevents double taxation. You only pay tax on the dividend at your marginal rate, offset by the franking credit. Furthermore, by incorporating, you can choose how much salary to draw under Single Touch Payroll (STP), letting you leave the remaining profits inside the company to be reinvested or paid out in future financial years when your personal income is lower. Our Australian tax calculator models these structures to calculate your exact tax savings and determine if your net profit exceeds the Pty Ltd compliance break-even point.
+                Deciding when to transition from a sole proprietor/trader to a <strong>Pty Ltd</strong> is one of the most impactful financial decisions a freelancer or small business owner in the Australia can make. Our calculator helps you pinpoint the exact profit threshold where incorporation saves you money.
               </p>
             </article>
 
             <article>
-              <h3 class="text-base font-bold text-slate-100 mb-2">Pty Ltd Incorporation Overhead Milestones</h3>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Benefits of a Pty Ltd</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Tax Arbitrage:</strong> Separate your income into salary and distributions to minimize payroll/self-employment taxes.</li>
+                <li><strong>Liability Protection:</strong> Incorporating shields your personal assets from business liabilities.</li>
+                <li><strong>Professional Image:</strong> Operating as a corporate entity can improve credibility with clients and vendors.</li>
+              </ul>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Step-by-Step Usage Guide</h3>
+              <ol class="list-decimal pl-5 space-y-2">
+                <li><strong>Enter Revenue:</strong> Input your expected gross annual business revenue.</li>
+                <li><strong>Enter Expenses:</strong> Input your deductible business expenses to determine net profit.</li>
+                <li><strong>Set Salary:</strong> Determine a "reasonable salary" as required by the ATO.</li>
+                <li><strong>W-2/PAYE Income:</strong> Enter any income from a separate day job, as this affects your marginal tax bracket.</li>
+                <li><strong>Compare:</strong> The calculator outputs your total tax burden as a sole trader versus a Pty Ltd.</li>
+              </ol>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Mathematical Methodology</h3>
               <p>
-                Operating a Pty Ltd structure entails accounting services, ASIC filing costs, and bookkeeping software, which we model at an average annual cost of $1,800 AUD. In Australia, the net profit break-even threshold for incorporation is generally $80,000 AUD. Our calculator maps this transition to evaluate the optimal moment to make the corporate transition. If you are using business profit to clear personal liabilities, map your repayment timeline using our <a href="/debt-payoff-calculator/australia/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>. Alternatively, if you plan to accumulate wealth inside your business and borrow against company assets later, read about the <a href="/buy-borrow-die-calculator/australia/" class="text-[#00F5D4] hover:underline font-semibold">Australian portfolio margin lending strategy</a>.
+                As a sole proprietor, every dollar of net profit is subject to both ordinary income tax and self-employment/payroll taxes. By electing Pty Ltd status, you only pay the payroll taxes on the portion of profits taken as a W-2/PAYE salary. The remaining profit is distributed as a dividend/distribution, which is generally free of the payroll tax burden (though still subject to income or dividend taxes).
               </p>
+            </article>
+            
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Common Mistakes to Avoid</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Unreasonable Salary:</strong> Setting your salary too low to maximize distributions is a red flag for the ATO and can trigger an audit.</li>
+                <li><strong>Ignoring Compliance Costs:</strong> A Pty Ltd requires payroll processing, separate tax returns, and corporate filing fees. Make sure the tax savings exceed these overhead costs.</li>
+                <li><strong>Commingling Funds:</strong> You must maintain strict separation between personal and business bank accounts.</li>
+              </ul>
             </article>
           </div>
 
           <!-- FAQ Accordion -->
           <div class="mt-12 border-t border-slate-800/80 pt-10">
             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
-            <h3 class="text-xl font-bold text-white mb-6">Frequently Asked Questions</h3>
-            <div class="faq-item border border-[#1E294B] rounded-lg overflow-hidden bg-[#141C32]">
-              <button
-                class="faq-trigger w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer"
-                aria-expanded="false"
-                onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true' ? 'false' : 'true'); this.nextElementSibling.classList.toggle('hidden');"
-              >
-                <span class="text-sm font-semibold text-white pr-4">When should I switch from a sole proprietor to an LLC or S-Corp?</span>
-                <svg class="h-5 w-5 text-slate-500 flex-shrink-0 transition-transform duration-200 group-[&[aria-expanded=true]]:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-              <div class="hidden px-6 pb-6">
-                <p class="text-sm text-slate-400 leading-relaxed">
-                  In the <strong class="text-slate-300">US</strong>, the general threshold is when net profit consistently exceeds <strong class="text-slate-300">$40,000–$50,000/yr</strong> — at that level, corporate tax savings exceed compliance costs (~$1,500–$3,000). In the <strong class="text-slate-300">UK</strong>, incorporating as a Limited Company makes sense above approximately <strong class="text-slate-300">£30,000–£35,000</strong>. <strong class="text-slate-300">Canadian</strong> CCPCs become advantageous at <strong class="text-slate-300">$50,000+</strong> due to the Small Business Deduction (9% blended rate). <strong class="text-slate-300">Australian</strong> Pty Ltd structures are cost-effective above <strong class="text-slate-300">$80,000</strong> where the 25% company tax rate beats top personal marginal rates of 45% + 2% Medicare.
-                </p>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+            
+            <div class="space-y-4">
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">When should I incorporate as a Pty Ltd?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting and payroll compliance costs.
+                </div>
               </div>
+              
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">Do I have to pay myself a salary?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Yes, the ATO requires you to pay yourself a "reasonable salary" for the services you perform before taking tax-advantaged distributions.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/debt-payoff-calculator/australia/" class="text-[#00F5D4] hover:underline">Debt Payoff Planner</a>
+              <a href="/buy-borrow-die-calculator/australia/" class="text-[#00F5D4] hover:underline">Buy Borrow Die Strategy</a>
+            </div>
+          </div>
+
+        
+          <!-- Related Articles -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Articles</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/blog/s-corp-election-deadline-form-2553/" class="text-slate-400 hover:text-white transition-colors">S-Corp Election Deadline (Form 2553)</a>
+              <a href="/blog/llc-vs-s-corp-actual-differences/" class="text-slate-400 hover:text-white transition-colors">LLC vs S-Corp Actual Differences</a>
+            </div>
+          </div>
+        
+          <!-- Methodology & Sources -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Methodology</span>
+            <h3 class="text-2xl font-bold text-white mb-4">How This is Calculated</h3>
+            <div class="text-sm text-slate-400 space-y-3 leading-relaxed">
+              <p>This calculator relies on official tax brackets and employer/employee payroll logic provided by government authorities. In the US, it applies the standard 15.3% self-employment tax (12.4% OASDI, 2.9% Medicare) to 92.35% of net business earnings for sole proprietors.</p>
+              <p>For S-Corporations, FICA taxes are only applied to the W2 "Reasonable Salary" portion, exempting the remaining owner distribution from self-employment taxes (though standard income taxes still apply).</p>
+              <p><strong>Official Source:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">IRS.gov Self-Employment Tax Rules</a></p>
             </div>
           </div>
         </section>

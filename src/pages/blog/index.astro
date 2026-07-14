@@ -57,7 +57,11 @@ const toolLabels: Record<string, { label: string; href: string; color: string }>
   <section class="max-w-6xl mx-auto px-4 pb-20">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {allPosts.map((post) => {
-        const tool = toolLabels[post.data.relatedTool];
+        const tool = toolLabels[post.data.relatedTool] || {
+          label: "Calculator",
+          href: `/${post.data.relatedTool}/`,
+          color: "text-[#00F5D4] bg-[#00F5D4]/10 border-[#00F5D4]/20",
+        };
         return (
           <a
             href={`/blog/${post.slug}/`}

@@ -4,6 +4,7 @@ description: "The avalanche saves more money mathematically, but the snowball wi
 pubDate: 2026-06-27
 author: "Mrittunjoy Das"
 relatedTool: "debt-payoff-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 You already know the theory. The avalanche method targets your highest-interest debt first and saves you the most money. The snowball method targets your smallest balance first and gives you quick wins. The math is settled. So why are you still staring at your debts wondering which one to pick?

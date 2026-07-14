@@ -4,6 +4,7 @@ description: "Your asset allocation dictates 90% of your long-term returns. Lear
 pubDate: 2026-07-08
 relatedTool: "sbloc-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 The most common mistake new investors make is assuming that "picking the right investment" is the hardest part of finance. 
@@ -15,6 +16,10 @@ The actual challenge of investing is **Asset Allocation**: determining exactly w
 ## The Role of Stocks vs Bonds
 
 To build a portfolio, you must understand the job of each asset class:
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
 - **Stocks (Equities):** Their job is to grow your money faster than inflation. They provide high returns, but they are highly volatile. They can drop 30% in a single year.
 - **Bonds (Fixed Income):** Their job is to protect your money. They provide lower, steady returns. When the stock market crashes, bonds generally hold their value (or even go up), acting as a shock absorber for your portfolio.
 
@@ -41,3 +46,8 @@ Because stocks grow faster than bonds, your portfolio will naturally drift out o
 If you start the year at 80/20, a massive stock market rally might push your portfolio to 90/10 by December. Your portfolio is now significantly riskier than you intended.
 
 To fix this, you must **Rebalance** once a year. You sell off the 10% excess stock and use the cash to buy bonds, bringing the portfolio back to your 80/20 target. Mathematically, rebalancing forces you to execute the ultimate investing mandate: it automatically forces you to "sell high" (the stocks that went up) and "buy low" (the bonds that lagged).
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

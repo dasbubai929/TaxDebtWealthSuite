@@ -4,6 +4,7 @@ description: "Transition from debt reduction to aggressive wealth accumulation. 
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 The transition from "getting out of debt" to "building wealth" requires a fundamental paradigm shift. When you are in debt, your primary mathematical focus is on *reducing liabilities* and minimizing interest drag. When you are building wealth, your focus must shift entirely to *acquiring assets* and maximizing compound growth.
@@ -36,6 +37,10 @@ In the beginning, your goal is simply to acquire broad-market equities (like S&P
 
 For example, many investors assume they must liquidate their stock portfolio to fund a real estate down payment. This triggers capital gains tax and interrupts compounding. The wealthy use a different approach: they pledge their stocks as collateral to secure a margin loan, using the loan to buy the real estate. They now own *both* appreciating assets simultaneously.
 
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
+
 We break down the exact mathematics of this strategy in our guide: **[Using Margin Loans to Buy Real Estate](/blog/margin-loan-real-estate-down-payment/)**.
 
 > [!TIP]
@@ -57,3 +62,8 @@ Wealth is not an accident; it is an architectural project. By mastering the math
 - [How to Track Your Net Worth](/blog/how-to-track-net-worth/)
 - [Using Margin Loans to Buy Real Estate](/blog/margin-loan-real-estate-down-payment/)
 - [Rich vs Wealthy: What is the Difference?](/blog/rich-vs-wealthy/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

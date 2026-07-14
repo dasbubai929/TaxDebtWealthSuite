@@ -4,6 +4,7 @@ description: "Adding even $50 a month to a debt payment can shave years off your
 pubDate: 2026-07-02
 author: "Mrittunjoy Das"
 relatedTool: "debt-payoff-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 If you're making minimum payments on a credit card or loan and wondering whether adding an extra $50 or $100 a month is worth the effort — the short answer is **yes, and the effect is bigger than you'd expect.** Payoff timelines aren't linear. Because of how amortization works, even small extra payments can cut months — sometimes years — off the end of your payoff period. Here's why, and how to see it with your own numbers.

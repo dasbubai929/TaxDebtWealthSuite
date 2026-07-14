@@ -4,6 +4,7 @@ description: "Learn how to use tax-loss harvesting to offset capital gains and r
 pubDate: 2026-07-08
 relatedTool: "s-corp-tax-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 No investor has a perfect track record. Over a long enough time horizon, every portfolio will experience periods of drawdown and individual asset losses. 
@@ -21,6 +22,10 @@ Under IRS rules, you can use realized capital losses to offset realized capital 
 What happens if your losses exceed your gains? The IRS allows you to use up to **$3,000 of excess capital losses** per year to offset your ordinary income (such as W-2 wages or business income). 
 
 If you have $20,000 in net capital losses, you can deduct $3,000 from your ordinary income this year, and "carry forward" the remaining $17,000 into future tax years, indefinitely, until the losses are fully utilized.
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [S-Corp Tax Calculator](/s-corp-tax-calculator/) to model your exact scenario.
+
 
 ## The Trap: The IRS Wash-Sale Rule
 
@@ -41,3 +46,8 @@ After 31 days, you are free to sell VV and repurchase your original position in 
 Historically, tax-loss harvesting was a tedious manual process reserved for high-net-worth individuals paying expensive financial advisors. Today, algorithmic "robo-advisors" can scan your portfolio daily, automatically harvesting losses and swapping assets to maximize your tax deductions. 
 
 Whether done manually or algorithmically, tax-loss harvesting is a mandatory component of any comprehensive tax planning architecture.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

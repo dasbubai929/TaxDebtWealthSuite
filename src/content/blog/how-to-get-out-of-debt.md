@@ -4,6 +4,7 @@ description: "Drowning in debt? Stop relying on motivation and start using mathe
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 High-interest debt is a mathematical emergency. When you are carrying balances on credit cards, personal loans, or high-rate auto loans, your net worth is actively decaying. 
@@ -76,3 +77,8 @@ Debt is a math problem, and math problems have solutions. By cataloging your lia
 - [Debt Snowball vs Avalanche: Which is Right for You?](/blog/debt-snowball-vs-avalanche-personality/)
 - [Does an Extra Payment Reduce Principal?](/blog/extra-payment-speeds-up-debt-payoff/)
 - [Balance Transfer Cards vs Personal Loans](/blog/balance-transfer-vs-personal-loan/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

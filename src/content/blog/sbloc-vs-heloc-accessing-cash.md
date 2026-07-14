@@ -4,6 +4,7 @@ description: "Both a securities-backed line of credit and a home equity line of 
 pubDate: 2026-06-30
 author: "Mrittunjoy Das"
 relatedTool: "buy-borrow-die-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 If you need cash and don't want to sell assets — whether to avoid capital gains tax, maintain market exposure, or simply because you don't want to liquidate — you have two main options: borrow against your investment portfolio (SBLOC) or borrow against your home (HELOC). Both let you access liquidity without selling. Both have real risks. But they're fundamentally different products, and the right choice depends on what you actually own.
@@ -107,3 +108,8 @@ No sign-up. No pitch. Just the math.
 ### Related Financial Tools
 - [SBLOC Calculator](/sbloc-calculator/)
 - [Stock Portfolio Down Payment Tool](/stock-portfolio-down-payment-calculator/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

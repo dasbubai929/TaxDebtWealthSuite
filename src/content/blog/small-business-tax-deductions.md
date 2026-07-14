@@ -4,6 +4,7 @@ description: "Don't pay the IRS a dollar more than necessary. Discover the most 
 pubDate: 2026-07-08
 relatedTool: "llc-vs-s-corp-tax-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 In the world of corporate finance, a dollar saved on taxes is vastly mathematically superior to a dollar earned in revenue. 
@@ -42,6 +43,10 @@ Combined, you can shelter tens of thousands of dollars (up to $69,000 for 2024) 
 
 The Qualified Business Income (QBI) deduction allows eligible self-employed individuals and small business owners to deduct up to **20% of their qualified business income** from their taxes. 
 
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [S-Corp Tax Calculator](/s-corp-tax-calculator/) to model your exact scenario.
+
+
 This is not a deduction for an expense you paid; it is literally a phantom deduction granted by the IRS simply for owning a pass-through entity (Sole Proprietorship, LLC, or S-Corp). 
 
 If your net business profit is $100,000, the QBI deduction allows you to instantly shield $20,000 of that income from federal income taxes. (Note: The rules phase out for high earners in specific service fields like law and medicine, so consult a CPA).
@@ -51,3 +56,8 @@ If your net business profit is $100,000, the QBI deduction allows you to instant
 If you are self-employed and show a net profit for the year, you can deduct 100% of the health, dental, and qualifying long-term care insurance premiums for yourself, your spouse, and your dependents. 
 
 This is an "above-the-line" deduction, meaning it reduces your Adjusted Gross Income (AGI) regardless of whether you itemize your personal deductions. 
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

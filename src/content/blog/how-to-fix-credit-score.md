@@ -4,6 +4,7 @@ description: "Your credit score is a mathematical algorithm. Learn exactly how t
 pubDate: 2026-07-08
 relatedTool: "credit-card-payoff-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 A bad credit score is an invisible tax on your entire life. It forces you to pay double-digit interest rates on car loans, denies you the ability to buy a home, and subjects you to massive security deposits for basic utilities.
@@ -52,3 +53,8 @@ Closing an old account hurts you in two ways:
 2. It eventually reduces your Length of Credit History (the 15% category).
 
 Once the card is paid off, put a small recurring subscription (like Netflix) on it, and set it to auto-pay in full every month. Put the physical card in a drawer. You will slowly build perfect payment history while maintaining your credit limit.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

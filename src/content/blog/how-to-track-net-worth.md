@@ -4,6 +4,7 @@ description: "Your salary is not your wealth. Learn how to calculate and track y
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 A high salary does not make you wealthy; it simply gives you the potential to become wealthy. If you earn $300,000 a year but spend $300,000 a year, you are financially identical to someone who earns $50,000 and spends $50,000. 
@@ -38,3 +39,8 @@ If your net worth is stagnant while your income is rising, you have a definitive
 ## Tracking Tools
 
 While there are dozens of automated apps (like Empower or Monarch Money) that can sync to your bank accounts, many high-net-worth individuals prefer the control and privacy of a custom Excel or Google Sheets spreadsheet. A manual spreadsheet forces you to engage with the numbers monthly, reinforcing the psychological shift required to build lasting wealth.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

@@ -4,6 +4,7 @@ description: "The 15.3% self-employment tax is the biggest threat to freelancers
 pubDate: 2026-07-08
 relatedTool: "1099-self-employment-tax-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 When you transition from a W-2 employee to a 1099 independent contractor or freelancer, you experience an immediate and brutal tax shock: the **Self-Employment Tax**. 
@@ -19,6 +20,10 @@ The Self-Employment Tax is exactly 15.3%.
 When you work a traditional job, your employer pays half of this (7.65%), and you pay the other half out of your paycheck. When you are self-employed, the IRS views you as both the employer *and* the employee. Therefore, you must pay the full 15.3% yourself.
 
 Furthermore, this tax is applied to your net business profit *before* you even begin calculating your federal and state income taxes. It is not uncommon for a successful freelancer in a high-tax state (like California or New York) to face an aggregate marginal tax rate approaching 50%.
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [S-Corp Tax Calculator](/s-corp-tax-calculator/) to model your exact scenario.
+
 
 > [!TIP]
 > If you are a freelancer or sole proprietor, calculate your exact liability instantly using our **[1099 Self-Employment Tax Calculator](/1099-self-employment-tax-calculator/)**.
@@ -51,3 +56,8 @@ As an S-Corp, you divide your profit into two buckets:
 If you generate $150,000 in profit, and pay yourself a $75,000 salary, you save 15.3% on the remaining $75,000—a tax savings of **$11,475** in a single year.
 
 This is the most powerful tax lever available to small business owners. To determine if this strategy makes sense for your specific revenue level, read our comprehensive breakdown: **[LLC vs S-Corp: Actual Differences Explained](/blog/llc-vs-s-corp-actual-differences/)**.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

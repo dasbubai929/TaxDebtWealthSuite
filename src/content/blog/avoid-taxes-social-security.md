@@ -4,6 +4,7 @@ description: "Up to 85% of your Social Security benefits can be taxed by the IRS
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 Most Americans assume that because they paid taxes into the Social Security system for 40 years, the benefits they receive in retirement will be tax-free. This is mathematically incorrect.
@@ -18,6 +19,10 @@ The formula is:
 **Adjusted Gross Income (AGI) + Nontaxable Interest + 50% of your Social Security Benefits = Combined Income**
 
 Note what is included in your AGI: W-2 wages, business income, capital gains, and—most dangerously—withdrawals from Traditional 401(k)s and IRAs. 
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
 
 ## The Taxation Thresholds
 
@@ -46,3 +51,8 @@ Because Roth withdrawals are completely tax-free, they do not count toward your 
 If a married couple needs $60,000 to live on, and they withdraw $30,000 from a Roth IRA and receive $30,000 in Social Security, their AGI is $0. Their Combined Income is $15,000. Their Social Security is 100% tax-free.
 
 Many retirees engage in **Roth Conversions** during their early 60s (before taking Social Security) specifically to drain their Traditional IRAs and move the money into Roth accounts, permanently shielding their future Social Security benefits from taxation.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

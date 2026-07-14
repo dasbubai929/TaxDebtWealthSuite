@@ -4,6 +4,7 @@ description: "The Step-Up in Basis is the most powerful wealth transfer loophole
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 If you have spent your life accumulating highly appreciated assets—such as index funds, real estate, or a private business—you are sitting on a massive, unrealized tax liability. 
@@ -41,3 +42,8 @@ Instead of selling stock to generate cash (triggering taxes), they take out a ma
 
 > [!TIP]
 > Model this exact scenario using our **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)** to see how much more wealth you can pass to your heirs by using a margin loan instead of liquidating assets.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

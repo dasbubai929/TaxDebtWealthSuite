@@ -4,6 +4,7 @@ description: "Discover how the ultra-wealthy avoid capital gains tax by using Se
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 Selling highly appreciated assets is one of the most expensive financial actions you can take. Depending on your income bracket and state of residence, liquidating your stock portfolio can trigger a capital gains tax bill exceeding 30%. 
@@ -49,3 +50,8 @@ This multi-generational framework is colloquially known as the "Buy, Borrow, Die
 
 > [!WARNING]
 > Leverage introduces significant risk. If your portfolio's value drops precipitously, your broker will issue a **Margin Call**, forcing you to deposit cash or liquidating your assets at the worst possible time. Always stress-test your Loan-to-Value (LTV) ratio using our **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)**.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

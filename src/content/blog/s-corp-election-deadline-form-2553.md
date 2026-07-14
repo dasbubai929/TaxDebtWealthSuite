@@ -4,6 +4,7 @@ description: "Miss the S-Corp election deadline and you could owe thousands more
 pubDate: 2026-07-01
 author: "Mrittunjoy Das"
 relatedTool: "s-corp-tax-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 The deadline to elect S-Corp status is **75 days from the date your business is formed or acquires assets** for new businesses, or **by March 15** of the tax year you want the election to take effect for existing businesses, per IRS.gov. Miss it, and you're waiting another full tax year. The clock is specific, the rules are rigid, and there's no "I forgot" extension.
@@ -106,3 +107,8 @@ No sign-up. No pitch. Just the math.
 ### Related Financial Tools
 - [S-Corp Tax Calculator](/s-corp-tax-calculator/)
 - [LLC vs S-Corp Tax Optimizer](/llc-vs-s-corp-tax-calculator/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

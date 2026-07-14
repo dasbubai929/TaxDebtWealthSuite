@@ -4,6 +4,7 @@ description: "Securities-backed lines of credit are a cornerstone of the Buy, Bo
 pubDate: 2026-07-01
 author: "Mrittunjoy Das"
 relatedTool: "buy-borrow-die-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 When you die with an outstanding SBLOC, the loan doesn't disappear. Your heirs don't inherit debt-free securities — they inherit the securities *and* the loan balance attached to them. But here's the part that makes the "buy, borrow, die" strategy work: the tax basis on those securities steps up to fair market value at the date of your death, which means decades of embedded capital gains can be wiped out in a single event.
@@ -99,3 +100,8 @@ No sign-up. No pitch. Just the math.
 ### Related Financial Tools
 - [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
 - [Margin Loan vs Sell Tool](/margin-loan-vs-sell-calculator/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

@@ -4,6 +4,7 @@ description: "Stop picking individual stocks and hoping for the best. Learn the 
 pubDate: 2026-07-08
 relatedTool: "sbloc-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 Saving money is a defensive action. It prevents you from going bankrupt. But you cannot save your way to financial independence; inflation will silently destroy your purchasing power over time.
@@ -48,6 +49,10 @@ As your portfolio matures into the mid-six or seven figures, you unlock a new ti
 
 Instead of selling your highly appreciated index funds (which triggers massive capital gains tax), you can pledge your portfolio to a broker in exchange for a Securities-Backed Line of Credit (SBLOC) or a Margin Loan. You can then use this cash to buy real estate, fund a business, or pay for living expenses, all while your underlying portfolio continues to compound.
 
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
+
 > [!TIP]
 > Before attempting this strategy, you must understand the mathematics of collateral. Use our free **[SBLOC Calculator](/sbloc-calculator/)** to determine your maximum borrowing power and your margin call threshold.
 
@@ -65,3 +70,8 @@ Investing does not need to be exciting. In fact, good investing should be incred
 - [Asset Allocation Strategies](/blog/asset-allocation-strategies/)
 - [Real Estate vs the Stock Market](/blog/real-estate-vs-stocks/)
 - [What is a Margin Call?](/blog/margin-call-ltv-threshold-explained/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

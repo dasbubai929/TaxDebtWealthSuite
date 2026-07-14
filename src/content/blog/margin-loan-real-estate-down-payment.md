@@ -4,6 +4,7 @@ description: "Learn how to use a margin loan or SBLOC to fund a real estate down
 pubDate: 2026-07-08
 relatedTool: "stock-portfolio-down-payment-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 When investors decide to diversify into real estate, they often face a severe liquidity crisis. Their net worth is high, but their capital is locked up in highly appreciated stock portfolios. 
@@ -37,3 +38,12 @@ Leverage is a double-edged sword. When you pledge your stock portfolio as collat
 If the stock market crashes and the value of your portfolio drops below the broker's "Maintenance Margin" requirement, the broker will issue a margin call. You will be forced to immediately deposit cash into the account. If you cannot produce the cash, the broker will forcefully liquidate your stocks at the absolute bottom of the market to cover the loan.
 
 Because real estate is an illiquid asset, you cannot quickly sell the house to cover a margin call. Therefore, you must maintain extremely conservative Loan-to-Value (LTV) ratios when executing this strategy. Never borrow the maximum allowable amount.
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

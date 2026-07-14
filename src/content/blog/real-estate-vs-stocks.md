@@ -4,6 +4,7 @@ description: "Stocks offer liquid, passive compounding. Real Estate offers aggre
 pubDate: 2026-07-08
 relatedTool: "stock-portfolio-down-payment-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 The debate between real estate investors and stock market investors is endless. 
@@ -32,5 +33,14 @@ The wealthiest individuals do not choose one or the other. They use both, often 
 
 Early in their careers, they heavily heavily into stock market index funds to build a liquid, compounding foundation. Once the portfolio is large enough, they use a margin loan against the stocks to fund the 20% down payment on a real estate property. They now own both assets simultaneously, capturing the passive growth of the market and the leveraged, tax-advantaged cash flow of the real estate.
 
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/) to model your exact scenario.
+
+
 > [!TIP]
 > If you are considering pulling money out of the market to buy real estate, do not sell your shares. Use our **[Stock Portfolio Down Payment Calculator](/stock-portfolio-down-payment-calculator/)** to see if a margin loan is a mathematically superior option.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

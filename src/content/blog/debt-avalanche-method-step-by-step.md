@@ -4,6 +4,7 @@ description: "The debt avalanche method minimizes total interest paid by targeti
 pubDate: 2026-06-30
 author: "Mrittunjoy Das"
 relatedTool: "debt-payoff-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 The debt avalanche method is simple: pay minimums on every debt, then throw every extra dollar at the **highest-interest-rate debt first.** When that one's gone, roll the entire payment into the next-highest rate. Repeat until you're debt-free.

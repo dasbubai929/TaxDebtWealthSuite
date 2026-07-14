@@ -4,6 +4,7 @@ description: "Critics call it a tax loophole; the IRS calls it legal. We walk th
 pubDate: 2026-06-25
 author: "Mrittunjoy Das"
 relatedTool: "buy-borrow-die-calculator"
+ogImage: "/images/og-home.png"
 ---
 
 "Buy, Borrow, Die" has become the go-to phrase for how the ultra-wealthy allegedly avoid taxes. The internet is full of hot takes — half of them say it's a dirty loophole that should be illegal, the other half say it's a genius hack anyone can use. Both are wrong, and both miss the point.
@@ -123,3 +124,8 @@ No sign-up. No pitch. Just the math.
 ### Related Financial Tools
 - [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
 - [SBLOC Interest Calculator](/sbloc-calculator/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

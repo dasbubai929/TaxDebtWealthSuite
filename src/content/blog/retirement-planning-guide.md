@@ -4,6 +4,7 @@ description: "Retirement isn't just about saving enough money; it's about withdr
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 Most financial advice focuses entirely on the *accumulation* phase of wealth. But as you approach retirement, the math changes drastically. You enter the *distribution* phase.
@@ -68,3 +69,8 @@ Retirement planning is fundamentally an exercise in tax avoidance and risk manag
 - [The 4% Rule for Retirement Explained](/blog/4-percent-rule-retirement/)
 - [How to Avoid Taxes on Social Security](/blog/avoid-taxes-social-security/)
 - [The Step-Up in Basis Explained](/blog/step-up-in-basis-explained/)
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

@@ -4,6 +4,7 @@ description: "First time filing taxes as a freelancer? Learn how to read a 1099-
 pubDate: 2026-07-08
 relatedTool: "1099-self-employment-tax-calculator"
 author: "TaxDebtWealthSuite Editorial Team"
+ogImage: "/images/og-home.png"
 ---
 
 When you work a traditional W-2 job, your employer handles your taxes for you. They withhold money from every paycheck and send it to the IRS. At the end of the year, you file a simple return to settle any minor differences.
@@ -23,6 +24,10 @@ However, you must report *all* income you earned, even if a client paid you $500
 ## Step 2: Fill Out Schedule C
 
 1099 income is not entered on the standard wage line of your tax return. It is entered on a dedicated form called **Schedule C (Profit or Loss from Business)**.
+
+
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [S-Corp Tax Calculator](/s-corp-tax-calculator/) to model your exact scenario.
+
 
 Schedule C is divided into two main sections:
 1. **Income:** This is where you tally up all your 1099-NEC forms and any other gross receipts.
@@ -48,3 +53,8 @@ Once your Net Profit is calculated on Schedule C, that number is transferred to 
 > You can preview exactly what Schedule SE will output by running your estimated Net Profit through our **[1099 Self-Employment Tax Calculator](/1099-self-employment-tax-calculator/)**.
 
 After the self-employment tax is calculated, your Net Profit is then added to your other income (like your W-2 wages) on Form 1040 to calculate your final federal income tax liability.
+
+
+---
+
+*Disclaimer: The calculators, articles, and tools provided on TaxDebtWealthSuite are for educational and informational purposes only. They do not constitute professional financial, tax, legal, or investment advice. While we strive for mathematical perfection based on current tax codes, individual financial situations are complex and nuanced. You should always consult with a certified public accountant (CPA), fiduciary financial advisor, or legal counsel before making structural financial decisions.*

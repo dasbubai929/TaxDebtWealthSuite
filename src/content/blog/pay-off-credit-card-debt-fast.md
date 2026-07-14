@@ -3,7 +3,7 @@ title: "How to Pay Off Credit Card Debt Fast: A Mathematical Approach"
 description: "Credit card debt is a financial emergency. Learn the exact mathematical steps to freeze interest, optimize your payments, and escape the minimum payment trap."
 pubDate: 2026-07-08
 relatedTool: "credit-card-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

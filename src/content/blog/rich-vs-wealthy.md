@@ -3,7 +3,7 @@ title: "Rich vs Wealthy: What is the Difference?"
 description: "Understand the psychological and financial distinction between being rich (high consumption) and being wealthy (high asset accumulation)."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

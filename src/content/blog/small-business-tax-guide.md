@@ -3,7 +3,7 @@ title: "Small Business Tax Guide: The Ultimate Blueprint for Founders"
 description: "Master small business taxation. Learn the mathematical difference between Sole Proprietorships, LLCs, and S-Corps, and discover exactly how to minimize your self-employment tax burden."
 pubDate: 2026-07-08
 relatedTool: "s-corp-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "The 50/30/20 Budgeting Rule Explained"
 description: "Hate tracking every penny? The 50/30/20 rule is a simplified budgeting framework that automates your savings and allows for guilt-free spending."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

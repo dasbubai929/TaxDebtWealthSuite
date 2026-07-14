@@ -3,7 +3,7 @@ title: "The Best Small Business Tax Deductions to Maximize Profit"
 description: "Don't pay the IRS a dollar more than necessary. Discover the most powerful, mathematically optimized tax deductions for freelancers and small businesses."
 pubDate: 2026-07-08
 relatedTool: "llc-vs-s-corp-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

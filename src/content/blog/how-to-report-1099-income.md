@@ -3,7 +3,7 @@ title: "How to Report 1099 Income Without Triggering an Audit"
 description: "First time filing taxes as a freelancer? Learn how to read a 1099-NEC, fill out Schedule C, and legally claim your business deductions."
 pubDate: 2026-07-08
 relatedTool: "1099-self-employment-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

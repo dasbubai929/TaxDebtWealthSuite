@@ -3,7 +3,7 @@ title: "Using Margin Loans to Buy Real Estate Without Selling Stock"
 description: "Learn how to use a margin loan or SBLOC to fund a real estate down payment, allowing you to buy property without triggering capital gains tax on your stock portfolio."
 pubDate: 2026-07-08
 relatedTool: "stock-portfolio-down-payment-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

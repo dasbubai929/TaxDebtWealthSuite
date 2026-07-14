@@ -3,7 +3,7 @@ title: "How to Build Wealth: A Blueprint for Financial Independence"
 description: "Transition from debt reduction to aggressive wealth accumulation. Master compound interest, asset allocation, and the psychology of building a lasting financial fortress."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "Real Estate vs the Stock Market: Which Builds Wealth Faster?"
 description: "Stocks offer liquid, passive compounding. Real Estate offers aggressive leverage and tax deductions. We break down the math to help you choose your primary wealth vehicle."
 pubDate: 2026-07-08
 relatedTool: "stock-portfolio-down-payment-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

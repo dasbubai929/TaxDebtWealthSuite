@@ -3,7 +3,7 @@ title: "Balance Transfer Cards vs Personal Loans for Debt Consolidation"
 description: "Which debt consolidation method is right for you? Compare the math, fees, and timelines of 0% balance transfer credit cards versus fixed-rate personal loans."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

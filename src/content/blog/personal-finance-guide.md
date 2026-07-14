@@ -3,7 +3,7 @@ title: "Personal Finance Guide: The Foundation of Financial Independence"
 description: "Before you can optimize taxes or build leverage, you must master the basics. Learn how to budget, build an emergency fund, fix your credit, and eliminate consumer debt."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

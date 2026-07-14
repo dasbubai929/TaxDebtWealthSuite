@@ -3,7 +3,7 @@ title: "The Best Side Hustles: How to Build High-Income Leverage"
 description: "Stop trading time for pennies. Learn how to identify high-income side hustles, acquire the right skills, and structure your gig work for maximum tax efficiency."
 pubDate: 2026-07-08
 relatedTool: "1099-self-employment-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "Compound Interest Explained: The Mathematics of Wealth"
 description: "Understand the exponential mathematics behind compound interest. Learn why time is the most critical variable in wealth accumulation and how to harness it."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

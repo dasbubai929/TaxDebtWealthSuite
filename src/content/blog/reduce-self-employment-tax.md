@@ -3,7 +3,7 @@ title: "How to Reduce Self-Employment Tax Legally"
 description: "The 15.3% self-employment tax is the biggest threat to freelancers. Learn exactly how to calculate it, and more importantly, how to reduce it."
 pubDate: 2026-07-08
 relatedTool: "1099-self-employment-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "Net Worth Tracking Guide: Measure Your True Wealth"
 description: "Your salary is not your wealth. Learn how to calculate and track your net worth using a balance-sheet mentality to guarantee long-term financial success."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "How to Get Out of Debt: The Ultimate Mathematical Guide"
 description: "Drowning in debt? Stop relying on motivation and start using mathematics. Learn exactly how to leverage the Avalanche and Snowball methods to map your escape timeline."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

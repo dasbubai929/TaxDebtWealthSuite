@@ -3,7 +3,7 @@ title: "Dave Ramsey's Baby Steps Review: The Psychology of Debt Payoff"
 description: "Dave Ramsey has helped millions get out of debt, but is his mathematical approach optimal? We review the pros and cons of the famous 7 Baby Steps."
 pubDate: 2026-07-08
 relatedTool: "debt-snowball-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

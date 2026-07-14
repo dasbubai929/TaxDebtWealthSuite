@@ -3,7 +3,7 @@ title: "Asset Allocation Strategies: The Math of Portfolio Construction"
 description: "Your asset allocation dictates 90% of your long-term returns. Learn how to balance stocks, bonds, and cash based on your exact age and risk tolerance."
 pubDate: 2026-07-08
 relatedTool: "sbloc-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

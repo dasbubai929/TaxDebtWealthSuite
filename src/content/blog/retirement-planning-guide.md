@@ -3,7 +3,7 @@ title: "Retirement Planning Guide: Tax Optimization and Drawdown Strategy"
 description: "Retirement isn't just about saving enough money; it's about withdrawing it without triggering massive tax penalties. Learn how to sequence your withdrawals, minimize Social Security taxes, and transfer wealth tax-free."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

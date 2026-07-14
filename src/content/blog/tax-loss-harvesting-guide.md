@@ -3,7 +3,7 @@ title: "The Ultimate Tax-Loss Harvesting Guide: Offset Your Gains"
 description: "Learn how to use tax-loss harvesting to offset capital gains and reduce your ordinary income tax. Master the IRS Wash-Sale rule to optimize your portfolio."
 pubDate: 2026-07-08
 relatedTool: "s-corp-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

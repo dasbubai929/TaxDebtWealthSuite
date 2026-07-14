@@ -3,7 +3,7 @@ title: "Traditional vs Roth IRA: The Mathematical Choice"
 description: "Don't guess which retirement account is better. We break down the exact mathematics of Traditional vs Roth IRAs and 401(k)s."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

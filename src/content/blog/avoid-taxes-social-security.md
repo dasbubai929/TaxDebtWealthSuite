@@ -3,7 +3,7 @@ title: "How to Avoid Taxes on Social Security Benefits"
 description: "Up to 85% of your Social Security benefits can be taxed by the IRS. Learn how the Combined Income formula works and how to strategically withdraw from your IRAs to minimize the damage."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "Investing for Beginners: How to Allocate Capital and Build Leverage"
 description: "Stop picking individual stocks and hoping for the best. Learn the mathematical foundations of asset allocation, index funds, real estate, and portfolio leverage."
 pubDate: 2026-07-08
 relatedTool: "sbloc-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

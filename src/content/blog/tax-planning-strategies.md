@@ -3,7 +3,7 @@ title: "Tax Planning Strategies: The Ultimate Guide for High Earners"
 description: "Master advanced tax planning strategies to legally minimize your tax burden. Learn how high-net-worth individuals use S-Corps, margin loans, and tax-loss harvesting to preserve wealth."
 pubDate: 2026-07-08
 relatedTool: "s-corp-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

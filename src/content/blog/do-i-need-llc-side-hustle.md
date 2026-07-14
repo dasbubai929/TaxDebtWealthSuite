@@ -3,7 +3,7 @@ title: "Do I Need an LLC for a Side Hustle? (The Math vs The Law)"
 description: "Before you pay $500 to LegalZoom, understand what an LLC actually does. We break down when a freelancer needs an LLC, and when being a Sole Proprietor is perfectly fine."
 pubDate: 2026-07-08
 relatedTool: "llc-vs-s-corp-tax-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "The Step-Up in Basis at Death Explained"
 description: "The Step-Up in Basis is the most powerful wealth transfer loophole in the US tax code. Learn how it erases capital gains tax for your heirs."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "How to Fix Your Credit Score Fast: The IRS and Bureau Algorithms"
 description: "Your credit score is a mathematical algorithm. Learn exactly how the FICO model weights your data and how to rapidly improve your score by manipulating your credit utilization."
 pubDate: 2026-07-08
 relatedTool: "credit-card-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

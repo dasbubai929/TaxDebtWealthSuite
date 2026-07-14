@@ -3,7 +3,7 @@ title: "The 4% Rule for Retirement Explained"
 description: "The 4% rule is the gold standard for retirement withdrawals. Learn how William Bengen calculated it, how inflation impacts it, and why it might be too conservative for modern retirees."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "How to Avoid Capital Gains Tax Legally: A Guide to Portfolio Leverage"
 description: "Discover how the ultra-wealthy avoid capital gains tax by using Securities-Based Lines of Credit (SBLOCs) and margin loans to access liquidity without selling assets."
 pubDate: 2026-07-08
 relatedTool: "buy-borrow-die-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

@@ -3,7 +3,7 @@ title: "How to Build an Emergency Fund (And Where to Keep It)"
 description: "An emergency fund is your financial defensive moat. Learn exactly how many months of expenses you need to save and why high-yield savings accounts are the only safe option."
 pubDate: 2026-07-08
 relatedTool: "debt-payoff-calculator"
-author: "TaxDebtWealthSuite Editorial Team"
+author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
 

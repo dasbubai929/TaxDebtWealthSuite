@@ -16,12 +16,12 @@ const {
   ogImage = "https://taxdebtwealthsuite.com/images/og-home.png"
 } = Astro.props;
 
-const canonicalPath = Astro.url.pathname.replace(/\/$/, "");
-const canonicalURL = new URL(canonicalPath || "/", Astro.site || "https://taxdebtwealthsuite.com").toString();
+const canonicalPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : Astro.url.pathname + '/';
+const canonicalURL = new URL(canonicalPath, Astro.site || "https://taxdebtwealthsuite.com").toString();
 
 // Determine if we are on one of the calculator tool pages
 const path = canonicalPath;
-const isCalculatorPage = ["/buy-borrow-die-calculator", "/s-corp-tax-calculator", "/debt-payoff-calculator"].includes(path);
+const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/"].includes(path);
 
 // Fetch latest 3 blog posts for the footer
 const allPosts = (await getCollection("blog")).sort((a, b) => {

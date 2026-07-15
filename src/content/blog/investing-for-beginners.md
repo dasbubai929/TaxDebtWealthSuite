@@ -2,7 +2,7 @@
 title: "Investing for Beginners: How to Allocate Capital and Build Leverage"
 description: "Stop picking individual stocks and hoping for the best. Learn the mathematical foundations of asset allocation, index funds, real estate, and portfolio leverage."
 pubDate: 2026-07-08
-relatedTool: "sbloc-calculator"
+relatedTool: "buy-borrow-die-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -54,7 +54,7 @@ Instead of selling your highly appreciated index funds (which triggers massive c
 
 
 > [!TIP]
-> Before attempting this strategy, you must understand the mathematics of collateral. Use our free **[SBLOC Calculator](/sbloc-calculator/)** to determine your maximum borrowing power and your margin call threshold.
+> Before attempting this strategy, you must understand the mathematics of collateral. Use our free **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)** to determine your maximum borrowing power and your margin call threshold.
 
 However, leverage is incredibly dangerous if mismanaged. If the stock market crashes, your broker will demand immediate cash repayment—a scenario known as a margin call. If you cannot pay, they will forcibly liquidate your portfolio at the bottom of the market. 
 

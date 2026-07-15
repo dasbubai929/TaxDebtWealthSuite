@@ -2,7 +2,7 @@
 title: "How to Report 1099 Income Without Triggering an Audit"
 description: "First time filing taxes as a freelancer? Learn how to read a 1099-NEC, fill out Schedule C, and legally claim your business deductions."
 pubDate: 2026-07-08
-relatedTool: "1099-self-employment-tax-calculator"
+relatedTool: "s-corp-tax-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -50,7 +50,7 @@ The total of these expenses is subtracted from your gross income to yield your N
 Once your Net Profit is calculated on Schedule C, that number is transferred to **Schedule SE**. This form calculates your 15.3% Self-Employment Tax (Social Security and Medicare). 
 
 > [!TIP]
-> You can preview exactly what Schedule SE will output by running your estimated Net Profit through our **[1099 Self-Employment Tax Calculator](/1099-self-employment-tax-calculator/)**.
+> You can preview exactly what Schedule SE will output by running your estimated Net Profit through our **[S-Corp Tax Calculator](/s-corp-tax-calculator/)**.
 
 After the self-employment tax is calculated, your Net Profit is then added to your other income (like your W-2 wages) on Form 1040 to calculate your final federal income tax liability.
 

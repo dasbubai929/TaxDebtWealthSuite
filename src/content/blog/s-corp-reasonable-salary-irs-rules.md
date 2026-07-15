@@ -95,8 +95,7 @@ No sign-up. No pitch. Just the math.
 
 
 ### Related Financial Tools
-- [S-Corp Reasonable Salary Calculator](/s-corp-reasonable-salary-calculator/)
-- [1099 Self-Employment Tax Tool](/1099-self-employment-tax-calculator/)
+- [S-Corp Tax Calculator](/s-corp-tax-calculator/)
 
 
 ---

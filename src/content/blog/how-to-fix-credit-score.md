@@ -2,7 +2,7 @@
 title: "How to Fix Your Credit Score Fast: The IRS and Bureau Algorithms"
 description: "Your credit score is a mathematical algorithm. Learn exactly how the FICO model weights your data and how to rapidly improve your score by manipulating your credit utilization."
 pubDate: 2026-07-08
-relatedTool: "credit-card-payoff-calculator"
+relatedTool: "debt-payoff-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -39,7 +39,7 @@ If you have a credit card with a $10,000 limit, and your balance is $9,000, your
 The optimal utilization ratio is **under 10%**. 
 
 There are two ways to fix this instantly:
-1. **Pay down the balance:** Aggressively dump cash onto the card. The moment the creditor reports the lower balance to the bureaus (usually once a month), your score will instantly jump. (Use our **[Credit Card Payoff Calculator](/credit-card-payoff-calculator/)** to optimize this process).
+1. **Pay down the balance:** Aggressively dump cash onto the card. The moment the creditor reports the lower balance to the bureaus (usually once a month), your score will instantly jump. (Use our **[Debt Payoff Calculator](/debt-payoff-calculator/)** to optimize this process).
 2. **Increase your limit:** Call your credit card company and ask for a Credit Limit Increase. If they raise your limit from $10,000 to $20,000, your $9,000 balance is suddenly only a 45% utilization. Your score will jump, even though you didn't pay a dime.
 
 ## Never Close Old Accounts

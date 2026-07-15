@@ -2,7 +2,7 @@
 title: "How to Reduce Self-Employment Tax Legally"
 description: "The 15.3% self-employment tax is the biggest threat to freelancers. Learn exactly how to calculate it, and more importantly, how to reduce it."
 pubDate: 2026-07-08
-relatedTool: "1099-self-employment-tax-calculator"
+relatedTool: "s-corp-tax-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -26,7 +26,7 @@ Furthermore, this tax is applied to your net business profit *before* you even b
 
 
 > [!TIP]
-> If you are a freelancer or sole proprietor, calculate your exact liability instantly using our **[1099 Self-Employment Tax Calculator](/1099-self-employment-tax-calculator/)**.
+> If you are a freelancer or sole proprietor, calculate your exact liability instantly using our **[S-Corp Tax Calculator](/s-corp-tax-calculator/)**.
 
 ## Strategy 1: Aggressive Expensing
 

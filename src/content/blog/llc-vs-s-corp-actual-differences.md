@@ -153,8 +153,7 @@ No sign-up. No pitch. Just the math.
 
 
 ### Related Financial Tools
-- [LLC vs S-Corp Tax Calculator](/llc-vs-s-corp-tax-calculator/)
-- [S-Corp Reasonable Salary Optimizer](/s-corp-reasonable-salary-calculator/)
+- [S-Corp Tax Calculator](/s-corp-tax-calculator/)
 
 
 ---

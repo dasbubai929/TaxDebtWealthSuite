@@ -2,7 +2,7 @@
 title: "Dave Ramsey's Baby Steps Review: The Psychology of Debt Payoff"
 description: "Dave Ramsey has helped millions get out of debt, but is his mathematical approach optimal? We review the pros and cons of the famous 7 Baby Steps."
 pubDate: 2026-07-08
-relatedTool: "debt-snowball-calculator"
+relatedTool: "debt-payoff-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -35,7 +35,7 @@ Ramsey's genius lies in understanding that if people were good at math, they wou
 Mathematically, this is inefficient (you will pay more total interest). Psychologically, it is brilliant. By quickly eliminating the small $500 medical bill, you get a dopamine hit of success, which motivates you to tackle the $10,000 car loan.
 
 > [!TIP]
-> If you want to compare the psychological win of the Snowball method against the mathematical efficiency of the Avalanche method, run your exact numbers through our **[Debt Snowball Calculator](/debt-snowball-calculator/)**.
+> If you want to compare the psychological win of the Snowball method against the mathematical efficiency of the Avalanche method, run your exact numbers through our **[Debt Payoff Calculator](/debt-payoff-calculator/)**.
 
 ## The Cons: Mathematical Inefficiency
 

@@ -106,8 +106,7 @@ No sign-up. No pitch. Just the math.
 
 
 ### Related Financial Tools
-- [SBLOC Calculator](/sbloc-calculator/)
-- [Stock Portfolio Down Payment Tool](/stock-portfolio-down-payment-calculator/)
+- [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
 
 
 ---

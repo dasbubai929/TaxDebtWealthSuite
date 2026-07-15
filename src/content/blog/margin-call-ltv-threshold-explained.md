@@ -114,8 +114,7 @@ This is the number that matters most in the "borrow instead of sell" strategy. K
 
 
 ### Related Financial Tools
-- [Margin Loan vs Sell Calculator](/margin-loan-vs-sell-calculator/)
-- [SBLOC Modeler](/sbloc-calculator/)
+- [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
 
 
 ---

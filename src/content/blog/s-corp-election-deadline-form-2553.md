@@ -106,7 +106,6 @@ No sign-up. No pitch. Just the math.
 
 ### Related Financial Tools
 - [S-Corp Tax Calculator](/s-corp-tax-calculator/)
-- [LLC vs S-Corp Tax Optimizer](/llc-vs-s-corp-tax-calculator/)
 
 
 ---

@@ -109,4 +109,3 @@ No sign-up. No pitch. Just the math.
 
 ### Related Financial Tools
 - [Debt Payoff Calculator](/debt-payoff-calculator/)
-- [Credit Card Payoff Calculator](/credit-card-payoff-calculator/)

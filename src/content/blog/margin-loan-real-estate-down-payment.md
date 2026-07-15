@@ -2,7 +2,7 @@
 title: "Using Margin Loans to Buy Real Estate Without Selling Stock"
 description: "Learn how to use a margin loan or SBLOC to fund a real estate down payment, allowing you to buy property without triggering capital gains tax on your stock portfolio."
 pubDate: 2026-07-08
-relatedTool: "stock-portfolio-down-payment-calculator"
+relatedTool: "buy-borrow-die-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -29,7 +29,7 @@ You draw down this line of credit in cash, wire the funds to the escrow company,
 This strategy is not free. You must pay interest on the margin loan. The viability of this trade depends entirely on the spread between your borrowing costs, your expected stock market returns, and the cash flow/appreciation of the real estate.
 
 > [!TIP]
-> To model this exact scenario, use our **[Real Estate Down Payment via Stock Portfolio Calculator](/stock-portfolio-down-payment-calculator/)**. It will compare the net wealth outcome of selling your stock versus taking a margin loan.
+> To model this exact scenario, use our **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)**. It will compare the net wealth outcome of selling your stock versus taking a margin loan.
 
 ## The Risk: Margin Calls
 

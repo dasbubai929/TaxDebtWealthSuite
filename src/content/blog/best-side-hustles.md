@@ -2,7 +2,7 @@
 title: "The Best Side Hustles: How to Build High-Income Leverage"
 description: "Stop trading time for pennies. Learn how to identify high-income side hustles, acquire the right skills, and structure your gig work for maximum tax efficiency."
 pubDate: 2026-07-08
-relatedTool: "1099-self-employment-tax-calculator"
+relatedTool: "s-corp-tax-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -48,7 +48,7 @@ You must set aside roughly 25% to 30% of your net profit for taxes.
 Learn exactly how this works and how to file your forms correctly: **[How to Report 1099 Income](/blog/how-to-report-1099-income/)**.
 
 > [!WARNING]
-> Do not guess your tax liability. The penalties for underpayment are severe. Use our free **[1099 Self-Employment Tax Calculator](/1099-self-employment-tax-calculator/)** to determine exactly how much cash you need to hold back for the IRS.
+> Do not guess your tax liability. The penalties for underpayment are severe. Use our free **[S-Corp Tax Calculator](/s-corp-tax-calculator/)** to determine exactly how much cash you need to hold back for the IRS.
 
 ## 4. Shielding Income: Tax Deductions
 

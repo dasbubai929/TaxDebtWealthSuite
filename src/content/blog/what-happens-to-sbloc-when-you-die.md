@@ -99,7 +99,6 @@ No sign-up. No pitch. Just the math.
 
 ### Related Financial Tools
 - [Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)
-- [Margin Loan vs Sell Tool](/margin-loan-vs-sell-calculator/)
 
 
 ---

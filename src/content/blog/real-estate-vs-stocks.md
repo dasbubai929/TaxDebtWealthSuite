@@ -2,7 +2,7 @@
 title: "Real Estate vs the Stock Market: Which Builds Wealth Faster?"
 description: "Stocks offer liquid, passive compounding. Real Estate offers aggressive leverage and tax deductions. We break down the math to help you choose your primary wealth vehicle."
 pubDate: 2026-07-08
-relatedTool: "stock-portfolio-down-payment-calculator"
+relatedTool: "buy-borrow-die-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -38,7 +38,7 @@ Early in their careers, they heavily heavily into stock market index funds to bu
 
 
 > [!TIP]
-> If you are considering pulling money out of the market to buy real estate, do not sell your shares. Use our **[Stock Portfolio Down Payment Calculator](/stock-portfolio-down-payment-calculator/)** to see if a margin loan is a mathematically superior option.
+> If you are considering pulling money out of the market to buy real estate, do not sell your shares. Use our **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)** to see if a margin loan is a mathematically superior option.
 
 
 ---

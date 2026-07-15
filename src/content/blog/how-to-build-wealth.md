@@ -44,7 +44,7 @@ For example, many investors assume they must liquidate their stock portfolio to 
 We break down the exact mathematics of this strategy in our guide: **[Using Margin Loans to Buy Real Estate](/blog/margin-loan-real-estate-down-payment/)**.
 
 > [!TIP]
-> Do not execute leverage strategies blindly. Use our **[Stock Portfolio Down Payment Calculator](/stock-portfolio-down-payment-calculator/)** to stress-test your margin call risk before pledging any assets.
+> Do not execute leverage strategies blindly. Use our **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)** to stress-test your margin call risk before pledging any assets.
 
 ## 4. The Psychology of Wealth
 

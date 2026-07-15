@@ -135,5 +135,4 @@ No sign-up. No pitch. Just the math.
 
 
 ### Related Financial Tools
-- [Debt Avalanche Calculator](/debt-avalanche-calculator/)
-- [Credit Card Payoff Planner](/credit-card-payoff-calculator/)
+- [Debt Payoff Calculator](/debt-payoff-calculator/)

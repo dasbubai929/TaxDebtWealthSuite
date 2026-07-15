@@ -36,7 +36,7 @@ While you do not pay taxes on the loan, you *do* pay interest to the broker. The
 If your broker charges 6% interest on the margin loan, but your portfolio appreciates at 8% annually, your investments are growing faster than your debt is accumulating. You effectively generate positive arbitrage while bypassing the IRS completely.
 
 > [!TIP]
-> To see the exact mathematical crossover point where a margin loan becomes cheaper than paying capital gains tax, input your specific numbers into our free **[Margin Loan vs Selling Calculator](/margin-loan-vs-sell-calculator/)**.
+> To see the exact mathematical crossover point where a margin loan becomes cheaper than paying capital gains tax, input your specific numbers into our free **[Buy, Borrow, Die Calculator](/buy-borrow-die-calculator/)**.
 
 ## The Ultimate Tax Shield: The Step-Up in Basis
 

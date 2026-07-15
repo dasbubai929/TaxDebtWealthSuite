@@ -2,7 +2,7 @@
 title: "Deducting Home Office Expenses: The Ultimate Tax Shield"
 description: "The Home Office Deduction is the most powerful tax write-off for remote freelancers. Learn the IRS rules, the difference between the simplified and actual methods, and how to avoid an audit."
 pubDate: 2026-07-08
-relatedTool: "1099-self-employment-tax-calculator"
+relatedTool: "s-corp-tax-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---

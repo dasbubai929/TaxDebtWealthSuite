@@ -2,7 +2,7 @@
 title: "How to Pay Off Credit Card Debt Fast: A Mathematical Approach"
 description: "Credit card debt is a financial emergency. Learn the exact mathematical steps to freeze interest, optimize your payments, and escape the minimum payment trap."
 pubDate: 2026-07-08
-relatedTool: "credit-card-payoff-calculator"
+relatedTool: "debt-payoff-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -22,7 +22,7 @@ Minimum payments are typically set to 1% to 2% of your total balance, plus the i
 If you have a $10,000 balance at 20% APR and only pay a $200 minimum payment, it will take you over **9 years** to pay off the card, and you will pay over **$11,000** in interest alone.
 
 > [!IMPORTANT]
-> You must completely ignore the minimum payment printed on your statement. Calculate your own aggressive monthly payment using our **[Credit Card Payoff Calculator](/credit-card-payoff-calculator/)**.
+> You must completely ignore the minimum payment printed on your statement. Calculate your own aggressive monthly payment using our **[Debt Payoff Calculator](/debt-payoff-calculator/)**.
 
 ## Strategy 1: The Interest Freeze (Balance Transfers)
 

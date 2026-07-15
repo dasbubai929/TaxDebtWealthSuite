@@ -2,7 +2,7 @@
 title: "Top High-Income Skills to Learn for a Lucrative Side Hustle"
 description: "Stop trading time for low wages. Discover the high-income, high-leverage skills that B2B clients are willing to pay $100+ an hour for."
 pubDate: 2026-07-08
-relatedTool: "1099-self-employment-tax-calculator"
+relatedTool: "s-corp-tax-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---

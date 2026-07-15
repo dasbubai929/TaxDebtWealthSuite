@@ -1,0 +1,15 @@
+# Doorway page consolidation — permanent 301 redirects
+# Debt Payoff group
+/debt-snowball-calculator/           /debt-payoff-calculator/  301
+/debt-avalanche-calculator/          /debt-payoff-calculator/  301
+/credit-card-payoff-calculator/      /debt-payoff-calculator/  301
+
+# S-Corp Tax group
+/llc-vs-s-corp-tax-calculator/       /s-corp-tax-calculator/   301
+/s-corp-reasonable-salary-calculator/ /s-corp-tax-calculator/   301
+/1099-self-employment-tax-calculator/ /s-corp-tax-calculator/   301
+
+# Buy-Borrow-Die group
+/sbloc-calculator/                        /buy-borrow-die-calculator/  301
+/margin-loan-vs-sell-calculator/           /buy-borrow-die-calculator/  301
+/stock-portfolio-down-payment-calculator/  /buy-borrow-die-calculator/  301

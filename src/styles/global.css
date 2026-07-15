@@ -163,3 +163,10 @@ select {
   font-family: var(--font-mono);
   letter-spacing: -0.02em;
 }
+
+/* ───────────────────────────────────────────────
+   Outfit Font utility
+   ─────────────────────────────────────────────── */
+.Outfit {
+  font-family: 'Outfit', var(--font-sans);
+}

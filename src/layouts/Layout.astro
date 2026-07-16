@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { getCollection } from "astro:content";
 
 interface Props {
   title?: string;
@@ -22,15 +21,6 @@ const canonicalURL = new URL(canonicalPath, Astro.site || "https://taxdebtwealth
 // Determine if we are on one of the calculator tool pages
 const path = canonicalPath;
 const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/"].includes(path);
-
-// Fetch latest 3 blog posts for the footer
-const allPosts = (await getCollection("blog")).sort((a, b) => {
-  const dateDiff = b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
-  if (dateDiff !== 0) return dateDiff;
-  // Secondary sort by title alphabetically if dates are identical
-  return a.data.title.localeCompare(b.data.title);
-});
-const latestPosts = allPosts.slice(0, 3);
 ---
 
 <!DOCTYPE html>
@@ -170,58 +160,8 @@ const latestPosts = allPosts.slice(0, 3);
       <slot />
 
       <!-- Shared Footer -->
-      <footer class="border-t border-[#1E294B] bg-[#0A0F1D] py-10 text-xs text-slate-400">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          <!-- Sitemap block -->
-          <div class="border-b border-slate-900 pb-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <p class="font-bold text-slate-200 mb-3 font-sans tracking-wide uppercase text-3xs text-[#00F5D4]/80">Buy, Borrow, Die Calculator</p>
-              <ul class="space-y-2 text-[#94A3B8]">
-                <li><a href="/buy-borrow-die-calculator/" class="hover:text-[#00F5D4] transition-colors">United States (Default)</a></li>
-                <li><a href="/buy-borrow-die-calculator/uk/" class="hover:text-[#00F5D4] transition-colors">United Kingdom (Lombard Loan)</a></li>
-                <li><a href="/buy-borrow-die-calculator/canada/" class="hover:text-[#00F5D4] transition-colors">Canada (Margin Loan)</a></li>
-                <li><a href="/buy-borrow-die-calculator/australia/" class="hover:text-[#00F5D4] transition-colors">Australia (Margin Lending)</a></li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-bold text-slate-200 mb-3 font-sans tracking-wide uppercase text-3xs text-[#00F5D4]/80">S-Corp Tax Calculator</p>
-              <ul class="space-y-2 text-[#94A3B8]">
-                <li><a href="/s-corp-tax-calculator/" class="hover:text-[#00F5D4] transition-colors">United States (Default)</a></li>
-                <li><a href="/s-corp-tax-calculator/uk/" class="hover:text-[#00F5D4] transition-colors">United Kingdom (Ltd Company)</a></li>
-                <li><a href="/s-corp-tax-calculator/canada/" class="hover:text-[#00F5D4] transition-colors">Canada (CCPC)</a></li>
-                <li><a href="/s-corp-tax-calculator/australia/" class="hover:text-[#00F5D4] transition-colors">Australia (Pty Ltd)</a></li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-bold text-slate-200 mb-3 font-sans tracking-wide uppercase text-3xs text-[#00F5D4]/80">Debt Payoff Calculator</p>
-              <ul class="space-y-2 text-[#94A3B8]">
-                <li><a href="/debt-payoff-calculator/" class="hover:text-[#00F5D4] transition-colors">United States (Default)</a></li>
-                <li><a href="/debt-payoff-calculator/uk/" class="hover:text-[#00F5D4] transition-colors">United Kingdom</a></li>
-                <li><a href="/debt-payoff-calculator/canada/" class="hover:text-[#00F5D4] transition-colors">Canada</a></li>
-                <li><a href="/debt-payoff-calculator/australia/" class="hover:text-[#00F5D4] transition-colors">Australia</a></li>
-              </ul>
-            </div>
-            <div>
-              <p class="font-bold text-slate-200 mb-3 font-sans tracking-wide uppercase text-3xs text-[#00F5D4]/80">Blog</p>
-              <ul class="space-y-2 text-[#94A3B8]">
-                {latestPosts.map(post => (
-                  <li>
-                    <a href={`/blog/${post.slug}/`} class="hover:text-[#00F5D4] transition-colors leading-snug block">
-                      {post.data.title}
-                    </a>
-                  </li>
-                ))}
-                <li class="pt-2">
-                  <a href="/blog/" class="text-[#00F5D4] hover:text-white transition-colors font-medium flex items-center gap-1 group">
-                    View all articles
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <footer class="border-t border-[#1E294B] bg-[#0A0F1D] py-8 text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <!-- Copyright & Disclaimer info -->
             <div class="max-w-xl space-y-2">

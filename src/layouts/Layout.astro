@@ -20,8 +20,9 @@ const canonicalURL = new URL(canonicalPath, Astro.site || "https://taxdebtwealth
 
 // Determine if we are on one of the calculator tool pages
 const path = canonicalPath;
-const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/", "/qbi-deduction-calculator/"].includes(path);
+const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/", "/qbi-deduction-calculator/", "/salt-cap-deduction-calculator/"].includes(path);
 ---
+
 
 <!DOCTYPE html>
 <html lang="en" class="h-full scroll-smooth">
@@ -446,6 +447,10 @@ const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator
           return `I'm preserving ${netSaved} in tax drag by borrowing instead of liquidating — modeled on the Buy, Borrow, Die calculator. Check your leverage safety score: ${url}`;
         }
         return `Just modeled my portfolio margin risk and tax drag on the Buy, Borrow, Die calculator. Check your leverage safety score here: ${url}`;
+      }
+      if (tabId === 'salt') {
+        const allowed = document.getElementById('salt-result-allowed')?.innerText;
+        return `My allowed SALT deduction is ${allowed} — calculated free at taxdebtwealthsuite.com/salt-cap-deduction-calculator/`;
       }
       return `Free financial calculators for tax optimization, debt payoff, and portfolio strategy: ${url}`;
     };

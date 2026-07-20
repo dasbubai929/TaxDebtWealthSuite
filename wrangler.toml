@@ -1,6 +1,8 @@
 name = "taxdebtwealthsuite"
 compatibility_date = "2024-03-20"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
 
 [[kv_namespaces]]
 binding = "CONTACT_MESSAGES"

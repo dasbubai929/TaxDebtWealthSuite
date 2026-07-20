@@ -6,10 +6,13 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build && node ./scripts/postbuild.js",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "npm run build && wrangler dev",
+    "astro": "astro",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.0.0",
@@ -17,5 +20,8 @@
     "astro-broken-links-checker": "^1.1.0",
     "playwright": "^1.61.1",
     "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.112.0"
   }
 }

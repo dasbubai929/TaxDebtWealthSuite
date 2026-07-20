@@ -125,7 +125,7 @@ import Layout from "../layouts/Layout.astro";
      const formData = new FormData(form);
       
      try {
-       const response = await fetch("/api/submit-contact/", {
+       const response = await fetch("/api/contact-submit/", {
          method: "POST",
          body: formData
        });

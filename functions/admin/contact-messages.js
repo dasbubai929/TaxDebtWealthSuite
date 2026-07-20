@@ -882,7 +882,14 @@ export async function onRequest(context) {
       keys.map(async (key) => {
         try {
           const val = await kv.get(key);
-          return val ? JSON.parse(val) : null;
+          if (val) {
+            const parsed = JSON.parse(val);
+            // Ensure id is present from the key itself, and map timestamp to date for dashboard UI
+            parsed.id = key;
+            if (parsed.timestamp) parsed.date = parsed.timestamp;
+            return parsed;
+          }
+          return null;
         } catch (e) {
           console.error("Failed to parse message:", key, e);
           return null;

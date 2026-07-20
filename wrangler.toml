@@ -1,0 +1,6 @@
+name = "taxdebtwealthsuite"
+compatibility_date = "2024-03-20"
+
+[[kv_namespaces]]
+binding = "CONTACT_MESSAGES"
+id = "23c05a8583fe472fb0207a7e065ed869"

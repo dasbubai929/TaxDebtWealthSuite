@@ -28,7 +28,7 @@ export async function onRequestPost(context) {
     message = String(message).trim();
 
     if (!name || !email || !message) {
-      return new Response(JSON.stringify({ success: false, message: "Missing required fields (name, email, message)" }), {
+      return new Response(JSON.stringify({ success: false, message: "Submission failed" }), {
         status: 400,
         headers: { "content-type": "application/json" }
       });
@@ -45,7 +45,7 @@ export async function onRequestPost(context) {
 
     const kv = env.CONTACT_FORM || env.CONTACT_MESSAGES;
     if (!kv) {
-      return new Response(JSON.stringify({ success: false, message: "Cloudflare KV namespace binding is missing." }), {
+      return new Response(JSON.stringify({ success: false, message: "Submission failed" }), {
         status: 500,
         headers: { "content-type": "application/json" }
       });
@@ -54,7 +54,7 @@ export async function onRequestPost(context) {
     const timestamp = new Date().toISOString();
     // Unique ID format: contact:{timestamp}:{email}
     const id = `contact:${timestamp}:${email}`;
-    const data = { id, date: timestamp, name, email, message };
+    const data = { name, email, message, timestamp };
 
     // Store in KV
     await kv.put(id, JSON.stringify(data));
@@ -88,7 +88,7 @@ export async function onRequestPost(context) {
     });
 
   } catch (error) {
-    return new Response(JSON.stringify({ success: false, message: error.message }), {
+    return new Response(JSON.stringify({ success: false, message: "Submission failed" }), {
       status: 500,
       headers: { "content-type": "application/json" }
     });

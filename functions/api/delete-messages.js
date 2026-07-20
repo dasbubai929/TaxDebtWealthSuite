@@ -23,7 +23,8 @@ export async function onRequestPost(context) {
 
     const payload = await request.json();
     
-    if (!env.CONTACT_MESSAGES) {
+    const kv = env.CONTACT_FORM || env.CONTACT_MESSAGES;
+    if (!kv) {
       return new Response(JSON.stringify({ success: false, message: "KV binding missing" }), {
         status: 500,
         headers: { "content-type": "application/json" }
@@ -31,17 +32,17 @@ export async function onRequestPost(context) {
     }
 
     if (payload.clearAll) {
-      // List and delete all keys starting with "message:"
-      let list = await env.CONTACT_MESSAGES.list({ prefix: "message:" });
+      // List and delete all keys starting with "contact:"
+      let list = await kv.list({ prefix: "contact:" });
       let keys = list.keys.map(k => k.name);
       
       while (keys.length > 0) {
-        await Promise.all(keys.map(key => env.CONTACT_MESSAGES.delete(key)));
+        await Promise.all(keys.map(key => kv.delete(key)));
         
         if (list.list_complete) {
           break;
         }
-        list = await env.CONTACT_MESSAGES.list({ prefix: "message:", cursor: list.cursor });
+        list = await kv.list({ prefix: "contact:", cursor: list.cursor });
         keys = list.keys.map(k => k.name);
       }
 
@@ -53,7 +54,7 @@ export async function onRequestPost(context) {
 
     if (payload.ids && Array.isArray(payload.ids)) {
       // Delete specific keys
-      await Promise.all(payload.ids.map(key => env.CONTACT_MESSAGES.delete(key)));
+      await Promise.all(payload.ids.map(key => kv.delete(key)));
       return new Response(JSON.stringify({ success: true, message: `${payload.ids.length} message(s) deleted.` }), {
         status: 200,
         headers: { "content-type": "application/json" }

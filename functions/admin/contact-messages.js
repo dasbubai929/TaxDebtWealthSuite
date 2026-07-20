@@ -370,6 +370,40 @@ function renderDashboardPage(messages) {
       color: #94A3B8;
       font-size: 14px;
     }
+    .pagination {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background-color: #141C32;
+      border-top: 1px solid #1E294B;
+    }
+    .page-info {
+      font-size: 13px;
+      color: #94A3B8;
+    }
+    .page-controls {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-page {
+      background-color: #1E294B;
+      border: 1px solid #1E294B;
+      color: #CBD5E1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-page:hover:not(:disabled) {
+      background-color: #00F5D4;
+      color: #0A0F1D;
+    }
+    .btn-page:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   </style>
 </head>
 <body>
@@ -429,6 +463,13 @@ function renderDashboardPage(messages) {
       <div id="table-empty" class="empty-state" style="display: none;">
         No submissions found matching your filters.
       </div>
+      <div class="pagination" id="pagination-controls" style="display: none;">
+        <div class="page-info" id="page-info">Showing 1 to 20 of 100 entries</div>
+        <div class="page-controls">
+          <button class="btn-page" id="btn-prev-page" onclick="prevPage()">Previous</button>
+          <button class="btn-page" id="btn-next-page" onclick="nextPage()">Next</button>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -437,6 +478,10 @@ function renderDashboardPage(messages) {
 
     let filteredMessages = [...MESSAGES];
     let selectedIds = new Set();
+    
+    // Pagination state
+    let currentPage = 1;
+    const pageSize = 20;
 
     function formatDate(isoString) {
       if (!isoString) return '—';
@@ -458,18 +503,32 @@ function renderDashboardPage(messages) {
     function renderTable() {
       const tbody = document.getElementById('table-body');
       const emptyDiv = document.getElementById('table-empty');
+      const paginationDiv = document.getElementById('pagination-controls');
+      const table = document.getElementById('messages-table');
+      
       tbody.innerHTML = '';
       
       if (filteredMessages.length === 0) {
         emptyDiv.style.display = 'block';
-        document.getElementById('messages-table').style.display = 'none';
+        table.style.display = 'none';
+        paginationDiv.style.display = 'none';
         return;
       }
       
       emptyDiv.style.display = 'none';
-      document.getElementById('messages-table').style.display = 'table';
+      table.style.display = 'table';
+      paginationDiv.style.display = 'flex';
       
-      filteredMessages.forEach(msg => {
+      const totalPages = Math.ceil(filteredMessages.length / pageSize) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+      if (currentPage < 1) currentPage = 1;
+      
+      const startIndex = (currentPage - 1) * pageSize;
+      const endIndex = Math.min(startIndex + pageSize, filteredMessages.length);
+      
+      const pageData = filteredMessages.slice(startIndex, endIndex);
+      
+      pageData.forEach(msg => {
         const tr = document.createElement('tr');
         tr.id = 'row-' + msg.id;
         if (selectedIds.has(msg.id)) {
@@ -501,7 +560,27 @@ function renderDashboardPage(messages) {
         tbody.appendChild(tr);
       });
       
+      // Update pagination UI
+      document.getElementById('page-info').innerText = \`Showing \${startIndex + 1} to \${endIndex} of \${filteredMessages.length} entries\`;
+      document.getElementById('btn-prev-page').disabled = currentPage === 1;
+      document.getElementById('btn-next-page').disabled = currentPage === totalPages;
+      
       updateSelectionUI();
+    }
+    
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderTable();
+      }
+    }
+    
+    function nextPage() {
+      const totalPages = Math.ceil(filteredMessages.length / pageSize);
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderTable();
+      }
     }
 
     function escapeHtml(text) {
@@ -596,6 +675,8 @@ function renderDashboardPage(messages) {
       selectedIds = new Set([...selectedIds].filter(id => filteredIds.has(id)));
       
       document.getElementById('total-badge').innerText = filteredMessages.length;
+      
+      currentPage = 1;
       renderTable();
     }
 
@@ -778,20 +859,21 @@ export async function onRequest(context) {
 
   // Authorized: Fetch submissions
   try {
-    if (!env.CONTACT_MESSAGES) {
-      return new Response("<h1>KV Binding Missing</h1><p>Ensure CONTACT_MESSAGES namespace binding is configured in Wrangler/Cloudflare.</p>", {
+    const kv = env.CONTACT_FORM || env.CONTACT_MESSAGES;
+    if (!kv) {
+      return new Response("<h1>KV Binding Missing</h1><p>Ensure CONTACT_FORM or CONTACT_MESSAGES namespace binding is configured in Cloudflare Pages.</p>", {
         status: 500,
         headers: { "content-type": "text/html; charset=utf-8" }
       });
     }
 
     // List all message keys
-    let list = await env.CONTACT_MESSAGES.list({ prefix: "message:" });
+    let list = await kv.list({ prefix: "contact:" });
     let keys = list.keys.map(k => k.name);
     
     // Support paginated listing if keys exceed 1000
     while (!list.list_complete) {
-      list = await env.CONTACT_MESSAGES.list({ prefix: "message:", cursor: list.cursor });
+      list = await kv.list({ prefix: "contact:", cursor: list.cursor });
       keys = keys.concat(list.keys.map(k => k.name));
     }
 
@@ -799,7 +881,7 @@ export async function onRequest(context) {
     const messages = await Promise.all(
       keys.map(async (key) => {
         try {
-          const val = await env.CONTACT_MESSAGES.get(key);
+          const val = await kv.get(key);
           return val ? JSON.parse(val) : null;
         } catch (e) {
           console.error("Failed to parse message:", key, e);

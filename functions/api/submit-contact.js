@@ -6,17 +6,20 @@ export async function onRequestPost(context) {
     let name = "";
     let email = "";
     let message = "";
+    let website = ""; // honeypot
 
     if (contentType.includes("form")) {
       const formData = await request.formData();
       name = formData.get("name") || "";
       email = formData.get("email") || "";
       message = formData.get("message") || "";
+      website = formData.get("website") || "";
     } else if (contentType.includes("json")) {
       const json = await request.json();
       name = json.name || "";
       email = json.email || "";
       message = json.message || "";
+      website = json.website || "";
     }
 
     // Clean strings
@@ -31,20 +34,30 @@ export async function onRequestPost(context) {
       });
     }
 
-    if (!env.CONTACT_MESSAGES) {
-      return new Response(JSON.stringify({ success: false, message: "Cloudflare KV namespace CONTACT_MESSAGES binding is missing." }), {
+    // Honeypot check
+    if (website) {
+      // Silently accept but do not process
+      return new Response(JSON.stringify({ success: true, message: "Message sent successfully" }), {
+        status: 200,
+        headers: { "content-type": "application/json" }
+      });
+    }
+
+    const kv = env.CONTACT_FORM || env.CONTACT_MESSAGES;
+    if (!kv) {
+      return new Response(JSON.stringify({ success: false, message: "Cloudflare KV namespace binding is missing." }), {
         status: 500,
         headers: { "content-type": "application/json" }
       });
     }
 
     const timestamp = new Date().toISOString();
-    // Unique ID format: message:2026-07-21T03:21:25.000Z_random
-    const id = `message:${timestamp}_${Math.random().toString(36).substring(2, 11)}`;
+    // Unique ID format: contact:{timestamp}:{email}
+    const id = `contact:${timestamp}:${email}`;
     const data = { id, date: timestamp, name, email, message };
 
     // Store in KV
-    await env.CONTACT_MESSAGES.put(id, JSON.stringify(data));
+    await kv.put(id, JSON.stringify(data));
 
     // Optional: Forward to Web3Forms to maintain email notification functionality if a key is present
     const accessKey = env.PUBLIC_WEB3FORMS_KEY || env.WEB3FORMS_KEY;
@@ -69,7 +82,7 @@ export async function onRequestPost(context) {
       }
     }
 
-    return new Response(JSON.stringify({ success: true, message: "Thank you! Your message has been received." }), {
+    return new Response(JSON.stringify({ success: true, message: "Message sent successfully" }), {
       status: 200,
       headers: { "content-type": "application/json" }
     });

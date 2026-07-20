@@ -25,15 +25,21 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- Submission Status Indicator -->
-      <div id="contact-success" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl text-xs text-center leading-relaxed">
-        <strong>Thank you!</strong> Your message has been received. We will get back to you as soon as possible.
+      <div id="contact-success" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 rounded-xl text-xs text-center leading-relaxed font-semibold">
+        Message sent successfully
       </div>
-      <div id="contact-error" class="hidden p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs text-center leading-relaxed">
-        <strong>Submission Failed:</strong> <span id="contact-error-text">Something went wrong. Please check your connection or environment variable setup and try again.</span>
+      <div id="contact-error" class="hidden p-4 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-xl text-xs text-center leading-relaxed font-semibold">
+        <span id="contact-error-text">Submission failed. Please try again.</span>
       </div>
  
        <!-- Contact Form -->
        <form id="contact-form" action="#" method="POST" class="space-y-4">
+         
+         <!-- Honeypot (Spam Protection) -->
+         <div class="hidden" aria-hidden="true">
+           <label for="contact-website">Website</label>
+           <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off" />
+         </div>
          <!-- Full Name -->
          <div>
            <label for="contact-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Full Name</label>
@@ -42,6 +48,8 @@ import Layout from "../layouts/Layout.astro";
              id="contact-name" 
              name="name"
              required 
+             aria-required="true"
+             aria-label="Full Name"
              placeholder="John Doe"
              class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" 
            />
@@ -55,6 +63,8 @@ import Layout from "../layouts/Layout.astro";
              id="contact-email" 
              name="email"
              required 
+             aria-required="true"
+             aria-label="Email Address"
              placeholder="john@example.com"
              class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" 
            />
@@ -67,6 +77,8 @@ import Layout from "../layouts/Layout.astro";
              id="contact-message" 
              name="message"
              required 
+             aria-required="true"
+             aria-label="Message"
              rows="4"
              placeholder="Tell us what you'd like to talk about..."
              class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm min-h-32 resize-y"
@@ -120,18 +132,18 @@ import Layout from "../layouts/Layout.astro";
 
        const result = await response.json();
 
-       if (response.status === 200 || result.success) {
-         successBox.classList.remove("hidden");
-         form.reset();
-         successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-       } else {
-         throw new Error(result.message || "Failed to submit form");
-       }
-     } catch (err) {
-       console.error("Form submission error:", err);
-       if (errorText && err instanceof Error) {
-         errorText.innerText = err.message;
-       }
+        if (response.status === 200 || result.success) {
+          successBox.classList.remove("hidden");
+          form.reset();
+          successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        } else {
+          throw new Error("Submission failed. Please try again.");
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+        if (errorText) {
+          errorText.innerText = "Submission failed. Please try again.";
+        }
        errorBox.classList.remove("hidden");
        errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
      } finally {

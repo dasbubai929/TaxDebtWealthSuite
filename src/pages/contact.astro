@@ -109,37 +109,35 @@ import Layout from "../layouts/Layout.astro";
      submitBtn.disabled = true;
      const originalText = submitText.innerText;
      submitText.innerText = "Sending...";
- 
+
      const formData = new FormData(form);
-     
-     // Web3Forms public API submission
-     // Looks for PUBLIC_WEB3FORMS_KEY in your environment, fallback is handled gracefully by the API (will return error message)
-      try {
-        const response = await fetch("/api/submit-contact", {
-          method: "POST",
-          body: formData
-        });
+      
+     try {
+       const response = await fetch("/api/submit-contact/", {
+         method: "POST",
+         body: formData
+       });
 
-        const result = await response.json();
+       const result = await response.json();
 
-        if (response.status === 200 || result.success) {
-          successBox.classList.remove("hidden");
-          form.reset();
-          successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        } else {
-          throw new Error(result.message || "Failed to submit form");
-        }
-      } catch (err) {
-        console.error("Form submission error:", err);
-        if (errorText && err instanceof Error) {
-          errorText.innerText = err.message;
-        }
-        errorBox.classList.remove("hidden");
-        errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
-      } finally {
-        // Reset loading state
-        submitBtn.disabled = false;
-        submitText.innerText = originalText;
-      }
+       if (response.status === 200 || result.success) {
+         successBox.classList.remove("hidden");
+         form.reset();
+         successBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+       } else {
+         throw new Error(result.message || "Failed to submit form");
+       }
+     } catch (err) {
+       console.error("Form submission error:", err);
+       if (errorText && err instanceof Error) {
+         errorText.innerText = err.message;
+       }
+       errorBox.classList.remove("hidden");
+       errorBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+     } finally {
+       // Reset loading state
+       submitBtn.disabled = false;
+       submitText.innerText = originalText;
+     }
    });
  </script>

@@ -3,10 +3,13 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import astroBrokenLinksChecker from 'astro-broken-links-checker';
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://taxdebtwealthsuite.com',
   trailingSlash: 'always',
+
   integrations: [
     sitemap(),
     astroBrokenLinksChecker({
@@ -14,8 +17,10 @@ export default defineConfig({
       throwError: false,
     }),
   ],
+
   output: 'static',
   compressHTML: true,
+
   vite: {
     plugins: [tailwindcss()],
     build: {
@@ -24,4 +29,6 @@ export default defineConfig({
       sourcemap: false,
     },
   },
+
+  adapter: cloudflare()
 });

@@ -1,0 +1,328 @@
+---
+---
+
+<section id="panel-qbi" class="space-y-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+    <!-- LEFT: Inputs -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 class="text-lg font-bold text-white tracking-wide">Business &amp; Income Details</h3>
+          <p class="text-xs text-slate-400 mt-1">Enter your figures to estimate your Section 199A deduction.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Filing Status -->
+          <div>
+            <label for="qbi-filing-status" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Filing Status</label>
+            <select id="qbi-filing-status" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              <option value="single">Single</option>
+              <option value="mfj">Married Filing Jointly</option>
+              <option value="mfs">Married Filing Separately</option>
+              <option value="hoh">Head of Household</option>
+            </select>
+          </div>
+
+          <!-- Taxable Income -->
+          <div>
+            <label for="qbi-taxable-income" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Taxable Income (Before QBI Deduction)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="qbi-taxable-income" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- QBI -->
+          <div>
+            <label for="qbi-amount" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Qualified Business Income (QBI)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="qbi-amount" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+            <p class="text-3xs text-slate-500 mt-1">Your net profit from the qualified trade or business.</p>
+          </div>
+
+          <!-- W-2 Wages -->
+          <div>
+            <label for="qbi-w2-wages" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">W-2 Wages Paid by the Business</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="qbi-w2-wages" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- UBIA -->
+          <div>
+            <label for="qbi-ubia" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Unadjusted Basis of Qualified Property (UBIA)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="qbi-ubia" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+            <p class="text-3xs text-slate-500 mt-1">Mainly relevant for capital-intensive businesses (real estate, equipment-heavy operations).</p>
+          </div>
+
+          <!-- Marginal Rate -->
+          <div>
+            <label for="qbi-marginal-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Marginal Tax Rate (%)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="qbi-marginal-rate" class="focus-ring block w-full pl-4 pr-8 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="50" step="1" placeholder="24" />
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+          </div>
+
+          <!-- SSTB Toggle -->
+          <div class="flex items-center justify-between p-4 bg-slate-900 border border-slate-700 rounded-lg">
+            <div class="pr-4">
+              <p class="text-sm font-semibold text-white">Specified Service Trade or Business (SSTB)?</p>
+              <p class="text-3xs text-slate-500 mt-1">Law, health, consulting, financial/investment services, performing arts, etc.</p>
+            </div>
+            <button type="button" id="qbi-sstb-toggle" role="switch" aria-checked="false" class="relative inline-flex h-6 w-11 flex-shrink-0 items-center rounded-full bg-slate-700 transition-colors duration-200 cursor-pointer">
+              <span id="qbi-sstb-knob" class="inline-block h-4 w-4 translate-x-1 rounded-full bg-white transition-transform duration-200"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Your QBI Deduction</p>
+            <p id="qbi-result-deduction" class="focal-metric text-[#00F5D4] mt-0.5">$0</p>
+          </div>
+          <button id="qbi-share-btn" type="button" class="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span>Share Results</span>
+          </button>
+        </div>
+
+        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Estimated Tax Savings:</span>
+            <span id="qbi-result-savings" class="text-white font-medium">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Overall Income Limit (20% of Taxable Income):</span>
+            <span id="qbi-result-overall-limit" class="text-white font-medium">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Limitation Applied:</span>
+            <span id="qbi-result-limitation" class="text-slate-200 font-medium text-right max-w-[60%]">None</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SSTB / Phase-out Warning Banner -->
+      <div id="qbi-warning-banner" class="p-4 rounded-xl text-xs leading-relaxed bg-amber-500/10 border border-amber-500/20 text-amber-300 hidden">
+        Your income is inside or above the phase-in range, so W-2 wage/UBIA limits (and SSTB restrictions, if applicable) are reducing your deduction. See the breakdown above.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
+    const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
+
+    const QBI_RATE = 0.20;
+    const QBI_MIN_DEDUCTION_THRESHOLD = 1000; // active business QBI floor trigger (OBBBA, effective 2026)
+    const QBI_MIN_DEDUCTION = 400;
+    // 2026 taxable income phase-in ranges — verify annually against IRS Rev. Proc. updates
+    const PHASE_IN_START = { single: 197300, mfj: 394600, mfs: 197300, hoh: 197300 };
+    const PHASE_IN_RANGE = { single: 50000, mfj: 100000, mfs: 50000, hoh: 50000 };
+
+    const DEFAULT_STATE = {
+      taxableIncome: 0,
+      qbi: 0,
+      w2Wages: 0,
+      ubia: 0,
+      marginalRate: 24,
+      filingStatus: "single",
+      isSSTB: false
+    };
+
+    let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+    function getAutoSavePref() {
+      const raw = localStorage.getItem(AUTOSAVE_KEY);
+      return raw === null ? true : raw === "true";
+    }
+
+    function loadState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.qbi) {
+            state = { ...DEFAULT_STATE, ...parsed.qbi };
+          }
+        } catch (e) {}
+      }
+      applyStateToInputs();
+    }
+
+    function saveState() {
+      if (!getAutoSavePref()) return;
+      let raw = {};
+      try {
+        raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch (e) {}
+      raw.qbi = state;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(raw));
+      window.dispatchEvent(new Event("financial-hub-saving"));
+    }
+
+    function fmtCurrency(n) {
+      const rounded = Math.round(n || 0);
+      return "$" + rounded.toLocaleString("en-US");
+    }
+
+    function applyStateToInputs() {
+      const el = (id) => document.getElementById(id);
+      el("qbi-taxable-income").value = state.taxableIncome || "";
+      el("qbi-amount").value = state.qbi || "";
+      el("qbi-w2-wages").value = state.w2Wages || "";
+      el("qbi-ubia").value = state.ubia || "";
+      el("qbi-marginal-rate").value = state.marginalRate || "";
+      el("qbi-filing-status").value = state.filingStatus || "single";
+      setSSTBToggle(state.isSSTB);
+    }
+
+    function setSSTBToggle(isOn) {
+      state.isSSTB = isOn;
+      const toggle = document.getElementById("qbi-sstb-toggle");
+      const knob = document.getElementById("qbi-sstb-knob");
+      if (!toggle || !knob) return;
+      toggle.setAttribute("aria-checked", isOn ? "true" : "false");
+      if (isOn) {
+        toggle.classList.remove("bg-slate-700");
+        toggle.classList.add("bg-[#00F5D4]/70");
+        knob.classList.remove("translate-x-1");
+        knob.classList.add("translate-x-6");
+      } else {
+        toggle.classList.add("bg-slate-700");
+        toggle.classList.remove("bg-[#00F5D4]/70");
+        knob.classList.add("translate-x-1");
+        knob.classList.remove("translate-x-6");
+      }
+    }
+
+    function calculateQBI() {
+      const { taxableIncome, qbi, w2Wages, ubia, marginalRate, filingStatus, isSSTB } = state;
+
+      const tentativeDeduction = qbi * QBI_RATE;
+      const overallLimit = Math.max(0, taxableIncome) * QBI_RATE;
+      const start = PHASE_IN_START[filingStatus] ?? PHASE_IN_START.single;
+      const range = PHASE_IN_RANGE[filingStatus] ?? PHASE_IN_RANGE.single;
+      const end = start + range;
+
+      let deduction = 0;
+      let limitationLabel = "None (below phase-in threshold)";
+      let showWarning = false;
+
+      if (taxableIncome <= start) {
+        deduction = Math.min(tentativeDeduction, overallLimit);
+      } else {
+        const wageLimit = Math.max(0.5 * w2Wages, 0.25 * w2Wages + 0.025 * ubia);
+        const unrestricted = Math.min(tentativeDeduction, overallLimit);
+        const restricted = Math.min(tentativeDeduction, wageLimit, overallLimit);
+
+        if (taxableIncome >= end) {
+          showWarning = true;
+          if (isSSTB) {
+            deduction = 0;
+            limitationLabel = "SSTB — fully phased out";
+          } else {
+            deduction = restricted;
+            limitationLabel = "Fully limited (W-2 wage / UBIA test)";
+          }
+        } else {
+          showWarning = true;
+          const blendPct = (taxableIncome - start) / range;
+          if (isSSTB) {
+            deduction = unrestricted * (1 - blendPct);
+            limitationLabel = `SSTB phase-out (${Math.round(blendPct * 100)}% phased toward $0)`;
+          } else {
+            deduction = unrestricted - blendPct * (unrestricted - restricted);
+            limitationLabel = `Partial phase-in (${Math.round(blendPct * 100)}% of wage/UBIA limit applied)`;
+          }
+        }
+      }
+
+      const isFullyPhasedOutSSTB = isSSTB && taxableIncome >= end;
+      if (!isFullyPhasedOutSSTB && taxableIncome > 0 && qbi >= QBI_MIN_DEDUCTION_THRESHOLD && deduction < QBI_MIN_DEDUCTION) {
+        deduction = QBI_MIN_DEDUCTION;
+        limitationLabel += " — raised to $400 minimum deduction";
+      }
+
+      deduction = Math.max(0, deduction);
+      const taxSavings = deduction * (marginalRate / 100);
+
+      document.getElementById("qbi-result-deduction").textContent = fmtCurrency(deduction);
+      document.getElementById("qbi-result-savings").textContent = fmtCurrency(taxSavings);
+      document.getElementById("qbi-result-overall-limit").textContent = fmtCurrency(overallLimit);
+      document.getElementById("qbi-result-limitation").textContent = limitationLabel;
+
+      const banner = document.getElementById("qbi-warning-banner");
+      banner.classList.toggle("hidden", !showWarning);
+    }
+
+    function bindInputs() {
+      const bind = (id, key, isNumber = true) => {
+        const el = document.getElementById(id);
+        el.addEventListener("input", () => {
+          state[key] = isNumber ? parseFloat(el.value) || 0 : el.value;
+          calculateQBI();
+          saveState();
+        });
+      };
+
+      bind("qbi-taxable-income", "taxableIncome");
+      bind("qbi-amount", "qbi");
+      bind("qbi-w2-wages", "w2Wages");
+      bind("qbi-ubia", "ubia");
+      bind("qbi-marginal-rate", "marginalRate");
+
+      document.getElementById("qbi-filing-status").addEventListener("change", (e) => {
+        state.filingStatus = e.target.value;
+        calculateQBI();
+        saveState();
+      });
+
+      document.getElementById("qbi-sstb-toggle").addEventListener("click", () => {
+        setSSTBToggle(!state.isSSTB);
+        calculateQBI();
+        saveState();
+      });
+
+      document.getElementById("qbi-share-btn").addEventListener("click", () => {
+        const deduction = document.getElementById("qbi-result-deduction").textContent;
+        const text = `My estimated QBI (Section 199A) deduction is ${deduction} — calculated free at taxdebtwealthsuite.com/qbi-deduction-calculator/`;
+        if (navigator.share) {
+          navigator.share({ text }).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(text);
+        }
+      });
+
+      window.addEventListener("financial-hub-reset", () => {
+        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        applyStateToInputs();
+        calculateQBI();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadState();
+      bindInputs();
+      calculateQBI();
+    });
+  })();
+</script>

@@ -20,7 +20,7 @@ const canonicalURL = new URL(canonicalPath, Astro.site || "https://taxdebtwealth
 
 // Determine if we are on one of the calculator tool pages
 const path = canonicalPath;
-const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/"].includes(path);
+const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/", "/qbi-deduction-calculator/"].includes(path);
 ---
 
 <!DOCTYPE html>
@@ -129,9 +129,7 @@ const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator
               </a>
 
               <nav class="flex items-center space-x-1" aria-label="Tools Navigation">
-                <a href="/buy-borrow-die-calculator/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${path === '/buy-borrow-die-calculator' ? 'text-white bg-slate-800' : ''}`}>Buy, Borrow, Die</a>
-                <a href="/s-corp-tax-calculator/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${path === '/s-corp-tax-calculator' ? 'text-white bg-slate-800' : ''}`}>S-Corp Tax</a>
-                <a href="/debt-payoff-calculator/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${path === '/debt-payoff-calculator' ? 'text-white bg-slate-800' : ''}`}>Debt Payoff</a>
+                <a href="/calculators/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${path.startsWith('/calculators') ? 'text-white bg-slate-800' : ''}`}>Calculators</a>
                 <a href="/blog/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/blog') ? 'text-white bg-slate-800' : ''}`}>Blog</a>
               </nav>
             </div>

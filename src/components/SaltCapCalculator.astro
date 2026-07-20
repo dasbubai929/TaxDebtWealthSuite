@@ -1,0 +1,321 @@
+---
+---
+
+<section id="panel-salt" class="space-y-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+    <!-- LEFT: Inputs -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 class="text-lg font-bold text-white tracking-wide">Income &amp; Deduction Details</h3>
+          <p class="text-xs text-slate-400 mt-1">Enter your figures to see your allowed SALT deduction and itemize-vs-standard comparison.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Filing Status -->
+          <div>
+            <label for="salt-filing-status" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Filing Status</label>
+            <select id="salt-filing-status" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              <option value="single">Single</option>
+              <option value="mfj">Married Filing Jointly</option>
+              <option value="mfs">Married Filing Separately</option>
+              <option value="hoh">Head of Household</option>
+            </select>
+          </div>
+
+          <!-- MAGI -->
+          <div>
+            <label for="salt-magi" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Modified AGI</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-magi" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+            <p class="text-3xs text-slate-500 mt-1">Used to check the high-income phase-down of your SALT cap.</p>
+          </div>
+
+          <!-- State/Local Tax -->
+          <div>
+            <label for="salt-state-tax" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">State &amp; Local Income or Sales Tax Paid</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-state-tax" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Property Tax -->
+          <div>
+            <label for="salt-property-tax" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Property Tax Paid</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-property-tax" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Mortgage Interest -->
+          <div>
+            <label for="salt-mortgage-interest" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Mortgage Interest Paid</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-mortgage-interest" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Charitable Contributions -->
+          <div>
+            <label for="salt-charitable" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Charitable Contributions</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-charitable" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Other Itemizable -->
+          <div>
+            <label for="salt-other" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Other Itemizable Deductions</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="salt-other" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Your Allowed SALT Deduction</p>
+            <p id="salt-result-allowed" class="focal-metric text-[#00F5D4] mt-0.5">$0</p>
+          </div>
+          <button id="salt-share-btn" type="button" class="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span>Share Results</span>
+          </button>
+        </div>
+        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Raw State &amp; Local Tax (Before Cap):</span>
+            <span id="salt-result-raw" class="text-white font-medium">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Your SALT Cap (After Phase-Down):</span>
+            <span id="salt-result-cap" class="text-white font-medium">$0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lost-to-Cap Warning Banner -->
+      <div id="salt-warning-banner" class="p-4 rounded-xl text-xs leading-relaxed bg-amber-500/10 border border-amber-500/20 text-amber-300 hidden">
+        You're losing <span id="salt-lost-amount" class="font-bold">$0</span> of state and local tax deduction to the SALT cap.
+      </div>
+
+      <!-- Itemized vs Standard Comparison Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div id="salt-card-itemized" class="glass-panel p-5 rounded-lg border border-slate-700 space-y-4">
+          <div>
+            <span class="text-3xs font-bold uppercase tracking-widest text-slate-400">Option A</span>
+            <p class="text-sm font-bold text-white mt-0.5">Itemized Deductions</p>
+          </div>
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Total Itemized</p>
+            <p id="salt-result-itemized-total" class="focal-metric mt-0.5">$0</p>
+          </div>
+        </div>
+        <div id="salt-card-standard" class="glass-panel p-5 rounded-lg border border-slate-700 space-y-4">
+          <div>
+            <span class="text-3xs font-bold uppercase tracking-widest text-slate-400">Option B</span>
+            <p class="text-sm font-bold text-white mt-0.5">Standard Deduction</p>
+          </div>
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Standard Amount</p>
+            <p id="salt-result-standard-total" class="focal-metric mt-0.5">$0</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed AMT disclaimer -->
+      <div class="p-4 rounded-xl text-xs leading-relaxed bg-slate-900/60 border border-slate-800 text-slate-400">
+        Note: SALT is not deductible for Alternative Minimum Tax (AMT) purposes. A large SALT deduction can increase your AMT exposure — model this with a tax professional if you're close to the AMT threshold.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
+    const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
+
+    // 2026 figures (post-OBBBA) — verify annually against IRS Rev. Proc. updates
+    const SALT_CAP_2026 = { single: 40400, mfj: 40400, mfs: 20200, hoh: 40400 };
+    const SALT_PHASEOUT_START_MAGI = { single: 505000, mfj: 505000, mfs: 252500, hoh: 505000 };
+    const SALT_FLOOR = { single: 10000, mfj: 10000, mfs: 5000, hoh: 10000 };
+    const STANDARD_DEDUCTION_2026 = { single: 15750, mfj: 31500, mfs: 15750, hoh: 23625 };
+
+    const DEFAULT_STATE = {
+      magi: 0,
+      stateTax: 0,
+      propertyTax: 0,
+      mortgageInterest: 0,
+      charitable: 0,
+      other: 0,
+      filingStatus: "single"
+    };
+
+    let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+    function getAutoSavePref() {
+      const raw = localStorage.getItem(AUTOSAVE_KEY);
+      return raw === null ? true : raw === "true";
+    }
+
+    function loadState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.salt) {
+            state = { ...DEFAULT_STATE, ...parsed.salt };
+          }
+        } catch (e) {}
+      }
+      applyStateToInputs();
+    }
+
+    function saveState() {
+      if (!getAutoSavePref()) return;
+      let raw = {};
+      try {
+        raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch (e) {}
+      raw.salt = state;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(raw));
+      window.dispatchEvent(new Event("financial-hub-saving"));
+    }
+
+    function fmtCurrency(n) {
+      const rounded = Math.round(n || 0);
+      return "$" + rounded.toLocaleString("en-US");
+    }
+
+    function applyStateToInputs() {
+      const el = (id) => document.getElementById(id);
+      el("salt-magi").value = state.magi || "";
+      el("salt-state-tax").value = state.stateTax || "";
+      el("salt-property-tax").value = state.propertyTax || "";
+      el("salt-mortgage-interest").value = state.mortgageInterest || "";
+      el("salt-charitable").value = state.charitable || "";
+      el("salt-other").value = state.other || "";
+      el("salt-filing-status").value = state.filingStatus || "single";
+    }
+
+    function highlightWinner(itemizedTotal, standardTotal) {
+      const itemizedCard = document.getElementById("salt-card-itemized");
+      const standardCard = document.getElementById("salt-card-standard");
+      const itemizedMetric = document.getElementById("salt-result-itemized-total");
+      const standardMetric = document.getElementById("salt-result-standard-total");
+
+      const winnerClasses = ["border-[#00F5D4]/30"];
+      const loserClasses = ["border-slate-700"];
+
+      [itemizedCard, standardCard].forEach((card) => card.classList.remove("border-[#00F5D4]/30"));
+      itemizedMetric.classList.remove("text-[#00F5D4]", "text-slate-500");
+      standardMetric.classList.remove("text-[#00F5D4]", "text-slate-500");
+
+      if (itemizedTotal >= standardTotal) {
+        itemizedCard.classList.add("border-[#00F5D4]/30");
+        itemizedMetric.classList.add("text-[#00F5D4]");
+        standardMetric.classList.add("text-slate-500");
+      } else {
+        standardCard.classList.add("border-[#00F5D4]/30");
+        standardMetric.classList.add("text-[#00F5D4]");
+        itemizedMetric.classList.add("text-slate-500");
+      }
+    }
+
+    function calculateSALT() {
+      const { magi, stateTax, propertyTax, mortgageInterest, charitable, other, filingStatus } = state;
+
+      const cap = SALT_CAP_2026[filingStatus] ?? SALT_CAP_2026.single;
+      const phaseoutStart = SALT_PHASEOUT_START_MAGI[filingStatus] ?? SALT_PHASEOUT_START_MAGI.single;
+      const floor = SALT_FLOOR[filingStatus] ?? SALT_FLOOR.single;
+      const standardDeduction = STANDARD_DEDUCTION_2026[filingStatus] ?? STANDARD_DEDUCTION_2026.single;
+
+      const rawSALT = Math.max(0, stateTax) + Math.max(0, propertyTax);
+      const phaseDownAmount = Math.max(0, magi - phaseoutStart);
+      const adjustedCap = Math.max(floor, cap - phaseDownAmount);
+      const allowedSALT = Math.min(rawSALT, adjustedCap);
+      const lostToCap = Math.max(0, rawSALT - allowedSALT);
+
+      const itemizedTotal = allowedSALT + Math.max(0, mortgageInterest) + Math.max(0, charitable) + Math.max(0, other);
+
+      document.getElementById("salt-result-allowed").textContent = fmtCurrency(allowedSALT);
+      document.getElementById("salt-result-raw").textContent = fmtCurrency(rawSALT);
+      document.getElementById("salt-result-cap").textContent = fmtCurrency(adjustedCap);
+      document.getElementById("salt-result-itemized-total").textContent = fmtCurrency(itemizedTotal);
+      document.getElementById("salt-result-standard-total").textContent = fmtCurrency(standardDeduction);
+
+      const banner = document.getElementById("salt-warning-banner");
+      if (lostToCap > 0) {
+        document.getElementById("salt-lost-amount").textContent = fmtCurrency(lostToCap);
+        banner.classList.remove("hidden");
+      } else {
+        banner.classList.add("hidden");
+      }
+
+      highlightWinner(itemizedTotal, standardDeduction);
+    }
+
+    function bindInputs() {
+      const bind = (id, key) => {
+        const el = document.getElementById(id);
+        el.addEventListener("input", () => {
+          state[key] = parseFloat(el.value) || 0;
+          calculateSALT();
+          saveState();
+        });
+      };
+
+      bind("salt-magi", "magi");
+      bind("salt-state-tax", "stateTax");
+      bind("salt-property-tax", "propertyTax");
+      bind("salt-mortgage-interest", "mortgageInterest");
+      bind("salt-charitable", "charitable");
+      bind("salt-other", "other");
+
+      document.getElementById("salt-filing-status").addEventListener("change", (e) => {
+        state.filingStatus = e.target.value;
+        calculateSALT();
+        saveState();
+      });
+
+      document.getElementById("salt-share-btn").addEventListener("click", () => {
+        const allowed = document.getElementById("salt-result-allowed").textContent;
+        const text = `My allowed SALT deduction is ${allowed} — calculated free at taxdebtwealthsuite.com/salt-cap-deduction-calculator/`;
+        if (navigator.share) {
+          navigator.share({ text }).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(text);
+        }
+      });
+
+      window.addEventListener("financial-hub-reset", () => {
+        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        applyStateToInputs();
+        calculateSALT();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadState();
+      bindInputs();
+      calculateSALT();
+    });
+  })();
+</script>

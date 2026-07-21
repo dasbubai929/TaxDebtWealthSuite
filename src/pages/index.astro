@@ -540,55 +540,63 @@ const searchDataJson = JSON.stringify({
       }
 
       // Pointer-based drag (works for both mouse and touch)
+      var isPointerDown = false;
       var isDragging = false;
       var startX = 0;
       var scrollStart = 0;
       var dragDistance = 0;
-      var dragThreshold = 5; // pixels before we consider it a drag
+      var dragThreshold = 6; // pixels before we consider it a drag gesture
 
       track.addEventListener('pointerdown', function(e) {
-        // Only handle primary button (left mouse / touch)
         if (e.button !== 0) return;
-        isDragging = true;
+        isPointerDown = true;
+        isDragging = false;
         dragDistance = 0;
         startX = e.clientX;
         scrollStart = track.scrollLeft;
-        track.setPointerCapture(e.pointerId);
-        track.style.cursor = 'grabbing';
-        track.style.scrollSnapType = 'none';
-        track.style.userSelect = 'none';
       });
 
       track.addEventListener('pointermove', function(e) {
-        if (!isDragging) return;
-        e.preventDefault();
+        if (!isPointerDown) return;
         var dx = e.clientX - startX;
         dragDistance = Math.abs(dx);
-        track.scrollLeft = scrollStart - dx;
+
+        if (!isDragging && dragDistance > dragThreshold) {
+          isDragging = true;
+          try {
+            track.setPointerCapture(e.pointerId);
+          } catch (err) {}
+          track.style.cursor = 'grabbing';
+          track.style.scrollSnapType = 'none';
+          track.style.userSelect = 'none';
+        }
+
+        if (isDragging) {
+          e.preventDefault();
+          track.scrollLeft = scrollStart - dx;
+        }
       });
 
-      track.addEventListener('pointerup', function(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        track.releasePointerCapture(e.pointerId);
-        track.style.cursor = '';
-        track.style.userSelect = '';
-        // Re-enable snap after drag
-        setTimeout(function() {
-          track.style.scrollSnapType = 'x mandatory';
-        }, 50);
-      });
+      function stopDrag(e) {
+        if (!isPointerDown) return;
+        isPointerDown = false;
+        if (isDragging) {
+          isDragging = false;
+          try {
+            track.releasePointerCapture(e.pointerId);
+          } catch (err) {}
+          track.style.cursor = '';
+          track.style.userSelect = '';
+          setTimeout(function() {
+            track.style.scrollSnapType = 'x mandatory';
+          }, 50);
+        }
+      }
 
-      track.addEventListener('pointercancel', function(e) {
-        if (!isDragging) return;
-        isDragging = false;
-        track.releasePointerCapture(e.pointerId);
-        track.style.cursor = '';
-        track.style.userSelect = '';
-        track.style.scrollSnapType = 'x mandatory';
-      });
+      track.addEventListener('pointerup', stopDrag);
+      track.addEventListener('pointercancel', stopDrag);
 
-      // Prevent clicks when dragging
+      // Prevent link navigation ONLY if a real drag occurred
       track.addEventListener('click', function(e) {
         if (dragDistance > dragThreshold) {
           e.preventDefault();
@@ -596,7 +604,7 @@ const searchDataJson = JSON.stringify({
         }
       }, true);
 
-      // Prevent native image/link drag
+      // Prevent native image drag
       track.addEventListener('dragstart', function(e) {
         e.preventDefault();
       });

@@ -21,6 +21,7 @@ const toolLabels = {
   "qbi-deduction-calculator": "QBI Deduction",
   "debt-payoff-calculator": "Debt Payoff",
   "salt-cap-deduction-calculator": "SALT Cap Deduction",
+  "roth-conversion-calculator": "Roth Conversion",
 };
 
 const searchablePosts = allPosts.map((post) => ({
@@ -30,6 +31,12 @@ const searchablePosts = allPosts.map((post) => ({
 }));
 
 const searchableTools = [
+  {
+    name: "Roth Conversion Calculator",
+    variants: [
+      { label: "United States (Default)", url: "/roth-conversion-calculator/" },
+    ],
+  },
   {
     name: "SALT Cap Deduction Calculator",
     variants: [
@@ -99,23 +106,25 @@ const searchDataJson = JSON.stringify({
 
     <!-- Predictive Search Bar -->
     <div id="search-container" class="relative mt-8 max-w-xl mx-auto">
-      <div class="search-bar-wrapper">
-        <div class="search-bar-glow"></div>
-        <div class="search-bar-inner">
-          <svg xmlns="http://www.w3.org/2000/svg" class="search-bar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-          <input
-            id="predictive-search-input"
-            type="text"
-            placeholder="Search calculators, tools, articles..."
-            class="search-bar-input"
-            autocomplete="off"
-            aria-label="Search calculators and articles"
-          />
-          <kbd class="search-bar-kbd">ESC</kbd>
+      <form id="search-form" action="javascript:void(0);" onsubmit="return false;">
+        <div class="search-bar-wrapper">
+          <div class="search-bar-glow"></div>
+          <div class="search-bar-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-bar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input
+              id="predictive-search-input"
+              type="text"
+              placeholder="Search calculators, tools, articles..."
+              class="search-bar-input"
+              autocomplete="off"
+              aria-label="Search calculators and articles"
+            />
+            <kbd class="search-bar-kbd">ESC</kbd>
+          </div>
         </div>
-      </div>
+      </form>
       <div id="search-results-dropdown" class="hidden absolute left-0 right-0 top-full mt-2 z-[300]"></div>
     </div>
   </section>
@@ -183,30 +192,7 @@ const searchDataJson = JSON.stringify({
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Card 1: Buy, Borrow, Die -->
-      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
-        <div class="space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-white tracking-wide font-sans">Buy, Borrow, Die</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Model Securities-Based Lines of Credit (SBLOC) vs. capital gains liquidation. Analyze margin call liquidation buffers and capital gains tax drag avoidance.
-          </p>
-        </div>
-        <div class="mt-8">
-          <a
-            href="/buy-borrow-die-calculator/"
-            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
-          >
-            Try the Buy, Borrow, Die Calculator
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 2: S-Corp Tax -->
+      <!-- Card 1: S-Corp Tax -->
       <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
         <div class="space-y-4">
           <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
@@ -229,30 +215,7 @@ const searchDataJson = JSON.stringify({
         </div>
       </div>
 
-      <!-- Card 3: QBI Deduction -->
-      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
-        <div class="space-y-4">
-          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold text-white tracking-wide font-sans">QBI Deduction (Sec 199A)</h3>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Calculate Section 199A pass-through tax savings. See how 20% deductions, W-2 wage/UBIA limits, and SSTB phase-outs affect your net savings.
-          </p>
-        </div>
-        <div class="mt-8">
-          <a
-            href="/qbi-deduction-calculator/"
-            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
-          >
-            Try QBI Deduction Calculator
-          </a>
-        </div>
-      </div>
-
-      <!-- Card 4: Debt Payoff -->
+      <!-- Card 2: Debt Payoff -->
       <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
         <div class="space-y-4">
           <div class="w-12 h-12 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-rose-400">
@@ -271,6 +234,52 @@ const searchDataJson = JSON.stringify({
             class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
           >
             Try the Debt Payoff Planner
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Buy, Borrow, Die -->
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide font-sans">Buy, Borrow, Die</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Model Securities-Based Lines of Credit (SBLOC) vs. capital gains liquidation. Analyze margin call liquidation buffers and capital gains tax drag avoidance.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/buy-borrow-die-calculator/"
+            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
+          >
+            Try the Buy, Borrow, Die Calculator
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: QBI Deduction -->
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide font-sans">QBI Deduction (Sec 199A)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Calculate Section 199A pass-through tax savings. See how 20% deductions, W-2 wage/UBIA limits, and SSTB phase-outs affect your net savings.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/qbi-deduction-calculator/"
+            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
+          >
+            Try QBI Deduction Calculator
           </a>
         </div>
       </div>
@@ -297,24 +306,49 @@ const searchDataJson = JSON.stringify({
           </a>
         </div>
       </div>
+
+      <!-- Card 6: Roth Conversion -->
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4M16 17H4m0 0l4 4m-4-4l4-4" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide font-sans">Roth Conversion</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Model the tax cost of converting a traditional IRA or 401(k) to a Roth IRA, and find your personal breakeven future tax rate.
+          </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/roth-conversion-calculator/"
+            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
+          >
+            Try the Roth Conversion Calculator
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Contextual Linking Paragraph -->
     <div class="mt-16 text-center max-w-3xl mx-auto">
       <p class="text-sm text-slate-400 leading-relaxed font-sans">
-        Whether you are looking to model the tax benefits of the <a href="/buy-borrow-die-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Buy, Borrow, Die strategy</a>, optimize your compensation split using our <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">S-Corp tax calculator</a>, calculate your 20% pass-through tax savings with the <a href="/qbi-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">QBI deduction calculator</a>, check your SALT deduction with the <a href="/salt-cap-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">SALT cap calculator</a>, or map a payoff schedule with the <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>, our tools help you keep more of what you earn.
+        Whether you are looking to model the tax benefits of the <a href="/buy-borrow-die-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Buy, Borrow, Die strategy</a>, optimize your compensation split using our <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">S-Corp tax calculator</a>, calculate your 20% pass-through tax savings with the <a href="/qbi-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">QBI deduction calculator</a>, check your SALT deduction with the <a href="/salt-cap-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">SALT cap calculator</a>, plan a Roth conversion with our <a href="/roth-conversion-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Roth conversion calculator</a>, or map a payoff schedule with the <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>, our tools help you keep more of what you earn.
       </p>
     </div>
   </section>
 
-  <!-- Predictive Search Logic -->
   <script is:inline define:vars={{ searchDataJson }}>
     (function() {
       var searchData = JSON.parse(searchDataJson);
       var input = document.getElementById("predictive-search-input");
       var dropdown = document.getElementById("search-results-dropdown");
+      var searchForm = document.getElementById("search-form");
       var kbdHint = document.querySelector(".search-bar-kbd");
       if (!input || !dropdown) return;
+
+      var activeIndex = -1;
 
       function hl(text, q) {
         if (!q) return text;
@@ -322,13 +356,24 @@ const searchDataJson = JSON.stringify({
         return text.replace(new RegExp("(" + esc + ")", "gi"), '<mark style="color:#00F5D4;font-weight:600;background:none">$1</mark>');
       }
 
-      function truncate(str, max) {
-        if (str.length <= max) return str;
-        return str.substring(0, max) + '…';
+      function updateActiveItem(items) {
+        for (var i = 0; i < items.length; i++) {
+          if (i === activeIndex) {
+            items[i].classList.add("search-item-active");
+            items[i].style.background = "rgba(0,245,212,0.12)";
+            items[i].style.borderLeftColor = "#00F5D4";
+            items[i].scrollIntoView({ block: "nearest" });
+          } else {
+            items[i].classList.remove("search-item-active");
+            items[i].style.background = "transparent";
+            items[i].style.borderLeftColor = "transparent";
+          }
+        }
       }
 
       function renderDropdown(query) {
         var trimmed = query.trim().toLowerCase();
+        activeIndex = -1;
         if (!trimmed) {
           dropdown.classList.add("hidden");
           if (kbdHint) kbdHint.style.display = "none";
@@ -367,7 +412,7 @@ const searchDataJson = JSON.stringify({
         // Style constants — all inline to bypass Astro scoping
         var S_HEAD = 'style="padding:9px 14px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#00F5D4;font-family:Outfit,Inter,system-ui,sans-serif;background:rgba(0,245,212,0.06);border-bottom:1px solid rgba(0,245,212,0.12);margin:0"';
         var S_ROW = 'style="display:block;padding:8px 14px 8px 20px;text-decoration:none;color:#E2E8F0;font-size:13px;font-weight:400;font-family:Inter,system-ui,sans-serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-left:2px solid transparent;transition:background .12s ease"';
-        var S_ROW_HOVER = 'onmouseover="this.style.background=\'rgba(0,245,212,0.06)\';this.style.borderLeftColor=\'#00F5D4\'" onmouseout="this.style.background=\'transparent\';this.style.borderLeftColor=\'transparent\'"';
+        var S_ROW_HOVER = 'onmouseover="this.style.background=\'rgba(0,245,212,0.06)\';this.style.borderLeftColor=\'#00F5D4\'" onmouseout="if(!this.classList.contains(\'search-item-active\')){this.style.background=\'transparent\';this.style.borderLeftColor=\'transparent\'}"';
         var S_SUB = 'style="font-size:11px;color:#64748B;margin-left:6px;font-weight:400"';
         var S_DIV = 'style="height:1px;background:#1E294B;margin:0"';
 
@@ -377,7 +422,7 @@ const searchDataJson = JSON.stringify({
           html += '<div ' + S_HEAD + '>Calculators \u0026 Tools</div>';
           for (var i = 0; i < matchedTools.length; i++) {
             var item = matchedTools[i];
-            html += '<a href="' + item.url + '" ' + S_ROW + ' ' + S_ROW_HOVER + '>' +
+            html += '<a href="' + item.url + '" class="search-result-item" ' + S_ROW + ' ' + S_ROW_HOVER + '>' +
               hl(item.name, trimmed) +
               '<span ' + S_SUB + '>' + hl(item.label, trimmed) + '</span>' +
               '</a>';
@@ -389,7 +434,7 @@ const searchDataJson = JSON.stringify({
           html += '<div ' + S_HEAD + '>Blog Posts</div>';
           for (var j = 0; j < matchedPosts.length; j++) {
             var postItem = matchedPosts[j];
-            html += '<a href="/blog/' + postItem.slug + '/" ' + S_ROW + ' ' + S_ROW_HOVER + '>' +
+            html += '<a href="/blog/' + postItem.slug + '/" class="search-result-item" ' + S_ROW + ' ' + S_ROW_HOVER + '>' +
               hl(postItem.title, trimmed) +
               '</a>';
           }
@@ -397,6 +442,34 @@ const searchDataJson = JSON.stringify({
 
         dropdown.innerHTML = html;
         dropdown.classList.remove("hidden");
+
+        var resultItems = dropdown.querySelectorAll(".search-result-item");
+        for (var k = 0; k < resultItems.length; k++) {
+          (function(idx) {
+            resultItems[idx].addEventListener("mouseenter", function() {
+              activeIndex = idx;
+              updateActiveItem(resultItems);
+            });
+          })(k);
+        }
+      }
+
+      function submitSearch() {
+        var items = dropdown.querySelectorAll(".search-result-item");
+        if (items.length > 0) {
+          var targetIdx = activeIndex >= 0 && activeIndex < items.length ? activeIndex : 0;
+          var targetUrl = items[targetIdx].getAttribute("href");
+          if (targetUrl) {
+            window.location.href = targetUrl;
+          }
+        }
+      }
+
+      if (searchForm) {
+        searchForm.addEventListener("submit", function(e) {
+          e.preventDefault();
+          submitSearch();
+        });
       }
 
       input.addEventListener("input", function() {
@@ -417,7 +490,25 @@ const searchDataJson = JSON.stringify({
       });
 
       input.addEventListener("keydown", function(e) {
-        if (e.key === "Escape") {
+        var items = dropdown.querySelectorAll(".search-result-item");
+
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          if (items.length > 0) {
+            activeIndex = (activeIndex + 1) % items.length;
+            updateActiveItem(items);
+          }
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          if (items.length > 0) {
+            activeIndex = (activeIndex - 1 + items.length) % items.length;
+            updateActiveItem(items);
+          }
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          submitSearch();
+        } else if (e.key === "Escape") {
+          e.preventDefault();
           dropdown.classList.add("hidden");
           if (kbdHint) kbdHint.style.display = "none";
           this.blur();

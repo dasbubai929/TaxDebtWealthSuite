@@ -15,12 +15,27 @@ const toolLabels: Record<string, { label: string; href: string; color: string }>
   "s-corp-tax-calculator": {
     label: "S-Corp Tax",
     href: "/s-corp-tax-calculator/",
-    color: "text-[#7B61FF] bg-[#7B61FF]/10 border-[#7B61FF]/20",
+    color: "text-[#10B981] bg-[#10B981]/10 border-[#10B981]/20",
   },
   "debt-payoff-calculator": {
     label: "Debt Payoff",
     href: "/debt-payoff-calculator/",
-    color: "text-[#FF6B6B] bg-[#FF6B6B]/10 border-[#FF6B6B]/20",
+    color: "text-[#F43F5E] bg-[#F43F5E]/10 border-[#F43F5E]/20",
+  },
+  "qbi-deduction-calculator": {
+    label: "QBI Deduction",
+    href: "/qbi-deduction-calculator/",
+    color: "text-[#06B6D4] bg-[#06B6D4]/10 border-[#06B6D4]/20",
+  },
+  "salt-cap-deduction-calculator": {
+    label: "SALT Cap",
+    href: "/salt-cap-deduction-calculator/",
+    color: "text-[#A855F7] bg-[#A855F7]/10 border-[#A855F7]/20",
+  },
+  "roth-conversion-calculator": {
+    label: "Roth Conversion",
+    href: "/roth-conversion-calculator/",
+    color: "text-[#F59E0B] bg-[#F59E0B]/10 border-[#F59E0B]/20",
   },
 };
 ---
@@ -94,14 +109,23 @@ const toolLabels: Record<string, { label: string; href: string; color: string }>
     <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center">
       <p class="text-sm text-slate-400 mb-4">Ready to run the numbers yourself?</p>
       <div class="flex flex-wrap justify-center gap-3">
+        <a href="/s-corp-tax-calculator/" class="px-4 py-2 rounded-lg bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-sm font-semibold hover:bg-[#10B981]/20 transition-colors">
+          S-Corp Tax Calculator →
+        </a>
+        <a href="/debt-payoff-calculator/" class="px-4 py-2 rounded-lg bg-[#F43F5E]/10 border border-[#F43F5E]/20 text-[#F43F5E] text-sm font-semibold hover:bg-[#F43F5E]/20 transition-colors">
+          Debt Payoff Planner →
+        </a>
         <a href="/buy-borrow-die-calculator/" class="px-4 py-2 rounded-lg bg-[#00F5D4]/10 border border-[#00F5D4]/20 text-[#00F5D4] text-sm font-semibold hover:bg-[#00F5D4]/20 transition-colors">
           Buy, Borrow, Die Calculator →
         </a>
-        <a href="/s-corp-tax-calculator/" class="px-4 py-2 rounded-lg bg-[#7B61FF]/10 border border-[#7B61FF]/20 text-[#7B61FF] text-sm font-semibold hover:bg-[#7B61FF]/20 transition-colors">
-          S-Corp Tax Calculator →
+        <a href="/qbi-deduction-calculator/" class="px-4 py-2 rounded-lg bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-sm font-semibold hover:bg-[#06B6D4]/20 transition-colors">
+          QBI Deduction Calculator →
         </a>
-        <a href="/debt-payoff-calculator/" class="px-4 py-2 rounded-lg bg-[#FF6B6B]/10 border border-[#FF6B6B]/20 text-[#FF6B6B] text-sm font-semibold hover:bg-[#FF6B6B]/20 transition-colors">
-          Debt Payoff Calculator →
+        <a href="/salt-cap-deduction-calculator/" class="px-4 py-2 rounded-lg bg-[#A855F7]/10 border border-[#A855F7]/20 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/20 transition-colors">
+          SALT Cap Calculator →
+        </a>
+        <a href="/roth-conversion-calculator/" class="px-4 py-2 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/20 text-[#F59E0B] text-sm font-semibold hover:bg-[#F59E0B]/20 transition-colors">
+          Roth Conversion Calculator →
         </a>
       </div>
     </div>

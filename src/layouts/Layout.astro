@@ -20,7 +20,7 @@ const canonicalURL = new URL(canonicalPath, Astro.site || "https://taxdebtwealth
 
 // Determine if we are on one of the calculator tool pages
 const path = canonicalPath;
-const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/", "/qbi-deduction-calculator/", "/salt-cap-deduction-calculator/"].includes(path);
+const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator/", "/debt-payoff-calculator/", "/qbi-deduction-calculator/", "/salt-cap-deduction-calculator/", "/roth-conversion-calculator/"].includes(path);
 ---
 
 
@@ -130,26 +130,46 @@ const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator
               </a>
 
               <nav class="flex items-center space-x-1" aria-label="Tools Navigation">
-                <a href="/calculators/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${path.startsWith('/calculators') ? 'text-white bg-slate-800' : ''}`}>Calculators</a>
                 <a href="/blog/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/blog') ? 'text-white bg-slate-800' : ''}`}>Blog</a>
+                <a href="/about/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/about') ? 'text-white bg-slate-800' : ''}`}>About Us</a>
+                <a href="/contact/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/contact') ? 'text-white bg-slate-800' : ''}`}>Contact Us</a>
               </nav>
             </div>
 
-            <!-- Persistence Badge & Refresh Button (Only on calculator pages) -->
-            {isCalculatorPage && (
-              <div class="flex items-center justify-center space-x-3">
-                <button id="toggle-autosave" class="inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-medium border transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 cursor-pointer whitespace-nowrap min-w-[7.5rem]" title="Click to toggle auto-save state">
-                  <span id="autosave-dot" class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
-                  <span id="autosave-text">Auto-Save: On</span>
-                </button>
-                <button id="reset-state" class="text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-xs font-semibold flex items-center space-x-1.5" title="Reset all calculators">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+            <!-- Header Controls & Hamburger Menu -->
+            <div class="flex items-center justify-center md:justify-end space-x-3">
+              {isCalculatorPage && (
+                <div class="flex items-center space-x-3">
+                  <button id="toggle-autosave" class="inline-flex items-center justify-center px-2.5 py-1 rounded-full text-xs font-medium border transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 cursor-pointer whitespace-nowrap min-w-[7.5rem]" title="Click to toggle auto-save state">
+                    <span id="autosave-dot" class="w-1.5 h-1.5 mr-1.5 rounded-full bg-emerald-400 flex-shrink-0"></span>
+                    <span id="autosave-text">Auto-Save: On</span>
+                  </button>
+                  <button id="reset-state" class="text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all focus:outline-hidden focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 focus:ring-offset-slate-900 text-xs font-semibold flex items-center space-x-1.5" title="Reset all calculators">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2" />
+                    </svg>
+                    <span id="reset-btn-text">Reset Suite</span>
+                  </button>
+                </div>
+              )}
+
+              <div class="relative">
+                <button id="hamburger-toggle" aria-label="Open menu" aria-expanded="false" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all cursor-pointer">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                   </svg>
-                  <span id="reset-btn-text">Reset Suite</span>
                 </button>
+
+                <div id="hamburger-panel" class="hidden absolute right-0 mt-2 w-56 bg-[#141C32] border border-[#1E294B] rounded-xl shadow-xl py-2 z-50">
+                  <a href="/author/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">About the Author</a>
+                  <a href="/editorial-policy/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">Editorial Policy</a>
+                  <a href="/methodology/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">Methodology</a>
+                  <a href="/privacy-policy/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">Privacy Policy</a>
+                  <a href="/terms-conditions/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">Terms &amp; Conditions</a>
+                  <a href="/disclosure/" class="block px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-colors">Disclosure</a>
+                </div>
               </div>
-            )}
+            </div>
 
           </div>
         </div>
@@ -410,6 +430,32 @@ const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator
             btnText.innerText = originalText2;
             resetBtn.className = originalClass2;
           }, 1500);
+        });
+      }
+
+      // Hamburger Menu Toggle
+      const toggle = document.getElementById("hamburger-toggle");
+      const panel = document.getElementById("hamburger-panel");
+      if (toggle && panel) {
+        toggle.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isHidden = panel.classList.contains("hidden");
+          panel.classList.toggle("hidden");
+          toggle.setAttribute("aria-expanded", isHidden ? "true" : "false");
+        });
+
+        document.addEventListener("click", (e) => {
+          if (!panel.contains(e.target) && e.target !== toggle) {
+            panel.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          }
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            panel.classList.add("hidden");
+            toggle.setAttribute("aria-expanded", "false");
+          }
         });
       }
     });

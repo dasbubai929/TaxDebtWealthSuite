@@ -1,0 +1,304 @@
+---
+---
+
+<section id="panel-roth" class="space-y-6">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+
+    <!-- LEFT: Inputs -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 class="text-lg font-bold text-white tracking-wide">Conversion Details</h3>
+          <p class="text-xs text-slate-400 mt-1">Model the tax cost of converting today against tax-free growth tomorrow.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Current Balance -->
+          <div>
+            <label for="roth-balance" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Current Traditional IRA / 401(k) Balance</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="roth-balance" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+          </div>
+
+          <!-- Convert Amount -->
+          <div>
+            <label for="roth-convert-amount" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Amount to Convert This Year</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">$</div>
+              <input type="number" id="roth-convert-amount" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+            <p class="text-3xs text-slate-500 mt-1">Can be less than your full balance for a partial or multi-year conversion.</p>
+          </div>
+
+          <!-- Current Marginal Rate -->
+          <div>
+            <label for="roth-current-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Current Marginal Tax Rate</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="roth-current-rate" class="focus-ring block w-full pl-4 pr-8 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="50" step="1" placeholder="24" />
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+          </div>
+
+          <!-- Future Marginal Rate -->
+          <div>
+            <label for="roth-future-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Expected Marginal Rate in Retirement</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="roth-future-rate" class="focus-ring block w-full pl-4 pr-8 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="50" step="1" placeholder="22" />
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+            <p class="text-3xs text-slate-500 mt-1">Lower if you'll have less taxable income in retirement, higher if RMDs or other income will push you up.</p>
+          </div>
+
+          <!-- Years Until Withdrawal -->
+          <div>
+            <label for="roth-years" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Years Until Withdrawal</label>
+            <input type="number" id="roth-years" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1" max="50" step="1" placeholder="15" />
+          </div>
+
+          <!-- Expected Return -->
+          <div>
+            <label for="roth-return" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Expected Annual Investment Return</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="roth-return" class="focus-ring block w-full pl-4 pr-8 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="20" step="0.5" placeholder="7" />
+              <div class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+          </div>
+
+          <!-- Pay Tax From Toggle -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Pay the Conversion Tax From...</label>
+            <select id="roth-pay-source" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              <option value="outside">Outside Funds (Recommended)</option>
+              <option value="ira">The IRA Itself (Reduces Growth)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Net Advantage of Converting</p>
+            <p id="roth-result-net" class="focal-metric text-[#00F5D4] mt-0.5">$0</p>
+          </div>
+          <button id="roth-share-btn" type="button" class="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span>Share Results</span>
+          </button>
+        </div>
+        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Conversion Tax Owed Now:</span>
+            <span id="roth-result-tax-owed" class="text-white font-medium">$0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Breakeven Future Tax Rate:</span>
+            <span id="roth-result-breakeven" class="text-white font-medium">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario Comparison Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div id="roth-card-traditional" class="glass-panel p-5 rounded-lg border border-slate-700 space-y-4">
+          <div>
+            <span class="text-3xs font-bold uppercase tracking-widest text-slate-400">Scenario A</span>
+            <p class="text-sm font-bold text-white mt-0.5">Stay Traditional</p>
+          </div>
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Ending After-Tax Value</p>
+            <p id="roth-result-traditional-ending" class="focal-metric mt-0.5">$0</p>
+          </div>
+        </div>
+        <div id="roth-card-convert" class="glass-panel p-5 rounded-lg border border-slate-700 space-y-4">
+          <div>
+            <span class="text-3xs font-bold uppercase tracking-widest text-slate-400">Scenario B</span>
+            <p class="text-sm font-bold text-white mt-0.5">Convert to Roth</p>
+          </div>
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Ending Tax-Free Value</p>
+            <p id="roth-result-convert-ending" class="focal-metric mt-0.5">$0</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-4 rounded-xl text-xs leading-relaxed bg-slate-900/60 border border-slate-800 text-slate-400">
+        This model compares the same dollar amount left in place vs. converted — it doesn't predict market returns or future tax law, both of which will differ from your assumptions.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  (function () {
+    const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
+    const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
+
+    const DEFAULT_STATE = {
+      balance: 0,
+      convertAmount: 0,
+      currentRate: 24,
+      futureRate: 22,
+      years: 15,
+      returnRate: 7,
+      paySource: "outside"
+    };
+
+    let state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+    function getAutoSavePref() {
+      const raw = localStorage.getItem(AUTOSAVE_KEY);
+      return raw === null ? true : raw === "true";
+    }
+
+    function loadState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        try {
+          const parsed = JSON.parse(raw);
+          if (parsed && parsed.roth) {
+            state = { ...DEFAULT_STATE, ...parsed.roth };
+          }
+        } catch (e) {}
+      }
+      applyStateToInputs();
+    }
+
+    function saveState() {
+      if (!getAutoSavePref()) return;
+      let raw = {};
+      try {
+        raw = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      } catch (e) {}
+      raw.roth = state;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(raw));
+      window.dispatchEvent(new Event("financial-hub-saving"));
+    }
+
+    function fmtCurrency(n) {
+      const rounded = Math.round(n || 0);
+      return "$" + rounded.toLocaleString("en-US");
+    }
+
+    function applyStateToInputs() {
+      const el = (id) => document.getElementById(id);
+      el("roth-balance").value = state.balance || "";
+      el("roth-convert-amount").value = state.convertAmount || "";
+      el("roth-current-rate").value = state.currentRate || "";
+      el("roth-future-rate").value = state.futureRate || "";
+      el("roth-years").value = state.years || "";
+      el("roth-return").value = state.returnRate || "";
+      el("roth-pay-source").value = state.paySource || "outside";
+    }
+
+    function highlightWinner(endingA, endingB) {
+      const cardA = document.getElementById("roth-card-traditional");
+      const cardB = document.getElementById("roth-card-convert");
+      const metricA = document.getElementById("roth-result-traditional-ending");
+      const metricB = document.getElementById("roth-result-convert-ending");
+
+      cardA.classList.remove("border-[#00F5D4]/30");
+      cardB.classList.remove("border-[#00F5D4]/30");
+      metricA.classList.remove("text-[#00F5D4]", "text-slate-500");
+      metricB.classList.remove("text-[#00F5D4]", "text-slate-500");
+
+      if (endingB >= endingA) {
+        cardB.classList.add("border-[#00F5D4]/30");
+        metricB.classList.add("text-[#00F5D4]");
+        metricA.classList.add("text-slate-500");
+      } else {
+        cardA.classList.add("border-[#00F5D4]/30");
+        metricA.classList.add("text-[#00F5D4]");
+        metricB.classList.add("text-slate-500");
+      }
+    }
+
+    function calculateRoth() {
+      const { convertAmount, currentRate, futureRate, years, returnRate, paySource } = state;
+
+      const conversionTax = convertAmount * (currentRate / 100);
+      const growthFactor = Math.pow(1 + returnRate / 100, years);
+
+      // Scenario A: stay traditional — grows tax-deferred, taxed at withdrawal
+      const endingA = convertAmount * growthFactor * (1 - futureRate / 100);
+
+      // Scenario B: convert to Roth — grows tax-free from whatever principal remains after paying conversion tax
+      const principalB = paySource === "ira" ? Math.max(0, convertAmount - conversionTax) : convertAmount;
+      const endingB = principalB * growthFactor;
+
+      const netAdvantage = endingB - endingA;
+
+      // Breakeven future tax rate: the rate at which endingA === endingB
+      let breakevenRate = 0;
+      if (convertAmount > 0 && growthFactor > 0) {
+        breakevenRate = 100 * (1 - endingB / (convertAmount * growthFactor));
+      }
+
+      const netEl = document.getElementById("roth-result-net");
+      netEl.textContent = (netAdvantage >= 0 ? "" : "-") + fmtCurrency(Math.abs(netAdvantage));
+      netEl.classList.toggle("text-[#00F5D4]", netAdvantage >= 0);
+      netEl.classList.toggle("text-rose-400", netAdvantage < 0);
+
+      document.getElementById("roth-result-tax-owed").textContent = fmtCurrency(conversionTax);
+      document.getElementById("roth-result-breakeven").textContent = breakevenRate.toFixed(1) + "%";
+      document.getElementById("roth-result-traditional-ending").textContent = fmtCurrency(endingA);
+      document.getElementById("roth-result-convert-ending").textContent = fmtCurrency(endingB);
+
+      highlightWinner(endingA, endingB);
+    }
+
+    function bindInputs() {
+      const bind = (id, key) => {
+        const el = document.getElementById(id);
+        el.addEventListener("input", () => {
+          state[key] = parseFloat(el.value) || 0;
+          calculateRoth();
+          saveState();
+        });
+      };
+
+      bind("roth-balance", "balance");
+      bind("roth-convert-amount", "convertAmount");
+      bind("roth-current-rate", "currentRate");
+      bind("roth-future-rate", "futureRate");
+      bind("roth-years", "years");
+      bind("roth-return", "returnRate");
+
+      document.getElementById("roth-pay-source").addEventListener("change", (e) => {
+        state.paySource = e.target.value;
+        calculateRoth();
+        saveState();
+      });
+
+      document.getElementById("roth-share-btn").addEventListener("click", () => {
+        const net = document.getElementById("roth-result-net").textContent;
+        const text = `My Roth conversion net advantage is ${net} — calculated free at taxdebtwealthsuite.com/roth-conversion-calculator/`;
+        if (navigator.share) {
+          navigator.share({ text }).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(text);
+        }
+      });
+
+      window.addEventListener("financial-hub-reset", () => {
+        state = JSON.parse(JSON.stringify(DEFAULT_STATE));
+        applyStateToInputs();
+        calculateRoth();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      loadState();
+      bindInputs();
+      calculateRoth();
+    });
+  })();
+</script>

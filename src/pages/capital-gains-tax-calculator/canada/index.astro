@@ -1,0 +1,76 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCalculator.astro";
+---
+
+<Layout
+  title="Capital Gains Tax Calculator (Canada) | CRA Inclusion Rates"
+  description="Estimate your Canadian capital gains tax. Understand how the 50% inclusion rate affects your taxable income and marginal tax rate."
+>
+  <main class="flex-grow pt-24 pb-20">
+    <!-- Title Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Capital Gains Tax Calculator (Canada)
+      </h1>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Model your potential CRA tax liability using the standard 50% inclusion rate for Canadian residents.
+      </p>
+    </div>
+
+    <!-- Calculator Component -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CapitalGainsTaxCalculator defaultCountry="CA" />
+    </div>
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16 px-4">
+        <section>
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">Understanding Canadian Capital Gains Tax</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              In Canada, you do not pay tax on the entire profit you make from selling an asset. Instead, only a portion of the gain is included in your taxable income.
+            </p>
+            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
+              <li><strong>Inclusion Rate:</strong> Currently, the standard inclusion rate is 50%. This means only half of your capital gain is taxable.</li>
+              <li><strong>Marginal Tax Rates:</strong> The taxable portion of your gain is added to your other income for the year and taxed at your marginal federal and provincial tax rates.</li>
+              <li><strong>Capital Losses:</strong> Capital losses can only be used to offset capital gains, not ordinary income. They can be carried back 3 years or carried forward indefinitely.</li>
+            </ul>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-canada/" class="text-[#00F5D4] hover:underline">Canadian Capital Gains Tax Guide</a>.
+            </p>
+            <p class="text-xs text-slate-500 italic">
+              Source: <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12700-capital-gains.html" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">CRA - Line 12700 Capital Gains</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much is the capital gains tax in Canada?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Canada does not have a specific 'capital gains tax rate'. Instead, 50% of your capital gain is included in your income and taxed at your marginal tax rate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the capital gains inclusion rate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The inclusion rate determines what portion of a capital gain is taxable. The standard rate is 50%, meaning half the profit is tax-free."
+          }
+        }
+      ]
+    }
+  </script>
+</Layout>

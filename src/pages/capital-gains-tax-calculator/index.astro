@@ -1,0 +1,76 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalculator.astro";
+---
+
+<Layout
+  title="Capital Gains Tax Calculator (US) | Estimate Your Tax Liability"
+  description="Free capital gains tax calculator for the US. Estimate short-term and long-term tax rates, including the Net Investment Income Tax (NIIT)."
+>
+  <main class="flex-grow pt-24 pb-20">
+    <!-- Title Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Capital Gains Tax Calculator (United States)
+      </h1>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Model your potential tax liability on the sale of assets like stocks, real estate, or crypto under IRS rules.
+      </p>
+    </div>
+
+    <!-- Calculator Component -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CapitalGainsTaxCalculator defaultCountry="US" />
+    </div>
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16 px-4">
+        <section>
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">Understanding US Capital Gains Tax</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              In the United States, the IRS taxes your profits from the sale of an asset. The rate you pay depends heavily on how long you held the asset before selling it.
+            </p>
+            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
+              <li><strong>Short-term capital gains:</strong> Assets held for 1 year or less are taxed as ordinary income, which can be up to 37%.</li>
+              <li><strong>Long-term capital gains:</strong> Assets held for more than 1 year benefit from preferential tax rates of 0%, 15%, or 20% depending on your filing status and taxable income.</li>
+              <li><strong>Net Investment Income Tax (NIIT):</strong> High earners may also be subject to an additional 3.8% tax on investment income above certain thresholds (e.g., $200,000 for Single filers).</li>
+            </ul>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-us/" class="text-[#00F5D4] hover:underline">US Capital Gains Tax Guide</a>.
+            </p>
+            <p class="text-xs text-slate-500 italic">
+              Source: <a href="https://www.irs.gov/taxtopics/tc409" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">IRS Topic No. 409 Capital Gains and Losses</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How is long-term capital gains tax calculated in the US?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Long-term capital gains apply to assets held longer than one year. The profit is taxed at 0%, 15%, or 20% based on your filing status and taxable income for the year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Net Investment Income Tax (NIIT)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The NIIT is a 3.8% surcharge on investment income for individuals whose modified adjusted gross income exceeds certain thresholds ($200,000 for Single, $250,000 for Married Filing Jointly)."
+          }
+        }
+      ]
+    }
+  </script>
+</Layout>

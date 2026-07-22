@@ -130,6 +130,7 @@ const isCalculatorPage = ["/buy-borrow-die-calculator/", "/s-corp-tax-calculator
               </a>
 
               <nav class="flex items-center space-x-1" aria-label="Tools Navigation">
+                <a href="/calculators/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/calculators') ? 'text-white bg-slate-800' : ''}`}>Calculators</a>
                 <a href="/blog/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/blog') ? 'text-white bg-slate-800' : ''}`}>Blog</a>
                 <a href="/about/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/about') ? 'text-white bg-slate-800' : ''}`}>About Us</a>
                 <a href="/contact/" class={`text-slate-400 hover:text-white px-3 py-1.5 rounded-lg hover:bg-slate-800 transition-all text-xs font-semibold ${Astro.url.pathname.startsWith('/contact') ? 'text-white bg-slate-800' : ''}`}>Contact Us</a>

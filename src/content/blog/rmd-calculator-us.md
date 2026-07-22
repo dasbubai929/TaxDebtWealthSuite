@@ -2,7 +2,7 @@
 title: "Understanding RMDs in the US: Required Minimum Distributions Explained"
 description: "A comprehensive guide to IRS Required Minimum Distributions (RMDs), including SECURE Act 2.0 changes, how to calculate them, and strategies to minimize taxes."
 pubDate: 2026-07-22
-author: "TaxDebtWealthSuite Team"
+author: "Mrittunjoy Das"
 relatedTool: "rmd-calculator"
 country: "US"
 ---

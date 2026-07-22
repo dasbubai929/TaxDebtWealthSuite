@@ -1,0 +1,76 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCalculator.astro";
+---
+
+<Layout
+  title="Capital Gains Tax Calculator (Australia) | ATO 50% Discount"
+  description="Calculate your Australian capital gains tax. See how the ATO 50% CGT discount for assets held over 12 months reduces your taxable income."
+>
+  <main class="flex-grow pt-24 pb-20">
+    <!-- Title Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Capital Gains Tax Calculator (Australia)
+      </h1>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Model your potential ATO tax liability and see how the 50% CGT discount affects your bottom line.
+      </p>
+    </div>
+
+    <!-- Calculator Component -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CapitalGainsTaxCalculator defaultCountry="AU" />
+    </div>
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16 px-4">
+        <section>
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">Understanding Australian Capital Gains Tax</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              In Australia, capital gains are not taxed as a separate tax. Instead, your net capital gain is added to your assessable income and taxed at your marginal income tax rate.
+            </p>
+            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
+              <li><strong>The 50% CGT Discount:</strong> If you are an Australian resident for tax purposes and you hold an asset for more than 12 months before selling it, you can generally discount your capital gain by 50%.</li>
+              <li><strong>Short-term Holdings:</strong> Assets held for 12 months or less do not receive the discount, meaning 100% of the gain is added to your assessable income.</li>
+              <li><strong>Marginal Rates:</strong> Because the taxable gain is added to your income, the actual tax you pay depends heavily on what tax bracket you fall into for that financial year.</li>
+            </ul>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-australia/" class="text-[#00F5D4] hover:underline">Australian Capital Gains Tax Guide</a>.
+            </p>
+            <p class="text-xs text-slate-500 italic">
+              Source: <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">ATO - Capital Gains Tax</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the 50% CGT discount work in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you hold an asset for more than 12 months, you can halve the capital gain before adding it to your assessable income, effectively halving the tax paid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is capital gains tax separate from income tax in Australia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, your net capital gain is added to your assessable income and taxed at your marginal income tax rate."
+          }
+        }
+      ]
+    }
+  </script>
+</Layout>

@@ -2,7 +2,7 @@
 title: "Superannuation Minimum Drawdowns: Rules for Account-Based Pensions"
 description: "A comprehensive guide to Australian superannuation minimum drawdown rates, how they are calculated, and strategies for managing your retirement income."
 pubDate: 2026-07-22
-author: "TaxDebtWealthSuite Team"
+author: "Mrittunjoy Das"
 relatedTool: "rmd-calculator"
 country: "Australia"
 ---

@@ -2,7 +2,7 @@
 title: "RRSP/RRIF Withdrawal Strategies: Managing Your Minimums"
 description: "A comprehensive guide to Canadian RRIF minimum withdrawal rules, how to calculate them, and strategies to minimize your lifetime tax burden."
 pubDate: 2026-07-22
-author: "TaxDebtWealthSuite Team"
+author: "Mrittunjoy Das"
 relatedTool: "rmd-calculator"
 country: "Canada"
 ---

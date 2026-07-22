@@ -1,0 +1,393 @@
+---
+export interface Props {
+  defaultCountry?: 'US' | 'UK' | 'CA' | 'AU';
+}
+
+const { defaultCountry = 'US' } = Astro.props;
+
+const countryLabels = {
+  US: {
+    title: "Capital Gains Tax Predictor (US)",
+    desc: "Estimate IRS short-term or long-term capital gains tax, including potential Net Investment Income Tax.",
+    incomeLabel: "Other Taxable Income ($)",
+    currency: "$"
+  },
+  UK: {
+    title: "Capital Gains Tax Estimator (UK)",
+    desc: "Calculate HMRC capital gains for general assets (e.g., shares), factoring in the Annual Exempt Amount.",
+    incomeLabel: "Other Taxable Income (£)",
+    currency: "£"
+  },
+  CA: {
+    title: "Capital Gains Tax Calculator (Canada)",
+    desc: "Estimate CRA capital gains tax based on the 50% inclusion rate and your marginal tax bracket.",
+    incomeLabel: "Other Taxable Income ($)",
+    currency: "$"
+  },
+  AU: {
+    title: "CGT Discount Calculator (Australia)",
+    desc: "Calculate ATO capital gains tax, factoring in the 50% CGT discount for assets held over 12 months.",
+    incomeLabel: "Other Taxable Income ($)",
+    currency: "$"
+  }
+};
+
+const currentInfo = countryLabels[defaultCountry];
+---
+
+<section id="panel-cgt" class="space-y-6" data-default-country={defaultCountry}>
+  <!-- Country Selector Nav -->
+  <div>
+    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+    <div class="flex flex-wrap gap-2 mb-2">
+      <a href="/capital-gains-tax-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'US' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.cgt)s.cgt={};s.cgt.country='US';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">US</a>
+      <a href="/capital-gains-tax-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'UK' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.cgt)s.cgt={};s.cgt.country='UK';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">UK</a>
+      <a href="/capital-gains-tax-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'CA' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.cgt)s.cgt={};s.cgt.country='CA';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Canada</a>
+      <a href="/capital-gains-tax-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'AU' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.cgt)s.cgt={};s.cgt.country='AU';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Australia</a>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- LEFT: Inputs -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 id="cgt-title" class="text-lg font-bold text-white tracking-wide">{currentInfo.title}</h3>
+          <p id="cgt-desc" class="text-xs text-slate-400 mt-1">{currentInfo.desc}</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Purchase Price -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Purchase Price (Cost Basis)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="cgt-purchase-price" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="50000" />
+            </div>
+          </div>
+
+          <!-- Sale Price -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Sale Amount</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="cgt-sale-price" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="100000" />
+            </div>
+          </div>
+
+          <!-- Holding Period -->
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Holding Period</label>
+            <select id="cgt-holding-period" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              <option value="long">More than 1 year (> 12 months)</option>
+              <option value="short">1 year or less (<= 12 months)</option>
+            </select>
+          </div>
+
+          <!-- Other Income -->
+          <div>
+            <label id="cgt-income-label" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.incomeLabel}</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="cgt-income" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="5000" placeholder="80000" />
+            </div>
+          </div>
+
+          <!-- US Filing Status -->
+          <div id="cgt-us-status-container" class={defaultCountry === 'US' ? 'block' : 'hidden'}>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Filing Status (US Only)</label>
+            <select id="cgt-filing-status" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              <option value="single">Single</option>
+              <option value="married">Married Filing Jointly</option>
+              <option value="head">Head of Household</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Estimated Capital Gains Tax</p>
+            <p id="cgt-result-tax" class="focal-metric text-[#00F5D4] mt-0.5">{currentInfo.currency}0</p>
+          </div>
+        </div>
+        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Total Capital Gain:</span>
+            <span id="cgt-result-total-gain" class="text-white font-medium">{currentInfo.currency}0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Taxable Capital Gain:</span>
+            <span id="cgt-result-taxable-gain" class="text-white font-medium">{currentInfo.currency}0</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Effective Tax Rate (on total gain):</span>
+            <span id="cgt-result-effective-rate" class="text-white font-medium">0.00%</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Logic Explainer Banner -->
+      <div class="p-6 rounded-lg border flex flex-col items-start gap-3 transition-all duration-300 bg-slate-900/50 border-slate-800">
+        <div class="flex items-center gap-2 text-[#00F5D4]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <h4 class="font-bold text-sm">How it's calculated</h4>
+        </div>
+        <p id="cgt-logic-explainer" class="text-xs text-slate-400 leading-relaxed">
+          Select a country and input your numbers to see the exact tax rules applied.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const DEFAULT_STATE = {
+      country: "US",
+      purchasePrice: 50000,
+      salePrice: 100000,
+      holdingPeriod: "long",
+      income: 80000,
+      filingStatus: "single"
+    };
+
+    let state = { cgt: { ...DEFAULT_STATE } };
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem("financial_hub_state");
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed.cgt) {
+            state.cgt = { ...DEFAULT_STATE, ...parsed.cgt };
+          }
+        }
+        
+        // Override with dataset if running on a specific country page
+        const panel = document.getElementById("panel-cgt");
+        if (panel && panel.dataset.defaultCountry) {
+          state.cgt.country = panel.dataset.defaultCountry;
+        }
+      } catch (e) {
+        state.cgt = { ...DEFAULT_STATE };
+      }
+    }
+
+    function saveState() {
+      try {
+        const saved = localStorage.getItem("financial_hub_state");
+        let parsed = saved ? JSON.parse(saved) : {};
+        parsed.cgt = state.cgt;
+        localStorage.setItem("financial_hub_state", JSON.stringify(parsed));
+      } catch (e) {}
+    }
+
+    const fmt = (val, symbol) => `${symbol}${val.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+    const fmtPct = (val) => `${(val * 100).toFixed(2)}%`;
+
+    function calculateUS(gain, income, period, status) {
+      if (gain <= 0) return { tax: 0, taxableGain: 0, explainer: "No capital gains tax is owed on a loss or break-even sale." };
+      
+      let tax = 0;
+      let taxableGain = gain;
+      let explainer = "";
+      
+      if (period === "short") {
+        // Simplified Ordinary Income brackets for 2024
+        let rate = 0.22;
+        if (income > 243725) rate = 0.35;
+        if (income > 609350) rate = 0.37;
+        tax = gain * rate;
+        explainer = `Short-term gains (< 1 year) are taxed as ordinary income. Estimated at a ${fmtPct(rate)} marginal rate based on your income.`;
+      } else {
+        // Long term capital gains brackets (2024)
+        let rate = 0.15;
+        if (status === "single") {
+          if (income < 47025) rate = 0;
+          else if (income > 518900) rate = 0.20;
+        } else if (status === "married") {
+          if (income < 94050) rate = 0;
+          else if (income > 583750) rate = 0.20;
+        } else {
+          if (income < 63000) rate = 0;
+          else if (income > 551350) rate = 0.20;
+        }
+        
+        tax = gain * rate;
+        explainer = `Long-term gains are taxed at ${fmtPct(rate)} based on your ${status} filing status and income.`;
+        
+        // NIIT (Net Investment Income Tax)
+        let niitThreshold = status === "married" ? 250000 : 200000;
+        if (income + gain > niitThreshold) {
+          let niitAmount = Math.min(gain, (income + gain) - niitThreshold);
+          tax += niitAmount * 0.038;
+          explainer += ` Plus a 3.8% Net Investment Income Tax (NIIT) on the portion of income exceeding $${niitThreshold.toLocaleString()}.`;
+        }
+      }
+      return { tax, taxableGain, explainer };
+    }
+
+    function calculateUK(gain, income, period) {
+      if (gain <= 0) return { tax: 0, taxableGain: 0, explainer: "No capital gains tax is owed on a loss." };
+      
+      const AEA = 3000; // Annual Exempt Amount 2024/25
+      let taxableGain = Math.max(0, gain - AEA);
+      
+      if (taxableGain === 0) {
+        return { tax: 0, taxableGain: 0, explainer: `Your gain falls entirely within the £${AEA.toLocaleString()} Annual Exempt Amount. No CGT owed.` };
+      }
+      
+      // Basic rate band limit is £37,700, plus personal allowance £12,570 = £50,270
+      const basicRateLimit = 50270;
+      let availableBasicBand = Math.max(0, basicRateLimit - income);
+      
+      let basicRatePortion = Math.min(taxableGain, availableBasicBand);
+      let higherRatePortion = taxableGain - basicRatePortion;
+      
+      // Using general asset rates: 10% basic, 20% higher
+      let tax = (basicRatePortion * 0.10) + (higherRatePortion * 0.20);
+      
+      let explainer = `After the £${AEA.toLocaleString()} exemption, your taxable gain is £${taxableGain.toLocaleString()}. `;
+      if (basicRatePortion > 0) explainer += `£${basicRatePortion.toLocaleString()} is taxed at the basic rate (10%). `;
+      if (higherRatePortion > 0) explainer += `£${higherRatePortion.toLocaleString()} is taxed at the higher rate (20%). `;
+      explainer += `(Assuming general assets, not residential property).`;
+      
+      return { tax, taxableGain, explainer };
+    }
+
+    function calculateCA(gain, income, period) {
+      if (gain <= 0) return { tax: 0, taxableGain: 0, explainer: "No capital gains tax is owed on a loss." };
+      
+      // Using standard 50% inclusion rate
+      let inclusionRate = 0.50;
+      let taxableGain = gain * inclusionRate;
+      
+      // Simplified Canadian Marginal Tax Rate estimation
+      let rate = 0.30;
+      if (income > 111733) rate = 0.40;
+      if (income > 173205) rate = 0.48;
+      if (income > 246752) rate = 0.53;
+      
+      let tax = taxableGain * rate;
+      let explainer = `Canada uses a ${fmtPct(inclusionRate)} inclusion rate. Only $${taxableGain.toLocaleString()} of your gain is taxable. It is added to your income and taxed at an estimated marginal rate of ${fmtPct(rate)}.`;
+      
+      return { tax, taxableGain, explainer };
+    }
+
+    function calculateAU(gain, income, period) {
+      if (gain <= 0) return { tax: 0, taxableGain: 0, explainer: "No capital gains tax is owed on a loss." };
+      
+      let taxableGain = gain;
+      let explainer = "";
+      
+      if (period === "long") {
+        taxableGain = gain * 0.50;
+        explainer = `Because you held the asset > 12 months, the 50% ATO CGT discount applies. Your taxable gain is reduced to $${taxableGain.toLocaleString()}. `;
+      } else {
+        explainer = `Assets held < 12 months do not qualify for the CGT discount. The full gain is taxable. `;
+      }
+      
+      // Simplified ATO marginal rates (resident 2024-25)
+      let rate = 0.19;
+      if (income > 45000) rate = 0.325;
+      if (income > 120000) rate = 0.37;
+      if (income > 190000) rate = 0.45;
+      
+      // Medicare levy
+      rate += 0.02;
+      
+      let tax = taxableGain * rate;
+      explainer += `The taxable gain is added to your income and taxed at an estimated marginal rate of ${fmtPct(rate)} (including 2% Medicare levy).`;
+      
+      return { tax, taxableGain, explainer };
+    }
+
+    function runCalculations() {
+      const c = state.cgt.country;
+      const gain = state.cgt.salePrice - state.cgt.purchasePrice;
+      
+      let result = { tax: 0, taxableGain: 0, explainer: "" };
+      let symbol = "$";
+      
+      if (c === "US") {
+        result = calculateUS(gain, state.cgt.income, state.cgt.holdingPeriod, state.cgt.filingStatus);
+        symbol = "$";
+      } else if (c === "UK") {
+        result = calculateUK(gain, state.cgt.income, state.cgt.holdingPeriod);
+        symbol = "£";
+      } else if (c === "CA") {
+        result = calculateCA(gain, state.cgt.income, state.cgt.holdingPeriod);
+        symbol = "$";
+      } else if (c === "AU") {
+        result = calculateAU(gain, state.cgt.income, state.cgt.holdingPeriod);
+        symbol = "$";
+      }
+      
+      document.getElementById("cgt-result-total-gain").innerText = fmt(gain, symbol);
+      document.getElementById("cgt-result-taxable-gain").innerText = fmt(result.taxableGain, symbol);
+      document.getElementById("cgt-result-tax").innerText = fmt(result.tax, symbol);
+      
+      const effRate = gain > 0 ? (result.tax / gain) : 0;
+      document.getElementById("cgt-result-effective-rate").innerText = fmtPct(effRate);
+      
+      document.getElementById("cgt-logic-explainer").innerText = result.explainer;
+    }
+
+    function syncStateToInputs() {
+      document.getElementById("cgt-purchase-price").value = state.cgt.purchasePrice || "";
+      document.getElementById("cgt-sale-price").value = state.cgt.salePrice || "";
+      document.getElementById("cgt-holding-period").value = state.cgt.holdingPeriod || "long";
+      document.getElementById("cgt-income").value = state.cgt.income || "";
+      document.getElementById("cgt-filing-status").value = state.cgt.filingStatus || "single";
+      
+      // Update UI for country
+      const c = state.cgt.country;
+      const usStatus = document.getElementById("cgt-us-status-container");
+      if (usStatus) {
+        usStatus.className = c === "US" ? "block" : "hidden";
+      }
+    }
+
+    function bindListeners() {
+      const inputs = [
+        { id: "cgt-purchase-price", prop: "purchasePrice", isNum: true },
+        { id: "cgt-sale-price", prop: "salePrice", isNum: true },
+        { id: "cgt-income", prop: "income", isNum: true },
+        { id: "cgt-holding-period", prop: "holdingPeriod", isNum: false },
+        { id: "cgt-filing-status", prop: "filingStatus", isNum: false }
+      ];
+      
+      inputs.forEach(({ id, prop, isNum }) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.addEventListener("input", (e) => {
+            state.cgt[prop] = isNum ? (parseFloat(e.target.value) || 0) : e.target.value;
+            saveState();
+            runCalculations();
+          });
+        }
+      });
+    }
+
+    // Init
+    window.addEventListener("DOMContentLoaded", () => {
+      loadState();
+      syncStateToInputs();
+      bindListeners();
+      runCalculations();
+    });
+    
+    window.addEventListener("financial-hub-reset", () => {
+      state.cgt = JSON.parse(JSON.stringify(DEFAULT_STATE));
+      syncStateToInputs();
+      runCalculations();
+    });
+  })();
+</script>

@@ -21,8 +21,14 @@ const { defaultCurrency = "USD" } = Astro.props;
         <div class="space-y-4">
           <!-- Currency Selector -->
           <div>
-            <label for="bbd-currency" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Currency</label>
-            <select id="bbd-currency" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Currency</label>
+            <div class="flex flex-wrap gap-2 mb-2">
+              <a href="/buy-borrow-die-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'USD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='USD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">US</a>
+              <a href="/buy-borrow-die-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'GBP' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='GBP';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">UK</a>
+              <a href="/buy-borrow-die-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'CAD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='CAD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Canada</a>
+              <a href="/buy-borrow-die-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'AUD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='AUD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Australia</a>
+            </div>
+            <select id="bbd-currency" class="hidden">
               <option value="USD">USD ($)</option>
               <option value="GBP">GBP (£)</option>
               <option value="CAD">CAD (C$)</option>

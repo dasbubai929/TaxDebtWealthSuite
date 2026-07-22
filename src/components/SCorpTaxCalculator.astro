@@ -20,8 +20,14 @@ const { defaultCountry = "US" } = Astro.props;
         <div class="space-y-4">
           <!-- Country Selector -->
           <div>
-            <label for="tax-country" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
-            <select id="tax-country" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+            <div class="flex flex-wrap gap-2 mb-2">
+              <a href="/s-corp-tax-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'US' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tax)s.tax={};s.tax.country='US';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">US</a>
+              <a href="/s-corp-tax-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'UK' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tax)s.tax={};s.tax.country='UK';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">UK</a>
+              <a href="/s-corp-tax-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'CA' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tax)s.tax={};s.tax.country='CA';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Canada</a>
+              <a href="/s-corp-tax-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'AU' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tax)s.tax={};s.tax.country='AU';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Australia</a>
+            </div>
+            <select id="tax-country" class="hidden">
               <option value="US">🇺🇸 United States</option>
               <option value="UK">🇬🇧 United Kingdom</option>
               <option value="CA">🇨🇦 Canada</option>

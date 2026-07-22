@@ -1,0 +1,76 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCalculator.astro";
+---
+
+<Layout
+  title="Capital Gains Tax Calculator (UK) | HMRC Rules & Allowances"
+  description="Estimate your UK capital gains tax liability. Automatically factors in the Annual Exempt Amount and Basic/Higher rate bands."
+>
+  <main class="flex-grow pt-24 pb-20">
+    <!-- Title Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Capital Gains Tax Calculator (United Kingdom)
+      </h1>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Model your potential HMRC tax liability on the sale of assets like shares, factoring in your income band and tax-free allowances.
+      </p>
+    </div>
+
+    <!-- Calculator Component -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <CapitalGainsTaxCalculator defaultCountry="UK" />
+    </div>
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16 px-4">
+        <section>
+          <div class="mb-6">
+            <h2 class="text-2xl font-bold text-white mb-4">Understanding UK Capital Gains Tax</h2>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+              In the UK, Capital Gains Tax is a tax on the profit when you sell (or 'dispose of') something that's increased in value.
+            </p>
+            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
+              <li><strong>Annual Exempt Amount:</strong> You only have to pay Capital Gains Tax on your overall gains above your tax-free allowance. For the 2024/25 tax year, this is £3,000.</li>
+              <li><strong>Basic vs Higher Rate:</strong> The rate you pay depends on whether you are a basic rate or higher rate taxpayer.</li>
+              <li><strong>Asset Types:</strong> Gains on residential property (not your main home) are taxed at 18% or 24%. Other assets, like shares, are taxed at 10% or 20%. Our calculator defaults to general assets (10%/20%).</li>
+            </ul>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-uk/" class="text-[#00F5D4] hover:underline">UK Capital Gains Tax Guide</a>.
+            </p>
+            <p class="text-xs text-slate-500 italic">
+              Source: <a href="https://www.gov.uk/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">Gov.UK - Capital Gains Tax</a>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script type="application/ld+json" slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Capital Gains Tax allowance in the UK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For the 2024/25 tax year, the Annual Exempt Amount for individuals is £3,000. You only pay tax on total gains above this amount."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much is Capital Gains Tax on shares in the UK?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you are a basic rate taxpayer, you pay 10% on your gains (above the allowance). If you are a higher or additional rate taxpayer, you pay 20%."
+          }
+        }
+      ]
+    }
+  </script>
+</Layout>

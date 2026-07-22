@@ -2,7 +2,7 @@
 title: "UK Pension Withdrawal Rules Explained: Managing Your Drawdown"
 description: "A comprehensive guide to UK pension drawdown rules, calculating safe withdrawal rates, and avoiding the trap of running out of money in retirement."
 pubDate: 2026-07-22
-author: "TaxDebtWealthSuite Team"
+author: "Mrittunjoy Das"
 relatedTool: "rmd-calculator"
 country: "UK"
 ---

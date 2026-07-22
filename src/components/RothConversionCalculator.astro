@@ -185,7 +185,11 @@
 
     function fmtCurrency(n) {
       const rounded = Math.round(n || 0);
-      return "$" + rounded.toLocaleString("en-US");
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+      }).format(rounded);
     }
 
     function applyStateToInputs() {

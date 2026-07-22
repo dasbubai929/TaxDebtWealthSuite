@@ -1,0 +1,141 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Tax Loss Harvesting for Australian Investors (2026 Guide)",
+  description: "Learn how to use tax loss harvesting in Australia to offset capital gains. Master the ATO wash sale rules and understand how losses interact with the 50% CGT discount.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Tax Loss Harvesting for Australian Investors",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tax Debt Wealth Suite"
+        },
+        "datePublished": "2026-07-22",
+        "dateModified": "2026-07-22",
+        "description": "Learn how to use tax loss harvesting in Australia to offset capital gains. Master the ATO wash sale rules and understand how losses interact with the 50% CGT discount."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an ATO wash sale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The ATO defines a wash sale as disposing of an asset to crystallize a capital loss, then reacquiring the same or a substantially similar asset shortly after (or before). If the ATO determines the primary purpose was to generate a tax benefit without changing your economic position, they can deny the loss under Part IVA anti-avoidance rules."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can capital losses offset ordinary income in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. In Australia, net capital losses can only be used to offset capital gains. They cannot be deducted against your ordinary income (like your salary or wages)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I apply my capital losses before or after the 50% CGT discount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Capital losses must be applied against your gross capital gains before the 50% CGT discount is applied. This makes it more tax-efficient to offset short-term gains (which don't get the discount) rather than long-term gains."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest border border-indigo-500/20 mb-6">
+        <span>Tax Strategy (Australia)</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Tax Loss Harvesting for Australian Investors
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>&bull;</span>
+        <time datetime="2026-07-22">July 22, 2026</time>
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none prose-a:text-[#00F5D4] hover:prose-a:text-[#00F5D4]/80 prose-headings:text-white prose-img:rounded-xl">
+      <p class="lead text-xl text-slate-300">
+        No investor wants to see their portfolio in the red, but market corrections offer a unique opportunity to reduce your tax bill. By selling underperforming assets and realizing a capital loss, you can offset your capital gains through a strategy known as <strong>Tax Loss Harvesting</strong>.
+      </p>
+
+      <h2>How Capital Losses Work in Australia</h2>
+      <p>
+        In Australia, you make a capital loss when you sell a CGT asset for less than its reduced cost base. Just like capital gains, capital losses are reported to the Australian Taxation Office (ATO) in the income year they occur.
+      </p>
+      
+      <p>
+        <strong>The Golden Rule:</strong> Net capital losses can <em>only</em> be used to offset capital gains. They cannot be deducted against your ordinary income, such as your salary, wages, or business income. 
+      </p>
+
+      <h3>Carrying Losses Forward</h3>
+      <p>
+        If your capital losses exceed your capital gains for the year, the excess (net capital loss) cannot be carried back to previous years. However, you can <strong>carry it forward indefinitely</strong> to offset against future capital gains. You must report these carried-forward losses in your tax return each year until they are used up.
+      </p>
+
+      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
+        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Interactive Tool
+        </h4>
+        <p class="text-sm mb-4">Calculate exactly how much you can save this year by offsetting your specific gains.</p>
+        <a href="/tax-loss-harvesting-calculator/australia/" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-black bg-[#00F5D4] hover:bg-[#00F5D4]/90 transition-colors">
+          Use the Australian Tax Loss Harvesting Calculator
+        </a>
+      </div>
+
+      <h2>The 50% CGT Discount Trap</h2>
+      <p>
+        One of the most critical aspects of tax loss harvesting in Australia is understanding the order of operations when applying losses against gains. 
+      </p>
+      <p>
+        If you hold an asset for more than 12 months, you are generally eligible for the <strong>50% CGT discount</strong>, meaning only half of your gain is taxable. However, the ATO requires you to deduct your capital losses from your <em>gross</em> capital gains <strong>before</strong> applying the 50% discount.
+      </p>
+      <p>
+        <strong>Why this matters:</strong> If you use a A$1,000 loss to offset a A$1,000 long-term gain, you are effectively wiping out a gain that would have only been taxed on A$500 anyway. To maximize tax efficiency, you should always choose to offset your short-term gains (which do not receive the discount and are taxed fully at your marginal rate) before offsetting your long-term, discount-eligible gains.
+      </p>
+
+      <h2>ATO Wash Sales and Anti-Avoidance</h2>
+      <p>
+        The ATO takes a strict stance on "wash sales." Unlike the IRS in the US, which has a rigid 30-day mechanical rule, the ATO operates on a "purpose" test under their Part IVA anti-avoidance provisions.
+      </p>
+      <p>
+        If you sell an asset to crystallize a loss and then buy the same (or substantially similar) asset shortly thereafter, and the ATO determines the primary purpose of the transaction was simply to obtain a tax benefit while maintaining your economic exposure to the asset, they can <strong>deny the capital loss</strong>.
+      </p>
+      
+      <h3>How to Stay Compliant</h3>
+      <ul>
+        <li><strong>Change Your Exposure:</strong> If you sell shares in one big bank at a loss, you might consider buying shares in a competing bank. This changes your economic exposure and is generally viewed as a legitimate portfolio reallocation.</li>
+        <li><strong>Accept the Risk:</strong> If you sell an asset and wait a substantial amount of time before repurchasing it, you bear the market risk of the asset rising in price while you are out of the market. The ATO looks at whether the transaction exposed you to genuine market risk.</li>
+      </ul>
+
+      <p>
+        Tax loss harvesting is a powerful tool, but in Australia, it requires strategic sequencing of offsets and careful adherence to the ATO's anti-avoidance rules. Use our <a href="/capital-gains-tax-calculator/australia/">Capital Gains Tax Calculator</a> to plan your disposals and maximize your after-tax returns.
+      </p>
+    </div>
+  </article>
+</Layout>

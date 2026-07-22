@@ -21,14 +21,14 @@ const countryLabels = {
   CA: {
     title: "Capital Gains Tax Calculator (Canada)",
     desc: "Estimate CRA capital gains tax based on the 50% inclusion rate and your marginal tax bracket.",
-    incomeLabel: "Other Taxable Income ($)",
-    currency: "$"
+    incomeLabel: "Other Taxable Income (C$)",
+    currency: "C$"
   },
   AU: {
     title: "CGT Discount Calculator (Australia)",
     desc: "Calculate ATO capital gains tax, factoring in the 50% CGT discount for assets held over 12 months.",
-    incomeLabel: "Other Taxable Income ($)",
-    currency: "$"
+    incomeLabel: "Other Taxable Income (A$)",
+    currency: "A$"
   }
 };
 
@@ -62,7 +62,7 @@ const currentInfo = countryLabels[defaultCountry];
             <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Purchase Price (Cost Basis)</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
-              <input type="number" id="cgt-purchase-price" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="50000" />
+              <input type="number" id="cgt-purchase-price" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
           </div>
 
@@ -71,7 +71,7 @@ const currentInfo = countryLabels[defaultCountry];
             <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Sale Amount</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
-              <input type="number" id="cgt-sale-price" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="100000" />
+              <input type="number" id="cgt-sale-price" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
           </div>
 
@@ -89,7 +89,7 @@ const currentInfo = countryLabels[defaultCountry];
             <label id="cgt-income-label" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.incomeLabel}</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="cgt-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
-              <input type="number" id="cgt-income" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="5000" placeholder="80000" />
+              <input type="number" id="cgt-income" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="5000" placeholder="0" />
             </div>
           </div>
 
@@ -151,10 +151,10 @@ const currentInfo = countryLabels[defaultCountry];
   (function() {
     const DEFAULT_STATE = {
       country: "US",
-      purchasePrice: 50000,
-      salePrice: 100000,
+      purchasePrice: 0,
+      salePrice: 0,
       holdingPeriod: "long",
-      income: 80000,
+      income: 0,
       filingStatus: "single"
     };
 
@@ -189,7 +189,15 @@ const currentInfo = countryLabels[defaultCountry];
       } catch (e) {}
     }
 
-    const fmt = (val, symbol) => `${symbol}${val.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`;
+    const fmt = (val, c) => {
+      let formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: c === 'UK' ? 'GBP' : (c === 'CA' ? 'CAD' : (c === 'AU' ? 'AUD' : 'USD')),
+        maximumFractionDigits: 0
+      }).format(val);
+      if (c === 'CA') formatted = formatted.replace('CA$', 'C$');
+      return formatted;
+    };
     const fmtPct = (val) => `${(val * 100).toFixed(2)}%`;
 
     function calculateUS(gain, income, period, status) {
@@ -228,7 +236,7 @@ const currentInfo = countryLabels[defaultCountry];
         if (income + gain > niitThreshold) {
           let niitAmount = Math.min(gain, (income + gain) - niitThreshold);
           tax += niitAmount * 0.038;
-          explainer += ` Plus a 3.8% Net Investment Income Tax (NIIT) on the portion of income exceeding $${niitThreshold.toLocaleString()}.`;
+          explainer += ` Plus a 3.8% Net Investment Income Tax (NIIT) on the portion of income exceeding ${fmt(niitThreshold, "US")}.`;
         }
       }
       return { tax, taxableGain, explainer };
@@ -241,7 +249,7 @@ const currentInfo = countryLabels[defaultCountry];
       let taxableGain = Math.max(0, gain - AEA);
       
       if (taxableGain === 0) {
-        return { tax: 0, taxableGain: 0, explainer: `Your gain falls entirely within the £${AEA.toLocaleString()} Annual Exempt Amount. No CGT owed.` };
+        return { tax: 0, taxableGain: 0, explainer: `Your gain falls entirely within the ${fmt(AEA, "UK")} Annual Exempt Amount. No CGT owed.` };
       }
       
       // Basic rate band limit is £37,700, plus personal allowance £12,570 = £50,270
@@ -254,9 +262,9 @@ const currentInfo = countryLabels[defaultCountry];
       // Using general asset rates: 10% basic, 20% higher
       let tax = (basicRatePortion * 0.10) + (higherRatePortion * 0.20);
       
-      let explainer = `After the £${AEA.toLocaleString()} exemption, your taxable gain is £${taxableGain.toLocaleString()}. `;
-      if (basicRatePortion > 0) explainer += `£${basicRatePortion.toLocaleString()} is taxed at the basic rate (10%). `;
-      if (higherRatePortion > 0) explainer += `£${higherRatePortion.toLocaleString()} is taxed at the higher rate (20%). `;
+      let explainer = `After the ${fmt(AEA, "UK")} exemption, your taxable gain is ${fmt(taxableGain, "UK")}. `;
+      if (basicRatePortion > 0) explainer += `${fmt(basicRatePortion, "UK")} is taxed at the basic rate (10%). `;
+      if (higherRatePortion > 0) explainer += `${fmt(higherRatePortion, "UK")} is taxed at the higher rate (20%). `;
       explainer += `(Assuming general assets, not residential property).`;
       
       return { tax, taxableGain, explainer };
@@ -276,7 +284,7 @@ const currentInfo = countryLabels[defaultCountry];
       if (income > 246752) rate = 0.53;
       
       let tax = taxableGain * rate;
-      let explainer = `Canada uses a ${fmtPct(inclusionRate)} inclusion rate. Only $${taxableGain.toLocaleString()} of your gain is taxable. It is added to your income and taxed at an estimated marginal rate of ${fmtPct(rate)}.`;
+      let explainer = `Canada uses a ${fmtPct(inclusionRate)} inclusion rate. Only ${fmt(taxableGain, "CA")} of your gain is taxable. It is added to your income and taxed at an estimated marginal rate of ${fmtPct(rate)}.`;
       
       return { tax, taxableGain, explainer };
     }
@@ -289,7 +297,7 @@ const currentInfo = countryLabels[defaultCountry];
       
       if (period === "long") {
         taxableGain = gain * 0.50;
-        explainer = `Because you held the asset > 12 months, the 50% ATO CGT discount applies. Your taxable gain is reduced to $${taxableGain.toLocaleString()}. `;
+        explainer = `Because you held the asset > 12 months, the 50% ATO CGT discount applies. Your taxable gain is reduced to ${fmt(taxableGain, "AU")}. `;
       } else {
         explainer = `Assets held < 12 months do not qualify for the CGT discount. The full gain is taxable. `;
       }
@@ -324,15 +332,15 @@ const currentInfo = countryLabels[defaultCountry];
         symbol = "£";
       } else if (c === "CA") {
         result = calculateCA(gain, state.cgt.income, state.cgt.holdingPeriod);
-        symbol = "$";
+        symbol = "C$";
       } else if (c === "AU") {
         result = calculateAU(gain, state.cgt.income, state.cgt.holdingPeriod);
-        symbol = "$";
+        symbol = "A$";
       }
       
-      document.getElementById("cgt-result-total-gain").innerText = fmt(gain, symbol);
-      document.getElementById("cgt-result-taxable-gain").innerText = fmt(result.taxableGain, symbol);
-      document.getElementById("cgt-result-tax").innerText = fmt(result.tax, symbol);
+      document.getElementById("cgt-result-total-gain").innerText = fmt(gain, c);
+      document.getElementById("cgt-result-taxable-gain").innerText = fmt(result.taxableGain, c);
+      document.getElementById("cgt-result-tax").innerText = fmt(result.tax, c);
       
       const effRate = gain > 0 ? (result.tax / gain) : 0;
       document.getElementById("cgt-result-effective-rate").innerText = fmtPct(effRate);

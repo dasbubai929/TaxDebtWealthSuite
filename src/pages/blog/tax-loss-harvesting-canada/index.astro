@@ -1,0 +1,145 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Tax Loss Harvesting in Canada (2026 Guide) | Superficial Loss Rules",
+  description: "Learn how to use tax loss harvesting in Canada to offset capital gains. Master the CRA superficial loss rule and understand how inclusion rates affect your allowable capital losses.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Tax Loss Harvesting in Canada",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tax Debt Wealth Suite"
+        },
+        "datePublished": "2026-07-22",
+        "dateModified": "2026-07-22",
+        "description": "Learn how to use tax loss harvesting in Canada to offset capital gains. Master the CRA superficial loss rule and understand how inclusion rates affect your allowable capital losses."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the superficial loss rule in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The superficial loss rule occurs if you sell a security at a loss and you or an affiliated person buys the identical property within the period starting 30 days before the sale and ending 30 days after the sale. The loss is denied and added to the adjusted cost base."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can capital losses offset employment income in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. In Canada, net capital losses can only be used to offset taxable capital gains. They cannot be deducted against ordinary income such as employment salary, interest, or dividends."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the capital gains inclusion rate affect losses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The inclusion rate (traditionally 50%) applies to both gains and losses. A $1,000 capital loss results in a $500 'allowable capital loss', which can be deducted against your 'taxable capital gains'."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest border border-indigo-500/20 mb-6">
+        <span>Tax Strategy (Canada)</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Tax Loss Harvesting in Canada
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>&bull;</span>
+        <time datetime="2026-07-22">July 22, 2026</time>
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none prose-a:text-[#00F5D4] hover:prose-a:text-[#00F5D4]/80 prose-headings:text-white prose-img:rounded-xl">
+      <p class="lead text-xl text-slate-300">
+        Volatility is an unavoidable part of investing. But in Canada, a drop in your portfolio value presents a powerful tax-saving opportunity. By purposefully realizing capital losses, you can offset your taxable capital gains and significantly lower your CRA tax bill through a strategy known as <strong>Tax Loss Harvesting</strong>.
+      </p>
+
+      <h2>The Mechanics of Allowable Capital Losses</h2>
+      <p>
+        In Canada, both capital gains and capital losses are subject to an <strong>inclusion rate</strong>. Historically, this rate has been 50% (though the 2024 Federal Budget introduced a two-tiered system for corporations and high-earning individuals). 
+      </p>
+      <p>
+        If you sell an asset for C$10,000 less than its Adjusted Cost Base (ACB), you have a C$10,000 capital loss. Assuming a 50% inclusion rate, this becomes a <strong>C$5,000 allowable capital loss</strong>. This allowable capital loss can then be deducted against your <strong>taxable capital gains</strong> (which are also calculated at the 50% inclusion rate).
+      </p>
+
+      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
+        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Interactive Tool
+        </h4>
+        <p class="text-sm mb-4">Calculate exactly how much you can save this year by offsetting your specific gains.</p>
+        <a href="/tax-loss-harvesting-calculator/canada/" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-black bg-[#00F5D4] hover:bg-[#00F5D4]/90 transition-colors">
+          Use the Canadian Tax Loss Harvesting Calculator
+        </a>
+      </div>
+
+      <h2>Carrying Losses Back and Forward</h2>
+      <p>
+        Unlike the US, where capital losses can offset a small amount of ordinary income, the CRA strictly dictates that <strong>net capital losses can only offset capital gains</strong>. You cannot use them to reduce your employment income, interest, or dividends.
+      </p>
+      <p>
+        However, Canada offers excellent flexibility in <em>when</em> you apply these losses:
+      </p>
+      <ul>
+        <li><strong>Current Year:</strong> Losses must first be applied against any capital gains realized in the current tax year.</li>
+        <li><strong>Carry Back 3 Years:</strong> If your losses exceed your current year's gains, you can apply the excess net capital losses to offset taxable capital gains reported in any of the <strong>three preceding tax years</strong>. By filing a T1A Request for Loss Carryback, you can trigger a retroactive tax refund.</li>
+        <li><strong>Carry Forward Indefinitely:</strong> If you still have losses remaining, they can be carried forward indefinitely to offset future capital gains in any subsequent tax year.</li>
+      </ul>
+
+      <h2>The Superficial Loss Rule (The 30-Day Rule)</h2>
+      <p>
+        The biggest obstacle to tax loss harvesting in Canada is the <strong>Superficial Loss Rule</strong>. The CRA designed this rule to prevent investors from selling a stock purely for a tax deduction and immediately buying it back.
+      </p>
+      <p>
+        A loss is considered "superficial" (and therefore denied for tax purposes) if <strong>both</strong> of the following conditions are met:
+      </p>
+      <ol>
+        <li>You, or a person affiliated with you (like a spouse, a corporation you control, or your RRSP/TFSA), buys the identical property during the period starting 30 days before the sale and ending 30 days after the sale.</li>
+        <li>At the end of that period, you or the affiliated person still owns the property.</li>
+      </ol>
+      <p>
+        If your loss is denied, it isn't gone forever. The denied loss is simply added to the Adjusted Cost Base (ACB) of the repurchased shares. You will eventually realize the tax benefit when you sell the new shares (assuming you don't trigger the rule again).
+      </p>
+
+      <h3>How to Navigate the Superficial Loss Rule</h3>
+      <ul>
+        <li><strong>The 31-Day Wait:</strong> Sell the losing investment, hold the cash for 31 days, and then repurchase the asset. </li>
+        <li><strong>Switch to a Similar ETF:</strong> Sell your losing Canadian Bank ETF (e.g., ZEB) and immediately buy a different Canadian Bank ETF from a different provider tracking a slightly different index (e.g., XFN). Because they track different underlying indices, they are not considered "identical property."</li>
+        <li><strong>Beware Registered Accounts:</strong> Do not sell a stock at a loss in your taxable, non-registered account and immediately buy it inside your RRSP or TFSA. Not only is the loss denied, but because it is now locked in a registered account, you permanently lose the ability to add the denied loss to the ACB!</li>
+      </ul>
+
+      <p>
+        By understanding the inclusion rate and carefully navigating the superficial loss rule, Canadian investors can use tax loss harvesting alongside our <a href="/capital-gains-tax-calculator/canada/">Capital Gains Tax Calculator</a> to aggressively defend their after-tax wealth.
+      </p>
+    </div>
+  </article>
+</Layout>

@@ -41,7 +41,7 @@ const { defaultCurrency = "USD" } = Astro.props;
             <label for="bbd-portfolio" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Total Portfolio Value</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
-              <input type="number" id="bbd-portfolio" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+              <input type="number" id="bbd-portfolio" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
           </div>
 
@@ -50,7 +50,7 @@ const { defaultCurrency = "USD" } = Astro.props;
             <label for="bbd-basis" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Cost Basis</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
-              <input type="number" id="bbd-basis" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+              <input type="number" id="bbd-basis" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
             <p class="text-3xs text-slate-500 mt-1">Used to calculate unrealized capital gains for tax drag comparison.</p>
           </div>
@@ -77,7 +77,7 @@ const { defaultCurrency = "USD" } = Astro.props;
             <label for="bbd-borrow-amount" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Desired Cash to Borrow / Draw</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium bbd-currency-symbol">$</div>
-              <input type="number" id="bbd-borrow-amount" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+              <input type="number" id="bbd-borrow-amount" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
           </div>
 
@@ -401,9 +401,9 @@ const { defaultCurrency = "USD" } = Astro.props;
         if (input) {
           if (isLongSymbol) {
             input.classList.remove("pl-8");
-            input.classList.add("pl-12");
+            input.classList.add("pl-11");
           } else {
-            input.classList.remove("pl-12");
+            input.classList.remove("pl-11");
             input.classList.add("pl-8");
           }
         }

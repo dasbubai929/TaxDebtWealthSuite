@@ -1,6 +1,6 @@
 ---
-import Layout from "../../../../layouts/Layout.astro";
-import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCalculator.astro";
+import Layout from "../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalculator.astro";
 ---
 
 <Layout
@@ -28,21 +28,77 @@ import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCal
       <div class="max-w-4xl mx-auto py-16 px-4">
         <section>
           <div class="mb-6">
-            <h2 class="text-2xl font-bold text-white mb-4">Understanding UK Capital Gains Tax</h2>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              In the UK, Capital Gains Tax is a tax on the profit when you sell (or 'dispose of') something that's increased in value.
-            </p>
-            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
-              <li><strong>Annual Exempt Amount:</strong> You only have to pay Capital Gains Tax on your overall gains above your tax-free allowance. For the 2024/25 tax year, this is £3,000.</li>
-              <li><strong>Basic vs Higher Rate:</strong> The rate you pay depends on whether you are a basic rate or higher rate taxpayer.</li>
-              <li><strong>Asset Types:</strong> Gains on residential property (not your main home) are taxed at 18% or 24%. Other assets, like shares, are taxed at 10% or 20%. Our calculator defaults to general assets (10%/20%).</li>
-            </ul>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-uk/" class="text-[#00F5D4] hover:underline">UK Capital Gains Tax Guide</a>.
-            </p>
-            <p class="text-xs text-slate-500 italic">
-              Source: <a href="https://www.gov.uk/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">Gov.UK - Capital Gains Tax</a>.
-            </p>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Tax Strategy (United Kingdom)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Understanding UK Capital Gains Tax
+            </h2>
+          </div>
+
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
+              <p>
+                In the UK, Capital Gains Tax is a tax on the profit when you sell (or 'dispose of') something that's increased in value. This calculator helps you estimate your potential tax liability based on current HMRC rules.
+              </p>
+              <p class="mt-2">
+                For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-uk/" class="text-[#00F5D4] hover:underline">UK Capital Gains Tax Guide</a>.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Key Concepts</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Annual Exempt Amount:</strong> You only have to pay Capital Gains Tax on your overall gains above your tax-free allowance. For the 2024/25 tax year, this is £3,000.</li>
+                <li><strong>Basic vs Higher Rate:</strong> The rate you pay depends on whether you are a basic rate or higher rate taxpayer based on your other income.</li>
+                <li><strong>Asset Types:</strong> Gains on residential property (not your main home) are taxed at 18% or 24%. Other assets, like shares, are taxed at 10% or 20%. Our calculator defaults to general assets (10%/20%).</li>
+              </ul>
+            </article>
+            
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Methodology</h3>
+              <p>
+                The calculator subtracts your purchase price from the sale amount to find your total gain. It then deducts the Annual Exempt Amount (£3,000) to find the taxable gain. Next, it determines how much of this taxable gain falls into your basic rate band versus higher rate band, applying 10% and 20% respectively.
+              </p>
+              <p class="text-xs text-slate-500 italic mt-4">
+                Source: <a href="https://www.gov.uk/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">Gov.UK - Capital Gains Tax</a>.
+              </p>
+            </article>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+
+            <div class="space-y-4">
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">What is the Capital Gains Tax allowance in the UK?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  For the 2024/25 tax year, the Annual Exempt Amount for individuals is £3,000. You only pay tax on total gains above this amount.
+                </div>
+              </div>
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">How much is Capital Gains Tax on shares in the UK?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  If you are a basic rate taxpayer, you pay 10% on your gains (above the allowance). If you are a higher or additional rate taxpayer, you pay 20%.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/tax-loss-harvesting-calculator/uk/" class="text-[#00F5D4] hover:underline">UK Tax Loss Harvesting Calculator</a>
+              <a href="/buy-borrow-die-calculator/uk/" class="text-[#00F5D4] hover:underline">Buy, Borrow, Die Strategy Calculator (UK)</a>
+            </div>
           </div>
         </section>
       </div>

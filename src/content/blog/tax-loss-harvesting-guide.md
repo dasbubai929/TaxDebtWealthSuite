@@ -2,7 +2,7 @@
 title: "The Ultimate Tax-Loss Harvesting Guide: Offset Your Gains"
 description: "Learn how to use tax-loss harvesting to offset capital gains and reduce your ordinary income tax. Master the IRS Wash-Sale rule to optimize your portfolio."
 pubDate: 2026-07-08
-relatedTool: "s-corp-tax-calculator"
+relatedTool: "tax-loss-harvesting-calculator"
 author: "Mrittunjoy Das"
 ogImage: "/images/og-home.png"
 ---
@@ -24,7 +24,7 @@ What happens if your losses exceed your gains? The IRS allows you to use up to *
 If you have $20,000 in net capital losses, you can deduct $3,000 from your ordinary income this year, and "carry forward" the remaining $17,000 into future tax years, indefinitely, until the losses are fully utilized.
 
 
-> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [S-Corp Tax Calculator](/s-corp-tax-calculator/) to model your exact scenario.
+> **Run the Numbers:** Want to see how this impacts your own finances? Use our free [Tax Loss Harvesting Calculator](/tax-loss-harvesting-calculator/) to model your exact scenario.
 
 
 ## The Trap: The IRS Wash-Sale Rule

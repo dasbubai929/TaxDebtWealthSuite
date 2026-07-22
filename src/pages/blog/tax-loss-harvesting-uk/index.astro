@@ -1,0 +1,145 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Capital Loss Rules Explained in the UK (2026 Guide)",
+  description: "Learn how to use tax loss harvesting in the UK to offset Capital Gains Tax. Understand HMRC rules, allowable losses, and the 30-day bed and breakfasting rule.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Capital Loss Rules Explained in the UK",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tax Debt Wealth Suite"
+        },
+        "datePublished": "2026-07-22",
+        "dateModified": "2026-07-22",
+        "description": "Learn how to use tax loss harvesting in the UK to offset Capital Gains Tax. Understand HMRC rules and the 30-day bed and breakfasting rule."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the bed and breakfasting rule in the UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The bed and breakfasting rule (or 30-day rule) prevents UK investors from selling shares to crystallize a capital loss and buying them back within 30 days. If you do this, HMRC matches the new purchase with the recent sale, effectively denying the loss for tax purposes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use capital losses to reduce my income tax in the UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, no. Capital losses can only be offset against capital gains. There are rare exceptions, such as Share Loss Relief for subscribing to unquoted shares in certain trading companies (like EIS or SEIS investments), where a loss might be offset against income."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long can I carry forward capital losses in the UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can carry forward unused capital losses indefinitely to future tax years. However, you must first report them to HMRC within 4 years of the end of the tax year in which you disposed of the asset."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest border border-indigo-500/20 mb-6">
+        <span>Tax Strategy (UK)</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Capital Loss Rules Explained in the UK
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>&bull;</span>
+        <time datetime="2026-07-22">July 22, 2026</time>
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none prose-a:text-[#00F5D4] hover:prose-a:text-[#00F5D4]/80 prose-headings:text-white prose-img:rounded-xl">
+      <p class="lead text-xl text-slate-300">
+        In the UK, nobody likes seeing their investments drop in value. However, when you dispose of an asset at a loss, you can claim an "allowable loss" to reduce your overall Capital Gains Tax (CGT) bill. Understanding how to harvest these losses effectively is a cornerstone of UK wealth management.
+      </p>
+
+      <h2>How Capital Losses Offset Gains</h2>
+      <p>
+        When you sell (or "dispose of") a chargeable asset for less than you paid for it, you make a capital loss. In the UK, you must first deduct your capital losses from your capital gains in the same tax year.
+      </p>
+      
+      <p>
+        <strong>Crucial Rule:</strong> You must deduct losses <em>before</em> applying your Annual Exempt Amount (AEA). If your total gains for the year are already below the AEA threshold, any losses you crystallize will still automatically offset those gains, potentially wasting the benefit of your tax-free allowance.
+      </p>
+
+      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
+        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Interactive Tool
+        </h4>
+        <p class="text-sm mb-4">Calculate exactly how much CGT you can save this year by offsetting your specific gains.</p>
+        <a href="/tax-loss-harvesting-calculator/uk/" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-black bg-[#00F5D4] hover:bg-[#00F5D4]/90 transition-colors">
+          Use the UK Capital Loss Calculator
+        </a>
+      </div>
+
+      <h2>Carrying Losses Forward</h2>
+      <p>
+        If your total allowable losses exceed your total chargeable gains for the tax year, the remaining losses can be carried forward indefinitely to future tax years.
+      </p>
+      <p>
+        Unlike the same-year rule, when you carry losses forward to a future year, you are allowed to deduct just enough to bring your gains down to the Annual Exempt Amount. This means you do not have to waste your carried-forward losses by dropping your gains below the tax-free threshold.
+      </p>
+      <p>
+        <strong>Reporting Requirement:</strong> You must report the loss to HMRC to claim it. You have 4 years from the end of the tax year in which you disposed of the asset to claim the loss, usually via your Self Assessment tax return.
+      </p>
+
+      <h2>The Bed and Breakfasting Rule (30-Day Rule)</h2>
+      <p>
+        A common strategy for investors is to sell a losing stock to crystallize the loss, and then immediately buy it back because they still believe in the company long-term. HMRC prevents this via the <strong>bed and breakfasting rule</strong>.
+      </p>
+      <p>
+        If you sell shares and buy shares of the same class in the same company within 30 days, the sale is matched against the new purchase rather than your original holding pool (Section 104 pool). This completely nullifies the capital loss you intended to harvest.
+      </p>
+      
+      <h3>Strategies to Navigate the 30-Day Rule</h3>
+      <ul>
+        <li><strong>Buy a Similar Investment:</strong> Sell your shares in BP and immediately buy shares in Shell. You maintain exposure to the energy sector while successfully crystallizing the loss.</li>
+        <li><strong>Bed and ISA / Bed and SIPP:</strong> You can sell the shares in your general investment account (crystallizing the loss) and immediately buy them back inside a tax-sheltered ISA or SIPP. Because these are separate tax environments, the 30-day matching rule does not apply.</li>
+        <li><strong>Spousal Transfers:</strong> You can sell the shares, and your spouse or civil partner can immediately buy them. Transfers between spouses are on a "no gain, no loss" basis, but the 30-day rule does not match your sale with your spouse's purchase.</li>
+      </ul>
+
+      <h2>Can Capital Losses Offset Income Tax?</h2>
+      <p>
+        As a general rule, capital losses can only offset capital gains. They cannot be deducted against your salary, rental income, or dividends. 
+      </p>
+      <p>
+        There is a notable exception: <strong>Share Loss Relief</strong>. If you make a loss on the disposal of shares in a qualifying unquoted trading company (such as an Enterprise Investment Scheme (EIS) or Seed Enterprise Investment Scheme (SEIS) company), you may be able to elect to offset that loss against your general income for that year or the previous year, rather than against capital gains.
+      </p>
+
+      <p>
+        Tax loss harvesting in the UK requires careful planning around the Annual Exempt Amount and the 30-day matching rules. When executed correctly alongside our <a href="/capital-gains-tax-calculator/uk/">UK Capital Gains Tax Calculator</a>, it is a highly effective tool for mitigating your tax liabilities and maximizing your portfolio's compound growth.
+      </p>
+    </div>
+  </article>
+</Layout>

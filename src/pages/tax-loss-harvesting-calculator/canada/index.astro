@@ -1,0 +1,134 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCalculator.astro';
+
+const seo = {
+  title: "Tax Loss Harvesting Calculator (Canada) | Capital Losses & Inclusion Rates",
+  description: "Calculate your estimated tax savings from harvesting capital losses in Canada. Understand CRA superficial loss rules and how the inclusion rate affects your offsets.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tax Loss Harvesting Calculator (Canada)",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CAD"
+        },
+        "description": "Calculate your estimated tax savings from harvesting capital losses in Canada."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the superficial loss rule in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The superficial loss rule occurs if you sell a security at a loss and you or an affiliated person buys the identical property within the period starting 30 days before the sale and ending 30 days after the sale. The loss is denied and added to the adjusted cost base."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the inclusion rate affect capital losses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Just like capital gains, capital losses are subject to an inclusion rate (historically 50%). A $1,000 capital loss results in a $500 allowable capital loss, which can only be used to offset taxable capital gains."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Tax Loss Harvesting Calculator (Canada)
+      </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-22" class="text-slate-400">Updated: July 2026</time>
+      </div>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Turn investment losses into tax savings by offsetting capital gains. Apply CRA tax code logic and inclusion rates.
+      </p>
+    </div>
+
+    <!-- Country Selector Nav -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <a href="/tax-loss-harvesting-calculator/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">US</a>
+      <a href="/tax-loss-harvesting-calculator/uk/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">UK</a>
+      <a href="/tax-loss-harvesting-calculator/canada/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30">Canada</a>
+      <a href="/tax-loss-harvesting-calculator/australia/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">Australia</a>
+    </div>
+
+    <!-- Calculator -->
+    <TaxLossHarvestingCalculator defaultCountry="canada" />
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16">
+        <section>
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Tax Strategy (Canada)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Mastering Tax Loss Harvesting in Canada
+            </h2>
+          </div>
+
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
+              <p>
+                In Canada, realizing a capital loss provides an opportunity to offset capital gains and reduce your tax bill. Unlike the US, net capital losses cannot be used to offset ordinary income, but they can be carried back up to three years or forward indefinitely.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Key Benefits</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Offset Gains:</strong> Reduce or eliminate CRA tax liabilities on profitable investments.</li>
+                <li><strong>Carry Back/Forward:</strong> Flexible usage allows you to recover taxes paid in the previous three years.</li>
+              </ul>
+              <p class="mt-2">To learn more about strategies and limitations, read our detailed guide on <a href="/blog/tax-loss-harvesting-canada/" class="text-[#00F5D4] hover:underline">Tax Loss Harvesting in Canada</a>.</p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Methodology & Limits</h3>
+              <p>
+                Capital losses are subject to the same inclusion rate as capital gains (e.g., 50%). A capital loss becomes an "allowable capital loss" and can be deducted against "taxable capital gains". The Superficial Loss Rule must be carefully navigated to ensure your loss is not denied by the CRA.
+              </p>
+            </article>
+          </div>
+          
+          <!-- Related Calculators -->
+          <div class="mt-12 p-6 bg-slate-900 rounded-2xl border border-slate-800">
+            <h3 class="text-lg font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/capital-gains-tax-calculator/canada/" class="text-[#00F5D4] hover:underline">Capital Gains Tax Calculator</a>
+              <a href="/buy-borrow-die-calculator/canada/" class="text-[#00F5D4] hover:underline">Buy, Borrow, Die Calculator</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

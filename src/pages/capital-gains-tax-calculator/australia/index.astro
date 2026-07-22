@@ -1,6 +1,6 @@
 ---
-import Layout from "../../../../layouts/Layout.astro";
-import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCalculator.astro";
+import Layout from "../../../layouts/Layout.astro";
+import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalculator.astro";
 ---
 
 <Layout
@@ -28,21 +28,77 @@ import CapitalGainsTaxCalculator from "../../../../components/CapitalGainsTaxCal
       <div class="max-w-4xl mx-auto py-16 px-4">
         <section>
           <div class="mb-6">
-            <h2 class="text-2xl font-bold text-white mb-4">Understanding Australian Capital Gains Tax</h2>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-              In Australia, capital gains are not taxed as a separate tax. Instead, your net capital gain is added to your assessable income and taxed at your marginal income tax rate.
-            </p>
-            <ul class="list-disc pl-5 text-sm text-slate-400 space-y-2 mb-4">
-              <li><strong>The 50% CGT Discount:</strong> If you are an Australian resident for tax purposes and you hold an asset for more than 12 months before selling it, you can generally discount your capital gain by 50%.</li>
-              <li><strong>Short-term Holdings:</strong> Assets held for 12 months or less do not receive the discount, meaning 100% of the gain is added to your assessable income.</li>
-              <li><strong>Marginal Rates:</strong> Because the taxable gain is added to your income, the actual tax you pay depends heavily on what tax bracket you fall into for that financial year.</li>
-            </ul>
-            <p class="text-slate-400 text-sm leading-relaxed mb-6">
-              For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-australia/" class="text-[#00F5D4] hover:underline">Australian Capital Gains Tax Guide</a>.
-            </p>
-            <p class="text-xs text-slate-500 italic">
-              Source: <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">ATO - Capital Gains Tax</a>.
-            </p>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Tax Strategy (Australia)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Understanding Australian Capital Gains Tax
+            </h2>
+          </div>
+
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
+              <p>
+                In Australia, capital gains are not taxed as a separate tax. Instead, your net capital gain is added to your assessable income and taxed at your marginal income tax rate. This calculator helps you determine that net gain and estimates the final tax.
+              </p>
+              <p class="mt-2">
+                For a comprehensive guide on minimizing these taxes, check out our <a href="/blog/capital-gains-tax-australia/" class="text-[#00F5D4] hover:underline">Australian Capital Gains Tax Guide</a>.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Key Concepts</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>The 50% CGT Discount:</strong> If you are an Australian resident for tax purposes and you hold an asset for more than 12 months before selling it, you can generally discount your capital gain by 50%.</li>
+                <li><strong>Short-term Holdings:</strong> Assets held for 12 months or less do not receive the discount, meaning 100% of the gain is added to your assessable income.</li>
+                <li><strong>Marginal Rates:</strong> Because the taxable gain is added to your income, the actual tax you pay depends heavily on what tax bracket you fall into for that financial year.</li>
+              </ul>
+            </article>
+            
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Methodology</h3>
+              <p>
+                The calculator calculates your gross capital gain by subtracting the purchase price from the sale amount. If the asset was held for more than 12 months, it halves the gain (50% CGT discount). This net capital gain is added to your stated other taxable income to calculate the tax using ATO marginal tax brackets.
+              </p>
+              <p class="text-xs text-slate-500 italic mt-4">
+                Source: <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="hover:text-slate-300 underline">ATO - Capital Gains Tax</a>.
+              </p>
+            </article>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4">FAQ</span>
+            <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+
+            <div class="space-y-4">
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">How does the 50% CGT discount work?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  If you are an Australian resident for tax purposes and hold an asset for more than 12 months, you can reduce your gross capital gain by 50% before adding it to your assessable income.
+                </div>
+              </div>
+              <div class="border border-slate-800 rounded-lg overflow-hidden bg-slate-900/50">
+                <button class="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer" onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');">
+                  <span class="font-semibold text-white">Do I pay CGT if I sell my main residence?</span>
+                  <svg class="h-5 w-5 text-slate-500 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="hidden px-6 pb-6 text-sm text-slate-400">
+                  Generally, you are exempt from CGT when selling your main residence. However, if you have rented out part of it or run a business from it, a portion of the gain may be taxable.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Internal Links -->
+          <div class="mt-12 border-t border-slate-800/80 pt-10">
+            <h3 class="text-xl font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col space-y-2">
+              <a href="/tax-loss-harvesting-calculator/australia/" class="text-[#00F5D4] hover:underline">Australian Tax Loss Harvesting Calculator</a>
+              <a href="/buy-borrow-die-calculator/australia/" class="text-[#00F5D4] hover:underline">Buy, Borrow, Die Strategy Calculator (Australia)</a>
+            </div>
           </div>
         </section>
       </div>

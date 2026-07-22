@@ -1,0 +1,150 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Tax Loss Harvesting Strategies in the US (2026 Guide)",
+  description: "Learn how to use tax loss harvesting to offset capital gains and up to $3,000 of ordinary income. Master the IRS wash-sale rule and boost your portfolio's after-tax return.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Tax Loss Harvesting Strategies in the US",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Tax Debt Wealth Suite"
+        },
+        "datePublished": "2026-07-22",
+        "dateModified": "2026-07-22",
+        "description": "Learn how to use tax loss harvesting to offset capital gains and up to $3,000 of ordinary income."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the IRS wash-sale rule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The wash-sale rule prohibits you from claiming a capital loss on a security if you buy a 'substantially identical' security within 30 days before or after the sale. If triggered, the loss is disallowed and added to the cost basis of the new purchase."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much ordinary income can I offset with capital losses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In the US, after your capital losses have offset your capital gains, you can use up to $3,000 of net capital loss per year to offset your ordinary income ($1,500 if married filing separately)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do capital losses expire?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. If your net capital losses exceed the $3,000 annual limit for offsetting ordinary income, the remaining balance can be carried forward indefinitely into future tax years."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest border border-indigo-500/20 mb-6">
+        <span>Tax Strategy</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Tax Loss Harvesting Strategies in the US
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>&bull;</span>
+        <time datetime="2026-07-22">July 22, 2026</time>
+      </div>
+    </header>
+
+    <div class="prose prose-invert prose-lg max-w-none prose-a:text-[#00F5D4] hover:prose-a:text-[#00F5D4]/80 prose-headings:text-white prose-img:rounded-xl">
+      <p class="lead text-xl text-slate-300">
+        Nobody likes losing money in the stock market. However, when the market takes a dip, savvy investors look for the silver lining: <strong>Tax Loss Harvesting</strong>. By strategically selling losing investments, you can offset the taxes owed on your winning investments and even reduce your taxable ordinary income.
+      </p>
+
+      <h2>The Mechanics of Tax Loss Harvesting</h2>
+      <p>
+        Tax loss harvesting is a technique used to lower your taxes by selling an investment that has lost value and replacing it with a similar—but not identical—investment to maintain your portfolio's target asset allocation. The realized loss is then used to offset capital gains or ordinary income.
+      </p>
+      
+      <h3>Step 1: Netting Short-Term and Long-Term</h3>
+      <p>
+        Under IRS rules, capital gains and losses are categorized as either short-term (held for one year or less) or long-term (held for more than one year). When you harvest a loss, it must first be used to offset gains of the same type. For example, a short-term loss will first offset short-term gains. If you have excess losses in one category, they can then be applied against gains in the other category.
+      </p>
+      
+      <h3>Step 2: Offsetting Ordinary Income</h3>
+      <p>
+        If your total capital losses exceed your total capital gains for the year, you can use up to <strong>$3,000 of the net capital loss to offset your ordinary income</strong> (such as your salary or W-2 wages). If you are married filing separately, this limit is $1,500. This is one of the most powerful aspects of tax loss harvesting, as it directly reduces your income tax liability at your highest marginal tax rate.
+      </p>
+
+      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
+        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          Interactive Tool
+        </h4>
+        <p class="text-sm mb-4">Calculate exactly how much you can save this year by offsetting your specific gains and ordinary income.</p>
+        <a href="/tax-loss-harvesting-calculator/" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-black bg-[#00F5D4] hover:bg-[#00F5D4]/90 transition-colors">
+          Use the US Tax Loss Harvesting Calculator
+        </a>
+      </div>
+
+      <h2>The IRS Wash-Sale Rule</h2>
+      <p>
+        The biggest pitfall in tax loss harvesting is the <strong>Wash-Sale Rule</strong>. To prevent investors from creating artificial losses just for tax benefits, the IRS prohibits you from claiming a loss if you purchase a "substantially identical" security within 30 days before or after the sale.
+      </p>
+      <p>
+        If you trigger a wash sale, the loss is disallowed. Instead, the disallowed loss is added to the cost basis of the newly purchased asset, meaning you will eventually get the tax benefit when you sell the new asset, but you cannot claim the loss in the current tax year.
+      </p>
+      
+      <h3>How to Avoid Wash Sales</h3>
+      <ul>
+        <li><strong>Wait 31 Days:</strong> The simplest method is to sell the losing asset, keep the cash on the sidelines for 31 days, and then buy it back. However, this exposes you to "cash drag" if the market rebounds during that month.</li>
+        <li><strong>Buy a Proxy ETF:</strong> Sell your losing S&P 500 ETF and immediately buy a Russell 1000 ETF. Because they track different indices, they are not considered substantially identical, allowing you to harvest the loss while staying fully invested in large-cap US equities.</li>
+        <li><strong>Watch Your IRA:</strong> The wash-sale rule applies across all your accounts, including IRAs. If you sell a stock at a loss in your taxable brokerage account and buy the same stock in your IRA within 30 days, the loss is permanently disallowed.</li>
+      </ul>
+
+      <h2>Carrying Forward Losses</h2>
+      <p>
+        If you have a massive market crash and harvest $50,000 in losses, you obviously cannot deduct that entire amount against ordinary income in a single year due to the $3,000 limit. However, the IRS allows you to <strong>carry forward the remaining $47,000 indefinitely</strong> into future tax years. 
+      </p>
+      <p>
+        In subsequent years, this carryover loss will automatically offset any new capital gains you generate, and if there are still losses remaining, it will offset another $3,000 of ordinary income each year until the balance is exhausted.
+      </p>
+
+      <h2>Advanced Strategies</h2>
+      <p>
+        While tax loss harvesting is primarily a defensive strategy, it pairs incredibly well with offensive tax planning. If you have significant carried forward losses, you can strategically pair them with:
+      </p>
+      <ul>
+        <li><strong>Roth Conversions:</strong> While capital losses don't offset the ordinary income generated by a <a href="/roth-conversion-calculator/">Roth Conversion</a> beyond the $3,000 limit, lowering your overall AGI can keep you in a lower tax bracket.</li>
+        <li><strong>Portfolio Rebalancing:</strong> Use harvested losses to offset the gains incurred when you sell highly appreciated assets to rebalance your portfolio back to its target asset allocation.</li>
+        <li><strong>Avoiding the NIIT:</strong> By aggressively offsetting capital gains, high earners can keep their Net Investment Income below the threshold for the 3.8% Net Investment Income Tax (NIIT). (See our <a href="/capital-gains-tax-calculator/">Capital Gains Tax Calculator</a>).</li>
+      </ul>
+
+      <p>
+        Remember, the goal of investing is to make money, not to lose it just for a tax deduction. However, in volatile markets, tax loss harvesting is one of the few guaranteed ways to generate alpha and improve your long-term, after-tax returns.
+      </p>
+    </div>
+  </article>
+</Layout>

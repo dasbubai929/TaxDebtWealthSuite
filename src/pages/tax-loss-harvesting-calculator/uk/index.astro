@@ -1,0 +1,134 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCalculator.astro';
+
+const seo = {
+  title: "Tax Loss Harvesting Calculator (UK) | Capital Losses & Bed and Breakfasting",
+  description: "Calculate your estimated tax savings from harvesting capital losses in the UK. Understand HMRC rules and the 30-day bed and breakfasting rule.",
+  schema: `
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tax Loss Harvesting Calculator (UK)",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "description": "Calculate your estimated tax savings from harvesting capital losses in the UK."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the bed and breakfasting rule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The bed and breakfasting rule prevents UK investors from selling shares to crystallize a capital loss and buying them back within 30 days to re-establish the position. If you do this, the loss is disallowed for tax purposes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can capital losses offset income tax in the UK?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, no. Capital losses can only be offset against capital gains. Exceptions exist for specific unlisted shares qualifying for Share Loss Relief (e.g. SEIS/EIS), but for most assets, it strictly offsets CGT."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Capital Loss Calculator (UK)
+      </h1>
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-medium text-slate-500 bg-slate-900/50 inline-flex px-3 py-1.5 rounded-lg border border-slate-800">
+        <div class="flex items-center gap-1.5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span>Reviewed by <a href="/editorial-policy/" class="text-slate-400 hover:text-[#00F5D4] transition-colors underline decoration-slate-700 underline-offset-2">Editorial Staff</a></span>
+        </div>
+        <span class="hidden sm:inline text-slate-700">&bull;</span>
+        <time datetime="2026-07-22" class="text-slate-400">Updated: July 2026</time>
+      </div>
+      <p class="text-sm text-slate-400 mt-2 max-w-2xl leading-relaxed">
+        Turn investment losses into tax savings by offsetting capital gains. Apply HMRC tax code logic.
+      </p>
+    </div>
+
+    <!-- Country Selector Nav -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <a href="/tax-loss-harvesting-calculator/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">US</a>
+      <a href="/tax-loss-harvesting-calculator/uk/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30">UK</a>
+      <a href="/tax-loss-harvesting-calculator/canada/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">Canada</a>
+      <a href="/tax-loss-harvesting-calculator/australia/" class="px-4 py-2 rounded-lg text-sm font-semibold transition-colors border bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800">Australia</a>
+    </div>
+
+    <!-- Calculator -->
+    <TaxLossHarvestingCalculator defaultCountry="uk" />
+
+    <!-- Explainer Content -->
+    <div class="border-t border-slate-800/60 mt-12 bg-gradient-to-b from-slate-950 to-slate-950/95">
+      <div class="max-w-4xl mx-auto py-16">
+        <section>
+          <div class="mb-6">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">Tax Strategy (United Kingdom)</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-snug">
+              Mastering Capital Losses in the UK
+            </h2>
+          </div>
+
+          <div class="space-y-8 text-sm text-slate-400 leading-relaxed">
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Introduction</h3>
+              <p>
+                In the UK, capital losses can be crystallized to offset chargeable gains in the same tax year. If your losses exceed your gains, they can be carried forward indefinitely to offset against future gains, ensuring you don't pay more Capital Gains Tax than necessary.
+              </p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Key Benefits</h3>
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Offset Gains:</strong> Neutralize CGT liabilities on winning investments.</li>
+                <li><strong>Carry Forward:</strong> Keep losses on file indefinitely to use in future, more profitable years.</li>
+              </ul>
+              <p class="mt-2">To learn more about strategies and limitations, read our detailed guide on <a href="/blog/tax-loss-harvesting-uk/" class="text-[#00F5D4] hover:underline">Capital Loss Rules Explained in the UK</a>.</p>
+            </article>
+
+            <article>
+              <h3 class="text-xl font-bold text-slate-100 mb-3">Methodology & Limits</h3>
+              <p>
+                Losses must first be deducted from gains in the same tax year. If this brings your total net gains below the Annual Exempt Amount (AEA), you lose the benefit of the AEA for that portion, but you can carry forward any remaining losses not used. 
+              </p>
+            </article>
+          </div>
+          
+          <!-- Related Calculators -->
+          <div class="mt-12 p-6 bg-slate-900 rounded-2xl border border-slate-800">
+            <h3 class="text-lg font-bold text-white mb-4">Related Calculators</h3>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="/capital-gains-tax-calculator/uk/" class="text-[#00F5D4] hover:underline">Capital Gains Tax Calculator</a>
+              <a href="/buy-borrow-die-calculator/uk/" class="text-[#00F5D4] hover:underline">Buy, Borrow, Die Calculator</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

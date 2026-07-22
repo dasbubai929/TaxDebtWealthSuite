@@ -1,0 +1,321 @@
+---
+export interface Props {
+  defaultCountry?: 'us' | 'uk' | 'canada' | 'australia';
+}
+
+const { defaultCountry = 'us' } = Astro.props;
+
+const countryInfo = {
+  us: {
+    currency: "$",
+    incomeLabel: "Ordinary Income",
+    taxRateLabel: "Marginal Income Tax Rate (%)",
+    cgTaxRateLabel: "Capital Gains Tax Rate (%)",
+    hasHoldingPeriod: true
+  },
+  uk: {
+    currency: "£",
+    incomeLabel: "Taxable Income",
+    taxRateLabel: "Income Tax Rate (%)",
+    cgTaxRateLabel: "Capital Gains Tax Rate (%)",
+    hasHoldingPeriod: false
+  },
+  canada: {
+    currency: "C$",
+    incomeLabel: "Taxable Income",
+    taxRateLabel: "Marginal Tax Rate (%)",
+    cgTaxRateLabel: "Capital Gains Inclusion Rate (%)",
+    hasHoldingPeriod: false
+  },
+  australia: {
+    currency: "A$",
+    incomeLabel: "Taxable Income",
+    taxRateLabel: "Marginal Tax Rate (%)",
+    cgTaxRateLabel: "Capital Gains Tax Rate (%)",
+    hasHoldingPeriod: true
+  }
+};
+
+const currentInfo = countryInfo[defaultCountry];
+---
+
+<section id="panel-tlh" class="space-y-6" data-default-country={defaultCountry}>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- INPUTS -->
+    <div class="lg:col-span-1 space-y-6">
+      
+      <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 shadow-sm">
+        <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+          <svg class="h-4 w-4 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+          The Losing Asset
+        </h3>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Purchase Price</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="tlh-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="tlh-purchase-price" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Asset Sale Amount</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="tlh-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="tlh-sale-price" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+            <p class="text-3xs text-slate-500 mt-1" id="tlh-realized-loss-label">Realized Loss: $0</p>
+          </div>
+
+          <div id="tlh-holding-period-container" class={currentInfo.hasHoldingPeriod ? '' : 'hidden'}>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Holding Period</label>
+            <select id="tlh-holding-period" class="focus-ring block w-full pl-4 pr-10 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm appearance-none h-12">
+              <option value="short">Short-Term (< 12 months)</option>
+              <option value="long">Long-Term (> 12 months)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 shadow-sm">
+        <h3 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+          <svg class="h-4 w-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+          Offset Opportunities
+        </h3>
+        
+        <div class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Other Capital Gains (To Offset)</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="tlh-currency-symbol absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="tlh-other-gains" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.cgTaxRateLabel}</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="tlh-cg-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="100" step="1" placeholder="15" value={defaultCountry === 'canada' ? "50" : "15"} />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+          </div>
+
+          <div id="tlh-income-container" class={defaultCountry === 'us' || defaultCountry === 'canada' ? '' : 'hidden'}>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.taxRateLabel}</label>
+            <div class="relative rounded-lg shadow-sm">
+              <input type="number" id="tlh-income-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max="100" step="1" placeholder="24" value="24" />
+              <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400 font-medium">%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- OUTPUTS -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="bg-gradient-to-br from-[#00F5D4]/10 to-[#7B61FF]/10 p-6 sm:p-8 rounded-2xl border border-[#00F5D4]/20 shadow-lg relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-[#00F5D4] rounded-full mix-blend-multiply filter blur-2xl opacity-20"></div>
+        
+        <h3 class="text-sm font-bold text-white mb-6 uppercase tracking-wider flex items-center gap-2">
+          Harvesting Results
+        </h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/50">
+            <p class="text-xs text-slate-400 mb-1 font-semibold uppercase tracking-wider">Total Tax Savings</p>
+            <p class="text-3xl sm:text-4xl font-black text-[#00F5D4] mono-data" id="tlh-total-savings">$0</p>
+            <p class="text-xs text-slate-500 mt-2">Estimated cash saved from offsets.</p>
+          </div>
+          
+          <div class="bg-slate-950/40 p-5 rounded-xl border border-slate-800/50">
+            <p class="text-xs text-slate-400 mb-1 font-semibold uppercase tracking-wider">Loss Carried Forward</p>
+            <p class="text-3xl sm:text-4xl font-black text-white mono-data" id="tlh-carry-forward">$0</p>
+            <p class="text-xs text-slate-500 mt-2">Loss available for future tax years.</p>
+          </div>
+        </div>
+
+        <div class="mt-6 bg-slate-900/60 p-5 rounded-xl border border-slate-800">
+          <h4 class="text-sm font-bold text-white mb-2">How it works:</h4>
+          <p class="text-sm text-slate-300 leading-relaxed" id="tlh-explainer">
+            Enter your asset details to see how harvesting losses can reduce your tax burden.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const DEFAULT_STATE = {
+      purchasePrice: 0,
+      salePrice: 0,
+      holdingPeriod: "short",
+      otherGains: 0,
+      cgRate: 15,
+      incomeRate: 24
+    };
+
+    let state = { tlh: { ...DEFAULT_STATE } };
+    
+    try {
+      const saved = localStorage.getItem("financial_hub_state");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.tlh) state.tlh = { ...DEFAULT_STATE, ...parsed.tlh };
+      }
+    } catch(e) {}
+
+    const container = document.getElementById("panel-tlh");
+    if (!container) return;
+    
+    const country = container.getAttribute("data-default-country") || "us";
+    
+    if (country === 'canada' && (!state.tlh.cgRate || state.tlh.cgRate === 15)) {
+      state.tlh.cgRate = 50;
+    }
+
+    function saveState() {
+      try {
+        const all = JSON.parse(localStorage.getItem("financial_hub_state") || "{}");
+        all.tlh = state.tlh;
+        localStorage.setItem("financial_hub_state", JSON.stringify(all));
+      } catch(e) {}
+    }
+
+    function syncStateToInputs() {
+      document.getElementById("tlh-purchase-price").value = state.tlh.purchasePrice || "";
+      document.getElementById("tlh-sale-price").value = state.tlh.salePrice || "";
+      const hpEl = document.getElementById("tlh-holding-period");
+      if(hpEl) hpEl.value = state.tlh.holdingPeriod || "short";
+      document.getElementById("tlh-other-gains").value = state.tlh.otherGains || "";
+      document.getElementById("tlh-cg-rate").value = state.tlh.cgRate || "";
+      const incEl = document.getElementById("tlh-income-rate");
+      if(incEl) incEl.value = state.tlh.incomeRate || "";
+    }
+
+    function getVal(id) {
+      const el = document.getElementById(id);
+      return el ? (parseFloat(el.value) || 0) : 0;
+    }
+
+    function formatWithCurrency(val, c) {
+      let formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: c === 'uk' ? 'GBP' : (c === 'canada' ? 'CAD' : (c === 'australia' ? 'AUD' : 'USD')),
+        maximumFractionDigits: 0
+      }).format(val);
+      
+      if (c === 'canada') {
+        formatted = formatted.replace('CA$', 'C$');
+      }
+      return formatted;
+    }
+
+    function calculate() {
+      const purchasePrice = getVal("tlh-purchase-price");
+      const salePrice = getVal("tlh-sale-price");
+      const hpEl = document.getElementById("tlh-holding-period");
+      const holdingPeriod = hpEl ? hpEl.value : "short";
+      const otherGains = getVal("tlh-other-gains");
+      const cgRate = getVal("tlh-cg-rate") / 100;
+      const incEl = document.getElementById("tlh-income-rate");
+      const incomeRate = incEl ? (getVal("tlh-income-rate") / 100) : 0;
+
+      let realizedLoss = purchasePrice - salePrice;
+      if (realizedLoss < 0) realizedLoss = 0;
+
+      const lossLabel = document.getElementById("tlh-realized-loss-label");
+      if(lossLabel) lossLabel.innerText = `Realized Loss: ${formatWithCurrency(realizedLoss, country)}`;
+
+      let savings = 0;
+      let carryForward = 0;
+      let explainer = "";
+
+      if (realizedLoss === 0) {
+        explainer = "You do not have a realized loss. Tax loss harvesting only applies when selling an asset below its purchase price.";
+        document.getElementById("tlh-total-savings").innerText = formatWithCurrency(0, country);
+        document.getElementById("tlh-carry-forward").innerText = formatWithCurrency(0, country);
+        document.getElementById("tlh-explainer").innerText = explainer;
+        return;
+      }
+
+      if (country === 'us') {
+        let remainingLoss = realizedLoss;
+        
+        let gainsOffset = Math.min(remainingLoss, otherGains);
+        remainingLoss -= gainsOffset;
+        savings += gainsOffset * cgRate;
+        
+        let incomeOffset = Math.min(remainingLoss, 3000);
+        remainingLoss -= incomeOffset;
+        savings += incomeOffset * incomeRate;
+        
+        carryForward = remainingLoss;
+        
+        explainer = `Your ${formatWithCurrency(realizedLoss, country)} loss first offsets ${formatWithCurrency(gainsOffset, country)} of capital gains (saving ${formatWithCurrency(gainsOffset * cgRate, country)}). Then, it offsets ${formatWithCurrency(incomeOffset, country)} of ordinary income (saving ${formatWithCurrency(incomeOffset * incomeRate, country)}). The remaining ${formatWithCurrency(carryForward, country)} is carried forward to future tax years. Note: Beware of the IRS Wash-Sale Rule if you buy a substantially identical asset within 30 days.`;
+      } 
+      else if (country === 'uk') {
+        let remainingLoss = realizedLoss;
+        let gainsOffset = Math.min(remainingLoss, otherGains);
+        remainingLoss -= gainsOffset;
+        savings += gainsOffset * cgRate;
+        carryForward = remainingLoss;
+        
+        explainer = `Your ${formatWithCurrency(realizedLoss, country)} capital loss offsets ${formatWithCurrency(gainsOffset, country)} of your capital gains, saving you ${formatWithCurrency(gainsOffset * cgRate, country)} in CGT. In the UK, capital losses cannot generally offset ordinary income. You have ${formatWithCurrency(carryForward, country)} of losses to carry forward to future years. Note: HMRC applies a 30-day "bed and breakfasting" rule to prevent immediate repurchase.`;
+      }
+      else if (country === 'canada') {
+        let allowableLoss = realizedLoss * (cgRate);
+        let taxableGain = otherGains * (cgRate);
+        
+        let gainsOffset = Math.min(allowableLoss, taxableGain);
+        let remainingAllowableLoss = allowableLoss - gainsOffset;
+        
+        const marginalRate = incomeRate > 0 ? incomeRate : 0.33; 
+        
+        savings += gainsOffset * marginalRate;
+        carryForward = remainingAllowableLoss / cgRate; 
+        
+        explainer = `Canada uses a ${cgRate * 100}% inclusion rate. Your ${formatWithCurrency(realizedLoss, country)} gross loss becomes an allowable capital loss of ${formatWithCurrency(allowableLoss, country)}. This offsets ${formatWithCurrency(gainsOffset, country)} of taxable capital gains. Assuming your marginal tax rate, this saves you approx ${formatWithCurrency(gainsOffset * marginalRate, country)}. The remaining gross loss of ${formatWithCurrency(carryForward, country)} carries forward. Beware of the Superficial Loss Rule (30 days).`;
+      }
+      else if (country === 'australia') {
+        let remainingLoss = realizedLoss;
+        let gainsOffset = Math.min(remainingLoss, otherGains);
+        remainingLoss -= gainsOffset;
+        
+        let effectiveTaxSavingsRate = holdingPeriod === "long" ? (cgRate / 2) : cgRate; 
+        
+        savings += gainsOffset * effectiveTaxSavingsRate;
+        carryForward = remainingLoss;
+        
+        explainer = `Your ${formatWithCurrency(realizedLoss, country)} loss offsets ${formatWithCurrency(gainsOffset, country)} of capital gains. In Australia, losses are deducted from gains *before* applying the 50% CGT discount. Your remaining ${formatWithCurrency(carryForward, country)} loss is carried forward. Note: The ATO has anti-avoidance rules for 'wash sales' where there is no change in economic exposure.`;
+      }
+
+      document.getElementById("tlh-total-savings").innerText = formatWithCurrency(savings, country);
+      document.getElementById("tlh-carry-forward").innerText = formatWithCurrency(carryForward, country);
+      document.getElementById("tlh-explainer").innerText = explainer;
+    }
+
+    const inputs = ["tlh-purchase-price", "tlh-sale-price", "tlh-holding-period", "tlh-other-gains", "tlh-cg-rate", "tlh-income-rate"];
+    inputs.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.addEventListener("input", () => {
+          if (id === "tlh-purchase-price") state.tlh.purchasePrice = parseFloat(el.value);
+          if (id === "tlh-sale-price") state.tlh.salePrice = parseFloat(el.value);
+          if (id === "tlh-holding-period") state.tlh.holdingPeriod = el.value;
+          if (id === "tlh-other-gains") state.tlh.otherGains = parseFloat(el.value);
+          if (id === "tlh-cg-rate") state.tlh.cgRate = parseFloat(el.value);
+          if (id === "tlh-income-rate") state.tlh.incomeRate = parseFloat(el.value);
+          saveState();
+          calculate();
+        });
+      }
+    });
+
+    syncStateToInputs();
+    calculate();
+  })();
+</script>

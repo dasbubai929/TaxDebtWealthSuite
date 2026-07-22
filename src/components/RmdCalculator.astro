@@ -21,14 +21,14 @@ const countryLabels = {
   canada: {
     title: "RRIF Minimum Withdrawal (Canada)",
     desc: "Calculate your mandatory CRA minimum withdrawal for your Registered Retirement Income Fund.",
-    balanceLabel: "RRIF Balance ($)",
-    currency: "$"
+    balanceLabel: "RRIF Balance (C$)",
+    currency: "C$"
   },
   australia: {
     title: "Superannuation Minimum Drawdown (AU)",
     desc: "Calculate the required minimum percentage drawdown for Account-Based Pensions.",
-    balanceLabel: "Super Balance ($)",
-    currency: "$"
+    balanceLabel: "Super Balance (A$)",
+    currency: "A$"
   }
 };
 
@@ -65,7 +65,7 @@ const currentInfo = countryLabels[country];
             <label for="rmd-balance" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.balanceLabel}</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
-              <input type="number" id="rmd-balance" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="100000" />
+              <input type="number" id="rmd-balance" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="100000" />
             </div>
           </div>
         </div>
@@ -115,10 +115,16 @@ const currentInfo = countryLabels[country];
     const resultPercent = document.getElementById('rmd-result-percent');
     const resultRemaining = document.getElementById('rmd-result-remaining');
 
-    const currencySymbol = country === 'uk' ? '£' : '$';
+    const currencySymbol = country === 'uk' ? '£' : (country === 'canada' ? 'C$' : (country === 'australia' ? 'A$' : '$'));
 
     const formatCurrency = (val: number) => {
-      return currencySymbol + val.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+      let formatted = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: country === 'uk' ? 'GBP' : (country === 'canada' ? 'CAD' : (country === 'australia' ? 'AUD' : 'USD')),
+        maximumFractionDigits: 2
+      }).format(val);
+      if (country === 'canada') formatted = formatted.replace('CA$', 'C$');
+      return formatted;
     };
 
     const formatPercent = (val: number) => {

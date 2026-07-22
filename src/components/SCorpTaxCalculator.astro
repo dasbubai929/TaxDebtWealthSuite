@@ -40,7 +40,7 @@ const { defaultCountry = "US" } = Astro.props;
             <label for="tax-revenue" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Annual Side-Hustle Gross Revenue</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
-              <input type="number" id="tax-revenue" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+              <input type="number" id="tax-revenue" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
           </div>
 
@@ -49,7 +49,7 @@ const { defaultCountry = "US" } = Astro.props;
             <label for="tax-expenses" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Annual Deductible Business Expenses</label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
-              <input type="number" id="tax-expenses" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
+              <input type="number" id="tax-expenses" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="500" placeholder="0" />
             </div>
           </div>
 
@@ -60,7 +60,7 @@ const { defaultCountry = "US" } = Astro.props;
             </label>
             <div class="relative rounded-lg shadow-sm">
               <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium tax-currency-symbol">$</div>
-              <input type="number" id="tax-w2" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
+              <input type="number" id="tax-w2" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="0" />
             </div>
             <p class="text-3xs text-slate-500 mt-1">Used to calculate your marginal tax bracket — crucial for accuracy.</p>
           </div>
@@ -347,7 +347,7 @@ const { defaultCountry = "US" } = Astro.props;
         tip: "UK Sole Traders pay Class 4 NI at 6% on profits between £12,570–£50,270 (2% above). An Ltd company pays 19% Corp Tax on profits under £50k (small profits rate), then directors draw a low PAYE salary (~£12,570 tax-free) and top up with dividends taxed at 8.75% basic rate."
       },
       CA: {
-        symbol: "$", currency: "CAD",
+        symbol: "C$", currency: "CAD",
         w2Label: "Employment (T4) Annual Income",
         soleLabel: "Sole Proprietor / Self-Employed",
         corpLabel: "Canadian Controlled Corp (CCPC)",
@@ -359,7 +359,7 @@ const { defaultCountry = "US" } = Astro.props;
         tip: "Canadian Sole Proprietors pay both employee + employer CPP (~9.9% total) on net business income up to ~$73,200. A CCPC qualifies for the Small Business Deduction: 9% federal tax on up to $500k active income (vs 15% general). Retained earnings compound at the low rate."
       },
       AU: {
-        symbol: "$", currency: "AUD",
+        symbol: "A$", currency: "AUD",
         w2Label: "PAYG Employer Income (Gross)",
         soleLabel: "Sole Trader / Self-Employed",
         corpLabel: "Pty Ltd Company (Small Business)",
@@ -573,7 +573,11 @@ const { defaultCountry = "US" } = Astro.props;
       }
 
       function fmt(v) {
-        return new Intl.NumberFormat('en-US', { style: 'currency', currency: cfg.currency, maximumFractionDigits: 0 }).format(v);
+        let formatted = new Intl.NumberFormat('en-US', { style: 'currency', currency: cfg.currency, maximumFractionDigits: 0 }).format(v);
+        if (cfg.currency === 'CAD') {
+          formatted = formatted.replace('CA$', 'C$');
+        }
+        return formatted;
       }
 
       const savings = Math.max(0, soleTotalTax - corpTotalTax);

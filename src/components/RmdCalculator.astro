@@ -1,0 +1,201 @@
+---
+export interface Props {
+  country?: 'us' | 'uk' | 'canada' | 'australia';
+}
+
+const { country = 'us' } = Astro.props;
+
+const countryLabels = {
+  us: {
+    title: "Required Minimum Distribution (US)",
+    desc: "Calculate your IRS required minimum distribution based on the SECURE Act 2.0 Uniform Lifetime Table.",
+    balanceLabel: "Total IRA/401(k) Balance ($)",
+    currency: "$"
+  },
+  uk: {
+    title: "Pension Drawdown Minimum (UK)",
+    desc: "Estimate a sustainable statutory-style drawdown from your UK defined contribution pension.",
+    balanceLabel: "Total Pension Pot (£)",
+    currency: "£"
+  },
+  canada: {
+    title: "RRIF Minimum Withdrawal (Canada)",
+    desc: "Calculate your mandatory CRA minimum withdrawal for your Registered Retirement Income Fund.",
+    balanceLabel: "RRIF Balance ($)",
+    currency: "$"
+  },
+  australia: {
+    title: "Superannuation Minimum Drawdown (AU)",
+    desc: "Calculate the required minimum percentage drawdown for Account-Based Pensions.",
+    balanceLabel: "Super Balance ($)",
+    currency: "$"
+  }
+};
+
+const currentInfo = countryLabels[country];
+---
+
+<section id="panel-rmd" class="space-y-6" data-country={country}>
+  <!-- Country Selector Nav -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <a href="/rmd-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>US</a>
+    <a href="/rmd-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>UK</a>
+    <a href="/rmd-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
+    <a href="/rmd-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- LEFT: Inputs -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 class="text-lg font-bold text-white tracking-wide">{currentInfo.title}</h3>
+          <p class="text-xs text-slate-400 mt-1">{currentInfo.desc}</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Current Age -->
+          <div>
+            <label for="rmd-age" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Current Age</label>
+            <input type="number" id="rmd-age" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1" max="120" step="1" placeholder="73" />
+          </div>
+
+          <!-- Account Balance -->
+          <div>
+            <label for="rmd-balance" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.balanceLabel}</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="rmd-balance" class="focus-ring block w-full pl-8 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" placeholder="100000" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Required Distribution / Withdrawal</p>
+            <p id="rmd-result-amount" class="focal-metric text-[#00F5D4] mt-0.5">{currentInfo.currency}0</p>
+          </div>
+          <button id="rmd-share-btn" type="button" class="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span>Share</span>
+          </button>
+        </div>
+        <div class="space-y-2 pt-3 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Withdrawal Percentage:</span>
+            <span id="rmd-result-percent" class="text-white font-medium">0.00%</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Remaining Balance After:</span>
+            <span id="rmd-result-remaining" class="text-white font-medium">{currentInfo.currency}0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // RMD Calculation Logic
+  const panel = document.getElementById('panel-rmd');
+  
+  if (panel) {
+    const country = panel.getAttribute('data-country') || 'us';
+    const ageInput = document.getElementById('rmd-age') as HTMLInputElement;
+    const balanceInput = document.getElementById('rmd-balance') as HTMLInputElement;
+    
+    const resultAmount = document.getElementById('rmd-result-amount');
+    const resultPercent = document.getElementById('rmd-result-percent');
+    const resultRemaining = document.getElementById('rmd-result-remaining');
+
+    const currencySymbol = country === 'uk' ? '£' : '$';
+
+    const formatCurrency = (val: number) => {
+      return currencySymbol + val.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    };
+
+    const formatPercent = (val: number) => {
+      return (val * 100).toFixed(2) + '%';
+    };
+
+    // US IRS Uniform Lifetime Table (Simplified SECURE 2.0)
+    // Starts at age 73 for most currently turning RMD age.
+    const usDivisors: Record<number, number> = {
+      73: 26.5, 74: 25.5, 75: 24.6, 76: 23.7, 77: 22.9, 78: 22.0, 79: 21.1,
+      80: 20.2, 81: 19.4, 82: 18.5, 83: 17.7, 84: 16.8, 85: 16.0, 86: 15.2,
+      87: 14.4, 88: 13.7, 89: 12.9, 90: 12.2, 91: 11.5, 92: 10.8, 93: 10.1,
+      94: 9.5, 95: 8.9, 96: 8.4, 97: 7.8, 98: 7.3, 99: 6.8, 100: 6.4,
+      101: 6.0, 102: 5.6, 103: 5.2, 104: 4.9, 105: 4.6, 106: 4.3, 107: 4.1,
+      108: 3.9, 109: 3.7, 110: 3.5, 111: 3.4, 112: 3.3, 113: 3.1, 114: 3.0,
+      115: 2.9, 116: 2.8, 117: 2.7, 118: 2.5, 119: 2.3, 120: 2.0
+    };
+
+    // Canada RRIF Minimum Factors (Starts age 71 typically, can be earlier)
+    const caFactors: Record<number, number> = {
+      71: 0.0528, 72: 0.0540, 73: 0.0553, 74: 0.0567, 75: 0.0582, 76: 0.0598,
+      77: 0.0617, 78: 0.0636, 79: 0.0658, 80: 0.0682, 81: 0.0708, 82: 0.0738,
+      83: 0.0771, 84: 0.0808, 85: 0.0851, 86: 0.0899, 87: 0.0955, 88: 0.1021,
+      89: 0.1099, 90: 0.1192, 91: 0.1306, 92: 0.1449, 93: 0.1634, 94: 0.1879,
+      95: 0.2000
+    };
+
+    const calculate = () => {
+      const age = parseInt(ageInput.value) || 0;
+      const balance = parseFloat(balanceInput.value) || 0;
+
+      let rmdAmount = 0;
+      let rmdPercent = 0;
+
+      if (age > 0 && balance > 0) {
+        if (country === 'us') {
+          if (age >= 73) {
+            const divisor = usDivisors[age] || (age > 120 ? 2.0 : usDivisors[120]);
+            rmdAmount = balance / divisor;
+            rmdPercent = rmdAmount / balance;
+          }
+        } else if (country === 'canada') {
+          if (age >= 71) {
+            rmdPercent = caFactors[age] || (age >= 95 ? 0.20 : 0);
+          } else {
+            rmdPercent = 1 / (90 - age);
+          }
+          rmdAmount = balance * rmdPercent;
+        } else if (country === 'australia') {
+          if (age < 65) rmdPercent = 0.04;
+          else if (age < 75) rmdPercent = 0.05;
+          else if (age < 80) rmdPercent = 0.06;
+          else if (age < 85) rmdPercent = 0.07;
+          else if (age < 90) rmdPercent = 0.09;
+          else if (age < 95) rmdPercent = 0.11;
+          else rmdPercent = 0.14;
+          rmdAmount = balance * rmdPercent;
+        } else if (country === 'uk') {
+          // Illustrative UK Safe Drawdown rules
+          if (age < 65) rmdPercent = 0.04;
+          else if (age < 75) rmdPercent = 0.05;
+          else rmdPercent = 0.06;
+          rmdAmount = balance * rmdPercent;
+        }
+      }
+
+      if (resultAmount && resultPercent && resultRemaining) {
+        resultAmount.textContent = formatCurrency(rmdAmount);
+        resultPercent.textContent = formatPercent(rmdPercent);
+        resultRemaining.textContent = formatCurrency(balance - rmdAmount);
+      }
+    };
+
+    ageInput.addEventListener('input', calculate);
+    balanceInput.addEventListener('input', calculate);
+
+    // Initial calc if values present
+    calculate();
+  }
+</script>

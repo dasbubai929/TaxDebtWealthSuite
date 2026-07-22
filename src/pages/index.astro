@@ -22,6 +22,9 @@ const toolLabels = {
   "debt-payoff-calculator": "Debt Payoff",
   "salt-cap-deduction-calculator": "SALT Cap Deduction",
   "roth-conversion-calculator": "Roth Conversion",
+  "rmd-calculator": "RMD Calculator",
+  "capital-gains-tax-calculator": "Capital Gains Tax",
+  "tax-loss-harvesting-calculator": "Tax Loss Harvesting",
 };
 
 const searchablePosts = allPosts.map((post) => ({
@@ -92,6 +95,15 @@ const searchableTools = [
       { label: "United Kingdom", url: "/capital-gains-tax-calculator/uk/" },
       { label: "Canada", url: "/capital-gains-tax-calculator/canada/" },
       { label: "Australia", url: "/capital-gains-tax-calculator/australia/" },
+    ],
+  },
+  {
+    name: "Tax Loss Harvesting Calculator",
+    variants: [
+      { label: "United States (Default)", url: "/tax-loss-harvesting-calculator/" },
+      { label: "United Kingdom", url: "/tax-loss-harvesting-calculator/uk/" },
+      { label: "Canada", url: "/tax-loss-harvesting-calculator/canada/" },
+      { label: "Australia", url: "/tax-loss-harvesting-calculator/australia/" },
     ],
   },
 ];
@@ -393,6 +405,29 @@ const searchDataJson = JSON.stringify({
           </a>
         </div>
       </div>
+
+      <!-- Card 9: Tax Loss Harvesting Calculator -->
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between hover:border-[#00F5D4]/40 transition-all duration-300 relative group glow-card">
+        <div class="space-y-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-white tracking-wide font-sans">Tax Loss Harvesting Calculator</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Estimate tax savings from harvesting losses, avoiding wash-sale rules, and offsetting ordinary income (US, UK, CA, AU).
+          </p>
+        </div>
+        <div class="mt-8">
+          <a
+            href="/tax-loss-harvesting-calculator/"
+            class="w-full flex items-center justify-center px-4 py-3 bg-[#00F5D4]/10 hover:bg-[#00F5D4] border border-[#00F5D4]/30 hover:border-transparent text-brand-300 hover:text-slate-950 font-bold text-xs rounded-xl tracking-wider uppercase transition-all duration-300 shadow-md shadow-[#00F5D4]/5"
+          >
+            Try the TLH Calculator
+          </a>
+        </div>
+      </div>
       </div>
 
       <div class="mt-12 text-center">
@@ -407,7 +442,7 @@ const searchDataJson = JSON.stringify({
     <!-- Contextual Linking Paragraph -->
     <div class="mt-16 text-center max-w-3xl mx-auto">
       <p class="text-sm text-slate-400 leading-relaxed font-sans">
-        Whether you are looking to model the tax benefits of the <a href="/buy-borrow-die-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Buy, Borrow, Die strategy</a>, optimize your compensation split using our <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">S-Corp tax calculator</a>, calculate your 20% pass-through tax savings with the <a href="/qbi-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">QBI deduction calculator</a>, check your SALT deduction with the <a href="/salt-cap-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">SALT cap calculator</a>, plan a Roth conversion with our <a href="/roth-conversion-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Roth conversion calculator</a>, manage your retirement withdrawals with our <a href="/rmd-calculator/" class="text-[#00F5D4] hover:underline font-semibold">RMD calculator</a>, or map a payoff schedule with the <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>, our tools help you keep more of what you earn.
+        Whether you are looking to model the tax benefits of the <a href="/buy-borrow-die-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Buy, Borrow, Die strategy</a>, optimize your compensation split using our <a href="/s-corp-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">S-Corp tax calculator</a>, calculate your 20% pass-through tax savings with the <a href="/qbi-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">QBI deduction calculator</a>, check your SALT deduction with the <a href="/salt-cap-deduction-calculator/" class="text-[#00F5D4] hover:underline font-semibold">SALT cap calculator</a>, plan a Roth conversion with our <a href="/roth-conversion-calculator/" class="text-[#00F5D4] hover:underline font-semibold">Roth conversion calculator</a>, manage your retirement withdrawals with our <a href="/rmd-calculator/" class="text-[#00F5D4] hover:underline font-semibold">RMD calculator</a>, calculate your capital gains tax with our <a href="/capital-gains-tax-calculator/" class="text-[#00F5D4] hover:underline font-semibold">capital gains tax calculator</a>, harvest investment losses with our <a href="/tax-loss-harvesting-calculator/" class="text-[#00F5D4] hover:underline font-semibold">tax loss harvesting calculator</a>, or map a payoff schedule with the <a href="/debt-payoff-calculator/" class="text-[#00F5D4] hover:underline font-semibold">debt snowball vs avalanche planner</a>, our tools help you keep more of what you earn.
       </p>
     </div>
   </section>

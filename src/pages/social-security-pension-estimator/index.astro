@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SocialSecurityPensionEstimator from "../../components/SocialSecurityPensionEstimator.astro";
+---
+
+<Layout
+  title="Social Security Calculator (US) | Retirement Benefit Estimator"
+  description="Estimate your US Social Security monthly retirement benefit based on AIME, bend points, and claiming age (62-70)."
+  ogImage="https://taxdebtwealthsuite.com/images/og-social-security.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Social Security Calculator (US)",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Estimate your US Social Security monthly retirement benefit based on AIME, bend points, and claiming age."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Full Retirement Age (FRA) for Social Security?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals born in 1960 or later, Full Retirement Age (FRA) is 67. Claiming before age 67 results in a permanent reduction of up to 30%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does delaying Social Security to age 70 increase my payout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For each year you delay claiming Social Security past age 67 up to age 70, your benefit increases by 8% per year (up to a 24% permanent bonus)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Social Security & Pension Estimator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate your government retirement benefits, compare claiming age adjustments, and optimize your retirement income strategy.
+      </p>
+    </div>
+
+    <SocialSecurityPensionEstimator country="us" />
+  </main>
+</Layout>

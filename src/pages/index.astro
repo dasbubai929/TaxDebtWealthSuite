@@ -7,7 +7,7 @@ const allPosts = (await getCollection("blog")).sort(
 );
 const latestPosts = allPosts.slice(0, 6);
 
-function formatDate(date) {
+function formatDate(date: Date) {
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -15,7 +15,7 @@ function formatDate(date) {
   });
 }
 
-const toolLabels = {
+const toolLabels: Record<string, string> = {
   "buy-borrow-die-calculator": "Buy, Borrow, Die",
   "s-corp-tax-calculator": "S-Corp Tax",
   "qbi-deduction-calculator": "QBI Deduction",
@@ -25,6 +25,9 @@ const toolLabels = {
   "rmd-calculator": "RMD Calculator",
   "capital-gains-tax-calculator": "Capital Gains Tax",
   "tax-loss-harvesting-calculator": "Tax Loss Harvesting",
+  "social-security-pension-estimator": "Social Security Estimator",
+  "superannuation-rrsp-withdrawal-calculator": "Super & RRSP Calculator",
+  "mortgage-recast-calculator": "Mortgage Recast Calculator",
 };
 
 const searchablePosts = allPosts.map((post) => ({
@@ -183,8 +186,6 @@ const searchDataJson = JSON.stringify({
     </div>
     <div id="carousel-track" class="carousel-track">
       {latestPosts.map((post) => {
-        const toolKey = post.data.relatedTool;
-        const category = toolLabels[toolKey] || "General";
         return (
           <a
             href={`/blog/${post.slug}/`}
@@ -427,15 +428,6 @@ const searchDataJson = JSON.stringify({
       </div>
       </div>
 
-      <div class="mt-12 text-center">
-        <a href="/calculators/" class="inline-flex items-center justify-center px-8 py-3.5 border border-[#00F5D4]/30 text-sm font-bold rounded-xl text-[#00F5D4] bg-[#00F5D4]/10 hover:bg-[#00F5D4]/20 transition-all duration-300 uppercase tracking-widest gap-2 group shadow-lg shadow-[#00F5D4]/5 hover:shadow-[#00F5D4]/10 hover:-translate-y-0.5">
-          View All Calculators
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-      </div>
-
     <!-- Contextual Linking Paragraph -->
     <div class="mt-16 text-center max-w-3xl mx-auto">
       <p class="text-sm text-slate-400 leading-relaxed font-sans">
@@ -445,6 +437,7 @@ const searchDataJson = JSON.stringify({
   </section>
 
   <script is:inline define:vars={{ searchDataJson }}>
+    // @ts-nocheck
     (function() {
       var searchData = JSON.parse(searchDataJson);
       var input = document.getElementById("predictive-search-input");
@@ -624,6 +617,7 @@ const searchDataJson = JSON.stringify({
 
   <!-- Carousel Drag/Swipe + Nav Logic -->
   <script is:inline>
+    // @ts-nocheck
     (function() {
       var track = document.getElementById('carousel-track');
       var prevBtn = document.getElementById('carousel-prev');

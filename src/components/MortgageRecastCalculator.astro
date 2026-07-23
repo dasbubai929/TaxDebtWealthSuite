@@ -1,0 +1,373 @@
+---
+export interface Props {
+  country?: "us" | "canada" | "uk" | "australia";
+}
+
+const { country = "us" } = Astro.props;
+
+const countryData = {
+  us: {
+    name: "United States",
+    currency: "$",
+    badge: "US Standard Recast Rules",
+    rulesTitle: "US Mortgage Recast Guidelines",
+    sourceText: "Fannie Mae / Freddie Mac Mortgage Recasting Standards",
+    sourceUrl: "https://singlefamily.fanniemae.com/originating-underwriting/mortgage-products",
+    defaultBalance: 350000,
+    defaultRate: 6.5,
+    defaultTermYears: 25,
+    defaultLumpSum: 50000,
+    defaultFee: 250,
+    infoBanner: null
+  },
+  canada: {
+    name: "Canada",
+    currency: "C$",
+    badge: "Canadian Prepayment Terms",
+    rulesTitle: "CRA & FCAC Mortgage Lump-Sum Prepayment Rules",
+    sourceText: "Financial Consumer Agency of Canada (FCAC) Mortgage Prepayment Guide",
+    sourceUrl: "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/pay-down-mortgage-faster.html",
+    defaultBalance: 400000,
+    defaultRate: 5.5,
+    defaultTermYears: 20,
+    defaultLumpSum: 50000,
+    defaultFee: 150,
+    infoBanner: null
+  },
+  uk: {
+    name: "United Kingdom",
+    currency: "£",
+    badge: "UK Mortgage Overpayment Rules",
+    rulesTitle: "HMRC & UK Finance Mortgage Overpayment Standards",
+    sourceText: "MoneyHelper UK — Overpaying your mortgage vs remortgaging",
+    sourceUrl: "https://www.moneyhelper.org.uk/en/homes/buying-a-home/overpaying-your-mortgage",
+    defaultBalance: 250000,
+    defaultRate: 4.5,
+    defaultTermYears: 20,
+    defaultLumpSum: 30000,
+    defaultFee: 0,
+    infoBanner: "In the UK, formal 'mortgage recasting' is rare. Instead, UK borrowers make voluntary overpayments (up to 10% per year penalty-free) or request a term/payment reduction from their lender during remortgaging. This calculator models payment reduction if your lender recalculates your monthly installment after a lump-sum overpayment."
+  },
+  australia: {
+    name: "Australia",
+    currency: "A$",
+    badge: "Australian Offset & Redraw Rules",
+    rulesTitle: "ASIC Moneysmart & ATO Extra Mortgage Payment Standards",
+    sourceText: "ASIC Moneysmart Australia — Paying off your mortgage faster",
+    sourceUrl: "https://moneysmart.gov.au/home-loans/pay-off-your-mortgage-faster",
+    defaultBalance: 500000,
+    defaultRate: 6.0,
+    defaultTermYears: 25,
+    defaultLumpSum: 50000,
+    defaultFee: 0,
+    infoBanner: "In Australia, formal mortgage recasting is rarely offered by retail banks. Australian homeowners typically deposit lump sums into 100% Mortgage Offset Accounts or Redraw Facilities, which reduce daily interest charges while keeping funds accessible. This calculator models payment reduction scenarios if you instruct your lender to recalculate your minimum monthly repayment."
+  }
+};
+
+const currentInfo = countryData[country];
+---
+
+<section id="mortgage-recast-calculator-panel" class="space-y-6" data-country={country}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        {currentInfo.badge}
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
+  <!-- Country Switching Navigation Buttons -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <a href="/mortgage-recast-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United States</a>
+    <a href="/mortgage-recast-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
+    <a href="/mortgage-recast-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United Kingdom</a>
+    <a href="/mortgage-recast-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+  </div>
+
+  {currentInfo.infoBanner && (
+    <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-300 text-xs leading-relaxed flex items-start gap-3">
+      <svg class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <div>
+        <strong>Regional Context:</strong> {currentInfo.infoBanner}
+      </div>
+    </div>
+  )}
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- INPUTS PANEL -->
+    <div class="lg:col-span-1 space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800 space-y-5">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          Mortgage & Lump Sum Details
+        </h3>
+
+        <!-- Current Loan Balance -->
+        <div>
+          <label for="input-loan-balance" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Current Loan Principal Balance
+          </label>
+          <div class="relative rounded-lg shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+            <input type="number" id="input-loan-balance" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="10000" step="5000" value={currentInfo.defaultBalance} />
+          </div>
+        </div>
+
+        <!-- Interest Rate -->
+        <div>
+          <label for="input-interest-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Interest Rate (% p.a.)
+          </label>
+          <input type="number" id="input-interest-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0.1" max="20" step="0.125" value={currentInfo.defaultRate} />
+        </div>
+
+        <!-- Remaining Term in Years -->
+        <div>
+          <label for="input-remaining-years" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Remaining Term (Years)
+          </label>
+          <input type="number" id="input-remaining-years" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1" max="40" step="1" value={currentInfo.defaultTermYears} />
+        </div>
+
+        <!-- Lump Sum Payment -->
+        <div>
+          <label for="input-lump-sum" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Lump Sum Recast Principal Payment
+          </label>
+          <div class="relative rounded-lg shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+            <input type="number" id="input-lump-sum" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1000" step="2500" value={currentInfo.defaultLumpSum} />
+          </div>
+        </div>
+
+        <!-- Recast Processing Fee -->
+        <div>
+          <label for="input-recast-fee" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Lender Recast Processing Fee
+          </label>
+          <div class="relative rounded-lg shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+            <input type="number" id="input-recast-fee" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="50" value={currentInfo.defaultFee} />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTPUTS & CALCULATED RESULTS PANEL -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center justify-between">
+          <span>Recast Payment & Interest Savings</span>
+          <span id="output-reduction-badge" class="text-xs px-2.5 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20 font-mono">
+            -14.3% Monthly Reduction
+          </span>
+        </h3>
+
+        <!-- Key Metrics Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">New Lower Monthly Payment</span>
+            <div id="output-new-payment" class="text-3xl font-extrabold text-[#00F5D4] font-mono">
+              {currentInfo.currency}0
+            </div>
+            <p id="output-old-payment-sub" class="text-[11px] text-slate-400">Original Payment: {currentInfo.currency}0 / mo</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Net Interest Saved Over Term</span>
+            <div id="output-interest-saved" class="text-3xl font-extrabold text-white font-mono">
+              {currentInfo.currency}0
+            </div>
+            <p id="output-[#00F5D4]-sub" class="text-[11px] text-emerald-400 font-medium">After deducting lender recast fee</p>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Grid -->
+        <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 space-y-4">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Recast Restructuring Summary</h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="space-y-1">
+              <span class="text-slate-400">Monthly Cash Savings</span>
+              <div id="output-monthly-savings" class="text-sm font-bold text-emerald-400 font-mono">{currentInfo.currency}0 / mo</div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-slate-400">New Principal Balance</span>
+              <div id="output-new-principal" class="text-sm font-bold text-white font-mono">{currentInfo.currency}0</div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-slate-400">Payback Period on Fee</span>
+              <div id="output-payback-months" class="text-sm font-bold text-purple-400 font-mono">0.0 months</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share & Export Buttons -->
+        <div class="flex flex-wrap gap-3 pt-2">
+          <button id="btn-share-results" type="button" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-2 transition-colors border border-slate-700">
+            <svg class="w-4 h-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+            Share Results
+          </button>
+        </div>
+      </div>
+
+      <!-- Government Citation & Methodology Box -->
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300 leading-relaxed">
+        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          {currentInfo.rulesTitle}
+        </h4>
+        <p>
+          A mortgage recast allows you to make a lump-sum principal reduction on your existing loan. Unlike refinancing, a recast does not change your interest rate or loan term, and avoids closing costs or credit checks. The lender recalculates your monthly principal & interest payment over the remaining term based on the reduced balance.
+        </p>
+        <p>
+          <strong>Official Reference:</strong> <a href={currentInfo.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">{currentInfo.sourceText}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+// @ts-nocheck
+(function() {
+  const currentCountry = "{country}";
+
+  const currencySymbols = {
+    us: "$",
+    canada: "C$",
+    uk: "£",
+    australia: "A$"
+  };
+
+  const symbol = currencySymbols[currentCountry] || "$";
+
+  function formatMoney(amount) {
+    return symbol + Math.round(amount).toLocaleString('en-US');
+  }
+
+  function calculateMonthlyPayment(principal, annualRate, months) {
+    if (principal <= 0 || months <= 0) return 0;
+    if (annualRate <= 0) return principal / months;
+    const r = (annualRate / 100) / 12;
+    return principal * (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+  }
+
+  function updateRecast() {
+    const balanceInput = document.getElementById('input-loan-balance');
+    const rateInput = document.getElementById('input-interest-rate');
+    const yearsInput = document.getElementById('input-remaining-years');
+    const lumpSumInput = document.getElementById('input-lump-sum');
+    const feeInput = document.getElementById('input-recast-fee');
+
+    if (!balanceInput || !rateInput || !yearsInput || !lumpSumInput) return;
+
+    const balance = parseFloat(balanceInput.value) || 0;
+    const rate = parseFloat(rateInput.value) || 0;
+    const years = parseFloat(yearsInput.value) || 0;
+    const lumpSum = parseFloat(lumpSumInput.value) || 0;
+    const fee = parseFloat(feeInput ? feeInput.value : 0) || 0;
+
+    const months = Math.max(1, years * 12);
+    const newBalance = Math.max(0, balance - lumpSum);
+
+    const oldMonthlyPayment = calculateMonthlyPayment(balance, rate, months);
+    const newMonthlyPayment = calculateMonthlyPayment(newBalance, rate, months);
+
+    const monthlySavings = Math.max(0, oldMonthlyPayment - newMonthlyPayment);
+    const percentReduction = oldMonthlyPayment > 0 ? (monthlySavings / oldMonthlyPayment) * 100 : 0;
+
+    const totalInterestOld = (oldMonthlyPayment * months) - balance;
+    const totalInterestNew = (newMonthlyPayment * months) - newBalance;
+    const grossInterestSaved = Math.max(0, totalInterestOld - totalInterestNew);
+    const netInterestSaved = Math.max(0, grossInterestSaved - fee);
+
+    const paybackMonths = monthlySavings > 0 ? (fee / monthlySavings) : 0;
+
+    // Update DOM
+    const badge = document.getElementById('output-reduction-badge');
+    const newPaymentOut = document.getElementById('output-new-payment');
+    const oldPaymentSub = document.getElementById('output-old-payment-sub');
+    const netSavedOut = document.getElementById('output-interest-saved');
+    const savingsOut = document.getElementById('output-monthly-savings');
+    const newPrincipalOut = document.getElementById('output-new-principal');
+    const paybackOut = document.getElementById('output-payback-months');
+
+    if (badge) badge.textContent = `-${percentReduction.toFixed(1)}% Monthly Reduction`;
+    if (newPaymentOut) newPaymentOut.textContent = formatMoney(newMonthlyPayment) + ' / mo';
+    if (oldPaymentSub) oldPaymentSub.textContent = `Original Payment: ${formatMoney(oldMonthlyPayment)} / mo`;
+    if (netSavedOut) netSavedOut.textContent = formatMoney(netInterestSaved);
+    if (savingsOut) savingsOut.textContent = `${formatMoney(monthlySavings)} / mo`;
+    if (newPrincipalOut) newPrincipalOut.textContent = formatMoney(newBalance);
+    if (paybackOut) paybackOut.textContent = fee > 0 ? `${paybackMonths.toFixed(1)} months` : 'No Fee';
+
+    // Persist to localStorage
+    try {
+      const state = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+      if (!state.recast) state.recast = {};
+      state.recast[currentCountry] = { balance, rate, years, lumpSum, fee };
+      localStorage.setItem('financial_hub_state', JSON.stringify(state));
+    } catch(e) {}
+  }
+
+  // Attach event listeners
+  ['input-loan-balance', 'input-interest-rate', 'input-remaining-years', 'input-lump-sum', 'input-recast-fee'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updateRecast);
+      el.addEventListener('change', updateRecast);
+    }
+  });
+
+  // Reset button
+  const resetBtn = document.getElementById('btn-reset-suite');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      const balanceInput = document.getElementById('input-loan-balance');
+      const lumpSumInput = document.getElementById('input-lump-sum');
+      if (balanceInput && lumpSumInput) {
+        balanceInput.value = balanceInput.getAttribute('value') || 350000;
+        lumpSumInput.value = lumpSumInput.getAttribute('value') || 50000;
+        updateRecast();
+      }
+    });
+  }
+
+  // Share button
+  const shareBtn = document.getElementById('btn-share-results');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        const origText = shareBtn.innerHTML;
+        shareBtn.innerHTML = '<span>Link Copied!</span>';
+        setTimeout(() => { shareBtn.innerHTML = origText; }, 2000);
+      }
+    });
+  }
+
+  // Initial Calculation
+  updateRecast();
+
+  window.addEventListener("financial-hub-reset", () => {
+    const balanceInput = document.getElementById('input-loan-balance');
+    const lumpSumInput = document.getElementById('input-lump-sum');
+    if (balanceInput && lumpSumInput) {
+      balanceInput.value = balanceInput.getAttribute('value') || 350000;
+      lumpSumInput.value = lumpSumInput.getAttribute('value') || 50000;
+      updateRecast();
+    }
+  });
+})();
+</script>

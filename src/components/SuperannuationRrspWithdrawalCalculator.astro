@@ -1,0 +1,406 @@
+---
+export interface Props {
+  country?: "us" | "uk" | "canada" | "australia";
+}
+
+const { country = "us" } = Astro.props;
+
+const countryData = {
+  us: {
+    name: "United States",
+    currency: "$",
+    accountLabel: "IRA / 401(k) Balance",
+    rulesTitle: "IRS Required Minimum Distribution (RMD) Rules",
+    sourceText: "IRS Publication 590-B (Distributions from Individual Retirement Arrangements)",
+    sourceUrl: "https://www.irs.gov/publications/p590b",
+    badge: "US IRS RMD Rules",
+    defaultAge: 73,
+    defaultBalance: 500000,
+    contributionTypes: [
+      { id: "traditional_ira", name: "Traditional IRA / 401(k) (Pre-Tax)" },
+      { id: "roth_ira", name: "Roth IRA (Qualified Tax-Free)" }
+    ]
+  },
+  uk: {
+    name: "United Kingdom",
+    currency: "£",
+    accountLabel: "SIPP / Workplace Pension Balance",
+    rulesTitle: "HMRC Pension Drawdown Rules",
+    sourceText: "HMRC Pensions Tax Manual (PTM060000)",
+    sourceUrl: "https://www.gov.uk/tax-on-your-private-pension",
+    badge: "UK HMRC Drawdown Rules",
+    defaultAge: 65,
+    defaultBalance: 300000,
+    contributionTypes: [
+      { id: "sipp", name: "Self-Invested Personal Pension (SIPP)" },
+      { id: "workplace", name: "Workplace Defined Contribution Pension" }
+    ]
+  },
+  canada: {
+    name: "Canada",
+    currency: "C$",
+    accountLabel: "RRSP / RRIF Total Balance",
+    rulesTitle: "CRA RRIF Minimum Withdrawal Standards",
+    sourceText: "Canada Revenue Agency (CRA) RRIF Rules",
+    sourceUrl: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-retirement-savings-plans-rrsp/registered-retirement-income-fund-rrif/minimum-amount-a-rrif.html",
+    badge: "CRA RRIF Rules",
+    defaultAge: 71,
+    defaultBalance: 400000,
+    contributionTypes: [
+      { id: "rrif", name: "Registered Retirement Income Fund (RRIF)" },
+      { id: "rrsp", name: "Registered Retirement Savings Plan (RRSP)" }
+    ]
+  },
+  australia: {
+    name: "Australia",
+    currency: "A$",
+    accountLabel: "Superannuation Account Balance",
+    rulesTitle: "ATO Superannuation Minimum Drawdown Standards",
+    sourceText: "Australian Taxation Office (ATO) Super Minimum Standards",
+    sourceUrl: "https://www.ato.gov.au/super/apra-regulated-funds/paying-benefits/minimum-pension-payment-standards/",
+    badge: "ATO Super Rules",
+    defaultAge: 67,
+    defaultBalance: 500000,
+    contributionTypes: [
+      { id: "account_based", name: "Account-Based Pension (Tax-Free 60+)" },
+      { id: "transition", name: "Transition to Retirement Pension (TTR)" }
+    ]
+  }
+};
+
+const currentInfo = countryData[country];
+---
+
+<section id="superannuation-rrsp-calculator-panel" class="space-y-6" data-country={country}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        {currentInfo.badge}
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
+  <!-- Country Switching Navigation Buttons -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <a href="/superannuation-rrsp-withdrawal-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United States</a>
+    <a href="/superannuation-rrsp-withdrawal-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United Kingdom</a>
+    <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
+    <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- INPUTS PANEL -->
+    <div class="lg:col-span-1 space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800 space-y-5">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
+          Withdrawal Parameters
+        </h3>
+
+        <!-- Account Balance Input -->
+        <div>
+          <label for="input-balance" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            {currentInfo.accountLabel}
+          </label>
+          <div class="relative rounded-lg shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+            <input type="number" id="input-balance" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1000" step="5000" value={currentInfo.defaultBalance} />
+          </div>
+        </div>
+
+        <!-- Current Age Input -->
+        <div>
+          <label for="input-age" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Current Age
+          </label>
+          <input type="number" id="input-age" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="50" max="105" value={currentInfo.defaultAge} />
+        </div>
+
+        <!-- Account / Contribution Type Select -->
+        <div>
+          <label for="select-account-type" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Account Structure
+          </label>
+          <select id="select-account-type" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12">
+            {currentInfo.contributionTypes.map((t) => (
+              <option value={t.id}>{t.name}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Custom Drawdown Target (Optional) -->
+        <div>
+          <label for="input-target-rate" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">
+            Target Annual Withdrawal Rate (%)
+          </label>
+          <input type="number" id="input-target-rate" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="1" max="25" step="0.5" value="5.0" />
+          <p class="mt-1 text-[11px] text-slate-400">Default rate compared against government minimum requirements.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OUTPUTS & CALCULATED RESULTS PANEL -->
+    <div class="lg:col-span-2 space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-6">
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider flex items-center justify-between">
+          <span>Projected Minimum Withdrawal</span>
+          <span id="output-min-rate-badge" class="text-xs px-2.5 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20 font-mono">
+            5.0% Minimum
+          </span>
+        </h3>
+
+        <!-- Key Metrics Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Mandatory Annual Withdrawal</span>
+            <div id="output-annual-withdrawal" class="text-3xl font-extrabold text-[#00F5D4] font-mono">
+              {currentInfo.currency}0
+            </div>
+            <p id="output-annual-subtitle" class="text-[11px] text-slate-400">Based on statutory minimum rate</p>
+          </div>
+
+          <div class="p-5 rounded-xl bg-slate-900/80 border border-slate-800 space-y-1">
+            <span class="text-xs text-slate-400 font-medium">Mandatory Monthly Payout</span>
+            <div id="output-monthly-withdrawal" class="text-3xl font-extrabold text-white font-mono">
+              {currentInfo.currency}0
+            </div>
+            <p id="output-monthly-subtitle" class="text-[11px] text-slate-400">Monthly gross payment</p>
+          </div>
+        </div>
+
+        <!-- Secondary Breakdown Card -->
+        <div class="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80 space-y-4">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider">Withdrawal Analysis & Tax Impact</h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+            <div class="space-y-1">
+              <span class="text-slate-400">Remaining Balance</span>
+              <div id="output-remaining-balance" class="text-sm font-bold text-white font-mono">{currentInfo.currency}0</div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-slate-400">Tax-Free Portion</span>
+              <div id="output-tax-free" class="text-sm font-bold text-emerald-400 font-mono">{currentInfo.currency}0</div>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-slate-400">Estimated Taxable Portion</span>
+              <div id="output-taxable-portion" class="text-sm font-bold text-amber-400 font-mono">{currentInfo.currency}0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Share & Export Buttons -->
+        <div class="flex flex-wrap gap-3 pt-2">
+          <button id="btn-share-results" type="button" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-2 transition-colors border border-slate-700">
+            <svg class="w-4 h-4 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
+            Share Results
+          </button>
+        </div>
+      </div>
+
+      <!-- Government Citation & Methodology Box -->
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300 leading-relaxed">
+        <h4 class="text-sm font-bold text-white flex items-center gap-2">
+          <svg class="w-4 h-4 text-[#7B61FF]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          {currentInfo.rulesTitle}
+        </h4>
+        <p id="methodology-text">
+          Calculation parameters adhere strictly to official statutory rules. Minimum withdrawal rates apply annually based on account holder age at the start of the tax year.
+        </p>
+        <p>
+          <strong>Official Reference:</strong> <a href={currentInfo.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">{currentInfo.sourceText}</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+// @ts-nocheck
+(function() {
+  const currentCountry = "{country}";
+
+  const currencySymbols = {
+    us: "$",
+    uk: "£",
+    canada: "C$",
+    australia: "A$"
+  };
+
+  const symbol = currencySymbols[currentCountry] || "$";
+
+  function formatMoney(amount) {
+    return symbol + Math.round(amount).toLocaleString('en-US');
+  }
+
+  // US RMD Uniform Lifetime Table (Age -> Divisor)
+  const usRmdTable = {
+    73: 26.5, 74: 25.5, 75: 24.6, 76: 23.7, 77: 22.9, 78: 22.0, 79: 21.1,
+    80: 20.2, 81: 19.4, 82: 18.5, 83: 17.7, 84: 16.8, 85: 16.0, 86: 15.2,
+    87: 14.4, 88: 13.7, 89: 12.9, 90: 12.2, 91: 11.5, 92: 10.8, 93: 10.1,
+    94: 9.5,  95: 8.9,  96: 8.4,  97: 7.8,  98: 7.3,  99: 6.8,  100: 6.4
+  };
+
+  // Canada CRA RRIF Rates (Age -> Rate %)
+  const rrifTable = {
+    71: 5.28, 72: 5.40, 73: 5.53, 74: 5.67, 75: 5.82, 76: 5.98, 77: 6.17,
+    78: 6.36, 79: 6.58, 80: 6.82, 81: 7.08, 82: 7.38, 83: 7.71, 84: 8.08,
+    85: 8.51, 86: 8.99, 87: 9.55, 88: 10.21, 89: 10.99, 90: 11.92, 91: 13.06,
+    92: 14.49, 93: 16.34, 94: 18.79
+  };
+
+  function calculateMinimumRate(c, age) {
+    if (c === 'us') {
+      if (age < 73) return 0.0;
+      const divisor = usRmdTable[age] || (age > 100 ? 6.0 : 26.5);
+      return (1 / divisor) * 100;
+    }
+
+    if (c === 'uk') {
+      // UK: Flexible drawdown minimum target is 4.0%
+      return 4.0;
+    }
+
+    if (c === 'canada') {
+      if (age < 71) {
+        return (1 / (90 - age)) * 100;
+      }
+      if (age >= 95) return 20.0;
+      return rrifTable[age] || 5.28;
+    }
+
+    if (c === 'australia') {
+      if (age < 65) return 4.0;
+      if (age <= 74) return 5.0;
+      if (age <= 79) return 6.0;
+      if (age <= 84) return 7.0;
+      if (age <= 89) return 9.0;
+      if (age <= 94) return 11.0;
+      return 14.0;
+    }
+
+    return 4.0;
+  }
+
+  function updateCalculations() {
+    const balanceInput = document.getElementById('input-balance');
+    const ageInput = document.getElementById('input-age');
+    const accountTypeSelect = document.getElementById('select-account-type');
+    const targetRateInput = document.getElementById('input-target-rate');
+
+    if (!balanceInput || !ageInput) return;
+
+    const balance = parseFloat(balanceInput.value) || 0;
+    const age = parseInt(ageInput.value, 10) || 65;
+    const accountType = accountTypeSelect ? accountTypeSelect.value : '';
+    const userTargetRate = parseFloat(targetRateInput ? targetRateInput.value : 5.0) || 5.0;
+
+    const statutoryMinRate = calculateMinimumRate(currentCountry, age);
+    const effectiveRate = Math.max(statutoryMinRate, userTargetRate);
+
+    const annualWithdrawal = balance * (effectiveRate / 100);
+    const monthlyWithdrawal = annualWithdrawal / 12;
+    const remainingBalance = Math.max(0, balance - annualWithdrawal);
+
+    let taxFreeAmount = 0;
+    let taxableAmount = annualWithdrawal;
+
+    if (currentCountry === 'us' && accountType === 'roth_ira') {
+      taxFreeAmount = annualWithdrawal;
+      taxableAmount = 0;
+    } else if (currentCountry === 'uk') {
+      // 25% Tax free lump sum / drawdown portion
+      taxFreeAmount = annualWithdrawal * 0.25;
+      taxableAmount = annualWithdrawal * 0.75;
+    } else if (currentCountry === 'australia' && age >= 60) {
+      // Account-based pension is tax-free after 60
+      taxFreeAmount = annualWithdrawal;
+      taxableAmount = 0;
+    }
+
+    // Update DOM outputs
+    const minRateBadge = document.getElementById('output-min-rate-badge');
+    const annualOut = document.getElementById('output-annual-withdrawal');
+    const monthlyOut = document.getElementById('output-monthly-withdrawal');
+    const remainingOut = document.getElementById('output-remaining-balance');
+    const taxFreeOut = document.getElementById('output-tax-free');
+    const taxableOut = document.getElementById('output-taxable-portion');
+
+    if (minRateBadge) {
+      minRateBadge.textContent = statutoryMinRate > 0 ? `${statutoryMinRate.toFixed(2)}% Statutory Min` : "No Mandatory RMD";
+    }
+    if (annualOut) annualOut.textContent = formatMoney(annualWithdrawal);
+    if (monthlyOut) monthlyOut.textContent = formatMoney(monthlyWithdrawal);
+    if (remainingOut) remainingOut.textContent = formatMoney(remainingBalance);
+    if (taxFreeOut) taxFreeOut.textContent = formatMoney(taxFreeAmount);
+    if (taxableOut) taxableOut.textContent = formatMoney(taxableAmount);
+
+    // Save state to localStorage
+    try {
+      const state = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+      if (!state.super_rrsp) state.super_rrsp = {};
+      state.super_rrsp[currentCountry] = { balance, age, accountType, targetRate: userTargetRate };
+      localStorage.setItem('financial_hub_state', JSON.stringify(state));
+    } catch(e) {}
+  }
+
+  // Attach event listeners
+  ['input-balance', 'input-age', 'select-account-type', 'input-target-rate'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener('input', updateCalculations);
+      el.addEventListener('change', updateCalculations);
+    }
+  });
+
+  // Reset button
+  const resetBtn = document.getElementById('btn-reset-suite');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      const balanceInput = document.getElementById('input-balance');
+      const ageInput = document.getElementById('input-age');
+      if (balanceInput && ageInput) {
+        balanceInput.value = balanceInput.getAttribute('value') || 500000;
+        ageInput.value = ageInput.getAttribute('value') || 65;
+        updateCalculations();
+      }
+    });
+  }
+
+  // Share button
+  const shareBtn = document.getElementById('btn-share-results');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', function() {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(window.location.href);
+        const origText = shareBtn.innerHTML;
+        shareBtn.innerHTML = '<span>Link Copied!</span>';
+        setTimeout(() => { shareBtn.innerHTML = origText; }, 2000);
+      }
+    });
+  }
+
+  // Initial Calculation
+  updateCalculations();
+
+  window.addEventListener("financial-hub-reset", () => {
+    const balanceInput = document.getElementById('input-balance');
+    const ageInput = document.getElementById('input-age');
+    if (balanceInput && ageInput) {
+      balanceInput.value = balanceInput.getAttribute('value') || 500000;
+      ageInput.value = ageInput.getAttribute('value') || 65;
+      updateCalculations();
+    }
+  });
+})();
+</script>

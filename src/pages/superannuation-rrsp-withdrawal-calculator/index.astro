@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SuperannuationRrspWithdrawalCalculator from "../../components/SuperannuationRrspWithdrawalCalculator.astro";
+---
+
+<Layout
+  title="Superannuation & RRSP Withdrawal Calculator (US) | IRA RMD Calculator"
+  description="Calculate mandatory annual RMD withdrawals for US Traditional IRAs, 401(k)s, and Roth accounts under IRS Uniform Lifetime rules."
+  ogImage="https://taxdebtwealthsuite.com/images/og-superannuation-rrsp.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Superannuation & RRSP Withdrawal Calculator (US)",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Calculate mandatory annual RMD withdrawals for US Traditional IRAs and 401(k)s under IRS Uniform Lifetime rules."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What age do RMDs begin in the US under SECURE Act 2.0?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals turning 73 in 2023–2032, Required Minimum Distributions (RMDs) begin at age 73. Starting in 2033, RMDs begin at age 75."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are Roth IRA withdrawals subject to mandatory RMDs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Original account holders of Roth IRAs are exempt from mandatory RMDs during their lifetime."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Superannuation & RRSP Withdrawal Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate statutory minimum retirement account drawdowns across the US, UK, Canada, and Australia based on government standards and age brackets.
+      </p>
+    </div>
+
+    <SuperannuationRrspWithdrawalCalculator country="us" />
+  </main>
+</Layout>

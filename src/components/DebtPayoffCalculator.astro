@@ -7,6 +7,23 @@ const { defaultCurrency = "USD" } = Astro.props;
 ---
 
 <section id="panel-debt" class="space-y-6" data-default-currency={defaultCurrency}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        Debt Payoff Strategy
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
 
     <!-- LEFT: Dynamic Debt Input -->
@@ -220,6 +237,7 @@ const { defaultCurrency = "USD" } = Astro.props;
 </section>
 
 <script>
+  // @ts-nocheck
   (function() {
     const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
     const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
@@ -606,5 +624,21 @@ const { defaultCurrency = "USD" } = Astro.props;
       document.getElementById("debt-extra").value = "";
       runCalculations();
     });
+
+    const resetBtn = document.getElementById('btn-reset-suite');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        state.debt.rows = [];
+        state.debt.extra = 0;
+        renderDebtRows();
+        document.getElementById("debt-extra").value = "";
+        try {
+          const s = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+          if (s.debt) delete s.debt;
+          localStorage.setItem('financial_hub_state', JSON.stringify(s));
+        } catch(e) {}
+        runCalculations();
+      });
+    }
   })();
 </script>

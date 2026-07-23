@@ -1,0 +1,107 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "RRSP and RRIF Withdrawal Rules in Canada (2026 Guide)",
+  description: "Comprehensive guide to converting RRSPs to RRIFs in Canada, CRA statutory minimum withdrawal percentage tables, withholding taxes, and income splitting strategies.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "RRSP and RRIF Withdrawal Rules in Canada",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to converting RRSPs to RRIFs in Canada, CRA statutory minimum withdrawal percentage tables, and withholding taxes."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What age must an RRSP be converted to a RRIF in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You must convert your RRSP to a RRIF or purchase an annuity by December 31 of the year you turn age 71."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Canada RRSP & RRIF Rules</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        RRSP and RRIF Withdrawal Rules in Canada
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Canada RRSP & RRIF Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate mandatory CRA minimum annual withdrawal percentages and income payouts.</p>
+      </div>
+      <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Estimate RRIF Minimum →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        In Canada, Registered Retirement Savings Plans (RRSPs) are one of the most effective vehicles for building pre-tax retirement wealth. However, as you approach retirement, Canadian tax law mandates that all RRSPs must be closed or converted into an income stream by the end of the year you turn <strong>age 71</strong>.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. CRA RRIF Statutory Minimum Rates</h2>
+      <p>
+        Mandatory minimum RRIF withdrawals start at 5.28% at age 71, scaling to 6.82% at age 80, 11.92% at age 90, and 20.00% at age 95+.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">RRIF Minimum Calculator</h4>
+          <p class="text-xs text-slate-400">Calculate CRA minimum annual withdrawals.</p>
+        </a>
+        <a href="/rmd-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">RMD Calculator</h4>
+          <p class="text-xs text-slate-400">Model minimum retirement account drawdowns.</p>
+        </a>
+        <a href="/roth-conversion-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Roth Conversion Calculator</h4>
+          <p class="text-xs text-slate-400">Model global tax-bracket conversion strategies.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

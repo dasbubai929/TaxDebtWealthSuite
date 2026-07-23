@@ -36,12 +36,32 @@ const currentInfo = countryLabels[country];
 ---
 
 <section id="panel-rmd" class="space-y-6" data-country={country}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        Required Minimum Distribution
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
   <!-- Country Selector Nav -->
-  <div class="flex flex-wrap gap-2 mb-6">
-    <a href="/rmd-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>US</a>
-    <a href="/rmd-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>UK</a>
-    <a href="/rmd-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
-    <a href="/rmd-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+  <div>
+    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+    <div class="flex flex-wrap gap-2 mb-2">
+      <a href="/rmd-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United States</a>
+      <a href="/rmd-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United Kingdom</a>
+      <a href="/rmd-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
+      <a href="/rmd-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+    </div>
   </div>
 
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
@@ -103,6 +123,7 @@ const currentInfo = countryLabels[country];
 </section>
 
 <script>
+  // @ts-nocheck
   // RMD Calculation Logic
   const panel = document.getElementById('panel-rmd');
   
@@ -203,5 +224,25 @@ const currentInfo = countryLabels[country];
 
     // Initial calc if values present
     calculate();
+
+    const resetBtn = document.getElementById('btn-reset-suite');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        ageInput.value = 73;
+        balanceInput.value = 100000;
+        try {
+          const s = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+          if (s.rmd) delete s.rmd;
+          localStorage.setItem('financial_hub_state', JSON.stringify(s));
+        } catch(e) {}
+        calculate();
+      });
+    }
+
+    window.addEventListener("financial-hub-reset", () => {
+      ageInput.value = 73;
+      balanceInput.value = 100000;
+      calculate();
+    });
   }
 </script>

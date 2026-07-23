@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Understanding Mortgage Recast in the US (2026 Guide)",
+  description: "Comprehensive guide to US mortgage recasting, Fannie Mae/Freddie Mac eligibility guidelines, recast fee structures, and comparison with refinancing.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Understanding Mortgage Recast in the US",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to US mortgage recasting, Fannie Mae/Freddie Mac eligibility guidelines, and comparison with refinancing."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a mortgage recast and how does it work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A mortgage recast occurs when you pay a large lump sum toward your principal loan balance. Your lender recalculates your monthly payment over the remaining loan term based on the lower balance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a mortgage recast different from refinancing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Refinancing replaces your existing loan with a new loan requiring closing costs and credit checks. A recast keeps your existing interest rate, loan term, and lender intact for a low fee ($200–$500)."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>US Real Estate & Debt</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Understanding Mortgage Recast in the US
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">US Mortgage Recast Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate how lump-sum principal payments lower your monthly check and save interest.</p>
+      </div>
+      <a href="/mortgage-recast-calculator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate Recast Savings →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        When homeowners in the United States receive a financial windfall—such as an inheritance, annual work bonus, or proceeds from selling an asset or previous home—they often wonder how to use that capital to reduce monthly living expenses. While refinancing is a common strategy, a <strong>mortgage recast</strong> offers a faster, cheaper alternative to lower monthly payments without changing interest rates or incurring closing costs.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. What is a Mortgage Recast?</h2>
+      <p>
+        A mortgage recast (also known as loan re-amortization) is an option offered by most US mortgage servicers. When you execute a recast, you make a lump-sum principal payment (typically $5,000 to $10,000 or more) toward your existing mortgage balance. In response, your lender recalculates your monthly principal and interest payment based on the lower balance over the remaining term of the loan.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">2. Mortgage Recast vs. Refinancing</h2>
+      <p>
+        Unlike refinancing, recasting keeps your existing interest rate, loan term, and lender intact while avoiding closing costs, appraisals, and credit checks.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/mortgage-recast-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">Mortgage Recast Tool</h4>
+          <p class="text-xs text-slate-400">Calculate monthly payment reductions & interest saved.</p>
+        </a>
+        <a href="/debt-payoff-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Debt Payoff Planner</h4>
+          <p class="text-xs text-slate-400">Evaluate debt snowball vs avalanche payoff methods.</p>
+        </a>
+        <a href="/buy-borrow-die-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Buy, Borrow, Die Calculator</h4>
+          <p class="text-xs text-slate-400">Model asset liquidity vs property equity accumulation.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

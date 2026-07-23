@@ -1,0 +1,133 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "UK State Pension Rules Explained (2026 Guide)",
+  description: "Comprehensive guide to the UK New State Pension, National Insurance qualifying years, pro-rata calculation rules, and deferral bonuses.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UK State Pension Rules Explained",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to the UK New State Pension, National Insurance qualifying years, and deferral bonuses."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many National Insurance years are needed for the full UK State Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need 35 qualifying National Insurance years to receive the full New State Pension (£221.20 per week). At least 10 qualifying years are required to get any pension."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does deferring your UK State Pension pay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deferring your UK State Pension increases your benefit by 1% for every 9 weeks you delay, which equals an extra 5.8% per full year deferred."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>UK State Pension</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        UK State Pension Rules Explained
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">UK State Pension Estimator</h3>
+        <p class="text-xs text-slate-300">Calculate your estimated UK State Pension based on National Insurance qualifying years.</p>
+      </div>
+      <a href="/social-security-pension-estimator/uk/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Estimate UK Pension →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        The United Kingdom's State Pension system provides a critical foundation of guaranteed income for millions of UK retirees. Following major reforms in April 2016, the UK transitioned to the <strong>New State Pension</strong>—a single-tier system designed to be simpler and fairer. However, determining how much you will receive requires understanding National Insurance (NI) contribution records, State Pension age rules, and pension deferral mathematics.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. What is the New State Pension Rate?</h2>
+      <p>
+        For individuals who reach State Pension age on or after 6 April 2016, the full single-tier <strong>New State Pension</strong> rate is <strong>£221.20 per week</strong> (equivalent to <strong>£958.53 per month</strong> or <strong>£11,502.40 per year</strong>).
+      </p>
+      <p>
+        The UK State Pension is protected by the <strong>Triple Lock</strong> mechanism, which guarantees that the State Pension rises each April by whichever is highest: average earnings growth, CPI inflation, or a baseline minimum of 2.5%.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">2. National Insurance (NI) Qualifying Years</h2>
+      <p>
+        Your eligibility depends on your NI qualifying years record:
+      </p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Minimum 10 Years:</strong> Required to receive any State Pension payment at all.</li>
+        <li><strong>Full 35 Years:</strong> Required to receive the 100% full New State Pension rate (£221.20/wk).</li>
+        <li><strong>Pro-Rata Calculation:</strong> With 10–34 years, your payout equals (Qualifying Years / 35) × £221.20.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">3. State Pension Deferral Bonus</h2>
+      <p>
+        The UK State Pension age is currently 66. Deferring your pension increases your payment by 1% for every 9 weeks delayed (+5.8% per full year deferred).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/social-security-pension-estimator/uk/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">UK State Pension Estimator</h4>
+          <p class="text-xs text-slate-400">Calculate your UK State Pension payout.</p>
+        </a>
+        <a href="/rmd-calculator/uk/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">UK Pension Drawdown Tool</h4>
+          <p class="text-xs text-slate-400">Model sustainable SIPP and workplace pension drawdowns.</p>
+        </a>
+        <a href="/roth-conversion-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Roth & Conversion Calculator</h4>
+          <p class="text-xs text-slate-400">Explore tax-bracket management strategies.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

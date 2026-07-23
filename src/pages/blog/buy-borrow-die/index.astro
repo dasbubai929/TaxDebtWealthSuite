@@ -1,0 +1,122 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Buy, Borrow, Die Strategy Guide (2026) | SBLOC vs Capital Gains Tax",
+  description: "Learn how the ultra-wealthy use Buy, Borrow, Die strategies using Securities-Based Lines of Credit (SBLOC) to access tax-free cash while avoiding capital gains taxes.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Buy, Borrow, Die Strategy Guide: SBLOC vs Capital Gains",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Learn how Buy, Borrow, Die strategies use SBLOCs to access tax-free cash."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is Buy, Borrow, Die legal under IRS rules?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Borrowing against appreciate assets is not a taxable realization event under current tax codes."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Wealth & Asset Strategy</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Buy, Borrow, Die Strategy Guide: SBLOC vs Liquidation
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Buy, Borrow, Die Calculator</h3>
+        <p class="text-xs text-slate-300">Model Securities-Based Lines of Credit (SBLOC) vs liquidation and margin call safety buffers.</p>
+      </div>
+      <a href="/buy-borrow-die-calculator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Model Buy, Borrow, Die →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          Buy, Borrow, Die is a wealth management strategy used by high-net-worth investors to finance lifestyle expenses without triggering capital gains taxes by borrowing against appreciating portfolios.
+        </p>
+      </section>
+
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Key Benefits</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Bypasses Capital Gains Tax Drag:</strong> Loan proceeds are non-taxable income.</li>
+          <li><strong>Step-Up in Basis at Death:</strong> Heirs receive assets with reset basis to eliminate unrealized gains.</li>
+          <li><strong>Preserves Compounding Growth:</strong> Assets stay invested in market index funds.</li>
+        </ul>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & Source References</h4>
+        <p>Calculations adhere to SEC Regulation T margin requirements and IRS Code Section 1014 step-up in basis rules.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.sec.gov/oiea/investor-alerts-and-bulletins/ib_marginaccount" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">SEC Margin Account Guide</a></p>
+      </section>
+
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/buy-borrow-die-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate SBLOC capacity & interest drag.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate short and long term CGT liabilities.</p>
+          </a>
+          <a href="/mortgage-recast-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Mortgage Recast Calculator</h4>
+            <p class="text-xs text-slate-400">Model lump-sum mortgage restructuring.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

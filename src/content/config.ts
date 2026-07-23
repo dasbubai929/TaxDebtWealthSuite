@@ -12,6 +12,8 @@ const blog = defineCollection({
     relatedTool: z.string(),
     /** Slug of the og:image to use — defaults to the related tool's banner */
     ogImage: z.string().optional(),
+    /** Explicit slugs of related blog posts for internal cross-linking */
+    relatedPosts: z.array(z.string()).optional(),
   }),
 });
 

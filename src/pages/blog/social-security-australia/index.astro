@@ -1,0 +1,120 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Age Pension Strategies in Australia (2026 Guide)",
+  description: "Comprehensive guide to the Australian Age Pension, Services Australia Centrelink eligibility rules, Income Test, Assets Test, and deeming rates.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Age Pension Strategies in Australia",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to the Australian Age Pension, Centrelink eligibility rules, Income Test, and Assets Test."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the maximum single Australian Age Pension payout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The maximum single Age Pension payment (including supplements) is approximately A$1,116.30 per fortnight (A$2,418.65 per month)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is your family home exempt from the Centrelink Assets Test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Your principal place of residence is exempt from the Centrelink Assets Test regardless of its value."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Australia Age Pension</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Age Pension Strategies in Australia
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Australia Age Pension Estimator</h3>
+        <p class="text-xs text-slate-300">Calculate your Centrelink Age Pension payout under the Income and Assets tests.</p>
+      </div>
+      <a href="/social-security-pension-estimator/australia/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Estimate AU Pension →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        The Australian retirement system stands on a unique "three-pillar" framework: Superannuation guarantee contributions, voluntary personal savings, and the government-funded <strong>Age Pension</strong> administered by Services Australia (Centrelink). Unlike retirement pension systems in the US, UK, or Canada which rely heavily on past wage contributions, Australia's Age Pension is a safety-net welfare payment tested strictly against your income and assets.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. Age Pension Eligibility & Rates</h2>
+      <p>
+        To qualify for the Australian Age Pension, you must be at least <strong>67 years old</strong>, satisfy the 10-year residency test, and pass Centrelink means testing. The maximum single Age Pension payment is <strong>A$1,116.30 per fortnight</strong> (A$2,418.65 per month).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">2. Centrelink Income & Assets Tests</h2>
+      <p>
+        Centrelink applies both an Income Test (including deeming rates on financial assets) and an Assets Test. Whichever test results in the lower payment rate is the binding test.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/social-security-pension-estimator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">Age Pension Estimator</h4>
+          <p class="text-xs text-slate-400">Calculate your Centrelink Age Pension payout.</p>
+        </a>
+        <a href="/rmd-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Super Drawdown Tool</h4>
+          <p class="text-xs text-slate-400">Model minimum Account-Based Pension drawdowns.</p>
+        </a>
+        <a href="/roth-conversion-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Roth & Conversion Tool</h4>
+          <p class="text-xs text-slate-400">Explore global retirement tax strategies.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

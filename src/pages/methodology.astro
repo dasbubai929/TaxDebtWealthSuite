@@ -1,57 +1,689 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const title = "Methodology | TaxDebtWealthSuite Calculators";
+const description = "Learn the methodology behind our financial calculators, including tax, debt, retirement, and wealth tools. Transparent formulas, official sources, and country-specific rules.";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://taxdebtwealthsuite.com/" },
+  { name: "Methodology", url: "https://taxdebtwealthsuite.com/methodology/" }
+];
+
+const calculators = [
+  {
+    id: "s-corp-tax",
+    title: "Side-Hustle S-Corp Tax Calculator",
+    description: "Compare the tax burden of a sole proprietorship against an S-Corporation (or equivalent entity) across the US, UK, Canada, and Australia.",
+    category: "tax",
+    color: "#10B981",
+    href: "/s-corp-tax-calculator/",
+    blog: "/blog/s-corp-tax/",
+    methodology: `This calculator models the tax differential between operating as a sole proprietor versus incorporating. The core algorithm calculates self-employment tax, corporate tax, and salary/distribution splits to find the optimal structure.
+
+**US (S-Corp):**
+- Self-employment tax: 15.3% (12.4% Social Security + 2.9% Medicare) applied to 92.35% of net earnings
+- Social Security wage base: $168,600 (2024)
+- S-Corp: FICA only applies to W-2 salary, not distributions
+- Net earnings = Revenue - Business Expenses
+
+**UK (Ltd vs Sole Trader):**
+- Corporation Tax: 19% (profits ≤ £50,000), 25% (profits > £250,000), marginal rate between
+- Income Tax: 20% (basic), 40% (higher), 45% (additional)
+- National Insurance: Class 2 (£3.45/week) + Class 4 (9% on £12,570–£50,270)
+
+**Canada (CCPC vs Sole Proprietor):**
+- Corporate tax: ~9% federal + ~3-12% provincial (active income)
+- Personal tax: 15% federal + provincial rates on dividends/salary
+- CPP contributions: 5.95% each (employee + employer) up to $68,500
+
+**Australia (Pty Ltd vs Sole Trader):**
+- Company tax: 25% (base rate entities) or 30%
+- Individual tax: 0%–45% marginal rates + 2% Medicare levy
+- GST: 10% on turnover ≥ $75,000`,
+    sources: [
+      { name: "IRS.gov - Self-Employment Tax", url: "https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" },
+      { name: "HMRC - Self Assessment", url: "https://www.gov.uk/self-assessment-tax-returns" },
+      { name: "CRA - CPP Contributions", url: "https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/employment-insurance-ei-overview.html" },
+      { name: "ATO - Company Tax Rates", url: "https://www.ato.gov.au/businesses-and-organisations/income-deductions-and-concessions/income-types-and-rates/company-tax-rates" }
+    ],
+    related: ["qbi-deduction", "capital-gains-tax", "tax-loss-harvesting"]
+  },
+  {
+    id: "debt-payoff",
+    title: "Debt Payoff Planner",
+    description: "Compare Debt Snowball vs Debt Avalanche strategies with month-by-month amortization schedules and total interest calculations.",
+    category: "debt",
+    color: "#F43F5E",
+    href: "/debt-payoff-calculator/",
+    blog: "/blog/debt-payoff-planner/",
+    methodology: `The Debt Payoff Planner uses standard amortization formulas to calculate payoff timelines under two strategies: Snowball (smallest balance first) and Avalanche (highest interest rate first).
+
+**Core Formula:**
+Number of months to pay off: N = -log(1 - (r × P) / A) / log(1 + r)
+Where P = principal balance, r = monthly interest rate (APR ÷ 12), A = monthly payment
+
+**Snowball Algorithm:**
+1. Sort debts by balance (ascending)
+2. Apply minimum payments to all debts
+3. Direct all extra payment to smallest balance
+4. When smallest balance reaches $0, roll its payment to next smallest
+
+**Avalanche Algorithm:**
+1. Sort debts by APR (descending)
+2. Apply minimum payments to all debts
+3. Direct all extra payment to highest APR debt
+4. When highest APR debt reaches $0, roll its payment to next highest APR
+
+**Key Metrics Calculated:**
+- Total interest paid per strategy
+- Months to debt-free per strategy
+- Interest saved (Avalanche vs Snowball)
+- Payoff date for each debt`,
+    sources: [
+      { name: "CFPB - Debt Collection Rules", url: "https://www.consumerfinance.gov/rules-policy/regulations/1006/" },
+      { name: "FTC - Credit Card Practices", url: "https://www.ftc.gov/legal-library/browse/rules/credit-practices-rule" }
+    ],
+    related: ["mortgage-recast", "salt-cap-deduction"]
+  },
+  {
+    id: "buy-borrow-die",
+    title: "Buy, Borrow, Die Calculator",
+    description: "Model Securities-Based Lines of Credit (SBLOC) vs capital gains liquidation across the US, UK, Canada, and Australia.",
+    description: "Model the Buy, Borrow, Die strategy: SBLOC borrowing vs capital gains liquidation with margin call risk analysis.",
+    category: "wealth",
+    color: "#00F5D4",
+    href: "/buy-borrow-die-calculator/",
+    blog: "/blog/buy-borrow-die/",
+    methodology: `This calculator compares two wealth-access strategies: selling appreciated assets (triggering capital gains tax) versus borrowing against them via a Securities-Based Line of Credit (SBLOC).
+
+**Tax Drag Calculation:**
+Tax Drag = Sale Amount × Marginal Capital Gains Rate
+- US: 0%, 15%, or 20% + 3.8% NIIT (depending on income)
+- UK: 18% (basic) or 24% (higher) on gains above £3,000 annual exempt
+- Canada: 50% inclusion rate × marginal tax rate
+- Australia: 50% CGT discount for assets held >12 months
+
+**SBLOC Cost Model:**
+Annual Interest = Loan Balance × (Reference Rate + Margin)
+- Typical reference rate: SOFR (US), SONIA (UK), CORRA (Canada), BBSY (Australia)
+- Typical margin: 1-2% above reference rate
+
+**Margin Call Risk (LTV):**
+- Maintenance Margin: 25-30% (Regulation T / standard broker requirements)
+- Margin Call Threshold: When Loan Value / Portfolio Value > Maintenance Margin
+- Liquidation Price = Loan Balance / (Shares × Maintenance Margin %)
+
+**Net Wealth Advantage:**
+Compounds the tax savings from avoiding liquidation over the analysis period.`,
+    sources: [
+      { name: "IRS - Capital Gains Rates", url: "https://www.irs.gov/taxtopics/tc409" },
+      { name: "HMRC - CGT Rates", url: "https://www.gov.uk/capital-gains-tax/rates" },
+      { name: "CRA - Capital Gains", url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/dincome-income/deductions-credits-expenses/line-12700-capital-gains.html" },
+      { name: "ATO - CGT Discount", url: "https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax/cgt-discount" }
+    ],
+    related: ["capital-gains-tax", "tax-loss-harvesting", "s-corp-tax"]
+  },
+  {
+    id: "qbi-deduction",
+    title: "QBI Deduction Calculator (Section 199A)",
+    description: "Calculate your Qualified Business Income deduction under Section 199A, including W-2 wage limits and SSTB phase-outs.",
+    category: "tax",
+    color: "#06B6D4",
+    href: "/qbi-deduction-calculator/",
+    blog: "/blog/qbi-deduction/",
+    methodology: `This calculator computes the Section 199A Qualified Business Income (QBI) deduction for pass-through entities (sole proprietors, partnerships, S-Corps).
+
+**Base Deduction:**
+QBI Deduction = 20% × Qualified Business Income
+
+**W-2 Wage / UBIA Limitation (for specified service trades above threshold):**
+Greater of:
+1. 50% of W-2 Wages paid by the business
+2. 25% of W-2 Wages + 2.5% of UBIA (Unadjusted Basis Immediately Acquired) of qualified property
+
+**Income Thresholds (2024):**
+- Single: $191,950 (full deduction below, phase-out starts)
+- Married Filing Jointly: $383,900
+- Phase-out range: $50,000 (single) / $100,000 (MFJ)
+
+**SSTB (Specified Service Trade or Business):**
+Fully disallowed above the upper threshold. Partially disallowed within the phase-out range.
+
+**Eligible Businesses:**
+Most trades and businesses qualify except: C-Corps, certain service businesses (health, law, accounting, consulting, financial services, athletics).`,
+    sources: [
+      { name: "IRS - Section 199A Deduction", url: "https://www.irs.gov/newsroom/qualified-business-income-deduction" },
+      { name: "IRS - QBI Final Regulations", url: "https://www.irs.gov/irb/2019-42_irb" }
+    ],
+    related: ["s-corp-tax", "salt-cap-deduction"]
+  },
+  {
+    id: "salt-cap-deduction",
+    title: "SALT Cap Deduction Calculator",
+    description: "Calculate your allowed state and local tax deduction under the $40,400 SALT cap, including the high-income phase-down.",
+    category: "tax",
+    color: "#A855F7",
+    href: "/salt-cap-deduction-calculator/",
+    blog: "/blog/salt-cap-deduction/",
+    methodology: `This calculator determines your allowable State and Local Tax (SALT) deduction under the Tax Cuts and Jobs Act (TCJA) cap, including the 2025 high-income phase-down.
+
+**SALT Cap Rules (2025):**
+- Maximum SALT deduction: $40,400 (single) / $80,800 (MFJ)
+- High-income phase-down: $1 per $100 of MAGI above $500,000 (single) / $1,000,000 (MFJ)
+- Minimum SALT cap: $10,000
+
+**SALT Components:**
+- State income tax OR state sales tax (choose higher)
+- Local/property tax (real estate, personal property)
+- State/local personal property tax
+
+**Calculation Flow:**
+1. Sum all eligible SALT payments
+2. Compare to SALT cap
+3. Apply phase-down if applicable
+4. Determine allowed deduction
+5. Compare itemized vs standard deduction`,
+    sources: [
+      { name: "IRS - SALT Deduction Limit", url: "https://www.irs.gov/newsroom/td-9884-final-regulations-on-the-limitation-on-the-deduction-for-state-and-local-taxes" },
+      { name: "Congressional Research Service - SALT Cap", url: "https://crsreports.congress.gov/product/pdf/R/R47605" }
+    ],
+    related: ["s-corp-tax", "qbi-deduction"]
+  },
+  {
+    id: "roth-conversion",
+    title: "Roth Conversion Calculator",
+    description: "Model the tax cost of converting a traditional IRA or 401(k) to a Roth IRA and find your breakeven future tax rate.",
+    category: "retirement",
+    color: "#F59E0B",
+    href: "/roth-conversion-calculator/",
+    blog: "/blog/roth-conversion/",
+    methodology: `This calculator models the tax impact of converting pre-tax retirement accounts (Traditional IRA, 401k, 403b) to a Roth IRA, and determines the breakeven future tax rate.
+
+**Conversion Tax Cost:**
+Tax Cost = Conversion Amount × Marginal Tax Rate (in year of conversion)
+
+**After-Tax Value Comparison:**
+- Traditional: Balance × (1 - Future Tax Rate) at withdrawal
+- Roth: Balance (tax-free) at withdrawal
+
+**Breakeven Formula:**
+Breakeven Tax Rate = Current Tax Rate (if tax rates remain constant)
+
+**Key Variables:**
+- Current age and retirement age
+- Current tax bracket vs expected retirement bracket
+- Investment growth rate
+- Analysis horizon (years to/through retirement)
+
+**Strategic Insights:**
+- Best for: Low-income gap years, early retirement before RMDs, large tax deductions
+- Consider: IRMAA thresholds, ACA subsidies, Net Investment Income Tax`,
+    sources: [
+      { name: "IRS - Roth IRAs", url: "https://www.irs.gov/retirement-plans/roth-iras" },
+      { name: "IRS - Pub 590-A (Contributions)", url: "https://www.irs.gov/publications/p590a" },
+      { name: "IRS - Pub 590-B (Distributions)", url: "https://www.irs.gov/publications/p590b" }
+    ],
+    related: ["rmd-calculator", "social-security", "superannuation-rrsp"]
+  },
+  {
+    id: "rmd-calculator",
+    title: "Required Minimum Distribution Calculator",
+    description: "Calculate mandatory retirement withdrawals based on age and country rules for US, UK, Canada, and Australia.",
+    category: "retirement",
+    color: "#3B82F6",
+    href: "/rmd-calculator/",
+    blog: "/blog/rmd-calculator-us/",
+    methodology: `This calculator computes Required Minimum Distributions (RMDs) for retirement accounts based on country-specific rules and the IRS Uniform Lifetime Table.
+
+**US (IRS Uniform Lifetime Table):**
+RMD = Account Balance ÷ Distribution Period
+- Starting age: 73 (SECURE Act 2.0)
+- Distribution period from IRS Uniform Lifetime Table (updated 2022)
+- First-year exception: Can delay first RMD to April 1 of following year
+
+**UK (Flexi-Access Drawdown):**
+- No mandatory minimum after 25% tax-free lump sum
+- 25% Pension Commencement Lump Sum (PCLS) tax-free
+- Remaining drawdown taxed as income
+- Money Purchase Annual Allowance: £10,000/year after flexi-access
+
+**Canada (RRIF Minimum):**
+Minimum % = 1 / (90 - age at start of year)
+- At age 71: must convert RRSP to RRIF
+- Minimum withdrawal: 5.28% at age 71, increasing annually
+- Withholding tax: 10% (first $5,000), 20% ($5,001-$15,000), 30% (above $15,000)
+
+**Australia (Account-Based Pension):**
+Minimum drawdown rates by age:
+- Under 65: 4%
+- 64-74: 5%
+- 75-79: 6%
+- 80-84: 7%
+- 95+: 14%`,
+    sources: [
+      { name: "IRS - Uniform Lifetime Table", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/required-minimum-distribution-worksheets" },
+      { name: "HMRC - Pension Drawdown", url: "https://www.gov.uk/guidance/check-if-you-can-apply-for-an-exception-to-the-money-purchase-annual-allowance" },
+      { name: "CRA - RRIF Minimum", url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/registered-retirement-income-fund-rrif/minimum-withdrawal-amounts.html" },
+      { name: "ATO - Minimum Drawdown", url: "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/withdrawing-and-using-your-super/minimum-pension-payments" }
+    ],
+    related: ["roth-conversion", "social-security", "superannuation-rrsp"]
+  },
+  {
+    id: "capital-gains-tax",
+    title: "Capital Gains Tax Calculator",
+    description: "Estimate your capital gains tax liability for short-term and long-term gains across the US, UK, Canada, and Australia.",
+    category: "tax",
+    color: "#34D399",
+    href: "/capital-gains-tax-calculator/",
+    blog: "/blog/capital-gains-tax-us/",
+    methodology: `This calculator estimates capital gains tax based on holding period, income level, and country-specific tax rules.
+
+**US Capital Gains Tax:**
+- Short-term (≤1 year): Taxed as ordinary income (10%-37%)
+- Long-term (>1 year): 0%, 15%, or 20% based on taxable income
+- Net Investment Income Tax: Additional 3.8% for MAGI > $200,000 (single) / $250,000 (MFJ)
+- 2024 brackets: 0% up to $47,025, 15% up to $518,900, 20% above
+
+**UK Capital Gains Tax:**
+- Annual exempt amount: £3,000
+- Basic rate: 18% (residential property) / 24% (other assets)
+- Higher rate: 24% (residential property) / 24% (other assets)
+- Residential property: No CGT allowance for non-residents
+
+**Canada Capital Gains:**
+- Inclusion rate: 50% of gain (below $250,000 threshold)
+- Additional inclusion rate: 66.67% on gains above $250,000
+- Taxed at marginal rate
+- Principal residence exemption: Full exemption
+
+**Australia Capital Gains:**
+- 50% CGT discount for assets held >12 months
+- No discount for individuals (companies pay full rate)
+- Main residence exemption: Full exemption
+- Foreign resident CGT: No 50% discount`,
+    sources: [
+      { name: "IRS - Capital Gains", url: "https://www.irs.gov/taxtopics/tc409" },
+      { name: "HMRC - CGT Rates", url: "https://www.gov.uk/capital-gains-tax/rates" },
+      { name: "CRA - Capital Gains", url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/dincome-income/deductions-credits-expenses/line-12700-capital-gains.html" },
+      { name: "ATO - CGT", url: "https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" }
+    ],
+    related: ["buy-borrow-die", "tax-loss-harvesting"]
+  },
+  {
+    id: "tax-loss-harvesting",
+    title: "Tax Loss Harvesting Calculator",
+    description: "Calculate tax savings from harvesting investment losses to offset capital gains across the US, UK, Canada, and Australia.",
+    category: "tax",
+    color: "#6366F1",
+    href: "/tax-loss-harvesting-calculator/",
+    blog: "/blog/tax-loss-harvesting-us/",
+    methodology: `This calculator computes the tax savings from realizing investment losses to offset capital gains, with country-specific wash sale and loss rules.
+
+**US Tax Loss Harvesting:**
+- Losses offset gains dollar-for-dollar
+- Up to $3,000 of net losses can offset ordinary income
+- Wash Sale Rule: Cannot repurchase "substantially identical" security within 30 days before/after sale
+- Remaining losses carry forward indefinitely
+
+**UK Capital Losses:**
+- Losses offset gains in same or future tax years
+- No limit on loss offset
+- 30-day "bed and breakfasting" rule (cannot repurchase same security within 30 days)
+- Losses must be reported to HMRC within 4 years
+
+**Canada Superficial Loss Rules:**
+- Losses denied if repurchase within 30 days before/after
+- Superficial loss added to ACB of replacement shares
+- Losses can offset gains + $2,500 of net capital losses
+- Net capital losses carry forward indefinitely
+
+**Australia Wash Sale Rules:**
+- ATO anti-avoidance: Loss denied if same asset acquired within 30 days
+- Losses offset gains, no ordinary income offset
+- Losses carry forward indefinitely
+- 50% CGT discount applies after loss offset`,
+    sources: [
+      { name: "IRS - Wash Sale Rule", url: "https://www.irs.gov/taxtopics/tc409" },
+      { name: "HMRC - Capital Losses", url: "https://www.gov.uk/capital-gains-tax/losses" },
+      { name: "CRA - Superficial Loss", url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/dincome-income/deductions-credits-expenses/line-12700-capital-gains/superficial-losses.html" },
+      { name: "ATO - Capital Losses", url: "https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax/working-out-your-capital-gain-or-loss" }
+    ],
+    related: ["capital-gains-tax", "buy-borrow-die"]
+  },
+  {
+    id: "social-security",
+    title: "Social Security & Pension Estimator",
+    description: "Estimate your monthly public retirement pension payout for the US, UK, Canada, and Australia based on country formulas.",
+    category: "retirement",
+    color: "#10B981",
+    href: "/social-security-pension-estimator/",
+    blog: "/blog/social-security-us/",
+    methodology: `This estimator calculates expected monthly retirement benefits based on country-specific pension formulas and claiming age.
+
+**US Social Security (PIA Formula):**
+Primary Insurance Amount (PIA) = 90% of first bend point + 32% of amount between bend points + 15% of amount above
+- 2024 bend points: $1,174 / $7,078
+- AIME = Average Indexed Monthly Earnings (35 highest years)
+- Claiming age adjustment: 62 (70%), 67 (100%), 70 (124%)
+
+**UK New State Pension:**
+- Full rate: £221.20/week (2024/25)
+- Requires 35 qualifying years of National Insurance
+- Pro-rata for 10-34 qualifying years
+- Deferral bonus: 1% for every 9 weeks deferred (5.8% per year)
+
+**Canada CPP & OAS:**
+- CPP: 25% of average earnings up to YMPE ($68,500)
+- Maximum CPP: $1,364.60/month (at age 65)
+- OAS: $713.34/month (age 65+), clawback above $90,997
+- Early CPP: 0.6% reduction per month before 65
+
+**Australia Age Pension:**
+- Full rate: $1,116.30/fortnight (single) / $841.40/fortnight (couple)
+- Income Test: 50 cents per $1 over threshold
+- Assets Test: $3.00 per $1,000 over threshold
+- Deeming rates: 0.25% up to $60,400, 2.25% above`,
+    sources: [
+      { name: "SSA - Benefit Calculation", url: "https://www.ssa.gov/OACT/cola/pia.html" },
+      { name: "Gov.uk - State Pension", url: "https://www.gov.uk/state-pension" },
+      { name: "CRA - CPP", url: "https://www.canada.ca/en/services/benefits/pension/cpp.html" },
+      { name: "Services Australia - Age Pension", url: "https://www.servicesaustralia.gov.au/age-pension" }
+    ],
+    related: ["rmd-calculator", "roth-conversion", "superannuation-rrsp"]
+  },
+  {
+    id: "superannuation-rrsp",
+    title: "Superannuation & RRSP Withdrawal Calculator",
+    description: "Calculate mandatory annual drawdowns for US IRAs, UK SIPPs, Canadian RRIFs, and Australian Superannuation pensions.",
+    category: "retirement",
+    color: "#A855F7",
+    href: "/superannuation-rrsp-withdrawal-calculator/",
+    blog: "/blog/superannuation-rrsp-us/",
+    methodology: `This calculator computes mandatory minimum withdrawals from retirement accounts based on age and country-specific rules.
+
+**US (IRA/401k RMD):**
+RMD = Account Balance ÷ Distribution Period (IRS Uniform Lifetime Table)
+- Starting age: 73 (SECURE Act 2.0)
+- Applies to: Traditional IRA, 401(k), 403(b), 457(b)
+- Does NOT apply to: Roth IRA (during owner's lifetime)
+
+**UK (SIPP Drawdown):**
+- 25% Pension Commencement Lump Sum (PCLS) tax-free
+- Remaining drawdown taxed as income
+- No mandatory minimum after PCLS taken
+- Money Purchase Annual Allowance: £10,000/year after flexi-access
+
+**Canada (RRIF Minimum):**
+Minimum % = 1 / (90 - age at start of year)
+- Must convert RRSP to RRIF by end of year turning 71
+- Minimum withdrawal increases with age
+- Withholding tax applies on amounts above minimum
+
+**Australia (Account-Based Pension):**
+Minimum drawdown rates by age:
+- Under 65: 4% of account balance
+- 64-74: 5%
+- 75-79: 6%
+- 80-84: 7%
+- 85-89: 9%
+- 90-94: 11%
+- 95+: 14%`,
+    sources: [
+      { name: "IRS - RMD Rules", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/required-minimum-distribution-worksheets" },
+      { name: "HMRC - Pension Drawdown", url: "https://www.gov.uk/guidance/check-if-you-can-apply-for-an-exception-to-the-money-purchase-annual-allowance" },
+      { name: "CRA - RRIF", url: "https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/rrsps-related-plans/registered-retirement-income-fund-rrif.html" },
+      { name: "ATO - Minimum Drawdown", url: "https://www.ato.gov.au/individuals-and-families/super-for-individuals-and-families/super/withdrawing-and-using-your-super/minimum-pension-payments" }
+    ],
+    related: ["rmd-calculator", "social-security", "roth-conversion"]
+  },
+  {
+    id: "mortgage-recast",
+    title: "Mortgage Recast Calculator",
+    description: "Calculate how lump-sum principal payments reduce monthly mortgage payments and save total interest across US, UK, Canada, and Australia.",
+    category: "debt",
+    color: "#14B8A6",
+    href: "/mortgage-recast-calculator/",
+    blog: "/blog/mortgage-recast-us/",
+    methodology: `This calculator computes the impact of making a lump-sum principal payment on your mortgage, including reduced monthly payments and total interest savings.
+
+**US Mortgage Recast:**
+- Standard amortization: M = P[r(1+r)^n]/[(1+r)^n-1]
+- Where P = principal, r = monthly rate, n = remaining months
+- After lump-sum: New M = (P - LumpSum)[r(1+r)^n]/[(1+r)^n-1]
+- Typical recast fee: $150-$500
+- Fannie Mae/Freddie Mac eligible loans can be recast
+
+**UK Mortgage Overpayment:**
+- Most lenders allow 10% overpayment per year penalty-free
+- Overpayment reduces term OR monthly payment (borrower choice)
+- Some lenders charge Early Repayment Charge (ERC): 1-5%
+- Offset accounts available with some lenders
+
+**Canada Mortgage Prepayment:**
+- Standard prepayment privilege: 10-20% of original principal annually
+- Prepayment penalty: Interest Rate Differential (IRD) or 3 months interest
+- Lump-sum payments applied directly to principal
+
+**Australia Home Loan:**
+- Offset account: Interest calculated on net balance (loan - offset)
+- Redraw facility: Access extra repayments if needed
+- Split loans: Part fixed, part variable
+- Comparison rate includes fees and charges`,
+    sources: [
+      { name: "CFPB - Mortgage Servicing", url: "https://www.consumerfinance.gov/rules-policy/regulations/1024/" },
+      { name: "Fannie Mae - Mortgage Recasting", url: "https://singlefamily.fanniemae.com/originating-understanding-mortgages/mortgage-recasting" },
+      { name: "FCAC - Mortgage Prepayment", url: "https://www.canada.ca/en/financial-consumer-agency/services/mortgages/mortgage-prepayment.html" },
+      { name: "ASIC Moneysmart - Mortgages", url: "https://moneysmart.gov.au/home-loans" }
+    ],
+    related: ["debt-payoff", "buy-borrow-die"]
+  }
+];
+
+const relatedCalcMap = {
+  "s-corp-tax": { label: "S-Corp Tax Calculator", href: "/s-corp-tax-calculator/", color: "text-[#10B981]" },
+  "qbi-deduction": { label: "QBI Deduction Calculator", href: "/qbi-deduction-calculator/", color: "text-[#06B6D4]" },
+  "salt-cap-deduction": { label: "SALT Cap Deduction Calculator", href: "/salt-cap-deduction-calculator/", color: "text-[#A855F7]" },
+  "capital-gains-tax": { label: "Capital Gains Tax Calculator", href: "/capital-gains-tax-calculator/", color: "text-[#34D399]" },
+  "tax-loss-harvesting": { label: "Tax Loss Harvesting Calculator", href: "/tax-loss-harvesting-calculator/", color: "text-[#6366F1]" },
+  "debt-payoff": { label: "Debt Payoff Planner", href: "/debt-payoff-calculator/", color: "text-[#F43F5E]" },
+  "mortgage-recast": { label: "Mortgage Recast Calculator", href: "/mortgage-recast-calculator/", color: "text-[#14B8A6]" },
+  "buy-borrow-die": { label: "Buy, Borrow, Die Calculator", href: "/buy-borrow-die-calculator/", color: "text-[#00F5D4]" },
+  "roth-conversion": { label: "Roth Conversion Calculator", href: "/roth-conversion-calculator/", color: "text-[#F59E0B]" },
+  "rmd-calculator": { label: "RMD Calculator", href: "/rmd-calculator/", color: "text-[#3B82F6]" },
+  "social-security": { label: "Social Security & Pension Estimator", href: "/social-security-pension-estimator/", color: "text-[#10B981]" },
+  "superannuation-rrsp": { label: "Superannuation & RRSP Withdrawal", href: "/superannuation-rrsp-withdrawal-calculator/", color: "text-[#A855F7]" }
+};
 ---
 
-<Layout 
-  title="Calculation Methodology | TaxDebtWealthSuite"
-  description="Understand the mathematical frameworks, algorithms, and official sources used to power our financial calculators."
->
-  <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
-    <div class="mb-12 text-center">
-      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">The Math</span>
-      <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">Calculator Methodology</h1>
-    </div>
+<Layout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <main class="flex-grow pt-24 pb-20">
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-16">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#7B61FF]/10 text-[#7B61FF] border border-[#7B61FF]/20 mb-4">The Math</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-sans mb-6">
+        Calculator <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F5D4] to-[#7B61FF]">Methodology</span>
+      </h1>
+      <p class="text-base sm:text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+        We believe in complete transparency. Below is a detailed breakdown of the mathematical frameworks, official sources, and country-specific rules that power every calculator on TaxDebtWealthSuite.
+      </p>
+    </section>
 
-    <div class="prose prose-invert prose-slate max-w-none">
-      <p class="text-lg text-slate-300 leading-relaxed mb-8">
-        We believe in complete transparency. You should never trust a "black box" calculator with your financial future. Below is an outline of the mathematical frameworks and official sources that power the tools on TaxDebtWealthSuite.
-      </p>
+    <!-- Intro Section -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-xl font-bold text-white">How Our Calculations Work</h2>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          All mathematical functions execute in your local browser using client-side JavaScript. We do not use server-side APIs to process your financial data, ensuring complete privacy. Our formulas are based on official government publications and regulatory guidelines from the IRS, HMRC, CRA, and ATO.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">Client-Side Only</span>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#7B61FF]/10 text-[#7B61FF] border border-[#7B61FF]/20">No Data Storage</span>
+          <span class="px-3 py-1 rounded-full text-xs font-semibold bg-[#FF6B6B]/10 text-[#FF6B6B] border border-[#FF6B6B]/20">Open Formulas</span>
+        </div>
+      </div>
+    </section>
 
-      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Debt Payoff Algorithms</h2>
-      <p class="text-slate-400">
-        Our Debt Payoff tools (Snowball, Avalanche, Credit Card Payoff) utilize standard daily/monthly compounding amortization formulas. 
-        <br><br>
-        <strong>Formulas Used:</strong><br>
-        For calculating the number of months required to pay off a balance given a fixed payment: <br>
-        <code>N = -log(1 - (r * P) / A) / log(1 + r)</code>
-        <br>Where <em>P</em> is the principal, <em>r</em> is the monthly interest rate (APR / 12), and <em>A</em> is the monthly payment.
-      </p>
-      <p class="text-slate-400 mt-2">
-        <strong>Avalanche vs Snowball Logic:</strong> The Avalanche algorithm aggressively sorts your debts by <code>APR (descending)</code>, while the Snowball algorithm sorts by <code>Balance (ascending)</code>. Extra payments are dynamically rolled over to the next targeted debt once the current target reaches $0.
-      </p>
+    <!-- Category Filters -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <button class="filter-btn active px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/30" data-filter="all">All</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-slate-400 border border-slate-700 hover:text-white hover:bg-slate-800" data-filter="tax">Tax</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-slate-400 border border-slate-700 hover:text-white hover:bg-slate-800" data-filter="debt">Debt</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-slate-400 border border-slate-700 hover:text-white hover:bg-slate-800" data-filter="wealth">Wealth</button>
+        <button class="filter-btn px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 bg-slate-900 text-slate-400 border border-slate-700 hover:text-white hover:bg-slate-800" data-filter="retirement">Retirement</button>
+      </div>
+    </section>
 
-      <h2 class="text-2xl font-bold text-white mt-10 mb-4">S-Corp Tax Optimization</h2>
-      <p class="text-slate-400">
-        Our business tax calculators compare the tax burden of a standard Sole Proprietorship / Single-Member LLC against an S-Corporation structure.
-      </p>
-      <ul class="list-disc pl-6 text-slate-400 space-y-2 mb-6">
-        <li><strong>United States:</strong> Calculations are based on the IRS self-employment tax rate of 15.3% (12.4% Social Security, 2.9% Medicare) applied to 92.35% of net earnings. The S-Corp model applies FICA taxes only to the W2 salary, shielding the remaining distribution.</li>
-        <li><strong>Official Sources:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline">IRS.gov - Self-Employment Tax</a></li>
-      </ul>
+    <!-- Methodology Entries -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 mb-16">
+      {calculators.map((calc) => (
+        <article class="methodology-card glass-panel p-6 sm:p-8 rounded-2xl border border-slate-800 space-y-6" data-category={calc.category}>
+          <!-- Header -->
+          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+            <div class="space-y-2 flex-1">
+              <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest" style={`background-color: ${calc.color}15; color: ${calc.color}; border: 1px solid ${calc.color}30`}>
+                  {calc.category}
+                </span>
+              </div>
+              <h2 class="text-2xl font-bold text-white">{calc.title}</h2>
+              <p class="text-sm text-slate-400 leading-relaxed">{calc.description}</p>
+            </div>
+            <a href={calc.href} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 hover:scale-105 shrink-0" style={`background-color: ${calc.color}15; color: ${calc.color}; border: 1px solid ${calc.color}30;`}>
+              Try Calculator →
+            </a>
+          </div>
 
-      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Buy, Borrow, Die (Margin Loans)</h2>
-      <p class="text-slate-400">
-        The SBLOC (Securities-Based Line of Credit) calculators model the opportunity cost of selling equities (triggering capital gains) versus borrowing against them.
-      </p>
-      <ul class="list-disc pl-6 text-slate-400 space-y-2 mb-6">
-        <li><strong>Tax Drag:</strong> Selling stock instantly reduces your compoundable capital by your marginal capital gains rate (e.g., 15% or 20% in the US, plus NII tax).</li>
-        <li><strong>Margin Call Risk (LTV):</strong> We calculate your liquidation price based on standard broker Maintenance Margin Requirements (typically 25-30% for Regulation T accounts, though we allow custom inputs).</li>
-      </ul>
+          <!-- Methodology Content -->
+          <div class="prose prose-invert prose-sm max-w-none">
+            <div class="text-sm text-slate-300 leading-relaxed whitespace-pre-line">{calc.methodology}</div>
+          </div>
 
-      <h2 class="text-2xl font-bold text-white mt-10 mb-4">Data Privacy</h2>
-      <p class="text-slate-400">
-        All mathematical functions execute in your local browser using client-side JavaScript. We do not use server-side APIs to crunch your numbers, ensuring your financial inputs cannot be intercepted or stored.
-      </p>
-    </div>
+          <!-- Official Sources -->
+          <div class="space-y-3">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Official Sources</h3>
+            <div class="flex flex-wrap gap-2">
+              {calc.sources.map((source) => (
+                <a href={source.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 text-slate-300 border border-slate-700 hover:border-[#00F5D4]/40 hover:text-[#00F5D4] transition-all focus-ring">
+                  <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  {source.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- Related Calculators -->
+          <div class="pt-4 border-t border-slate-800">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-3">Related Calculators</h3>
+            <div class="flex flex-wrap gap-2">
+              {calc.related.map((relKey) => {
+                const rel = relatedCalcMap[relKey];
+                return rel ? (
+                  <a href={rel.href} class={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-900 border border-slate-700 hover:border-[#00F5D4]/40 transition-all focus-ring ${rel.color}`}>
+                    {rel.label}
+                  </a>
+                ) : null;
+              })}
+            </div>
+          </div>
+
+          <!-- Blog Link -->
+          <div class="pt-2">
+            <a href={calc.blog} class="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-[#00F5D4] transition-colors font-semibold">
+              <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              Read the full guide →
+            </a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <!-- Future Calculators Note -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div class="glass-panel p-6 rounded-2xl border border-[#00F5D4]/20 bg-[#00F5D4]/5 space-y-3">
+        <h2 class="text-lg font-bold text-[#00F5D4]">Adding New Calculators</h2>
+        <p class="text-sm text-slate-400 leading-relaxed">
+          Whenever a new calculator is added to TaxDebtWealthSuite, a corresponding methodology entry is automatically generated on this page following the standardized template above. Each entry includes the calculation methodology, official sources, internal links to the calculator and blog guide, and related calculator cross-links.
+        </p>
+      </div>
+    </section>
   </main>
+
+  <!-- Filter Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.methodology-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-[#00F5D4]/10', 'text-[#00F5D4]', 'border-[#00F5D4]/30');
+            b.classList.add('bg-slate-900', 'text-slate-400', 'border-slate-700', 'hover:text-white', 'hover:bg-slate-800');
+          });
+          btn.classList.add('active', 'bg-[#00F5D4]/10', 'text-[#00F5D4]', 'border-[#00F5D4]/30');
+          btn.classList.remove('bg-slate-900', 'text-slate-400', 'border-slate-700', 'hover:text-white', 'hover:bg-slate-800');
+
+          const filter = btn.getAttribute('data-filter');
+          cards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- FAQ Schema -->
+  <script type="application/ld+json" is:inline slot="head">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How are calculations performed on TaxDebtWealthSuite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All mathematical functions execute in your local browser using client-side JavaScript. We do not use server-side APIs to process your financial data, ensuring complete privacy. Our formulas are based on official government publications from the IRS, HMRC, CRA, and ATO."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these calculators country-specific?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Many calculators support multiple jurisdictions including the US, UK, Canada, and Australia. Each country variant uses country-specific tax rates, pension rules, and regulatory formulas. For example, the S-Corp Tax Calculator models S-Corps in the US, Ltd companies in the UK, CCPCs in Canada, and Pty Ltd companies in Australia."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which official sources are used for the calculations?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our calculators use official sources including IRS.gov (US tax rules), HMRC.gov.uk (UK tax rules), Canada.ca/CRA (Canadian tax rules), and ATO.gov.au (Australian tax rules). Each methodology entry on this page links directly to the relevant official publications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the methodology for the Debt Payoff Calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Debt Payoff Planner uses the standard amortization formula N = -log(1 - (r * P) / A) / log(1 + r) to calculate payoff timelines. It compares Snowball (smallest balance first) and Avalanche (highest interest rate first) strategies with month-by-month schedules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the Buy, Borrow, Die calculator work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Buy, Borrow, Die calculator models two wealth-access strategies: selling appreciated assets (triggering capital gains tax) versus borrowing against them via a Securities-Based Line of Credit (SBLOC). It calculates tax drag, SBLOC costs, margin call risk (LTV), and net wealth advantage over time."
+          }
+        }
+      ]
+    }
+  </script>
 </Layout>

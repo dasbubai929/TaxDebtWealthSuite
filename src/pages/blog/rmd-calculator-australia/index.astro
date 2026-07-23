@@ -1,0 +1,121 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Australia Super Minimum Drawdown Guide (2026) | ATO Pension Standards",
+  description: "Calculate ATO Account-Based Pension minimum annual drawdown rates by age bracket (<65 to 95+) for Australian retirees.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Australia Super Minimum Drawdown Guide: ATO Pension Standards",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Calculate ATO Account-Based Pension minimum annual drawdown rates by age bracket."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the minimum drawdown rate for ages 65–74 in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For ages 65–74, the statutory minimum annual drawdown rate is 5% of account balance on July 1."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Australia Super & Pension</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Australia Super Minimum Drawdown Guide
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Australia Super Drawdown Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate ATO Account-Based Pension minimum annual drawdown rates by age bracket.</p>
+      </div>
+      <a href="/rmd-calculator/australia/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate AU Super Drawdown →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          In Australia, Account-Based Pensions must pay out statutory minimum annual percentages to maintain tax-free earnings status inside super funds.
+        </p>
+      </section>
+
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Key Benefits</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>100% Tax-Free Earnings (Ages 60+):</strong> Pension phase earnings are completely tax-free.</li>
+          <li><strong>Flexible Frequency:</strong> Draw down monthly, quarterly, or annually.</li>
+        </ul>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & ATO Source References</h4>
+        <p>Calculations adhere to Australian Taxation Office (ATO) Superannuation Minimum Pension Standards.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/super/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">ATO Super Guide</a></p>
+      </section>
+
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">AU Super Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate ATO minimum pension rates.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Super & RRSP Calculator</h4>
+            <p class="text-xs text-slate-400">Model global pension drawdowns.</p>
+          </a>
+          <a href="/social-security-pension-estimator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Age Pension Estimator</h4>
+            <p class="text-xs text-slate-400">Calculate Centrelink means testing.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

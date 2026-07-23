@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import MortgageRecastCalculator from "../../components/MortgageRecastCalculator.astro";
+---
+
+<Layout
+  title="Mortgage Recast Calculator (US) | Calculate Payment Savings & Interest"
+  description="Calculate how a lump-sum principal payment reduces your monthly mortgage payment and saves total interest with a mortgage recast."
+  ogImage="https://taxdebtwealthsuite.com/images/og-mortgage-recast.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Mortgage Recast Calculator (US)",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Calculate how a lump-sum principal payment reduces monthly mortgage payments under US lender recast rules."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a mortgage recast and how does it work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A mortgage recast occurs when you pay a large lump sum toward your principal loan balance. Your lender then recalculates (re-amortizes) your monthly payment over the remaining loan term based on the lower balance, reducing your monthly check without changing your interest rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is a mortgage recast different from refinancing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Refinancing replaces your existing loan with a new loan, requiring closing costs, credit checks, and appraisal fees. A recast keeps your existing interest rate, loan term, and lender intact while lowering monthly payments for a low fee (typically $200–$500)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Mortgage Recast Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate how a lump-sum principal reduction lowers your monthly mortgage payment and calculates lifetime interest savings without refinancing.
+      </p>
+    </div>
+
+    <MortgageRecastCalculator country="us" />
+  </main>
+</Layout>

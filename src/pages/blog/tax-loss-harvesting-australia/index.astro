@@ -5,7 +5,7 @@ const seo = {
   title: "Tax Loss Harvesting for Australian Investors (2026 Guide)",
   description: "Learn how to use tax loss harvesting in Australia to offset capital gains. Master the ATO wash sale rules and understand how losses interact with the 50% CGT discount.",
   schema: `
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -16,14 +16,14 @@ const seo = {
         },
         "publisher": {
           "@type": "Organization",
-          "name": "Tax Debt Wealth Suite"
+          "name": "TaxDebtWealthSuite"
         },
         "datePublished": "2026-07-22",
-        "dateModified": "2026-07-22",
+        "dateModified": "2026-07-23",
         "description": "Learn how to use tax loss harvesting in Australia to offset capital gains. Master the ATO wash sale rules and understand how losses interact with the 50% CGT discount."
       }
     </script>
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
       {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -62,8 +62,8 @@ const seo = {
 <Layout title={seo.title} description={seo.description} head={seo.schema}>
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <header class="mb-12 text-center">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold uppercase tracking-widest border border-indigo-500/20 mb-6">
-        <span>Tax Strategy (Australia)</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Australian Tax Strategy</span>
       </div>
       <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
         Tax Loss Harvesting for Australian Investors
@@ -73,69 +73,101 @@ const seo = {
           <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
           By <span class="text-white font-medium">Mrittunjoy Das</span>
         </span>
-        <span>&bull;</span>
+        <span>•</span>
         <time datetime="2026-07-22">July 22, 2026</time>
       </div>
     </header>
 
-    <div class="prose prose-invert prose-lg max-w-none prose-a:text-[#00F5D4] hover:prose-a:text-[#00F5D4]/80 prose-headings:text-white prose-img:rounded-xl">
-      <p class="lead text-xl text-slate-300">
-        No investor wants to see their portfolio in the red, but market corrections offer a unique opportunity to reduce your tax bill. By selling underperforming assets and realizing a capital loss, you can offset your capital gains through a strategy known as <strong>Tax Loss Harvesting</strong>.
-      </p>
-
-      <h2>How Capital Losses Work in Australia</h2>
-      <p>
-        In Australia, you make a capital loss when you sell a CGT asset for less than its reduced cost base. Just like capital gains, capital losses are reported to the Australian Taxation Office (ATO) in the income year they occur.
-      </p>
-      
-      <p>
-        <strong>The Golden Rule:</strong> Net capital losses can <em>only</em> be used to offset capital gains. They cannot be deducted against your ordinary income, such as your salary, wages, or business income. 
-      </p>
-
-      <h3>Carrying Losses Forward</h3>
-      <p>
-        If your capital losses exceed your capital gains for the year, the excess (net capital loss) cannot be carried back to previous years. However, you can <strong>carry it forward indefinitely</strong> to offset against future capital gains. You must report these carried-forward losses in your tax return each year until they are used up.
-      </p>
-
-      <div class="my-8 p-6 bg-slate-900 border border-slate-700 rounded-xl">
-        <h4 class="text-white font-bold mb-2 flex items-center gap-2">
-          <svg class="w-5 h-5 text-[#00F5D4]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-          Interactive Tool
-        </h4>
-        <p class="text-sm mb-4">Calculate exactly how much you can save this year by offsetting your specific gains.</p>
-        <a href="/tax-loss-harvesting-calculator/australia/" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-lg text-black bg-[#00F5D4] hover:bg-[#00F5D4]/90 transition-colors">
-          Use the Australian Tax Loss Harvesting Calculator
-        </a>
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Australian Tax Loss Harvesting Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate exactly how much you can save this year by offsetting your specific gains under ATO rules.</p>
       </div>
+      <a href="/tax-loss-harvesting-calculator/australia/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate Australian Tax Savings →
+      </a>
+    </div>
 
-      <h2>The 50% CGT Discount Trap</h2>
-      <p>
-        One of the most critical aspects of tax loss harvesting in Australia is understanding the order of operations when applying losses against gains. 
-      </p>
-      <p>
-        If you hold an asset for more than 12 months, you are generally eligible for the <strong>50% CGT discount</strong>, meaning only half of your gain is taxable. However, the ATO requires you to deduct your capital losses from your <em>gross</em> capital gains <strong>before</strong> applying the 50% discount.
-      </p>
-      <p>
-        <strong>Why this matters:</strong> If you use a A$1,000 loss to offset a A$1,000 long-term gain, you are effectively wiping out a gain that would have only been taxed on A$500 anyway. To maximize tax efficiency, you should always choose to offset your short-term gains (which do not receive the discount and are taxed fully at your marginal rate) before offsetting your long-term, discount-eligible gains.
-      </p>
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          No investor wants to see their portfolio in the red, but market corrections offer a unique opportunity to reduce your tax bill. By selling underperforming assets and realizing a capital loss, you can offset your capital gains through a strategy known as <strong>Tax Loss Harvesting</strong>.
+        </p>
+      </section>
 
-      <h2>ATO Wash Sales and Anti-Avoidance</h2>
-      <p>
-        The ATO takes a strict stance on "wash sales." Unlike the IRS in the US, which has a rigid 30-day mechanical rule, the ATO operates on a "purpose" test under their Part IVA anti-avoidance provisions.
-      </p>
-      <p>
-        If you sell an asset to crystallize a loss and then buy the same (or substantially similar) asset shortly thereafter, and the ATO determines the primary purpose of the transaction was simply to obtain a tax benefit while maintaining your economic exposure to the asset, they can <strong>deny the capital loss</strong>.
-      </p>
-      
-      <h3>How to Stay Compliant</h3>
-      <ul>
-        <li><strong>Change Your Exposure:</strong> If you sell shares in one big bank at a loss, you might consider buying shares in a competing bank. This changes your economic exposure and is generally viewed as a legitimate portfolio reallocation.</li>
-        <li><strong>Accept the Risk:</strong> If you sell an asset and wait a substantial amount of time before repurchasing it, you bear the market risk of the asset rising in price while you are out of the market. The ATO looks at whether the transaction exposed you to genuine market risk.</li>
-      </ul>
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">How Capital Losses Work in Australia</h2>
+        <p>
+          In Australia, you make a capital loss when you sell a CGT asset for less than its reduced cost base. Just like capital gains, capital losses are reported to the Australian Taxation Office (ATO) in the income year they occur.
+        </p>
+        <p>
+          <strong>The Golden Rule:</strong> Net capital losses can <em>only</em> be used to offset capital gains. They cannot be deducted against your ordinary income, such as your salary, wages, or business income.
+        </p>
+        <h3 class="text-lg font-bold text-white mt-4">Carrying Losses Forward</h3>
+        <p>
+          If your capital losses exceed your capital gains for the year, the excess (net capital loss) cannot be carried back to previous years. However, you can <strong>carry it forward indefinitely</strong> to offset against future capital gains. You must report these carried-forward losses in your tax return each year until they are used up.
+        </p>
+      </section>
 
-      <p>
-        Tax loss harvesting is a powerful tool, but in Australia, it requires strategic sequencing of offsets and careful adherence to the ATO's anti-avoidance rules. Use our <a href="/capital-gains-tax-calculator/australia/">Capital Gains Tax Calculator</a> to plan your disposals and maximize your after-tax returns.
-      </p>
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">The 50% CGT Discount Trap</h2>
+        <p>
+          One of the most critical aspects of tax loss harvesting in Australia is understanding the order of operations when applying losses against gains.
+        </p>
+        <p>
+          If you hold an asset for more than 12 months, you are generally eligible for the <strong>50% CGT discount</strong>, meaning only half of your gain is taxable. However, the ATO requires you to deduct your capital losses from your <em>gross</em> capital gains <strong>before</strong> applying the 50% discount.
+        </p>
+        <p>
+          <strong>Why this matters:</strong> If you use a A$1,000 loss to offset a A$1,000 long-term gain, you are effectively wiping out a gain that would have only been taxed on A$500 anyway. To maximize tax efficiency, you should always choose to offset your short-term gains (which do not receive the discount and are taxed fully at your marginal rate) before offsetting your long-term, discount-eligible gains.
+        </p>
+      </section>
+
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">ATO Wash Sales and Anti-Avoidance</h2>
+        <p>
+          The ATO takes a strict stance on "wash sales." Unlike the IRS in the US, which has a rigid 30-day mechanical rule, the ATO operates on a "purpose" test under their Part IVA anti-avoidance provisions.
+        </p>
+        <p>
+          If you sell an asset to crystallize a loss and then buy the same (or substantially similar) asset shortly thereafter, and the ATO determines the primary purpose of the transaction was simply to obtain a tax benefit while maintaining your economic exposure to the asset, they can <strong>deny the capital loss</strong>.
+        </p>
+        <h3 class="text-lg font-bold text-white mt-4">How to Stay Compliant</h3>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Change Your Exposure:</strong> If you sell shares in one big bank at a loss, you might consider buying shares in a competing bank. This changes your economic exposure and is generally viewed as a legitimate portfolio reallocation.</li>
+          <li><strong>Accept the Risk:</strong> If you sell an asset and wait a substantial amount of time before repurchasing it, you bear the market risk of the asset rising in price while you are out of the market. The ATO looks at whether the transaction exposed you to genuine market risk.</li>
+        </ul>
+      </section>
+
+      <!-- Methodology -->
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & ATO Source References</h4>
+        <p>Calculations adhere to ATO Capital Gains Tax guide, Part IVA anti-avoidance provisions (ITAA 1936), and the 50% CGT discount ordering rules under Section 102-5 of the ITAA 1997.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">ATO Capital Gains Tax Guide</a></p>
+      </section>
+
+      <!-- Related Calculators Grid -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/tax-loss-harvesting-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">Australian TLH Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate capital loss offsets under ATO rules.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Australian CGT Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate Australian CGT with 50% discount.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Superannuation Calculator</h4>
+            <p class="text-xs text-slate-400">Model Australian super drawdown rules.</p>
+          </a>
+        </div>
+      </section>
     </div>
   </article>
 </Layout>

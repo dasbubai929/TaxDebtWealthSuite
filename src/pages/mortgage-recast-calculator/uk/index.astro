@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import MortgageRecastCalculator from "../../../components/MortgageRecastCalculator.astro";
+---
+
+<Layout
+  title="UK Mortgage Recast & Overpayment Calculator | Overpayment vs Remortgage"
+  description="Explore UK mortgage overpayment scenarios and model monthly payment reductions when lenders recalculate terms after lump-sum overpayments."
+  ogImage="https://taxdebtwealthsuite.com/images/og-mortgage-recast-uk.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "UK Mortgage Overpayment & Recast Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "description": "Model monthly payment reductions following UK mortgage overpayments and lump-sum restructuring."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does the UK have mortgage recasting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Formal 'recasting' is rare in the UK. UK borrowers usually make overpayments (typically up to 10% annually without Early Repayment Charges) or adjust terms during remortgaging."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        UK Mortgage Recast & Overpayment Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Evaluate UK mortgage overpayment strategies, compare remortgaging options, and model monthly payment reductions.
+      </p>
+    </div>
+
+    <MortgageRecastCalculator country="uk" />
+  </main>
+</Layout>

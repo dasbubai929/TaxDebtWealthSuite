@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPensionEstimator.astro";
+---
+
+<Layout
+  title="UK State Pension Estimator | Calculate National Insurance Payout"
+  description="Calculate your UK New State Pension entitlement based on National Insurance qualifying years and deferral bonus."
+  ogImage="https://taxdebtwealthsuite.com/images/og-social-security-uk.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "UK State Pension Estimator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "description": "Calculate your UK New State Pension entitlement based on National Insurance qualifying years."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many National Insurance years are needed for the full UK State Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You need 35 qualifying National Insurance years to receive the full New State Pension (£221.20 per week). At least 10 qualifying years are required to get any pension."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        UK State Pension Estimator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate your UK New State Pension, check your National Insurance record requirements, and evaluate pension deferral benefits.
+      </p>
+    </div>
+
+    <SocialSecurityPensionEstimator country="uk" />
+  </main>
+</Layout>

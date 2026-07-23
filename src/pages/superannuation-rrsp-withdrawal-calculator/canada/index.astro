@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import SuperannuationRrspWithdrawalCalculator from "../../../components/SuperannuationRrspWithdrawalCalculator.astro";
+---
+
+<Layout
+  title="Canada RRSP & RRIF Withdrawal Calculator | CRA Minimum Withdrawal"
+  description="Calculate CRA mandatory RRIF minimum annual withdrawal percentages and mandatory monthly income payouts for Canadians."
+  ogImage="https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-ca.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Canada RRSP & RRIF Minimum Withdrawal Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CAD"
+        },
+        "description": "Calculate CRA mandatory RRIF minimum annual withdrawal percentages and income payouts."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What age must an RRSP be converted to a RRIF in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You must convert your RRSP to a RRIF or purchase an annuity by December 31 of the year you turn age 71. Mandatory minimum withdrawals start the following year at age 72."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Canada RRSP & RRIF Minimum Withdrawal Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Model CRA RRIF minimum annual withdrawal rates, calculate mandatory payouts, and optimize retirement income taxes.
+      </p>
+    </div>
+
+    <SuperannuationRrspWithdrawalCalculator country="canada" />
+  </main>
+</Layout>

@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import SuperannuationRrspWithdrawalCalculator from "../../../components/SuperannuationRrspWithdrawalCalculator.astro";
+---
+
+<Layout
+  title="Australia Superannuation Minimum Drawdown Calculator | ATO Super Rules"
+  description="Calculate Services Australia & ATO Account-Based Pension minimum annual drawdown rates by age bracket (<65 to 95+)."
+  ogImage="https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-au.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Australia Superannuation Minimum Drawdown Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "AUD"
+        },
+        "description": "Calculate ATO Account-Based Pension minimum annual drawdown percentages by age."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the minimum drawdown percentage for an Australian Account-Based Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For ages 65–74, the minimum annual drawdown is 5% of account balance as of July 1. For ages 75–79 it rises to 6%, ages 80–84 to 7%, ages 85–89 to 9%, ages 90–94 to 11%, and 95+ to 14%."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Australia Superannuation Minimum Drawdown Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate your mandatory Account-Based Pension drawdown rate, check tax-free status for ages 60+, and optimize super withdrawals.
+      </p>
+    </div>
+
+    <SuperannuationRrspWithdrawalCalculator country="australia" />
+  </main>
+</Layout>

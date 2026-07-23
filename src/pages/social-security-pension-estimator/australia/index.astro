@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPensionEstimator.astro";
+---
+
+<Layout
+  title="Australia Age Pension Estimator | Centrelink Means Test Calculator"
+  description="Estimate your Services Australia (Centrelink) Age Pension payments based on the Income Test and Assets Test."
+  ogImage="https://taxdebtwealthsuite.com/images/og-social-security-au.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/social-security-pension-estimator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Australia Age Pension Estimator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "AUD"
+        },
+        "description": "Estimate your Services Australia (Centrelink) Age Pension payment based on Income and Assets tests."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the Centrelink Assets Test affect my Age Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For assets above the asset-free threshold, your Age Pension is reduced by $3.00 per fortnight for every $1,000 in excess assets."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Australia Age Pension Estimator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate your Services Australia Age Pension entitlement, apply the Income & Assets tests, and model deeming rate impacts.
+      </p>
+    </div>
+
+    <SocialSecurityPensionEstimator country="australia" />
+  </main>
+</Layout>

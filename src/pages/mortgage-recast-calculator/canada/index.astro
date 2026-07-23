@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import MortgageRecastCalculator from "../../../components/MortgageRecastCalculator.astro";
+---
+
+<Layout
+  title="Canada Mortgage Recast & Prepayment Calculator | FCAC Rules"
+  description="Calculate monthly mortgage payment reductions in Canada following lump-sum principal prepayments under Canadian lender rules."
+  ogImage="https://taxdebtwealthsuite.com/images/og-mortgage-recast-ca.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Canada Mortgage Recast Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CAD"
+        },
+        "description": "Calculate monthly mortgage payment reductions in Canada following lump-sum principal prepayments."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can you recast a mortgage in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Canadian lenders allow principal prepayments (usually up to 10%–20% of original balance per year penalty-free). Upon request or renewal, your lender can recalculate your monthly payment based on the reduced balance."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Canada Mortgage Recast & Prepayment Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate how Canadian mortgage lump-sum prepayments reduce monthly obligations and model interest savings.
+      </p>
+    </div>
+
+    <MortgageRecastCalculator country="canada" />
+  </main>
+</Layout>

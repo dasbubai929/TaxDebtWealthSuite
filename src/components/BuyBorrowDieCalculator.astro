@@ -7,11 +7,28 @@ const { defaultCurrency = "USD" } = Astro.props;
 ---
 
 <section id="panel-bbd" class="space-y-6" data-default-currency={defaultCurrency}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        Buy, Borrow, Die Strategy
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
     
     <!-- Parameters Card (Left Column) -->
     <div class="space-y-6">
-      <div class="glass-panel p-6 rounded-lg space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800 space-y-6">
         <div>
           <h3 class="text-lg font-bold text-white tracking-wide">Strategy Parameters</h3>
           <p class="text-xs text-slate-400 mt-1">Configure your portfolio structure and borrowing parameters.</p>
@@ -21,10 +38,10 @@ const { defaultCurrency = "USD" } = Astro.props;
         <div class="space-y-4">
           <!-- Currency Selector -->
           <div>
-            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Currency</label>
+            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
             <div class="flex flex-wrap gap-2 mb-2">
-              <a href="/buy-borrow-die-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'USD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='USD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">US</a>
-              <a href="/buy-borrow-die-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'GBP' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='GBP';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">UK</a>
+              <a href="/buy-borrow-die-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'USD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='USD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">United States</a>
+              <a href="/buy-borrow-die-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'GBP' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='GBP';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">United Kingdom</a>
               <a href="/buy-borrow-die-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'CAD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='CAD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Canada</a>
               <a href="/buy-borrow-die-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCurrency === 'AUD' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.bbd)s.bbd={};s.bbd.currency='AUD';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Australia</a>
             </div>
@@ -109,10 +126,10 @@ const { defaultCurrency = "USD" } = Astro.props;
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
         <!-- Sell Route -->
-        <div class="glass-panel p-6 rounded-lg">
+        <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800">
           <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/20 uppercase tracking-widest">Sell Asset Route</span>
           <p class="text-xs text-slate-400 mt-2.5 font-medium uppercase tracking-wider">Immediate Tax Paid (Drag)</p>
-          <p id="bbd-sell-tax" class="focal-metric text-[#EF4444] mt-1">$0</p>
+          <p id="bbd-sell-tax" class="focal-metric text-[#FF6B6B] mt-1">$0</p>
           <div class="mt-4 pt-3 border-t border-slate-800/80 flex justify-between text-xs text-slate-400">
             <span>Net Remaining Portfolio:</span>
             <span id="bbd-sell-net" class="font-bold text-white">$0</span>
@@ -120,7 +137,7 @@ const { defaultCurrency = "USD" } = Astro.props;
         </div>
 
         <!-- Borrow Route -->
-        <div class="glass-panel p-6 rounded-lg">
+        <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800">
           <span class="inline-flex items-center px-2 py-0.5 rounded-md text-2xs font-semibold bg-brand-500/20 text-brand-300 border border-brand-500/30 uppercase tracking-widest">Borrow (SBLOC) Route</span>
           <p class="text-xs text-slate-400 mt-2.5 font-medium uppercase tracking-wider">Annual Interest Cost</p>
           <p id="bbd-borrow-interest" class="focal-metric text-[#F8FAFC] mt-1">$0</p>
@@ -166,7 +183,7 @@ const { defaultCurrency = "USD" } = Astro.props;
       </div>
 
       <!-- Risk Indicator & Price Drop Warning Meter -->
-      <div class="glass-panel p-6 rounded-lg space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl border border-slate-800 space-y-6">
         <div class="flex items-center justify-between">
           <h4 class="text-sm font-bold text-white uppercase tracking-wider">Margin Call Risk Profiler</h4>
           <span id="bbd-risk-status" class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700 uppercase">No Loan</span>
@@ -217,6 +234,7 @@ const { defaultCurrency = "USD" } = Astro.props;
 </section>
 
 <script>
+  // @ts-nocheck
   (function() {
     const STORAGE_KEY = "taxdebtwealthsuite_state_v1";
     const AUTOSAVE_KEY = "taxdebtwealthsuite_autosave_pref";
@@ -477,6 +495,20 @@ const { defaultCurrency = "USD" } = Astro.props;
       bindListeners();
       runCalculations();
     });
+
+    const resetBtn = document.getElementById('btn-reset-suite');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        state.bbd = JSON.parse(JSON.stringify(DEFAULT_STATE.bbd));
+        try {
+          const s = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+          if (s.bbd) delete s.bbd;
+          localStorage.setItem('financial_hub_state', JSON.stringify(s));
+        } catch(e) {}
+        syncStateToInputs();
+        runCalculations();
+      });
+    }
 
     window.addEventListener("financial-hub-reset", () => {
       state.bbd = JSON.parse(JSON.stringify(DEFAULT_STATE.bbd));

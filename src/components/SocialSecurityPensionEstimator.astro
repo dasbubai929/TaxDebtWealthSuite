@@ -1,0 +1,529 @@
+---
+export interface Props {
+  country?: 'us' | 'uk' | 'canada' | 'australia';
+}
+
+const { country = 'us' } = Astro.props;
+
+const countryLabels = {
+  us: {
+    badge: "US Social Security Rules",
+    title: "Social Security Benefit Estimator (US)",
+    desc: "Estimate your monthly US Social Security retirement benefit based on AIME, 2026 bend points, and claiming age (62-70).",
+    incomeLabel: "Current Annual Income ($)",
+    yearsLabel: "Years Worked (35 Max)",
+    currency: "$",
+    defaultAge: 45,
+    defaultClaimAge: 67,
+    defaultIncome: 85000,
+    defaultYears: 30,
+    sourceUrl: "https://www.ssa.gov/oact/cola/Benefits.html",
+    sourceText: "Social Security Administration — Benefit Formulas & Bend Points"
+  },
+  uk: {
+    badge: "UK State Pension Rules",
+    title: "State Pension Estimator (UK)",
+    desc: "Calculate your estimated UK New State Pension based on National Insurance qualifying years and deferral options.",
+    incomeLabel: "Annual Gross Income (£)",
+    yearsLabel: "Qualifying NI Years (35 Max)",
+    currency: "£",
+    defaultAge: 45,
+    defaultClaimAge: 66,
+    defaultIncome: 38000,
+    defaultYears: 30,
+    sourceUrl: "https://www.gov.uk/new-state-pension",
+    sourceText: "GOV.UK — The New State Pension Rules"
+  },
+  canada: {
+    badge: "Canada Public Pensions",
+    title: "CPP & OAS Pension Estimator (Canada)",
+    desc: "Calculate your combined Canadian Pension Plan (CPP) and Old Age Security (OAS) monthly benefits.",
+    incomeLabel: "Average Annual Earnings (C$)",
+    yearsLabel: "CPP Contribution Years (39 Max)",
+    currency: "C$",
+    defaultAge: 45,
+    defaultClaimAge: 65,
+    defaultIncome: 68000,
+    defaultYears: 30,
+    sourceUrl: "https://www.canada.ca/en/services/benefits/publicpensions.html",
+    sourceText: "Government of Canada — Public Pensions (CPP & OAS)"
+  },
+  australia: {
+    badge: "Australia Age Pension Rules",
+    title: "Age Pension Estimator (Australia)",
+    desc: "Estimate your Services Australia Age Pension payment based on the Income Test and Assets Test thresholds.",
+    incomeLabel: "Other Fortnightly Income (A$)",
+    yearsLabel: "Assessable Financial Assets (A$)",
+    currency: "A$",
+    defaultAge: 45,
+    defaultClaimAge: 67,
+    defaultIncome: 300,
+    defaultYears: 250000,
+    sourceUrl: "https://www.servicesaustralia.gov.au/age-pension",
+    sourceText: "Services Australia — Age Pension Eligibility & Tests"
+  }
+};
+
+const currentInfo = countryLabels[country];
+---
+
+<section id="panel-social-security" class="space-y-6" data-country={country}>
+  <!-- Header Controls Bar -->
+  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800">
+    <div class="flex items-center gap-3">
+      <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20">
+        {currentInfo.badge}
+      </span>
+      <span id="suite-status-indicator" class="text-xs text-slate-400 flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Saved (Local)
+      </span>
+    </div>
+    <button id="btn-reset-suite" type="button" class="text-xs text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 cursor-pointer">
+      <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+      Reset Suite
+    </button>
+  </div>
+
+  <!-- Country Navigation Tabs -->
+  <div>
+    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+    <div class="flex flex-wrap gap-2 mb-2" aria-label="Country Selection Navigation">
+      <a href="/social-security-pension-estimator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United States</a>
+      <a href="/social-security-pension-estimator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>United Kingdom</a>
+      <a href="/social-security-pension-estimator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Canada</a>
+      <a href="/social-security-pension-estimator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${country === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`}>Australia</a>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <!-- LEFT: Inputs Container -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl shadow-xl space-y-5 border border-slate-800">
+        <div>
+          <h3 class="text-lg font-bold text-white tracking-wide">{currentInfo.title}</h3>
+          <p class="text-xs text-slate-400 mt-1">{currentInfo.desc}</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Current Age -->
+          <div>
+            <label for="ssp-age" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Current Age</label>
+            <input type="number" id="ssp-age" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="18" max="100" step="1" value={currentInfo.defaultAge} />
+          </div>
+
+          <!-- Claiming / Pension Age -->
+          <div>
+            <label for="ssp-claim-age" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Planned Retirement / Claiming Age</label>
+            <select id="ssp-claim-age" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+              {country === 'us' && (
+                <>
+                  <option value="62">Age 62 (Early - 30% Permanent Reduction)</option>
+                  <option value="63">Age 63 (Early - 25% Reduction)</option>
+                  <option value="64">Age 64 (Early - 20% Reduction)</option>
+                  <option value="65">Age 65 (Early - 13.3% Reduction)</option>
+                  <option value="66">Age 66 (Early - 6.7% Reduction)</option>
+                  <option value="67" selected>Age 67 (Full Retirement Age - 100% PIA)</option>
+                  <option value="68">Age 68 (Delayed - +8% Bonus)</option>
+                  <option value="69">Age 69 (Delayed - +16% Bonus)</option>
+                  <option value="70">Age 70 (Delayed Maximum - +24% Bonus)</option>
+                </>
+              )}
+              {country === 'uk' && (
+                <>
+                  <option value="66" selected>Age 66 (Standard State Pension Age)</option>
+                  <option value="67">Age 67 (Delayed 1 Year - +5.8% Deferral)</option>
+                  <option value="68">Age 68 (Delayed 2 Years - +11.6% Deferral)</option>
+                  <option value="69">Age 69 (Delayed 3 Years - +17.4% Deferral)</option>
+                  <option value="70">Age 70 (Delayed 4 Years - +23.2% Deferral)</option>
+                </>
+              )}
+              {country === 'canada' && (
+                <>
+                  <option value="60">Age 60 (CPP Early - 36% Reduction)</option>
+                  <option value="61">Age 61 (CPP Early - 28.8% Reduction)</option>
+                  <option value="62">Age 62 (CPP Early - 21.6% Reduction)</option>
+                  <option value="63">Age 63 (CPP Early - 14.4% Reduction)</option>
+                  <option value="64">Age 64 (CPP Early - 7.2% Reduction)</option>
+                  <option value="65" selected>Age 65 (Standard Pension Age - 100% CPP + OAS)</option>
+                  <option value="66">Age 66 (Delayed - +8.4% CPP, +7.2% OAS)</option>
+                  <option value="67">Age 67 (Delayed - +16.8% CPP, +14.4% OAS)</option>
+                  <option value="68">Age 68 (Delayed - +25.2% CPP, +21.6% OAS)</option>
+                  <option value="69">Age 69 (Delayed - +33.6% CPP, +28.8% OAS)</option>
+                  <option value="70">Age 70 (Max Delay - +42% CPP, +36% OAS)</option>
+                </>
+              )}
+              {country === 'australia' && (
+                <>
+                  <option value="67" selected>Age 67 (Age Pension Eligibility Age)</option>
+                  <option value="68">Age 68</option>
+                  <option value="69">Age 69</option>
+                  <option value="70">Age 70+</option>
+                </>
+              )}
+            </select>
+          </div>
+
+          <!-- Income / Asset Field 1 -->
+          <div>
+            <label for="ssp-income" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.incomeLabel}</label>
+            <div class="relative rounded-lg shadow-sm">
+              <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400 font-medium">{currentInfo.currency}</div>
+              <input type="number" id="ssp-income" class="focus-ring block w-full pl-11 pr-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" step="1000" value={currentInfo.defaultIncome} />
+            </div>
+          </div>
+
+          <!-- Years / Asset Field 2 -->
+          <div>
+            <label for="ssp-years" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">{currentInfo.yearsLabel}</label>
+            <input type="number" id="ssp-years" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="0" max={country === 'australia' ? 10000000 : 50} step="1" value={currentInfo.defaultYears} />
+          </div>
+
+          {country === 'canada' && (
+            <div>
+              <label for="ssp-oas-residence" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Years Resident in Canada After Age 18 (40 Max)</label>
+              <input type="number" id="ssp-oas-residence" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12" min="10" max="40" step="1" value="40" />
+            </div>
+          )}
+
+          {country === 'australia' && (
+            <div>
+              <label for="ssp-au-status" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Relationship & Housing Status</label>
+              <select id="ssp-au-status" class="focus-ring block w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg text-white font-medium text-sm h-12 cursor-pointer">
+                <option value="single-homeowner" selected>Single — Homeowner</option>
+                <option value="single-nonhomeowner">Single — Non-Homeowner</option>
+                <option value="couple-homeowner">Couple — Homeowner</option>
+                <option value="couple-nonhomeowner">Couple — Non-Homeowner</option>
+              </select>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Results Container -->
+    <div class="space-y-6">
+      <div class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-5">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="text-3xs uppercase tracking-wider text-slate-400">Estimated Monthly Benefit</p>
+            <p id="ssp-result-monthly" class="focal-metric text-[#00F5D4] mt-0.5">{currentInfo.currency}0</p>
+          </div>
+          <button id="ssp-share-btn" type="button" class="group flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition-colors cursor-pointer" title="Share calculation result">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+            </svg>
+            <span>Share</span>
+          </button>
+        </div>
+
+        <div class="space-y-3 pt-4 border-t border-slate-800 text-xs text-slate-400">
+          <div class="flex justify-between">
+            <span>Estimated Annual Benefit:</span>
+            <span id="ssp-result-annual" class="text-white font-medium">{currentInfo.currency}0</span>
+          </div>
+
+          <div class="flex justify-between">
+            <span>Claiming Adjustment Factor:</span>
+            <span id="ssp-result-factor" class="text-white font-medium">100%</span>
+          </div>
+
+          <div class="flex justify-between">
+            <span id="ssp-breakdown-label">Income Replacement Rate:</span>
+            <span id="ssp-result-replacement" class="text-[#00F5D4] font-semibold">0.0%</span>
+          </div>
+        </div>
+
+        <div id="ssp-note-box" class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 leading-relaxed">
+          <span id="ssp-note-text">Enter your employment and claiming parameters to estimate your retirement pension payout.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology & Citation Section -->
+  <div class="mt-12 border-t border-slate-800/80 pt-10">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-4">Methodology</span>
+    <h3 class="text-2xl font-bold text-white mb-4">How Benefits Are Calculated</h3>
+    <div class="text-sm text-slate-400 space-y-3 leading-relaxed">
+      {country === 'us' && (
+        <>
+          <p>Social Security benefits in the United States are determined by the Social Security Administration (SSA) using Average Indexed Monthly Earnings (AIME) over your highest 35 earning years. The Primary Insurance Amount (PIA) is calculated using 2026 bend points (90% of AIME up to $1,174, 32% of AIME between $1,174 and $7,078, and 15% above $7,078).</p>
+          <p>Claiming before your Full Retirement Age (67 for those born 1960 or later) permanently reduces benefits by up to 30% at age 62. Delaying past age 67 earns Delayed Retirement Credits of 8% per year up to age 70 (maximum 124% of PIA).</p>
+        </>
+      )}
+      {country === 'uk' && (
+        <>
+          <p>The UK New State Pension applies to individuals reaching State Pension Age (currently 66). The full single-tier rate is £221.20 per week (£958.53 per month). Entitlement is calculated pro-rata based on your National Insurance (NI) record, requiring 35 qualifying years for the 100% full pension (minimum 10 years needed to receive any payout).</p>
+          <p>You can choose to defer your UK State Pension. Deferring increases your payment by 1% for every 9 weeks you delay, adding approximately 5.8% for each full year deferred past State Pension age.</p>
+        </>
+      )}
+      {country === 'canada' && (
+        <>
+          <p>Canadian public retirement benefits combine the Canada Pension Plan (CPP) and Old Age Security (OAS). CPP is earnings-related, providing a maximum of C$1,364.60 per month at age 65 for maximum contributors. Taking CPP early at 60 reduces your benefit by 36% (-0.6%/month), while delaying to 70 increases it by 42% (+0.7%/month).</p>
+          <p>OAS provides a flat-rate benefit (maximum C$713.34 per month at age 65) based on years of Canadian residence after age 18 (40 years required for 100%). Delaying OAS to age 70 increases payments by 36% (+0.6%/month).</p>
+        </>
+      )}
+      {country === 'australia' && (
+        <>
+          <p>The Australian Age Pension is administered by Services Australia (Centrelink) and is means-tested through both an Income Test and an Assets Test. The test that results in the lower payment rate is applied. The maximum single rate is approximately A$1,116.30 per fortnight (A$2,418.65 per month) including supplements.</p>
+          <p>Financial assets are assessed using deeming rates, and payments are reduced by 50 cents for every dollar of income above fortnightly thresholds, or by A$3.00 per fortnight for every A$1,000 in assets above the asset-free threshold.</p>
+        </>
+      )}
+      <p><strong>Official Reference:</strong> <a href={currentInfo.sourceUrl} target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">{currentInfo.sourceText}</a></p>
+    </div>
+  </div>
+
+  <!-- FAQ Accordion Section -->
+  <div class="mt-12 border-t border-slate-800/80 pt-10">
+    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-4">FAQ</span>
+    <h3 class="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h3>
+    <div class="space-y-4">
+      <details class="group bg-slate-900/60 border border-slate-800 rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer text-white font-semibold text-sm">
+          <span>What is the optimal age to start claiming pension benefits?</span>
+          <span class="transition group-open:rotate-180">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </span>
+        </summary>
+        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+          The optimal age depends on your health, liquidity needs, and life expectancy. In the US and Canada, delaying past full retirement age increases annual payouts by 7-8% per year until age 70. However, if you need income earlier or have health concerns, claiming earlier may provide higher cumulative income over your lifetime.
+        </p>
+      </details>
+
+      <details class="group bg-slate-900/60 border border-slate-800 rounded-xl p-4 [&_summary::-webkit-details-marker]:hidden">
+        <summary class="flex items-center justify-between cursor-pointer text-white font-semibold text-sm">
+          <span>Are pension benefits taxable?</span>
+          <span class="transition group-open:rotate-180">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+          </span>
+        </summary>
+        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+          Yes, in most countries government pension payments count toward taxable income. In the US, up to 85% of Social Security is subject to federal income tax if combined income exceeds statutory limits. In the UK and Canada, state pension, CPP, and OAS are treated as ordinary taxable income. In Australia, Age Pension is taxable income but often falls below tax-free thresholds.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script>
+  // @ts-nocheck
+  (function() {
+    const panel = document.getElementById("panel-social-security");
+    if (!panel) return;
+
+    const country = panel.getAttribute("data-country") || "us";
+
+    const ageInput = document.getElementById("ssp-age");
+    const claimAgeInput = document.getElementById("ssp-claim-age");
+    const incomeInput = document.getElementById("ssp-income");
+    const yearsInput = document.getElementById("ssp-years");
+    const oasResidenceInput = document.getElementById("ssp-oas-residence");
+    const auStatusInput = document.getElementById("ssp-au-status");
+
+    const resultMonthlyEl = document.getElementById("ssp-result-monthly");
+    const resultAnnualEl = document.getElementById("ssp-result-annual");
+    const resultFactorEl = document.getElementById("ssp-result-factor");
+    const resultReplacementEl = document.getElementById("ssp-result-replacement");
+    const noteTextEl = document.getElementById("ssp-note-text");
+    const shareBtn = document.getElementById("ssp-share-btn");
+
+    const currencySymbol = country === 'uk' ? '£' : country === 'canada' ? 'C$' : country === 'australia' ? 'A$' : '$';
+
+    function fmt(num) {
+      return currencySymbol + Math.round(num).toLocaleString('en-US');
+    }
+
+    // Load saved state from localStorage
+    try {
+      const state = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+      const savedData = state.social_security?.[country];
+      if (savedData) {
+        if (ageInput && savedData.age !== undefined) ageInput.value = savedData.age;
+        if (claimAgeInput && savedData.claimAge !== undefined) claimAgeInput.value = savedData.claimAge;
+        if (incomeInput && savedData.income !== undefined) incomeInput.value = savedData.income;
+        if (yearsInput && savedData.years !== undefined) yearsInput.value = savedData.years;
+        if (oasResidenceInput && savedData.oasResidence !== undefined) oasResidenceInput.value = savedData.oasResidence;
+        if (auStatusInput && savedData.auStatus !== undefined) auStatusInput.value = savedData.auStatus;
+      }
+    } catch(e) {}
+
+    function calculate() {
+      const currentAge = parseFloat(ageInput?.value) || 45;
+      const claimAge = parseFloat(claimAgeInput?.value) || 67;
+      const income = parseFloat(incomeInput?.value) || 0;
+      const years = parseFloat(yearsInput?.value) || 0;
+
+      let monthlyBenefit = 0;
+      let factorPct = 100;
+      let note = "";
+
+      if (country === 'us') {
+        const cappedIncome = Math.min(income, 174900);
+        const aime = (cappedIncome * Math.min(years, 35)) / (35 * 12);
+        
+        let pia = 0;
+        if (aime <= 1174) {
+          pia = aime * 0.90;
+        } else if (aime <= 7078) {
+          pia = (1174 * 0.90) + ((aime - 1174) * 0.32);
+        } else {
+          pia = (1174 * 0.90) + ((7078 - 1174) * 0.32) + ((aime - 7078) * 0.15);
+        }
+
+        if (claimAge === 62) factorPct = 70;
+        else if (claimAge === 63) factorPct = 75;
+        else if (claimAge === 64) factorPct = 80;
+        else if (claimAge === 65) factorPct = 86.7;
+        else if (claimAge === 66) factorPct = 93.3;
+        else if (claimAge === 67) factorPct = 100;
+        else if (claimAge === 68) factorPct = 108;
+        else if (claimAge === 69) factorPct = 116;
+        else if (claimAge === 70) factorPct = 124;
+
+        monthlyBenefit = pia * (factorPct / 100);
+        note = `Based on a calculated PIA of ${fmt(pia)}/mo. Claiming at age ${claimAge} adjusts your payment to ${factorPct.toFixed(1)}% of your full benefit.`;
+      } 
+      else if (country === 'uk') {
+        const maxPensionWeekly = 221.20;
+        const maxPensionMonthly = (maxPensionWeekly * 52) / 12;
+        const qualifiedYears = Math.min(years, 35);
+        const baseMonthly = (qualifiedYears / 35) * maxPensionMonthly;
+
+        const deferYears = Math.max(0, claimAge - 66);
+        factorPct = 100 + (deferYears * 5.8);
+
+        monthlyBenefit = baseMonthly * (factorPct / 100);
+        note = `Includes ${qualifiedYears}/35 qualifying National Insurance years. Deferring to age ${claimAge} adds a ${((deferYears * 5.8)).toFixed(1)}% boost.`;
+      }
+      else if (country === 'canada') {
+        const maxCppMonthly = 1364.60;
+        const cppContributionRatio = Math.min(years, 39) / 39;
+        const baseCpp = maxCppMonthly * cppContributionRatio * Math.min(1, income / 68500);
+
+        let cppFactor = 1.0;
+        if (claimAge < 65) {
+          cppFactor = 1 - ((65 - claimAge) * 12 * 0.006);
+        } else if (claimAge > 65) {
+          cppFactor = 1 + ((claimAge - 65) * 12 * 0.007);
+        }
+
+        const actualCpp = baseCpp * cppFactor;
+
+        const oasYears = parseFloat(oasResidenceInput?.value) || 40;
+        const maxOasMonthly = 713.34;
+        const baseOas = (Math.min(oasYears, 40) / 40) * maxOasMonthly;
+        let oasFactor = claimAge > 65 ? 1 + ((claimAge - 65) * 12 * 0.006) : 1;
+        const actualOas = claimAge >= 65 ? baseOas * oasFactor : 0;
+
+        monthlyBenefit = actualCpp + actualOas;
+        factorPct = (cppFactor * 100);
+        note = `Includes Estimated CPP (${fmt(actualCpp)}/mo) + OAS (${fmt(actualOas)}/mo). Total annual public pension: ${fmt(monthlyBenefit * 12)}.`;
+      }
+      else if (country === 'australia') {
+        const status = auStatusInput?.value || "single-homeowner";
+        const isSingle = status.startsWith("single");
+        const maxFortnightly = isSingle ? 1116.30 : 841.25;
+
+        const otherFortnightlyIncome = income;
+        const assets = years;
+
+        const incomeFreeThreshold = isSingle ? 204 : 360;
+        const excessIncome = Math.max(0, otherFortnightlyIncome - incomeFreeThreshold);
+        const incomeTestReduction = excessIncome * 0.50;
+
+        const assetThreshold = isSingle ? (status.includes("homeowner") && !status.includes("non") ? 301750 : 543750) : (status.includes("homeowner") && !status.includes("non") ? 451500 : 693500);
+        const excessAssets = Math.max(0, assets - assetThreshold);
+        const assetTestReduction = Math.floor(excessAssets / 1000) * 3.00;
+
+        const maxTestReduction = Math.max(incomeTestReduction, assetTestReduction);
+        const netFortnightly = Math.max(0, maxFortnightly - maxTestReduction);
+        monthlyBenefit = (netFortnightly * 26) / 12;
+
+        factorPct = maxFortnightly > 0 ? (netFortnightly / maxFortnightly) * 100 : 0;
+        note = `Age Pension reduced by ${fmt((maxTestReduction * 26) / 12)}/mo based on the binding ${assetTestReduction > incomeTestReduction ? 'Assets Test' : 'Income Test'}.`;
+      }
+
+      const annualBenefit = monthlyBenefit * 12;
+      const annualIncomeForRatio = country === 'australia' ? (income * 26) : income;
+      const replacementRate = annualIncomeForRatio > 0 ? (annualBenefit / annualIncomeForRatio) * 100 : 0;
+
+      if (resultMonthlyEl) resultMonthlyEl.innerText = fmt(monthlyBenefit);
+      if (resultAnnualEl) resultAnnualEl.innerText = fmt(annualBenefit);
+      if (resultFactorEl) resultFactorEl.innerText = factorPct.toFixed(1) + "%";
+      if (resultReplacementEl) resultReplacementEl.innerText = replacementRate.toFixed(1) + "%";
+      if (noteTextEl) noteTextEl.innerText = note;
+
+      // Save state to localStorage
+      try {
+        const state = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+        if (!state.social_security) state.social_security = {};
+        state.social_security[country] = {
+          age: currentAge,
+          claimAge: claimAge,
+          income: income,
+          years: years,
+          oasResidence: parseFloat(oasResidenceInput?.value) || 40,
+          auStatus: auStatusInput?.value || "single-homeowner"
+        };
+        localStorage.setItem('financial_hub_state', JSON.stringify(state));
+      } catch(e) {}
+    }
+
+    [ageInput, claimAgeInput, incomeInput, yearsInput, oasResidenceInput, auStatusInput].forEach(el => {
+      if (el) {
+        el.addEventListener("input", calculate);
+        el.addEventListener("change", calculate);
+      }
+    });
+
+    const resetBtn = document.getElementById('btn-reset-suite');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        if (ageInput) ageInput.value = ageInput.getAttribute('value') || 45;
+        if (claimAgeInput) {
+          const defaultVal = country === 'us' ? 67 : country === 'uk' ? 66 : country === 'canada' ? 65 : 67;
+          claimAgeInput.value = defaultVal;
+        }
+        if (incomeInput) incomeInput.value = incomeInput.getAttribute('value') || (country === 'australia' ? 300 : 85000);
+        if (yearsInput) yearsInput.value = yearsInput.getAttribute('value') || (country === 'australia' ? 250000 : 30);
+        if (oasResidenceInput) oasResidenceInput.value = 40;
+        if (auStatusInput) auStatusInput.value = "single-homeowner";
+
+        try {
+          const state = JSON.parse(localStorage.getItem('financial_hub_state') || '{}');
+          if (state.social_security) delete state.social_security[country];
+          localStorage.setItem('financial_hub_state', JSON.stringify(state));
+        } catch(e) {}
+
+        calculate();
+      });
+    }
+
+    if (shareBtn) {
+      shareBtn.addEventListener("click", function() {
+        if (window.shareResults) {
+          window.shareResults("social-security");
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          alert("Link copied to clipboard!");
+        }
+      });
+    }
+
+    calculate();
+
+    window.addEventListener("financial-hub-reset", () => {
+      if (ageInput) ageInput.value = ageInput.getAttribute('value') || 45;
+      if (claimAgeInput) {
+        const defaultVal = country === 'us' ? 67 : country === 'uk' ? 66 : country === 'canada' ? 65 : 67;
+        claimAgeInput.value = defaultVal;
+      }
+      if (incomeInput) incomeInput.value = incomeInput.getAttribute('value') || (country === 'australia' ? 300 : 85000);
+      if (yearsInput) yearsInput.value = yearsInput.getAttribute('value') || (country === 'australia' ? 250000 : 30);
+      if (oasResidenceInput) oasResidenceInput.value = 40;
+      if (auStatusInput) auStatusInput.value = "single-homeowner";
+      calculate();
+    });
+  })();
+</script>

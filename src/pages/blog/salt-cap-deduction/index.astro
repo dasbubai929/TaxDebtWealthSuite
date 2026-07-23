@@ -1,0 +1,121 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "SALT Cap Deduction Guide (2026) | $10,000 Limit & PTET Workarounds",
+  description: "Learn how the $10,000 SALT cap limit impacts state tax itemization and how Pass-Through Entity Taxes (PTET) bypass the restriction.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SALT Cap Deduction Guide & PTET Workarounds",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Learn how the SALT cap limit impacts state tax itemization and how PTET workarounds help."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the SALT cap limit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The SALT cap limits federal itemized deductions for State and Local Taxes (income, sales, and property taxes) to $10,000 ($5,000 for married filing separately)."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>State & Federal Tax</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        SALT Cap Deduction Guide & PTET Workarounds
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">SALT Cap Deduction Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate itemized SALT deductions and evaluate Pass-Through Entity Tax (PTET) workarounds.</p>
+      </div>
+      <a href="/salt-cap-deduction-calculator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate SALT Impact →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          The Tax Cuts and Jobs Act (TCJA) introduced a $10,000 cap on federal itemized deductions for State and Local Taxes (SALT). Pass-Through Entity Tax (PTET) elections allow business owners to bypass this limitation legally.
+        </p>
+      </section>
+
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Key Benefits of PTET Elections</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Bypasses $10,000 Cap:</strong> State taxes are paid at the entity level as an above-the-line business expense.</li>
+          <li><strong>Fully Deductible:</strong> Reduces federal taxable income directly on Schedule K-1.</li>
+        </ul>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & Source References</h4>
+        <p>Calculations adhere to IRS Notice 2020-75 for Pass-Through Entity Tax deductions.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/pub/irs-drop/n-20-75.pdf" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">IRS Notice 2020-75 (PTET Guidance)</a></p>
+      </section>
+
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/salt-cap-deduction-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">SALT Cap Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate itemization vs PTET savings.</p>
+          </a>
+          <a href="/s-corp-tax-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">S-Corp Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Model pass-through corporate structures.</p>
+          </a>
+          <a href="/qbi-deduction-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">QBI Deduction Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate Section 199A deductions.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

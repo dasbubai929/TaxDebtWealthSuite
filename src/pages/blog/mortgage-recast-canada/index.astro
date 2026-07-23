@@ -1,0 +1,107 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Mortgage Recast Rules in Canada (2026 Guide)",
+  description: "Comprehensive guide to Canadian mortgage lump-sum prepayment privileges, payment recalculations, FCAC rules, and penalty-free repayment options.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Mortgage Recast Rules in Canada",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to Canadian mortgage lump-sum prepayment privileges, payment recalculations, and FCAC rules."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can you recast a mortgage in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, Canadian lenders allow principal prepayments (usually up to 10%–20% of original balance per year penalty-free). Upon request or renewal, your lender can recalculate your monthly payment based on the reduced balance."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Canada Real Estate & Debt</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Mortgage Recast Rules in Canada
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Canada Mortgage Recast & Prepayment Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate Canadian lump-sum prepayments and payment reductions.</p>
+      </div>
+      <a href="/mortgage-recast-calculator/canada/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate CA Prepayment →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        Homeowners in Canada navigating 5-year fixed or variable-rate mortgage terms often seek ways to deploy lump-sum funds—such as annual employment bonuses, inheritance, or tax refunds—to lower their ongoing monthly financial commitments. While the term "mortgage recast" is an American tax term, Canadian financial institutions offer equivalent mechanisms under statutory <strong>Prepayment Privileges</strong> governed by the Financial Consumer Agency of Canada (FCAC).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. How Prepayment Privileges Work in Canada</h2>
+      <p>
+        Most Canadian mortgages permit 10% to 20% penalty-free annual lump-sum prepayments. Lenders can recalculate monthly payments upon request or at term renewal.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/mortgage-recast-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">Canada Prepayment Tool</h4>
+          <p class="text-xs text-slate-400">Calculate Canadian lump-sum payment reductions.</p>
+        </a>
+        <a href="/debt-payoff-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Debt Payoff Planner</h4>
+          <p class="text-xs text-slate-400">Evaluate debt avalanche vs snowball methods.</p>
+        </a>
+        <a href="/buy-borrow-die-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Buy, Borrow, Die Calculator</h4>
+          <p class="text-xs text-slate-400">Model asset liquidity vs property equity accumulation.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

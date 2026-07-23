@@ -1,0 +1,107 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Mortgage Recast Options in Australia (2026 Guide)",
+  description: "Comprehensive guide to Australian home loan lump-sum options, 100% Mortgage Offset Accounts, Redraw Facilities, and monthly repayment adjustments.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Mortgage Recast Options in Australia",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to Australian home loan lump-sum options, 100% Mortgage Offset Accounts, Redraw Facilities, and monthly repayment adjustments."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can Australian home loans be recast?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Formal recasting is rare in Australia. Australian borrowers typically utilize 100% Mortgage Offset Accounts or Redraw Facilities to reduce interest charges while retaining flexibility."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Australia Real Estate & Debt</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Mortgage Recast Options in Australia
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Australia Mortgage Recast & Offset Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate Australian lump-sum repayment reductions and offset savings.</p>
+      </div>
+      <a href="/mortgage-recast-calculator/australia/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate AU Repayments →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        Australian homeowners holding variable or fixed-rate home loans often ask how to deploy lump-sum funds to lower their monthly mortgage repayments. While the term "mortgage recast" is specific to US lending, Australia's banking system offers even more flexible structures—such as <strong>100% Mortgage Offset Accounts</strong> and <strong>Redraw Facilities</strong>—overseen by the Australian Prudential Regulation Authority (APRA) and ASIC Moneysmart.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. Offset Accounts vs. Redraw Facilities</h2>
+      <p>
+        Australian borrowers can use offset accounts for 100% liquidity or request a formal minimum repayment recalculation following lump-sum payments.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/mortgage-recast-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">AU Repayment Tool</h4>
+          <p class="text-xs text-slate-400">Calculate Australian repayment reductions.</p>
+        </a>
+        <a href="/debt-payoff-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Debt Payoff Planner</h4>
+          <p class="text-xs text-slate-400">Evaluate Australian debt reduction strategies.</p>
+        </a>
+        <a href="/buy-borrow-die-calculator/australia/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Buy, Borrow, Die Calculator</h4>
+          <p class="text-xs text-slate-400">Model asset liquidity vs property equity accumulation.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

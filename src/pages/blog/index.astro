@@ -52,6 +52,21 @@ const toolLabels: Record<string, { label: string; href: string; color: string }>
     href: "/tax-loss-harvesting-calculator/",
     color: "text-[#6366F1] bg-[#6366F1]/10 border-[#6366F1]/20",
   },
+  "social-security-pension-estimator": {
+    label: "Social Security Estimator",
+    href: "/social-security-pension-estimator/",
+    color: "text-[#10B981] bg-[#10B981]/10 border-[#10B981]/20",
+  },
+  "superannuation-rrsp-withdrawal-calculator": {
+    label: "Super & RRSP Calculator",
+    href: "/superannuation-rrsp-withdrawal-calculator/",
+    color: "text-[#8B5CF6] bg-[#8B5CF6]/10 border-[#8B5CF6]/20",
+  },
+  "mortgage-recast-calculator": {
+    label: "Mortgage Recast Calculator",
+    href: "/mortgage-recast-calculator/",
+    color: "text-[#14B8A6] bg-[#14B8A6]/10 border-[#14B8A6]/20",
+  },
 };
 ---
 
@@ -119,36 +134,14 @@ const toolLabels: Record<string, { label: string; href: string; color: string }>
     </div>
   </section>
 
-  <!-- Calculator CTA strip -->
-  <section class="max-w-4xl mx-auto px-4 pb-20">
-    <div class="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-center">
-      <p class="text-sm text-slate-400 mb-4">Ready to run the numbers yourself?</p>
-      <div class="flex flex-wrap justify-center gap-3">
-        <a href="/s-corp-tax-calculator/" class="px-4 py-2 rounded-lg bg-[#10B981]/10 border border-[#10B981]/20 text-[#10B981] text-sm font-semibold hover:bg-[#10B981]/20 transition-colors">
-          S-Corp Tax Calculator →
-        </a>
-        <a href="/debt-payoff-calculator/" class="px-4 py-2 rounded-lg bg-[#F43F5E]/10 border border-[#F43F5E]/20 text-[#F43F5E] text-sm font-semibold hover:bg-[#F43F5E]/20 transition-colors">
-          Debt Payoff Planner →
-        </a>
-        <a href="/buy-borrow-die-calculator/" class="px-4 py-2 rounded-lg bg-[#00F5D4]/10 border border-[#00F5D4]/20 text-[#00F5D4] text-sm font-semibold hover:bg-[#00F5D4]/20 transition-colors">
-          Buy, Borrow, Die Calculator →
-        </a>
-        <a href="/qbi-deduction-calculator/" class="px-4 py-2 rounded-lg bg-[#06B6D4]/10 border border-[#06B6D4]/20 text-[#06B6D4] text-sm font-semibold hover:bg-[#06B6D4]/20 transition-colors">
-          QBI Deduction Calculator →
-        </a>
-        <a href="/salt-cap-deduction-calculator/" class="px-4 py-2 rounded-lg bg-[#A855F7]/10 border border-[#A855F7]/20 text-[#A855F7] text-sm font-semibold hover:bg-[#A855F7]/20 transition-colors">
-          SALT Cap Calculator →
-        </a>
-        <a href="/roth-conversion-calculator/" class="px-4 py-2 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/20 text-[#F59E0B] text-sm font-semibold hover:bg-[#F59E0B]/20 transition-colors">
-          Roth Conversion Calculator →
-        </a>
-        <a href="/rmd-calculator/" class="px-4 py-2 rounded-lg bg-[#3B82F6]/10 border border-[#3B82F6]/20 text-[#3B82F6] text-sm font-semibold hover:bg-[#3B82F6]/20 transition-colors">
-          RMD Calculator →
-        </a>
-        <a href="/capital-gains-tax-calculator/" class="px-4 py-2 rounded-lg bg-[#34D399]/10 border border-[#34D399]/20 text-[#34D399] text-sm font-semibold hover:bg-[#34D399]/20 transition-colors">
-          Capital Gains Tax Calculator →
-        </a>
-      </div>
-    </div>
+  <!-- Calculator CTA -->
+  <section class="max-w-4xl mx-auto px-4 pb-20 text-center">
+    <p class="text-sm text-slate-400 mb-6">Ready to run the numbers yourself?</p>
+    <a href="/calculators/" class="inline-flex items-center justify-center px-8 py-3.5 border border-[#00F5D4]/30 text-sm font-bold rounded-xl text-[#00F5D4] bg-[#00F5D4]/10 hover:bg-[#00F5D4]/20 transition-all duration-300 uppercase tracking-widest gap-2 group shadow-lg shadow-[#00F5D4]/5 hover:shadow-[#00F5D4]/10 hover:-translate-y-0.5">
+      View All Calculators
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
   </section>
 </Layout>

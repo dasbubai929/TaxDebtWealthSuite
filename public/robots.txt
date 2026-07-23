@@ -1,27 +1,64 @@
-# Cloudflare Managed Content Signals
+# TaxDebtWealthSuite — Robots.txt
+# https://taxdebtwealthsuite.com/robots.txt
+
 User-agent: *
-Content-Signal: search=yes,ai-train=no,use=reference
 Allow: /
 
-# Block specific bots
-User-agent: Amazonbot
-Disallow: /
-User-agent: Applebot-Extended
-Disallow: /
-User-agent: Bytespider
-Disallow: /
-User-agent: CCBot
-Disallow: /
-User-agent: ClaudeBot
-Disallow: /
-User-agent: CloudflareBrowserRenderingCrawler
-Disallow: /
-User-agent: Google-Extended
-Disallow: /
+# Block AI training crawlers (not search indexing)
 User-agent: GPTBot
 Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
 User-agent: meta-externalagent
 Disallow: /
 
-# Sitemap directive
+User-agent: Omgilibot
+Disallow: /
+
+# Allow search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Sitemap
 Sitemap: https://taxdebtwealthsuite.com/sitemap.xml

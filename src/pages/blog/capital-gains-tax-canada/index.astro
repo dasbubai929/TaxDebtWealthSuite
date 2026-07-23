@@ -1,0 +1,121 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Canada Capital Gains Tax Guide (2026) | Inclusion Rate Rules",
+  description: "Comprehensive guide to Canadian Capital Gains Tax, CRA inclusion rates (50% vs 66.67% threshold), primary residence exemptions, and TFSA shelters.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Canada Capital Gains Tax Guide: Inclusion Rate Rules",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Comprehensive guide to Canadian Capital Gains Tax, CRA inclusion rates, and TFSA shelters."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the capital gains inclusion rate in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals, 50% of capital gains are included in taxable income up to $250,000 annually. Gains exceeding $250,000 are subject to a 66.67% inclusion rate."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Canada Capital Gains Tax</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Canada Capital Gains Tax Guide
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">Canada Capital Gains Tax Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate Canadian capital gains tax under 50% / 66.67% inclusion rates.</p>
+      </div>
+      <a href="/capital-gains-tax-calculator/canada/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate CA Capital Gains →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          In Canada, capital gains are not taxed as separate assets; rather, a portion (inclusion rate) of the net gain is added to your income and taxed at your marginal rate.
+        </p>
+      </section>
+
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Key Benefits</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>TFSA Tax Exemption:</strong> All gains inside TFSAs are 100% tax-exempt.</li>
+          <li><strong>Principal Residence Exemption:</strong> 100% tax-free capital gain on primary home sales.</li>
+        </ul>
+      </section>
+
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & CRA Source References</h4>
+        <p>Calculations adhere to Canada Revenue Agency (CRA) capital gains rules.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12700-capital-gains.html" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">CRA Line 12700 Guide</a></p>
+      </section>
+
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">Canada CGT Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate Canadian capital gains tax.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Tax Loss Harvesting Tool</h4>
+            <p class="text-xs text-slate-400">Offset capital gains under CRA loss rules.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">RRIF Minimum Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA minimum annual withdrawals.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

@@ -6,15 +6,16 @@ export async function getStaticPaths() {
   const posts = await getCollection("blog");
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
 
 interface Props {
   post: CollectionEntry<"blog">;
+  allPosts: CollectionEntry<"blog">[];
 }
 
-const { post } = Astro.props;
+const { post, allPosts } = Astro.props;
 const { Content } = await post.render();
 
 const toolMeta: Record<string, { label: string; href: string; color: string; ogImage: string }> = {
@@ -72,6 +73,31 @@ const toolMeta: Record<string, { label: string; href: string; color: string; ogI
     color: "text-[#6366F1]",
     ogImage: "https://taxdebtwealthsuite.com/images/og-home.png",
   },
+  "social-security-pension-estimator": {
+    label: "Social Security & Pension Estimator",
+    href: "/social-security-pension-estimator/",
+    color: "text-[#10B981]",
+    ogImage: "https://taxdebtwealthsuite.com/images/og-home.png",
+  },
+  "superannuation-rrsp-withdrawal-calculator": {
+    label: "Superannuation & RRSP Withdrawal",
+    href: "/superannuation-rrsp-withdrawal-calculator/",
+    color: "text-[#A855F7]",
+    ogImage: "https://taxdebtwealthsuite.com/images/og-home.png",
+  },
+  "mortgage-recast-calculator": {
+    label: "Mortgage Recast Calculator",
+    href: "/mortgage-recast-calculator/",
+    color: "text-[#14B8A6]",
+    ogImage: "https://taxdebtwealthsuite.com/images/og-home.png",
+  },
+};
+
+const countryMeta: Record<string, { label: string; flag: string }> = {
+  US: { label: "United States", flag: "🇺🇸" },
+  UK: { label: "United Kingdom", flag: "🇬🇧" },
+  Canada: { label: "Canada", flag: "🇨🇦" },
+  Australia: { label: "Australia", flag: "🇦🇺" },
 };
 
 const tool = toolMeta[post.data.relatedTool] || {
@@ -81,6 +107,88 @@ const tool = toolMeta[post.data.relatedTool] || {
   ogImage: "https://taxdebtwealthsuite.com/images/og-default.png",
 };
 const ogImage = post.data.ogImage ?? tool.ogImage;
+
+// --- SEO Internal Linking: Auto-detect country from slug if not in frontmatter ---
+function detectCountry(slug: string): string | undefined {
+  if (slug.endsWith("-us")) return "US";
+  if (slug.endsWith("-uk")) return "UK";
+  if (slug.endsWith("-canada")) return "Canada";
+  if (slug.endsWith("-australia")) return "Australia";
+  return undefined;
+}
+
+const currentCountry = post.data.country || detectCountry(post.slug);
+
+// --- Find country variants of the same calculator ---
+const countryVariants = allPosts.filter((p) => {
+  if (p.slug === post.slug) return false;
+  if (p.data.relatedTool !== post.data.relatedTool) return false;
+  const pCountry = p.data.country || detectCountry(p.slug);
+  return !!pCountry;
+});
+
+// --- Find related posts by same tool (excluding current + country variants) ---
+const sameToolPosts = allPosts.filter((p) => {
+  if (p.slug === post.slug) return false;
+  if (p.data.relatedTool !== post.data.relatedTool) return false;
+  // Exclude country variants (they get their own section)
+  const pCountry = p.data.country || detectCountry(p.slug);
+  if (pCountry) return false;
+  return true;
+});
+
+// --- Find related posts by same country (different tool) ---
+const sameCountryPosts = allPosts.filter((p) => {
+  if (p.slug === post.slug) return false;
+  const pCountry = p.data.country || detectCountry(p.slug);
+  if (pCountry !== currentCountry) return false;
+  if (p.data.relatedTool === post.data.relatedTool) return false;
+  return true;
+});
+
+// --- Explicit related posts from frontmatter ---
+const explicitRelated = post.data.relatedPosts
+  ? allPosts.filter((p) => post.data.relatedPosts!.includes(p.slug))
+  : [];
+
+// --- Build final related posts list (deduplicated, max 6) ---
+const seenSlugs = new Set([post.slug]);
+const relatedPosts: CollectionEntry<"blog">[] = [];
+
+// 1. Explicit related posts first
+for (const p of explicitRelated) {
+  if (!seenSlugs.has(p.slug) && relatedPosts.length < 6) {
+    relatedPosts.push(p);
+    seenSlugs.add(p.slug);
+  }
+}
+
+// 2. Same tool posts
+for (const p of sameToolPosts) {
+  if (!seenSlugs.has(p.slug) && relatedPosts.length < 6) {
+    relatedPosts.push(p);
+    seenSlugs.add(p.slug);
+  }
+}
+
+// 3. Same country posts
+for (const p of sameCountryPosts) {
+  if (!seenSlugs.has(p.slug) && relatedPosts.length < 6) {
+    relatedPosts.push(p);
+    seenSlugs.add(p.slug);
+  }
+}
+
+// --- Multi-country calculators that have blog posts ---
+const multiCountryTools = [
+  "capital-gains-tax-calculator",
+  "rmd-calculator",
+  "social-security-pension-estimator",
+  "superannuation-rrsp-withdrawal-calculator",
+  "mortgage-recast-calculator",
+];
+
+const isMultiCountry = multiCountryTools.includes(post.data.relatedTool);
 ---
 
 <Layout
@@ -88,7 +196,7 @@ const ogImage = post.data.ogImage ?? tool.ogImage;
   description={post.data.description}
   ogImage={ogImage}
 >
-  <script type="application/ld+json" slot="head" set:html={JSON.stringify([
+  <script type="application/ld+json" is:inline slot="head" set:html={JSON.stringify([
     {
       "@context": "https://schema.org",
       "@type": ["Article", "BlogPosting"],
@@ -170,7 +278,7 @@ const ogImage = post.data.ogImage ?? tool.ogImage;
           Updated: {post.data.updatedDate.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
         </time>
       )}
-      {post.data.country && <span>Region: {post.data.country}</span>}
+      {currentCountry && <span>Region: {countryMeta[currentCountry]?.flag} {countryMeta[currentCountry]?.label || currentCountry}</span>}
     </div>
 
     <!-- Article body -->
@@ -189,6 +297,99 @@ const ogImage = post.data.ogImage ?? tool.ogImage;
         Try the {tool.label} →
       </a>
     </div>
+
+    <!-- Country Guides (for multi-country calculators) -->
+    {isMultiCountry && countryVariants.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-slate-800 space-y-4">
+        <h3 class="text-xl font-bold text-white">Country-Specific Guides</h3>
+        <p class="text-sm text-slate-400">Choose your region for tailored rules, thresholds, and strategies:</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {countryVariants.map((variant) => {
+            const vCountry = variant.data.country || detectCountry(variant.slug);
+            const meta = countryMeta[vCountry || ""];
+            return (
+              <a
+                href={`/blog/${variant.slug}/`}
+                class={`p-4 rounded-xl border text-center transition-all space-y-1 ${
+                  vCountry === currentCountry
+                    ? "bg-[#00F5D4]/10 border-[#00F5D4]/40 ring-1 ring-[#00F5D4]/20"
+                    : "bg-slate-900 border-slate-800 hover:border-[#00F5D4]/40"
+                }`}
+              >
+                <span class="text-2xl">{meta?.flag || "🌐"}</span>
+                <span class="block text-sm font-bold text-white">{meta?.label || vCountry}</span>
+                <span class="block text-xs text-slate-500 truncate">{variant.data.title}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Related Articles -->
+    {relatedPosts.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-slate-800 space-y-4">
+        <h3 class="text-xl font-bold text-white">Related Articles</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {relatedPosts.slice(0, 6).map((rp) => {
+            const rpTool = toolMeta[rp.data.relatedTool];
+            const rpCountry = rp.data.country || detectCountry(rp.slug);
+            const rpCountryMeta = countryMeta[rpCountry || ""];
+            return (
+              <a
+                href={`/blog/${rp.slug}/`}
+                class="group p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2"
+              >
+                <div class="flex items-center gap-2">
+                  {rpTool && (
+                    <span class={`text-xs font-bold ${rpTool.color} uppercase`}>{rpTool.label}</span>
+                  )}
+                  {rpCountryMeta && (
+                    <span class="text-xs text-slate-500">{rpCountryMeta.flag} {rpCountryMeta.label}</span>
+                  )}
+                </div>
+                <h4 class="text-sm font-bold text-white group-hover:text-[#00F5D4] transition-colors leading-snug">{rp.data.title}</h4>
+                <p class="text-xs text-slate-400 leading-relaxed line-clamp-2">{rp.data.description}</p>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Related Calculators -->
+    <div class="mt-12 pt-8 border-t border-slate-800 space-y-4">
+      <h3 class="text-xl font-bold text-white">Related Calculators & Suite Tools</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {Object.entries(toolMeta)
+          .filter(([key]) => key !== post.data.relatedTool)
+          .slice(0, 3)
+          .map(([key, calc]) => (
+            <a href={calc.href} class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+              <span class={`text-xs font-bold ${calc.color} uppercase`}>Calculator</span>
+              <h4 class="text-sm font-bold text-white">{calc.label}</h4>
+              <p class="text-xs text-slate-400">Try the interactive calculator →</p>
+            </a>
+          ))}
+      </div>
+    </div>
+
+    <!-- SEO Internal Links: All posts by same tool -->
+    {sameToolPosts.length > 0 && (
+      <div class="mt-12 pt-8 border-t border-slate-800 space-y-3">
+        <h3 class="text-lg font-bold text-white">More on {tool.label}</h3>
+        <ul class="space-y-2">
+          {sameToolPosts.map((p) => (
+            <li>
+              <a href={`/blog/${p.slug}/`} class="text-sm text-[#00F5D4] hover:underline font-semibold">
+                {p.data.title}
+              </a>
+              <span class="text-xs text-slate-500 ml-2">— {p.data.description.slice(0, 80)}...</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
 
     <!-- Back to blog -->
     <div class="mt-8 text-center">

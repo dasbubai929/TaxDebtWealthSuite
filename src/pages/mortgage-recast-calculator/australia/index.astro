@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import MortgageRecastCalculator from "../../../components/MortgageRecastCalculator.astro";
+---
+
+<Layout
+  title="Australia Mortgage Recast & Offset Calculator | ASIC Moneysmart Rules"
+  description="Explore Australian home loan lump-sum payment options, offset account benefits, and redraw recalculation scenarios."
+  ogImage="https://taxdebtwealthsuite.com/images/og-mortgage-recast-au.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/mortgage-recast-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "Australia Mortgage Recast & Offset Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "AUD"
+        },
+        "description": "Model Australian home loan repayment reductions following lump-sum payments and offset strategy comparisons."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can Australian home loans be recast?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Formal recasting is rare in Australia. Australian borrowers typically utilize 100% Mortgage Offset Accounts or Redraw Facilities to reduce interest charges while retaining flexibility."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        Australia Mortgage Recast & Offset Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Model home loan principal reductions, compare Mortgage Offset vs. Redraw, and calculate monthly payment adjustments.
+      </p>
+    </div>
+
+    <MortgageRecastCalculator country="australia" />
+  </main>
+</Layout>

@@ -1,0 +1,125 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "IRA and RMD Withdrawal Rules in the US (2026 Guide)",
+  description: "Master the US IRS Required Minimum Distribution (RMD) rules, SECURE Act 2.0 starting ages, Uniform Lifetime Table calculations, and penalty avoidance strategies.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "IRA and RMD Withdrawal Rules in the US",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Master the US IRS Required Minimum Distribution (RMD) rules, SECURE Act 2.0 starting ages, and Uniform Lifetime Table calculations."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What age do RMDs begin in the US under SECURE Act 2.0?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals turning 73 in 2023–2032, Required Minimum Distributions (RMDs) begin at age 73. Starting in 2033, RMDs begin at age 75."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are Roth IRA withdrawals subject to mandatory RMDs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Original account holders of Roth IRAs are exempt from mandatory RMDs during their lifetime."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>US RMD & Pension Rules</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        IRA and RMD Withdrawal Rules in the US
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">US Superannuation & RMD Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate mandatory annual RMD withdrawals under IRS Uniform Lifetime tables.</p>
+      </div>
+      <a href="/superannuation-rrsp-withdrawal-calculator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Estimate US RMD →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        Managing pre-tax retirement accounts like Traditional IRAs, 401(k)s, 403(b)s, and 457(b) plans in the United States requires navigating the Internal Revenue Service (IRS) <strong>Required Minimum Distribution (RMD)</strong> framework. Failure to take mandatory annual RMDs triggers severe tax penalties, while taking uncoordinated withdrawals can push you into higher federal income tax brackets.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. What are Required Minimum Distributions (RMDs)?</h2>
+      <p>
+        An RMD is the statutory minimum amount you must withdraw from your tax-deferred retirement accounts each year once you reach a specific milestone age.
+      </p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Born before 1951:</strong> RMDs began at age 70½ or 72.</li>
+        <li><strong>Born 1951 through 1959:</strong> RMDs begin at age <strong>73</strong>.</li>
+        <li><strong>Born 1960 or later:</strong> RMDs begin at age <strong>75</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">2. IRS Uniform Lifetime Table</h2>
+      <p>
+        The IRS Uniform Lifetime Table (Publication 590-B) dictates your minimum withdrawal percentage. For example, at age 73 the divisor is 26.5 (3.77%), scaling up to 16.0 at age 85 (6.25%).
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/superannuation-rrsp-withdrawal-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">Super & RRSP Calculator</h4>
+          <p class="text-xs text-slate-400">Calculate mandatory US, UK, CA, and AU retirement withdrawals.</p>
+        </a>
+        <a href="/rmd-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">RMD Calculator</h4>
+          <p class="text-xs text-slate-400">Calculate mandatory IRS withdrawals from IRAs & 401(k)s.</p>
+        </a>
+        <a href="/roth-conversion-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Roth Conversion Calculator</h4>
+          <p class="text-xs text-slate-400">Model the tax efficiency of converting pre-tax IRA funds.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

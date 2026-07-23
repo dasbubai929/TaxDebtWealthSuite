@@ -1,0 +1,182 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "S-Corp Tax Savings Guide (2026) | Reasonable Salary & IRS Form 2553 Rules",
+  description: "Learn how filing an S-Corporation election saves self-employed business owners thousands in FICA self-employment taxes using reasonable salary splits.",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "S-Corp Tax Savings Guide & Reasonable Salary Rules",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Learn how filing an S-Corporation election saves self-employed business owners thousands in FICA self-employment taxes."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the net income threshold to make an S-Corp election worth it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An S-Corp election usually becomes tax-advantageous once your business net profit exceeds $40,000 to $50,000 per year, which covers administrative payroll and tax filing costs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does an S-Corp save money on self-employment taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "S-Corp owners pay 15.3% FICA self-employment tax ONLY on their W-2 reasonable salary portion. Profit distributions pass through free of self-employment tax."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the IRS deadline for filing Form 2553?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To take effect for the current tax year, Form 2553 must be filed within 2 months and 15 days of the start of the tax year (March 15 for calendar-year taxpayers)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if the IRS determines my salary is too low?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The IRS can reclassify S-Corp profit distributions as W-2 wages, assessing back FICA taxes, interest, and late-filing penalties."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can a single-member LLC elect S-Corp tax status?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. A single-member LLC can file IRS Form 2553 to be taxed as an S-Corporation without forming a new corporate legal entity."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>S-Corp & Small Business Tax</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        S-Corp Tax Savings & Reasonable Salary Guide
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">S-Corp Tax Savings Predictor</h3>
+        <p class="text-xs text-slate-300">Calculate your net tax savings, optimal W-2 salary split, and break-even profit threshold.</p>
+      </div>
+      <a href="/s-corp-tax-calculator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Calculate S-Corp Savings →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <!-- Introduction -->
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Introduction</h2>
+        <p>
+          Self-employed business owners operating as sole proprietors or single-member LLCs face a major tax drag: <strong>15.3% FICA self-employment tax</strong> on 100% of net business income up to the Social Security wage cap. Electing S-Corporation tax status with IRS Form 2553 allows business owners to split income between W-2 salary and owner distributions, saving thousands annually.
+        </p>
+      </section>
+
+      <!-- Key Benefits -->
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Key Benefits of an S-Corp Election</h2>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Substantial FICA Tax Savings:</strong> Eliminate the 15.3% self-employment tax on business profit distributions.</li>
+          <li><strong>Retains Section 199A QBI Deduction:</strong> Qualify for up to a 20% tax deduction on qualified business income.</li>
+          <li><strong>Pre-Tax Retirement Contributions:</strong> Maximize Solo 401(k) or SEP-IRA employer contributions on W-2 salary.</li>
+          <li><strong>Audit Defense & Statutory Compliance:</strong> Clear separation between payroll salary and dividend distributions.</li>
+        </ul>
+      </section>
+
+      <!-- Detailed Analysis -->
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">IRS Reasonable Salary Standards</h2>
+        <p>
+          The IRS requires S-Corp shareholder-employees to pay themselves a "reasonable salary" based on training, market wages for comparable roles, and time devoted to the business. Setting salary too low to avoid FICA taxes can trigger IRS audits and reclassification penalties.
+        </p>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 rounded-2xl border border-slate-800 space-y-4">
+        <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Frequently Asked Questions</h2>
+        <div class="space-y-4 text-sm">
+          <div>
+            <h4 class="font-bold text-white">When is an S-Corp election worth it?</h4>
+            <p class="text-slate-400">Generally when net business profit exceeds $40,000 to $50,000 per year.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-white">How does Form 2553 work?</h4>
+            <p class="text-slate-400">Filing Form 2553 notifies the IRS to tax your LLC as an S-Corporation.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology -->
+      <section class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs text-slate-300">
+        <h4 class="text-sm font-bold text-white">Methodology & IRS Source References</h4>
+        <p>Calculations adhere to IRS Code Section 1361, IRS Publication 535, and IRS Fact Sheet FS-2008-25 for S-Corporation compensation standards.</p>
+        <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/s-corporations" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">IRS S-Corporations Tax Guide</a></p>
+      </section>
+
+      <!-- Related Calculators Grid -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/s-corp-tax-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+            <h4 class="text-sm font-bold text-white">S-Corp Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Model reasonable salary & tax savings.</p>
+          </a>
+          <a href="/qbi-deduction-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">QBI Deduction Tool</h4>
+            <p class="text-xs text-slate-400">Calculate 20% Section 199A tax savings.</p>
+          </a>
+          <a href="/debt-payoff-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+            <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+            <h4 class="text-sm font-bold text-white">Debt Payoff Planner</h4>
+            <p class="text-xs text-slate-400">Accelerate business and personal debt freedom.</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </article>
+</Layout>

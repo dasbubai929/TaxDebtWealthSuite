@@ -1,0 +1,166 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+
+const seo = {
+  title: "Understanding Social Security Benefits in the US (2026 Guide)",
+  description: "Master the US Social Security benefit formula, 2026 bend points, Primary Insurance Amount (PIA), and optimal claiming age strategies (62 vs 67 vs 70).",
+  schema: `
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Understanding Social Security Benefits in the US",
+        "author": {
+          "@type": "Person",
+          "name": "Mrittunjoy Das"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TaxDebtWealthSuite"
+        },
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "description": "Master the US Social Security benefit formula, 2026 bend points, Primary Insurance Amount (PIA), and optimal claiming age strategies."
+      }
+    </script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Full Retirement Age (FRA) for Social Security?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals born in 1960 or later, Full Retirement Age (FRA) is 67. Claiming at age 62 permanently reduces your monthly check by 30%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does delaying Social Security to age 70 increase my payout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For each year you delay claiming Social Security past age 67 up to age 70, your benefit increases by 8% per year (up to a 24% permanent bonus)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are Social Security benefits taxable?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Depending on your combined income (AGI + tax-exempt interest + 50% of Social Security benefit), up to 85% of your Social Security benefit may be subject to federal income tax."
+            }
+          }
+        ]
+      }
+    </script>
+  `
+};
+---
+
+<Layout title={seo.title} description={seo.description} head={seo.schema}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <header class="mb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20 mb-6">
+        <span>Retirement & Social Security</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        Understanding Social Security Benefits in the US
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-sm text-slate-400">
+        <span class="flex items-center gap-2">
+          <img src="https://ui-avatars.com/api/?name=Mrittunjoy+Das&background=00F5D4&color=000" alt="Mrittunjoy Das" class="w-8 h-8 rounded-full" />
+          By <span class="text-white font-medium">Mrittunjoy Das</span>
+        </span>
+        <span>•</span>
+        <time datetime="2026-07-23">July 23, 2026</time>
+      </div>
+    </header>
+
+    <!-- Embedded Calculator Callout Banner -->
+    <div class="my-8 p-6 rounded-2xl bg-gradient-to-r from-[#141C32] to-[#1E294B] border border-[#00F5D4]/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="space-y-1">
+        <span class="text-xs font-bold text-[#00F5D4] uppercase tracking-wider">Interactive Tool</span>
+        <h3 class="text-lg font-bold text-white">US Social Security Calculator</h3>
+        <p class="text-xs text-slate-300">Calculate your estimated monthly benefit, bend points, and claiming age adjustment factor.</p>
+      </div>
+      <a href="/social-security-pension-estimator/" class="px-5 py-2.5 rounded-xl bg-[#00F5D4] hover:bg-[#00F5D4]/90 text-slate-950 font-bold text-xs whitespace-nowrap transition-all shadow-lg shadow-[#00F5D4]/20">
+        Estimate US Benefits →
+      </a>
+    </div>
+
+    <div class="prose prose-invert max-w-none space-y-8 text-slate-300 text-base leading-relaxed">
+      <p>
+        Planning for retirement in the United States requires a deep understanding of how Social Security benefits are calculated, how income taxes apply, and how your chosen claiming age dramatically impacts your lifetime cash flow. Whether you plan to claim as early as age 62 or wait until the maximum delayed credit threshold at age 70, knowing the underlying mechanics empowers you to build an optimal retirement strategy.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">1. How the Social Security Benefit Formula Works</h2>
+      <p>
+        Social Security is designed to replace a portion of your pre-retirement earnings. The Social Security Administration (SSA) uses a multi-step formula to convert your lifetime earnings record into your <strong>Primary Insurance Amount (PIA)</strong>—the monthly benefit you receive if you claim at your Full Retirement Age (FRA).
+      </p>
+
+      <h3 class="text-xl font-bold text-white">Average Indexed Monthly Earnings (AIME)</h3>
+      <p>
+        First, the SSA adjusts your historical earnings for inflation up to age 60 using national average wage indexing. It then selects your <strong>highest 35 years of indexed earnings</strong>. If you worked fewer than 35 years, zero-earning years are factored into the average, which significantly lowers your baseline benefit. The sum of these 35 highest years is divided by 420 months (35 years × 12 months) to determine your AIME.
+      </p>
+
+      <h3 class="text-xl font-bold text-white">The 2026 Bend Point Formula</h3>
+      <p>
+        Once your AIME is established, the SSA applies a progressive three-tiered formula using statutory "bend points." For 2026, the bend point formula calculates your PIA as:
+      </p>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>90%</strong> of the first <strong>$1,174</strong> of your AIME, plus</li>
+        <li><strong>32%</strong> of your AIME between <strong>$1,174 and $7,078</strong>, plus</li>
+        <li><strong>15%</strong> of your AIME exceeding <strong>$7,078</strong>.</li>
+      </ul>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">2. Claiming Age Strategies: Age 62 vs. 67 vs. 70</h2>
+      <p>
+        Your Full Retirement Age (FRA) depends on your birth year. For everyone born in 1960 or later, the FRA is <strong>67</strong>. While you can claim Social Security as early as age 62 or delay as late as age 70, your claiming age applies a permanent percentage adjustment to your monthly PIA.
+      </p>
+
+      <div class="overflow-x-auto my-6">
+        <table class="w-full text-left text-xs border border-slate-800 rounded-lg overflow-hidden">
+          <thead class="bg-slate-900 text-white font-semibold">
+            <tr>
+              <th class="p-3 border-b border-slate-800">Claiming Age</th>
+              <th class="p-3 border-b border-slate-800">Percent of PIA</th>
+              <th class="p-3 border-b border-slate-800">Permanent Adjustment</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr><td class="p-3 font-semibold text-white">Age 62</td><td class="p-3">70.0%</td><td class="p-3 text-rose-400">30% Reduction</td></tr>
+            <tr><td class="p-3 font-semibold text-white">Age 65</td><td class="p-3">86.7%</td><td class="p-3 text-rose-400">13.3% Reduction</td></tr>
+            <tr><td class="p-3 font-semibold text-white">Age 67 (FRA)</td><td class="p-3 text-emerald-400 font-bold">100.0%</td><td class="p-3 text-emerald-400">Full Baseline PIA</td></tr>
+            <tr><td class="p-3 font-semibold text-white">Age 70</td><td class="p-3 text-emerald-400 font-bold">124.0%</td><td class="p-3 text-emerald-400">+24% Delayed Credit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">3. Taxation of Social Security Benefits</h2>
+      <p>
+        Social Security benefits can be subject to federal income tax based on your Combined Income (AGI + tax-exempt interest + 50% of Social Security). Single filers with combined income above $34,000 (or couples above $44,000) may see up to 85% of their benefits taxed.
+      </p>
+
+      <h2 class="text-2xl font-bold text-white border-b border-slate-800 pb-3">Related Calculators & Strategy Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+        <a href="/social-security-pension-estimator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-[#00F5D4]/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-[#00F5D4] uppercase">Calculator</span>
+          <h4 class="text-sm font-bold text-white">Social Security Estimator</h4>
+          <p class="text-xs text-slate-400">Estimate your US monthly Social Security benefit payout.</p>
+        </a>
+        <a href="/rmd-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-indigo-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">RMD Calculator</h4>
+          <p class="text-xs text-slate-400">Calculate mandatory IRS withdrawals from IRAs & 401(k)s.</p>
+        </a>
+        <a href="/roth-conversion-calculator/" class="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all space-y-2">
+          <span class="text-xs font-bold text-amber-400 uppercase">Related Tool</span>
+          <h4 class="text-sm font-bold text-white">Roth Conversion Calculator</h4>
+          <p class="text-xs text-slate-400">Model the tax efficiency of converting pre-tax IRA funds.</p>
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

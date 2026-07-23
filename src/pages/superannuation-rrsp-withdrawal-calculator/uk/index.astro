@@ -1,0 +1,65 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import SuperannuationRrspWithdrawalCalculator from "../../../components/SuperannuationRrspWithdrawalCalculator.astro";
+---
+
+<Layout
+  title="UK Pension Drawdown Calculator | SIPP & Workplace Pension Drawdown"
+  description="Calculate UK SIPP and workplace pension flexible drawdowns, 25% tax-free lump sum entitlement, and income tax impact under HMRC rules."
+  ogImage="https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-uk.png"
+>
+  <link rel="alternate" hreflang="x-default" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-us" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/" slot="head" />
+  <link rel="alternate" hreflang="en-gb" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/uk/" slot="head" />
+  <link rel="alternate" hreflang="en-ca" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/canada/" slot="head" />
+  <link rel="alternate" hreflang="en-au" href="https://taxdebtwealthsuite.com/superannuation-rrsp-withdrawal-calculator/australia/" slot="head" />
+
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FinanceApplication",
+        "name": "UK Pension Drawdown Calculator",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "provider": {
+          "@id": "https://taxdebtwealthsuite.com/#organization"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "GBP"
+        },
+        "description": "Calculate UK SIPP and workplace pension flexible drawdowns and tax-free lump sum under HMRC rules."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much of my UK pension can I withdraw tax-free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under HMRC rules, you can take up to 25% of your defined contribution pension pot as a tax-free lump sum, subject to the Lump Sum Allowance (LSA) limit of £268,275."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
+        UK Pension Drawdown Calculator
+      </h1>
+      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+        Estimate flexible drawdown payments, evaluate 25% tax-free lump sum portions, and model taxable SIPP withdrawals.
+      </p>
+    </div>
+
+    <SuperannuationRrspWithdrawalCalculator country="uk" />
+  </main>
+</Layout>

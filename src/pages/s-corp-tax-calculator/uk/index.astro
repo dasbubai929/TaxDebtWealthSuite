@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
               "@type": "Answer",
               "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the UK have an exact equivalent to a US S-Corporation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The UK does not have S-Corporations. UK business owners instead incorporate as a Private Limited Company (Ltd) and achieve similar tax efficiency through a combination of director's salary, Corporation Tax, and dividend distributions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does salary vs dividend tax planning work for a UK Limited Company?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UK Ltd directors often take a salary up to the Primary Threshold for National Insurance to maintain State Pension qualifying years without paying NI contributions, taking remaining net profit as dividends taxed at lower dividend tax rates after Corporation Tax."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     </div>
 
     <SCorpTaxCalculator defaultCountry="UK" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>UK Business Structure</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          The United Kingdom does <strong>not</strong> have an "S-Corporation" tax structure, as S-Corps are an exclusive US tax election under the Internal Revenue Code. For UK business owners, contractors, and freelancers, the equivalent structural choice is operating as a <strong>Sole Trader</strong> versus incorporating as a <strong>Private Limited Company (Ltd)</strong>. In a UK Ltd company, directors typically pay themselves a tax-efficient salary up to the National Insurance threshold and extract remaining profits as dividends, which are subject to UK Corporation Tax and Dividend Tax rates rather than full Income Tax and National Insurance. This calculator allows UK business owners to evaluate salary versus distribution dynamics and cross-border US corporate tax models.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand UK Business Tax Structures</strong>
+              <span class="text-sm text-slate-400">Learn the key differences between UK Sole Trader tax obligations and Limited Company (Ltd) reporting.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Analyze Salary vs. Dividend Tax Strategy</strong>
+              <span class="text-sm text-slate-400">See how paying a low director salary combined with dividend draws optimizes National Insurance and Income Tax.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Corporation Tax vs. Self-Assessment</strong>
+              <span class="text-sm text-slate-400">Compare direct personal Income Tax rates against UK Corporation Tax on company net profits.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Assess Cross-Border S-Corp Mechanics</strong>
+              <span class="text-sm text-slate-400">Model US S-Corporation tax savings for US expats, dual citizens, or UK businesses expanding to the United States.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When should I incorporate?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Does the UK have an exact equivalent to a US S-Corporation?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. The UK does not have S-Corporations. UK business owners instead incorporate as a Private Limited Company (Ltd) and achieve similar tax efficiency through a combination of director's salary, Corporation Tax, and dividend distributions.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does salary vs dividend tax planning work for a UK Limited Company?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              UK Ltd directors often take a salary up to the Primary Threshold for National Insurance to maintain State Pension qualifying years without paying NI contributions, taking remaining net profit as dividends taxed at lower dividend tax rates after Corporation Tax.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates UK Sole Trader taxation (where 100% of net profits are subject to Class 2/4 National Insurance and Income Tax) versus UK Limited Company taxation (where Corporation Tax applies to net profits, PAYE/NI applies to director salary, and Dividend Tax applies to distributed dividends).
+          </p>
+          <p>
+            Additionally, the calculator interface supports cross-border US S-Corporation tax modeling, allowing dual US-UK taxpayers or expanding business entities to test salary-to-distribution splits and evaluate pass-through tax savings under US regulations.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/set-up-limited-company" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK Setting Up a Limited Company Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a UK Chartered Accountant (ACCA/ICAEW) for personalized incorporation and HMRC tax planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate HMRC CGT liabilities across basic and higher tax bands.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">UK Tax Optimization</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">UK Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset UK capital gains using allowable share loss relief.</p>
+          </a>
+          <a href="/social-security-pension-estimator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK State Pension Estimator</h4>
+            <p class="text-xs text-slate-400">Estimate State Pension entitlement based on National Insurance qualifying years.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

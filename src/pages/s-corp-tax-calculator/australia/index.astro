@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
               "@type": "Answer",
               "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Australia have an equivalent to a US S-Corporation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Australia has no S-Corp structure. Australian businesses operate as a Pty Ltd company, where corporate tax (25% for small business) is paid at the entity level, and dividend imputation (franking credits) prevents double taxation when profits are distributed to shareholders."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do franking credits work for Australian company dividends?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When a Pty Ltd company pays 25% tax on profits, it attaches a franking credit to dividends paid to shareholders. Shareholders receive credit for the tax already paid by the company, reducing or eliminating their personal tax liability on that dividend income."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     </div>
 
     <SCorpTaxCalculator defaultCountry="AU" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Australian Business Structure</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Australia does <strong>not</strong> recognize "S-Corporation" status, which is a tax election specific to the United States tax system. In Australia, self-employed contractors and small business owners choose between operating as a <strong>Sole Trader</strong> or incorporating as a <strong>Pty Ltd Company</strong> (Proprietary Limited Company). Australian companies pay a flat small business corporate tax rate (25%) on profits and distribute dividends to shareholders accompanied by <strong>Franking Credits</strong> under Australia's dividend imputation system to prevent double taxation. This calculator helps Australian business owners evaluate corporate profit retention versus personal income tax rates and model US S-Corp mechanics for US entity comparisons.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Contrast Australian Business Structures</strong>
+              <span class="text-sm text-slate-400">Compare Sole Trader income tax reporting against a Proprietary Limited (Pty Ltd) company structure.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand Franking Credit Imputation</strong>
+              <span class="text-sm text-slate-400">Learn how Australian franking credits offset personal tax liabilities on corporate dividend distributions.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Small Business Corporate Tax Rates</strong>
+              <span class="text-sm text-slate-400">Benefit from Australia's 25% base rate entity tax rate to retain earnings within the company for growth.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Examine US Cross-Border Tax Models</strong>
+              <span class="text-sm text-slate-400">Compare Australian company dividend flows against US S-Corporation pass-through rules for US expansion.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When should I incorporate?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Does Australia have an equivalent to a US S-Corporation?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. Australia has no S-Corp structure. Australian businesses operate as a Pty Ltd company, where corporate tax (25% for small business) is paid at the entity level, and dividend imputation (franking credits) prevents double taxation when profits are distributed to shareholders.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How do franking credits work for Australian company dividends?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              When a Pty Ltd company pays 25% tax on profits, it attaches a franking credit to dividends paid to shareholders. Shareholders receive credit for the tax already paid by the company, reducing or eliminating their personal tax liability on that dividend income.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates Australian Sole Trader tax liabilities (individual progressive tax rates up to 45% plus Medicare levy on net profit) against Pty Ltd Company taxation (flat 25% base rate entity corporate tax rate, salary subject to PAYG withholding and superannuation guarantee, and franked dividend distributions).
+          </p>
+          <p>
+            Furthermore, the calculator interface supports cross-border US S-Corporation tax modeling, enabling dual US-Australian taxpayers or expanding businesses to analyze salary-versus-distribution allocations and pass-through tax savings under US regulations.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/businesses-and-organisations/income-deductions-and-concessions/income-types-and-rates/company-tax-rates" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">ATO Official Company Tax Rates Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Chartered Accountant (CA) or CPA registered with the ATO before incorporating a Pty Ltd company.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate ATO CGT with 50% individual discount rules.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">ATO Tax Optimization</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset ASX capital gains with realized capital losses.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Superannuation</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Superannuation Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model minimum pension drawdown percentages and tax-free limits after age 60.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

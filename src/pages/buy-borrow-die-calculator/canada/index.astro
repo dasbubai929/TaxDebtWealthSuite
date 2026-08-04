@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import BuyBorrowDieCalculator from "../../../components/BuyBorrowDieCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import BuyBorrowDieCalculator from "../../../components/BuyBorrowDieCalculator.a
               "@type": "Answer",
               "text": "Yes, borrowing against your own assets is a standard financial practice and does not trigger a taxable event under current tax guidelines."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How does deemed disposition at death affect this strategy in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike the US, Canada taxes all unrealized capital gains upon death as a deemed sale at fair market value (Income Tax Act s.70(5)). Borrowing delays capital gains tax during your lifetime, but accumulated gains are taxed on the deceased's final tax return unless rolled over to a surviving spouse."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is interest on securities-backed loans tax-deductible in Canada?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under Paragraph 20(1)(c) of the Income Tax Act, loan interest is only deductible if proceeds are used to earn income from business or property (such as buying dividend-paying stocks). Borrowing for personal living expenses is strictly non-deductible."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import BuyBorrowDieCalculator from "../../../components/BuyBorrowDieCalculator.a
     </div>
 
     <BuyBorrowDieCalculator defaultCurrency="CAD" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Canadian Wealth Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In Canada, executing an asset-backed borrowing strategy involves using investment loans or margin lines against non-registered portfolio assets to obtain liquidity without selling securities. While borrowing avoids immediate Canadian capital gains realization, Canadian tax law differs fundamentally from the US: Canada does <strong>not</strong> offer a "step-up in basis at death." Instead, under Section 70(5) of the Income Tax Act, death triggers a <strong>deemed disposition</strong> where assets are treated as sold at fair market value on the final tax return (unless rolled over to a surviving spouse). This calculator models how margin loan interest drag compares against current Canadian capital gains tax inclusion rates over your investment horizon.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Margin Interest vs. Canadian Capital Gains Tax</strong>
+              <span class="text-sm text-slate-400">Measure the cost of borrowing against liquidating non-registered assets under Canadian capital gains inclusion rules.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Account for Deemed Disposition at Death</strong>
+              <span class="text-sm text-slate-400">Factor in Canada's mandatory tax settlement upon death under Income Tax Act Section 70(5).</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Stress-Test Margin Call Thresholds</strong>
+              <span class="text-sm text-slate-400">Model market drawdowns to ensure portfolio maintenance buffers withstand TSX and global market volatility.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Differentiate Taxable vs. Non-Taxable Draws</strong>
+              <span class="text-sm text-slate-400">Quantify the liquidity generated from non-taxable loan proceeds versus selling appreciated equities.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Is the Buy, Borrow, Die strategy legal?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Yes, borrowing against your own assets is a standard financial practice and does not trigger a taxable event under current tax guidelines.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does deemed disposition at death affect this strategy in Canada?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Unlike the US, Canada taxes all unrealized capital gains upon death as a deemed sale at fair market value (Income Tax Act s.70(5)). Borrowing delays capital gains tax during your lifetime, but accumulated gains are taxed on the deceased's final tax return unless rolled over to a surviving spouse.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Is interest on securities-backed loans tax-deductible in Canada?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under Paragraph 20(1)(c) of the Income Tax Act, loan interest is only deductible if proceeds are used to earn income from business or property (such as buying dividend-paying stocks). Borrowing for personal living expenses is strictly non-deductible.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates the financial difference between liquidating Canadian non-registered assets versus securing an investment margin line. For share sales, the model applies Canada's capital gains inclusion rate (50% or 66.67% above $250,000) to realized capital gains and adds the taxable portion to taxable income at federal and provincial marginal tax rates.
+          </p>
+          <p>
+            For the borrowing scenario, the calculator models Canadian prime-based borrowing interest rates, compounding interest debt, and LTV safety margins. Crucially, the model accounts for final tax liabilities under Canada's deemed disposition rules upon death rather than assuming a US-style step-up in cost basis.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/deductions-credits-expenses/line-12700-capital-gains.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Official Capital Gains Reporting Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Canadian Chartered Professional Accountant (CPA) or TEP advisor before undertaking investment margin strategies.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA capital gains tax inclusion amounts across provinces.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Loss Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canadian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Model capital loss carrybacks and superficial loss rules.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RRSP / RRIF Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model mandatory RRIF minimum withdrawals and withholding taxes.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

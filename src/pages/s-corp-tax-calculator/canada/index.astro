@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
               "@type": "Answer",
               "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Canada have an S-Corporation tax election?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Canada has no S-Corp status. Canadian business owners incorporate as a Canadian-Controlled Private Corporation (CCPC), utilizing the Small Business Deduction and optimizing personal taxes through a mix of salary and dividends."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should a Canadian business owner pay themselves in salary or dividends?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Salary creates RRSP contribution room and contributes to the Canada Pension Plan (CPP), while dividends avoid CPP contributions and are integration-taxed via the Dividend Tax Credit. The ideal mix depends on your personal income needs, retirement plans, and provincial tax brackets."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
     </div>
 
     <SCorpTaxCalculator defaultCountry="CA" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Canadian Business Structure</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Canada does <strong>not</strong> have an "S-Corporation" tax election; S-Corps are strictly a US tax designation under IRS rules. In Canada, incorporated small business owners and freelancers operate through a <strong>Canadian-Controlled Private Corporation (CCPC)</strong> to access the Small Business Deduction (SBD), which taxes active business income up to $500,000 at lower combined corporate rates. CCPC owners then choose between taking a <strong>Salary</strong> (which creates RRSP contribution room and requires CPP contributions) or <strong>Dividends</strong> (taxed under Canada's dividend tax credit system). This calculator helps Canadian entrepreneurs evaluate salary versus dividend tradeoffs and model US S-Corp structures for cross-border operations.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand Canadian Incorporation Options</strong>
+              <span class="text-sm text-slate-400">Contrast Sole Proprietorship taxation with Canadian-Controlled Private Corporation (CCPC) tax rates.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Analyze Salary vs. Dividend Remuneration</strong>
+              <span class="text-sm text-slate-400">Compare taking a salary (CPP contributions and RRSP room) against taking dividends with the Canadian Dividend Tax Credit.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Small Business Deduction (SBD) Savings</strong>
+              <span class="text-sm text-slate-400">Learn how Canada's reduced corporate tax rate on active business income preserves capital for reinvestment.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Cross-Border US Tax Scenarios</strong>
+              <span class="text-sm text-slate-400">Assess US S-Corp tax implications for Canadian business owners with US subsidiaries or US tax filing obligations.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When should I incorporate?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Does Canada have an S-Corporation tax election?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. Canada has no S-Corp status. Canadian business owners incorporate as a Canadian-Controlled Private Corporation (CCPC), utilizing the Small Business Deduction and optimizing personal taxes through a mix of salary and dividends.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Should a Canadian business owner pay themselves in salary or dividends?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Salary creates RRSP contribution room and contributes to the Canada Pension Plan (CPP), while dividends avoid CPP contributions and are integration-taxed via the Dividend Tax Credit. The ideal mix depends on your personal income needs, retirement plans, and provincial tax brackets.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates Canadian Sole Proprietorship tax (net business income taxed at personal federal and provincial rates plus mandatory self-employed CPP contributions) versus CCPC taxation (where active business income qualifies for the Small Business Deduction, corporate salary is deductible, and dividends receive the dividend tax credit).
+          </p>
+          <p>
+            In addition, the tool allows testing salary-versus-distribution allocations and evaluating US S-Corporation pass-through tax models for Canadian dual-citizens or cross-border corporate entities.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/business-tax-credits/small-business-deduction.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Small Business Deduction Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Canadian CPA or cross-border tax specialist before making corporate tax elections.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA capital gains tax inclusion amounts across provinces.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Loss Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canadian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Model capital loss carrybacks and superficial loss rules.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RRSP / RRIF Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model mandatory RRIF minimum withdrawals and withholding taxes.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

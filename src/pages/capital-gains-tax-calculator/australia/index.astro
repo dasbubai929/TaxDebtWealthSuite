@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
               "@type": "Answer",
               "text": "Australian individuals who hold a CGT asset for more than 12 months can apply a 50% discount, meaning only half of the net capital gain is included in their assessable income."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Main Residence Exemption work under ATO rules?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Your main residence (primary home) is generally 100% exempt from CGT. Under the ATO '6-year rule', if you move out and rent out your main residence, you can continue treating it as your tax-exempt main residence for up to 6 years."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are capital losses applied against capital gains in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under ATO rules, net capital losses must first be subtracted from gross capital gains before applying the 50% CGT discount. Unused capital losses can be carried forward indefinitely to offset future capital gains."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
     </div>
 
     <CapitalGainsTaxCalculator defaultCountry="AU" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>ATO Tax Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In Australia, Capital Gains Tax (CGT) is not a separate tax rate, but rather a structural component of your individual assessable income under Australian Taxation Office (ATO) rules. For assets held by Australian individuals or trusts for 12 months or longer, the ATO grants a <strong>50% CGT discount</strong>, meaning only half of your net capital gain is added to your assessable income for the financial year. Assets held for less than 12 months do not receive the discount, requiring 100% of the net gain to be taxed at your individual marginal tax rate (plus the 2% Medicare levy). This calculator models your ATO CGT liability, calculating 12-month discount eligibility and estimating your final tax bill.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Apply 50% ATO CGT Discount</strong>
+              <span class="text-sm text-slate-400">Automatically calculate the 50% discount on capital gains for assets held over 12 months.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Individual Marginal Tax Brackets</strong>
+              <span class="text-sm text-slate-400">See how discounted capital gains aggregate with salary income across ATO progressive tax brackets.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Incorporate 2% Medicare Levy</strong>
+              <span class="text-sm text-slate-400">Accurately factor in the 2% Medicare levy (and Medicare Levy Surcharge where applicable) on taxable gains.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Main Residence Exemption</strong>
+              <span class="text-sm text-slate-400">Model 100% tax-exempt capital gains on your primary place of residence under ATO rules.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the 50% CGT discount in Australia?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Australian individuals who hold a CGT asset for more than 12 months can apply a 50% discount, meaning only half of the net capital gain is included in their assessable income.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does the Main Residence Exemption work under ATO rules?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Your main residence (primary home) is generally 100% exempt from CGT. Under the ATO "6-year rule", if you move out and rent out your main residence, you can continue treating it as your tax-exempt main residence for up to 6 years.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How are capital losses applied against capital gains in Australia?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under ATO rules, net capital losses must first be subtracted from gross capital gains before applying the 50% CGT discount. Unused capital losses can be carried forward indefinitely to offset future capital gains.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator determines net capital gains under the Income Tax Assessment Act 1997 by subtracting your asset cost base (purchase price, incidental acquisition costs, holding costs, and selling expenses) from total capital proceeds.
+          </p>
+          <p>
+            If the asset was held for 12 months or longer by an individual, the tool applies the statutory 50% CGT discount after subtracting any net capital losses. The resulting net capital gain is added to your assessable income and taxed at individual marginal rates plus the 2% Medicare levy.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">ATO Guide to Capital Gains Tax →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an Australian Registered Tax Agent or Chartered Accountant for personal CGT advice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/tax-loss-harvesting-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO Loss Offsetting</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset ASX capital gains with realized capital losses before applying the 50% discount.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">ATO Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australian Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model margin lending against ASX portfolios to avoid triggering ATO CGT disposal events.</p>
+          </a>
+          <a href="/rmd-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Super Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Superannuation Minimum Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate mandatory ATO account-based pension minimum drawdown percentages.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

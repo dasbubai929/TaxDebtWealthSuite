@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalculator.astro";
 ---
@@ -35,7 +35,23 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
             "name": "What is the UK Capital Gains Tax Annual Exempt Amount?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For the current tax year, the UK CGT Annual Exempt Amount is Â£3,000 for individuals."
+              "text": "For the current tax year, the UK CGT Annual Exempt Amount is £3,000 for individuals."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Private Residence Relief work on UK property sales?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Private Residence Relief automatically exempts your main home from Capital Gains Tax for the period you lived in it as your primary residence. CGT only applies if you rented out the property, used part of it exclusively for business, or sold a secondary home."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the current UK Capital Gains Tax rates for shares vs. residential property?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For Basic Rate taxpayers, CGT is 10% on shares and 18% on residential property. For Higher and Additional Rate taxpayers, CGT is 20% on shares and 24% on residential property gains exceeding the Annual Exempt Amount."
             }
           }
         ]
@@ -55,5 +71,156 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
     </div>
 
     <CapitalGainsTaxCalculator defaultCountry="UK" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>HMRC Tax Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Capital Gains Tax (CGT) in the United Kingdom is levied on the profit realized when selling or disposing of an asset that has increased in value. Every UK individual receives an annual tax-free allowance—the Annual Exempt Amount (£3,000)—which reduces your taxable gain before any tax is charged. Unlike US or Australian systems, UK CGT applies specific flat-ish tax rates determined by your overall UK income tax band (Basic Rate vs. Higher/Additional Rate) and the underlying asset category (e.g. residential property versus shares and crypto). This calculator models your HMRC CGT liability, deducting allowable expenses and your Annual Exempt Amount to optimize disposal tax planning.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Apply HMRC Annual Exempt Amount</strong>
+              <span class="text-sm text-slate-400">Deduct the statutory £3,000 tax-free allowance to minimize chargeable capital gains.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Income Band Tax Rates</strong>
+              <span class="text-sm text-slate-400">Determine whether your gains fall within the Basic Rate (10%/18%) or Higher/Additional Rate (20%/24%) bands.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Differentiate Asset Class Tax Rates</strong>
+              <span class="text-sm text-slate-400">Model exact CGT rates for residential property sales versus listed shares, crypto, or business assets.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Deduct Allowable Improvement Expenses</strong>
+              <span class="text-sm text-slate-400">Lower taxable gains by deducting acquisition costs, legal fees, stamp duty, and capital improvements.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the UK Capital Gains Tax Annual Exempt Amount?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For the current tax year, the UK CGT Annual Exempt Amount is £3,000 for individuals.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does Private Residence Relief work on UK property sales?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Private Residence Relief automatically exempts your main home from Capital Gains Tax for the period you lived in it as your primary residence. CGT only applies if you rented out the property, used part of it exclusively for business, or sold a secondary home.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What are the current UK Capital Gains Tax rates for shares vs. residential property?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For Basic Rate taxpayers, CGT is 10% on shares and 18% on residential property. For Higher and Additional Rate taxpayers, CGT is 20% on shares and 24% on residential property gains exceeding the Annual Exempt Amount.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator computes UK capital gains tax by subtracting allowable acquisition costs, disposal fees, and capital improvement expenses from total sale proceeds. It then applies your statutory £3,000 Annual Exempt Amount to determine net chargeable gains.
+          </p>
+          <p>
+            Remaining taxable gains are stacked on top of your taxable income to determine rate allocations. Gains falling within the unused Basic Rate band (£37,700 ceiling) are taxed at 10% (shares) or 18% (residential property), while gains pushing into Higher Rate bands are taxed at 20% or 24%.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/capital-gains-tax/rates" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK Capital Gains Tax Rates & Allowances →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an FCA-regulated financial adviser or UK chartered tax adviser for personal CGT planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/tax-loss-harvesting-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Loss Offsetting</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate how allowable HMRC capital losses reduce chargeable capital gains.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">UK Wealth Retention</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">UK Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated UK portfolios to avoid triggering CGT disposal events.</p>
+          </a>
+          <a href="/rmd-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Pension Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Pension Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate flexible SIPP drawdown payments and 25% tax-free lump sum portions.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

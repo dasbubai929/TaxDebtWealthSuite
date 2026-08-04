@@ -51,6 +51,22 @@ import MortgageRecastCalculator from "../../components/MortgageRecastCalculator.
               "@type": "Answer",
               "text": "Refinancing replaces your existing loan with a new loan, requiring closing costs, credit checks, and appraisal fees. A recast keeps your existing interest rate, loan term, and lender intact while lowering monthly payments for a low fee (typically $200–$500)."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the typical minimum lump-sum amount required for a mortgage recast?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most US lenders require a minimum lump-sum payment of $5,000–$10,000 to qualify for a recast. Some lenders set the threshold higher at $25,000 or more. Contact your loan servicer to confirm their specific requirements, as government-backed loans (FHA, VA, USDA) generally do not allow recasting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does a mortgage recast affect my credit score?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. A mortgage recast does not involve a new loan application or hard credit inquiry. Because your original loan remains in place with the same account number, lender, rate, and term, there is no impact on your credit score. The only change is a lower monthly payment amount reported to the credit bureaus."
+            }
           }
         ]
       }
@@ -69,5 +85,182 @@ import MortgageRecastCalculator from "../../components/MortgageRecastCalculator.
     </div>
 
     <MortgageRecastCalculator country="us" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>US Mortgage Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          A mortgage recast — sometimes called a re-amortization — is a US-specific product feature that lets you make a large lump-sum payment toward your outstanding principal balance, after which your lender recalculates your monthly payment based on the reduced balance while keeping your original interest rate and remaining loan term unchanged. Unlike refinancing, recasting requires no new loan application, credit check, appraisal, or closing costs; the typical administrative fee is just $200–$500. This makes it an attractive option for homeowners who receive a windfall — such as an inheritance, bonus, or proceeds from a previous home sale — and want to immediately lower their monthly obligation. This calculator models the before-and-after payment schedule so you can quantify exactly how much your monthly payment drops and how much total interest you save over the remaining life of the loan.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Lower Monthly Payments Instantly</strong>
+              <span class="text-sm text-slate-400">See exactly how a lump-sum principal reduction recalculates your amortization schedule to produce a lower monthly obligation.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Quantify Lifetime Interest Savings</strong>
+              <span class="text-sm text-slate-400">Calculate the total interest you avoid paying over the remaining term by applying a lump sum to principal now rather than later.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Recast vs. Refinance</strong>
+              <span class="text-sm text-slate-400">Understand why keeping your current rate and term with a low-fee recast often beats the closing costs and rate uncertainty of a full refinance.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">No Credit Impact</strong>
+              <span class="text-sm text-slate-400">Unlike refinancing, a recast requires no credit inquiry, new loan application, or appraisal — your existing loan stays intact.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Plan Windfall Deployment</strong>
+              <span class="text-sm text-slate-400">Evaluate whether an inheritance, bonus, or home-sale proceeds should go toward a recast versus investing or paying other debts.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is a mortgage recast and how does it work?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A mortgage recast occurs when you pay a large lump sum toward your principal loan balance. Your lender then recalculates (re-amortizes) your monthly payment over the remaining loan term based on the lower balance, reducing your monthly check without changing your interest rate.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is a mortgage recast different from refinancing?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Refinancing replaces your existing loan with a new loan, requiring closing costs, credit checks, and appraisal fees. A recast keeps your existing interest rate, loan term, and lender intact while lowering monthly payments for a low fee (typically $200–$500).
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the typical minimum lump-sum amount required for a mortgage recast?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Most US lenders require a minimum lump-sum payment of $5,000–$10,000 to qualify for a recast. Some lenders set the threshold higher at $25,000 or more. Contact your loan servicer to confirm their specific requirements, as government-backed loans (FHA, VA, USDA) generally do not allow recasting.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Does a mortgage recast affect my credit score?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. A mortgage recast does not involve a new loan application or hard credit inquiry. Because your original loan remains in place with the same account number, lender, rate, and term, there is no impact on your credit score. The only change is a lower monthly payment amount reported to the credit bureaus.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator uses standard amortization mathematics to model a mortgage recast. It first computes your current monthly payment using the standard annuity formula — <em>M = P × [r(1+r)^n] / [(1+r)^n − 1]</em> — where P is the outstanding principal, r is the monthly interest rate, and n is the number of remaining payments. After deducting your lump-sum amount from the principal balance, the same formula is re-applied to the reduced balance with the same rate and remaining term, producing the new (lower) monthly payment.
+          </p>
+          <p>
+            Total interest savings are calculated by comparing the sum of all remaining payments under the original schedule against the sum under the recast schedule. The model assumes a fixed interest rate, no additional prepayments beyond the initial lump sum, and that the recast fee itself is not added to the loan balance. For adjustable-rate mortgages (ARMs), the fixed-rate result serves as a baseline estimate at the current rate.
+          </p>
+          <p>
+            Because recasting eligibility varies by lender and loan type (government-backed FHA, VA, and USDA loans typically cannot be recast), always confirm your servicer's specific requirements — including the minimum lump-sum threshold and administrative fee — before relying on these projections.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-mortgage-recast-en-1979/" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CFPB — What is a Mortgage Recast? →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Consult a licensed mortgage professional or financial adviser for personalized guidance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/debt-payoff-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Debt Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Debt Payoff Calculator</h4>
+            <p class="text-xs text-slate-400">Compare snowball vs. avalanche strategies and model accelerated payoff timelines for all your debts.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated assets to minimize taxable events and maximize wealth retention.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate federal and state capital gains taxes on property sales and investment dispositions.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

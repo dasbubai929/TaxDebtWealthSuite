@@ -41,7 +41,23 @@ import MortgageRecastCalculator from "../../../components/MortgageRecastCalculat
             "name": "Can you recast a mortgage in Canada?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, Canadian lenders allow principal prepayments (usually up to 10%–20% of original balance per year penalty-free). Upon request or renewal, your lender can recalculate your monthly payment based on the reduced balance."
+              "text": "Canadian mortgages don't offer a formal 'recast' feature like US lenders. Instead, most Canadian mortgage contracts include prepayment privileges — a capped annual lump-sum allowance (typically 10%–20% of the original principal) that you can pay penalty-free. The payment reduction is usually reflected at renewal or upon request to your lender."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are prepayment privileges on a Canadian mortgage?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Prepayment privileges are contractual allowances that let you pay down your mortgage principal faster without triggering a prepayment penalty. Common privileges include a lump-sum payment of 10%–20% of the original principal per year, plus the ability to increase your regular payment by 10%–20%. These terms vary by lender and must be disclosed under FCAC guidelines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I exceed my Canadian mortgage prepayment limit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you prepay more than your allowed annual limit, the excess amount is subject to a prepayment penalty. For fixed-rate mortgages, this is typically the greater of three months' interest or the Interest Rate Differential (IRD). For variable-rate mortgages, it is usually three months' interest. The FCAC requires lenders to clearly disclose these penalty calculations in your mortgage agreement."
             }
           }
         ]
@@ -61,5 +77,166 @@ import MortgageRecastCalculator from "../../../components/MortgageRecastCalculat
     </div>
 
     <MortgageRecastCalculator country="canada" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Canadian Mortgage Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Canadian mortgages do not offer a formal "recast" product like those available through US lenders. Instead, the Canadian market relies on <strong>prepayment privileges</strong> — contractual allowances that permit borrowers to make lump-sum payments toward their principal (typically 10%–20% of the original mortgage amount per year) without incurring a prepayment penalty. These privileges are governed by federal regulations and must be clearly disclosed in your mortgage agreement as mandated by the Financial Consumer Agency of Canada (FCAC). When you exercise a prepayment privilege, the lump sum reduces your outstanding balance immediately, which means less interest accrues over the remaining term; however, most Canadian lenders do not automatically lower your regular payment mid-term — the recalculated payment typically takes effect at your next renewal date unless you specifically request an adjustment. This calculator models the impact of a lump-sum prepayment on your remaining balance, showing both the interest savings and the potential payment reduction so you can decide whether to deploy spare cash toward your mortgage.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Prepayment Privilege Impact</strong>
+              <span class="text-sm text-slate-400">See exactly how a lump-sum payment within your annual allowance reduces your outstanding balance and total interest costs.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Amortisation Savings</strong>
+              <span class="text-sm text-slate-400">Quantify total interest saved over the remaining amortisation period by applying your prepayment now rather than at renewal.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Stay Within Penalty-Free Limits</strong>
+              <span class="text-sm text-slate-400">Understand your 10%–20% annual prepayment cap so you maximise savings without triggering IRD or three-months-interest penalties.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Estimate Renewal Payment Reduction</strong>
+              <span class="text-sm text-slate-400">Project how your monthly payment will change at your next renewal date after applying a prepayment to the principal balance.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Fixed vs. Variable Penalty Costs</strong>
+              <span class="text-sm text-slate-400">Evaluate whether your fixed-rate IRD penalty or variable-rate three-months-interest penalty makes exceeding the cap worthwhile.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can you recast a mortgage in Canada?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Canadian mortgages don't offer a formal "recast" feature like US lenders. Instead, most Canadian mortgage contracts include prepayment privileges — a capped annual lump-sum allowance (typically 10%–20% of the original principal) that you can pay penalty-free. The payment reduction is usually reflected at renewal or upon request to your lender.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What are prepayment privileges on a Canadian mortgage?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Prepayment privileges are contractual allowances that let you pay down your mortgage principal faster without triggering a prepayment penalty. Common privileges include a lump-sum payment of 10%–20% of the original principal per year, plus the ability to increase your regular payment by 10%–20%. These terms vary by lender and must be disclosed under FCAC guidelines.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What happens if I exceed my Canadian mortgage prepayment limit?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              If you prepay more than your allowed annual limit, the excess amount is subject to a prepayment penalty. For fixed-rate mortgages, this is typically the greater of three months' interest or the Interest Rate Differential (IRD). For variable-rate mortgages, it is usually three months' interest. The FCAC requires lenders to clearly disclose these penalty calculations in your mortgage agreement.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator uses standard Canadian mortgage amortisation mathematics. Canadian fixed-rate mortgages are compounded semi-annually (not monthly), so the effective monthly rate is derived as <em>(1 + annual_rate/2)^(1/6) − 1</em>. The calculator first computes your current monthly payment based on this effective rate and your remaining amortisation period, then deducts the lump-sum prepayment from your outstanding principal and re-amortises the lower balance over the same remaining term to produce the adjusted payment.
+          </p>
+          <p>
+            Total interest savings are calculated by comparing the sum of all remaining payments under the original schedule against the sum under the prepayment scenario. The model assumes you stay within your lender's penalty-free prepayment privilege; if you exceed the allowance, any applicable penalty (IRD or three months' interest) is not automatically factored in and should be assessed separately. Variable-rate mortgage holders should note that results reflect the current rate and will change if the rate adjusts.
+          </p>
+          <p>
+            Canadian mortgage terms (typically 1–5 years) are shorter than the full amortisation period (commonly 25 years). At each renewal, your lender will recalculate your payment based on the then-current balance and the new rate you negotiate. This calculator models the amortisation impact over the full remaining period, which is the most meaningful comparison for evaluating whether to deploy spare cash toward a prepayment.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/financial-consumer-agency/services/mortgages/prepayment-privileges.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">FCAC — Mortgage Prepayment Privileges →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Consult a licensed Canadian mortgage broker or financial adviser for personalised guidance on prepayment strategies.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canada Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate CRA capital gains tax on property and investment dispositions using the 50% inclusion rate.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">RRSP Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model RRSP and RRIF withdrawals including withholding tax brackets and Home Buyers' Plan eligibility.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canada Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated Canadian portfolios to defer capital gains and maximise estate value.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

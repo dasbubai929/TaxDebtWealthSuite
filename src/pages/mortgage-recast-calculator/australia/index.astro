@@ -41,7 +41,23 @@ import MortgageRecastCalculator from "../../../components/MortgageRecastCalculat
             "name": "Can Australian home loans be recast?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Formal recasting is rare in Australia. Australian borrowers typically utilize 100% Mortgage Offset Accounts or Redraw Facilities to reduce interest charges while retaining flexibility."
+              "text": "Formal 'recasting' as known in the US does not exist as a named product in Australia. Australian borrowers instead use offset accounts — where savings held in a linked transaction account reduce the loan balance on which interest is calculated — and redraw facilities, which let you access extra repayments you've already made. Both achieve a similar interest-saving effect without requiring a formal loan modification."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a mortgage offset account work in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 100% offset account is a transaction account linked to your home loan. The balance in this account is offset against your outstanding loan principal when calculating interest. For example, if you owe $400,000 and have $50,000 in your offset account, you only pay interest on $350,000. The money remains accessible at any time, giving you flexibility that a direct lump-sum repayment does not."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between an offset account and a redraw facility?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An offset account is a separate transaction account whose balance reduces the interest charged on your home loan; the funds remain yours and are instantly accessible. A redraw facility lets you access extra repayments you've already made on the loan itself, but availability and processing times vary by lender. The key distinction is that offset funds never actually reduce your loan balance — they just reduce the interest calculation — while redraw involves money that has already been applied to the principal."
             }
           }
         ]
@@ -61,5 +77,166 @@ import MortgageRecastCalculator from "../../../components/MortgageRecastCalculat
     </div>
 
     <MortgageRecastCalculator country="australia" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Australian Home Loan Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          "Mortgage recasting" — the US mechanism where you pay a lump sum and the lender formally recalculates your monthly payment at the same rate and term — is not a named product in the Australian home loan market. Instead, Australian borrowers primarily reduce their interest costs through <strong>offset accounts</strong> and <strong>redraw facilities</strong>, both of which are widely offered by Australian lenders. A 100% offset account is a transaction account linked to your home loan: the balance in the offset is subtracted from your outstanding loan principal before interest is calculated, so $50,000 sitting in your offset on a $400,000 loan means you only pay interest on $350,000 — while the money remains fully accessible. A redraw facility, by contrast, lets you make extra repayments directly onto the loan and later withdraw ("redraw") them if needed, though lender policies on access vary. This calculator models the interest-saving effect of deploying a lump sum via either strategy, so you can quantify how much you save compared to the standard repayment schedule and make an informed decision about where to park spare cash.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Offset Account Impact</strong>
+              <span class="text-sm text-slate-400">See how parking savings in a 100% offset account reduces the balance on which interest is calculated, lowering total interest costs.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Offset vs. Redraw</strong>
+              <span class="text-sm text-slate-400">Evaluate whether the flexibility of an offset account outweighs the potential fee savings of a basic loan with redraw.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Quantify Lifetime Interest Savings</strong>
+              <span class="text-sm text-slate-400">Calculate the total interest you avoid paying over the remaining loan term by deploying a lump sum now rather than keeping it in a standard savings account.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Estimate Term Reduction</strong>
+              <span class="text-sm text-slate-400">Project how many years sooner you could pay off your home loan by making extra repayments or maintaining an offset balance.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Retain Liquidity</strong>
+              <span class="text-sm text-slate-400">Unlike a US recast where the lump sum is permanently applied to principal, an Australian offset lets you access the funds anytime while still saving on interest.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can Australian home loans be recast?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Formal "recasting" as known in the US does not exist as a named product in Australia. Australian borrowers instead use offset accounts — where savings held in a linked transaction account reduce the loan balance on which interest is calculated — and redraw facilities, which let you access extra repayments you've already made. Both achieve a similar interest-saving effect without requiring a formal loan modification.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does a mortgage offset account work in Australia?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A 100% offset account is a transaction account linked to your home loan. The balance in this account is offset against your outstanding loan principal when calculating interest. For example, if you owe $400,000 and have $50,000 in your offset account, you only pay interest on $350,000. The money remains accessible at any time, giving you flexibility that a direct lump-sum repayment does not.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the difference between an offset account and a redraw facility?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              An offset account is a separate transaction account whose balance reduces the interest charged on your home loan; the funds remain yours and are instantly accessible. A redraw facility lets you access extra repayments you've already made on the loan itself, but availability and processing times vary by lender. The key distinction is that offset funds never actually reduce your loan balance — they just reduce the interest calculation — while redraw involves money that has already been applied to the principal.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator models the interest-saving effect of deploying a lump sum against an Australian home loan. For a direct extra repayment or redraw scenario, it deducts the lump sum from the outstanding principal and re-amortises the reduced balance over the remaining loan term using the standard annuity formula at the current interest rate. For an offset account scenario, the lump sum is treated as a persistent offset balance that reduces the principal on which daily interest is calculated, while the monthly repayment amount remains unchanged — the savings manifest as a shorter loan term and reduced total interest.
+          </p>
+          <p>
+            Australian home loans typically calculate interest daily on the outstanding balance, so the effective monthly interest cost is based on the daily rate multiplied by the number of days in each month. This calculator uses a monthly approximation (annual rate ÷ 12) which closely tracks the actual daily calculation over the full loan term. The model assumes a fixed interest rate; for variable-rate loans, results represent the impact at the current rate and will change if the rate adjusts.
+          </p>
+          <p>
+            Offset accounts may come with higher monthly fees or a slightly higher interest rate than basic variable loans. This calculator does not automatically factor in the annual offset account fee — compare the interest savings against any additional fees your lender charges for the offset feature to determine net benefit.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://moneysmart.gov.au/home-loans/mortgage-calculator" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">ASIC Moneysmart — Mortgage Calculator →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Consult an ASIC-licensed financial adviser or mortgage broker for personalised guidance on offset accounts and home loan strategies.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Australian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australia Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate ATO CGT on property and investment sales factoring in the 50% CGT discount for assets held over 12 months.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Australian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Superannuation Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model super withdrawal strategies, preservation age rules, and tax-free components in retirement phase.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Australian Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australia Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated Australian portfolios to defer CGT and maximise estate value transfer.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

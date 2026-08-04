@@ -43,6 +43,22 @@ import SuperannuationRrspWithdrawalCalculator from "../../../components/Superann
               "@type": "Answer",
               "text": "You must convert your RRSP to a RRIF or purchase an annuity by December 31 of the year you turn age 71. Mandatory minimum withdrawals start the following year at age 72."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How does RRSP withdrawal timing affect Old Age Security (OAS) clawback?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "OAS clawback begins when your net annual income exceeds the CRA threshold (~$90,997 for 2024). Taking larger RRSP withdrawals before age 65 or spreading RRIF income evenly prevents sudden income spikes that trigger a 15% OAS recovery tax."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I withdraw from my TFSA or RRIF first during retirement?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, drawing from your RRIF up to lower tax bracket ceilings or the $2,000 pension credit limit preserves TFSA growth. TFSAs can then be drawn tax-free in high-expense years without inflating taxable income or triggering benefit clawbacks."
+            }
           }
         ]
       }
@@ -61,5 +77,156 @@ import SuperannuationRrspWithdrawalCalculator from "../../../components/Superann
     </div>
 
     <SuperannuationRrspWithdrawalCalculator country="canada" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Canadian Decumulation Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In Canada, structuring a tax-efficient retirement decumulation plan involves strategically timing RRSP and RRIF withdrawals to minimize lifetime income tax and protect government benefits. Commencing RRSP deregistrations prior to the mandatory age 71 conversion deadline can prevent massive tax spikes later in life while smoothing personal income. Careful withdrawal planning is especially crucial for managing Old Age Security (OAS) clawback thresholds and preserving income-tested benefits like the Guaranteed Income Supplement (GIS). This calculator models Canadian multi-account withdrawal strategies across RRSPs, RRIFs, TFSAs, and non-registered holdings to maximize net after-tax retirement income.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Mitigate OAS Pension Recovery Tax (Clawback)</strong>
+              <span class="text-sm text-slate-400">Schedule RRIF withdrawals to stay below CRA OAS clawback income thresholds (starting around ~$90,000 AGI).</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Optimize Early RRSP Deregistrations</strong>
+              <span class="text-sm text-slate-400">Model pre-age 71 RRSP withdrawals to fill lower marginal provincial tax brackets prior to mandatory RRIF minimums.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Utilize Pension Income Tax Credits</strong>
+              <span class="text-sm text-slate-400">Access the $2,000 federal pension income tax credit starting at age 65 via qualified RRIF income streams.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Balance RRIF, TFSA & Non-Registered Drawdowns</strong>
+              <span class="text-sm text-slate-400">Sequence tax-deductible RRIF payouts alongside tax-free TFSA withdrawals to maintain flexible tax brackets.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What age must an RRSP be converted to a RRIF in Canada?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              You must convert your RRSP to a RRIF or purchase an annuity by December 31 of the year you turn age 71. Mandatory minimum withdrawals start the following year at age 72.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does RRSP withdrawal timing affect Old Age Security (OAS) clawback?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              OAS clawback begins when your net annual income exceeds the CRA threshold (~$90,997 for 2024). Taking larger RRSP withdrawals before age 65 or spreading RRIF income evenly prevents sudden income spikes that trigger a 15% OAS recovery tax.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Should I withdraw from my TFSA or RRIF first during retirement?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, drawing from your RRIF up to lower tax bracket ceilings or the $2,000 pension credit limit preserves TFSA growth. TFSAs can then be drawn tax-free in high-expense years without inflating taxable income or triggering benefit clawbacks.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator models Canadian decumulation strategies across RRSP, RRIF, TFSA, and non-registered accounts. It applies federal and provincial progressive tax brackets while evaluating statutory RRIF minimum withdrawal schedules.
+          </p>
+          <p>
+            The model incorporates threshold tracking for Old Age Security (OAS) recovery tax (clawback) and federal Age Amount tax credits, helping Canadian retirees optimize distribution ordering to maximize long-term net retirement income.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-retirement-savings-plans-rrsp/registered-retirement-income-fund-rrif.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Guide to RRIF Minimum Payments →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Canadian CPA or QAFP/CFP professional for personal RRIF decumulation planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">RRIF Minimum Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RRIF Minimum Withdrawal Calculator (Canada)</h4>
+            <p class="text-xs text-slate-400">See the RRIF Minimum Withdrawal Calculator for mandatory CRA statutory minimum percentages; this page focuses on multi-year decumulation strategy, OAS clawback avoidance, and tax-bracket smoothing.</p>
+          </a>
+          <a href="/social-security-pension-estimator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Public Pensions</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canadian Public Pensions Estimator</h4>
+            <p class="text-xs text-slate-400">Estimate CPP and OAS monthly pension benefits based on retirement start age.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA capital gains tax inclusion amounts across provinces.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

@@ -43,6 +43,22 @@ import SuperannuationRrspWithdrawalCalculator from "../../../components/Superann
               "@type": "Answer",
               "text": "For ages 65–74, the minimum annual drawdown is 5% of account balance as of July 1. For ages 75–79 it rises to 6%, ages 80–84 to 7%, ages 85–89 to 9%, ages 90–94 to 11%, and 95+ to 14%."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How do superannuation pension drawdowns affect Services Australia Age Pension eligibility?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Superannuation in the pension phase is assessed under both the Age Pension Assets Test (total account value) and Income Test (subject to ATO deeming rules). Managing drawdown amounts helps optimize your combined super and Age Pension income."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a Transition to Retirement (TTR) pension strategy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A TTR strategy allows Australians who have reached their preservation age (59–60) to draw income from their super while still working, allowing salary sacrifice contributions to rebuild super tax-efficiently while maintaining living standards."
+            }
           }
         ]
       }
@@ -61,5 +77,156 @@ import SuperannuationRrspWithdrawalCalculator from "../../../components/Superann
     </div>
 
     <SuperannuationRrspWithdrawalCalculator country="australia" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Australian Decumulation Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Maximizing retirement income in Australia requires balancing tax-free account-based pension drawdowns against Services Australia Age Pension means testing. For retirees aged 60 and older, superannuation pension withdrawals from taxed funds are completely tax-free, but drawdown timing and account structuring directly impact Age Pension eligibility under the Income and Assets Tests. Strategic retirees balance superannuation drawdowns with deeming rules and recontribution strategies to optimize total household income. This calculator models Australian super decumulation scenarios to help retirees balance minimum drawdown compliance with Age Pension entitlement maximization.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Optimize Age Pension Means Testing</strong>
+              <span class="text-sm text-slate-400">Model how superannuation pension balances and deeming rates affect Services Australia Income and Assets Tests.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Leverage 100% Tax-Free Super Drawdowns</strong>
+              <span class="text-sm text-slate-400">Structure account-based pension withdrawals after age 60 with 0% tax liability on payments and fund earnings.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Transition to Retirement (TTR) Strategies</strong>
+              <span class="text-sm text-slate-400">Assess accessing super income streams while continuing part-time employment between preservation age and 65.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Coordinate Account-Based Pensions & SMSFs</strong>
+              <span class="text-sm text-slate-400">Plan drawdown timing across self-managed super funds (SMSFs) and industry funds to stay under Transfer Balance Caps.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the minimum drawdown percentage for an Australian Account-Based Pension?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For ages 65–74, the minimum annual drawdown is 5% of account balance as of July 1. For ages 75–79 it rises to 6%, ages 80–84 to 7%, ages 85–89 to 9%, ages 90–94 to 11%, and 95+ to 14%.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How do superannuation pension drawdowns affect Services Australia Age Pension eligibility?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Superannuation in the pension phase is assessed under both the Age Pension Assets Test (total account value) and Income Test (subject to ATO deeming rules). Managing drawdown amounts helps optimize your combined super and Age Pension income.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is a Transition to Retirement (TTR) pension strategy?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A TTR strategy allows Australians who have reached their preservation age (59–60) to draw income from their super while still working, allowing salary sacrifice contributions to rebuild super tax-efficiently while maintaining living standards.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates Australian superannuation decumulation strategies under ATO regulations, modeling 0% tax-free pension income for account holders aged 60+ while tracking statutory Transfer Balance Cap limits.
+          </p>
+          <p>
+            The model simulates Services Australia Age Pension means testing rules, applying financial asset deeming rates under the Income Test and total balance thresholds under the Assets Test to project total combined retirement income streams.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.servicesaustralia.gov.au/age-pension" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">Services Australia - Superannuation and Age Pension Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an Australian Financial Services Licensee (AFSL) adviser or Registered Tax Agent for personalized superannuation advice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO Minimum Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Superannuation Minimum Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">See the Australian Superannuation Minimum Drawdown Calculator for mandatory ATO statutory minimum percentage tables; this page focuses on decumulation strategy, Age Pension means-testing, and TTR planning.</p>
+          </a>
+          <a href="/social-security-pension-estimator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Age Pension Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australian Age Pension Estimator</h4>
+            <p class="text-xs text-slate-400">Estimate Services Australia Age Pension payments based on income and asset tests.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate ATO CGT with 50% individual discount rules.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

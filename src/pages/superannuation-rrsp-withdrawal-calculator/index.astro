@@ -51,6 +51,22 @@ import SuperannuationRrspWithdrawalCalculator from "../../components/Superannuat
               "@type": "Answer",
               "text": "No. Original account holders of Roth IRAs are exempt from mandatory RMDs during their lifetime."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "In what order should I withdraw from my taxable, Traditional, and Roth accounts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A common tax-efficient sequence is taking distributions from taxable brokerage accounts first (benefiting from lower capital gains rates), then tax-deferred accounts up to the top of your target income bracket, leaving tax-free Roth accounts to compound as long as possible for late retirement or estate transfer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does proactive withdrawal timing help reduce future mandatory RMD taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By systematically drawing down pre-tax Traditional IRAs or converting portions to Roth IRAs between retirement and age 73/75, you reduce the total pre-tax balance, thereby lowering compulsory annual RMD amounts and preventing forced jumps into higher tax brackets."
+            }
           }
         ]
       }
@@ -69,5 +85,172 @@ import SuperannuationRrspWithdrawalCalculator from "../../components/Superannuat
     </div>
 
     <SuperannuationRrspWithdrawalCalculator country="us" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Decumulation Tax Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Designing a tax-efficient retirement withdrawal strategy requires balancing distributions across taxable, tax-deferred (Traditional IRA/401k), and tax-free (Roth IRA) accounts to minimize lifelong income tax liability. Rather than reacting to forced Required Minimum Distributions (RMDs) at age 73 or 75, proactive retirees sequence withdrawals during early retirement years to fill lower marginal tax brackets and execute targeted Roth conversions. This calculator models multi-account decumulation scenarios, allowing pre-retirees to analyze how strategic withdrawal ordering preserves portfolio longevity and prevents unexpected Medicare IRMAA premium surcharges.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Optimize Account Withdrawal Order</strong>
+              <span class="text-sm text-slate-400">Model decumulation sequences starting with taxable accounts, followed by tax-deferred IRAs, and preserving Roth assets for tax-free growth.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Fill Low Marginal Tax Brackets</strong>
+              <span class="text-sm text-slate-400">Identify income tax headroom prior to age 73/75 RMD start dates to perform tax-bracket filling strategies.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Coordinate Roth Conversions with Drawdowns</strong>
+              <span class="text-sm text-slate-400">Plan systematic Roth IRA conversions to shrink pre-tax account balances and reduce future compulsory RMD sizes.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Prevent IRMAA Surcharges & Bracket Spikes</strong>
+              <span class="text-sm text-slate-400">Predict how aggregate distribution timing affects Medicare Part B/D premiums and Social Security taxability.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What age do RMDs begin in the US under SECURE Act 2.0?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For individuals turning 73 in 2023–2032, Required Minimum Distributions (RMDs) begin at age 73. Starting in 2033, RMDs begin at age 75.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Are Roth IRA withdrawals subject to mandatory RMDs?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. Original account holders of Roth IRAs are exempt from mandatory RMDs during their lifetime.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>In what order should I withdraw from my taxable, Traditional, and Roth accounts?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A common tax-efficient sequence is taking distributions from taxable brokerage accounts first (benefiting from lower capital gains rates), then tax-deferred accounts up to the top of your target income bracket, leaving tax-free Roth accounts to compound as long as possible for late retirement or estate transfer.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does proactive withdrawal timing help reduce future mandatory RMD taxes?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              By systematically drawing down pre-tax Traditional IRAs or converting portions to Roth IRAs between retirement and age 73/75, you reduce the total pre-tax balance, thereby lowering compulsory annual RMD amounts and preventing forced jumps into higher tax brackets.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates retirement decumulation strategies by simulating annual cash flow needs against income sources (Social Security, pensions) and applying tax-bracket filling algorithms across taxable, pre-tax, and Roth buckets.
+          </p>
+          <p>
+            It models multi-year income projections to illustrate how proactive distribution sequencing and Roth conversion windows reduce cumulative federal and state income tax friction over a 30-year retirement horizon.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Publication 590-B (Distributions from IRAs) →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Certified Financial Planner (CFP) or CPA for personalized retirement decumulation guidance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">RMD Mechanics</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RMD Calculator (US)</h4>
+            <p class="text-xs text-slate-400">See the RMD Calculator (US) for the statutory mandatory IRS minimum percentage itself; this page focuses on sequencing withdrawals tax-efficiently across accounts.</p>
+          </a>
+          <a href="/roth-conversion-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Tax-Free Conversion</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Roth Conversion Calculator</h4>
+            <p class="text-xs text-slate-400">Model tax costs of converting pre-tax IRA funds to eliminate future RMDs.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate short and long-term tax liabilities on taxable investment holdings.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

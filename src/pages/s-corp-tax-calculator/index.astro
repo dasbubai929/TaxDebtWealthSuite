@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import SCorpTaxCalculator from "../../components/SCorpTaxCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import SCorpTaxCalculator from "../../components/SCorpTaxCalculator.astro";
               "@type": "Answer",
               "text": "Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What constitutes a 'Reasonable Salary' for an S-Corp officer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The IRS requires S-Corp shareholder-employees to pay themselves a reasonable salary matching market rates for their specific duties before taking owner distributions. Factors include industry standards, geographic location, responsibilities, and comparable job market rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does an S-Corp election reduce self-employment taxes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As a sole proprietor or single-member LLC, 100% of net business income is subject to 15.3% FICA self-employment taxes. Under an S-Corp election, only the W-2 salary is subject to FICA taxes, while remaining profits pass through as distributions exempt from self-employment tax."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import SCorpTaxCalculator from "../../components/SCorpTaxCalculator.astro";
     </div>
 
     <SCorpTaxCalculator defaultCountry="US" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Overview</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Electing S-Corporation tax status is one of the most effective tax reduction strategies for self-employed professionals, contractors, and small business owners generating substantial net income. As a sole proprietor or single-member LLC, your entire net profit is subject to the 15.3% FICA self-employment tax. By electing S-Corp status, business owners split net earnings between a W-2 salary and owner distributions, effectively shielding distributions from self-employment taxes. This calculator helps freelancers and business owners determine their optimal salary-to-distribution split and calculate exact net tax savings after accounting for payroll compliance costs.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Self-Employment Tax Savings</strong>
+              <span class="text-sm text-slate-400">Discover how much you can save on Medicare and Social Security taxes by taking profit distributions.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Optimize Salary Split</strong>
+              <span class="text-sm text-slate-400">Test different reasonable salary allocations to maximize tax efficiency while staying fully IRS compliant.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Factor in Compliance Overhead</strong>
+              <span class="text-sm text-slate-400">Account for payroll software, administrative fees, and corporate tax return filing costs to find true net savings.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Determine Profitability Breakeven</strong>
+              <span class="text-sm text-slate-400">Identify the exact annual net business income threshold where electing S-Corp status becomes financially advantageous.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When should I incorporate?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, it makes sense when your net profits consistently exceed the threshold where tax savings on distributions outweigh the accounting compliance costs.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What constitutes a 'Reasonable Salary' for an S-Corp officer?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The IRS requires S-Corp shareholder-employees to pay themselves a reasonable salary matching market rates for their specific duties before taking owner distributions. Factors include industry standards, geographic location, responsibilities, and comparable job market rates.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does an S-Corp election reduce self-employment taxes?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              As a sole proprietor or single-member LLC, 100% of net business income is subject to 15.3% FICA self-employment taxes. Under an S-Corp election, only the W-2 salary is subject to FICA taxes, while remaining profits pass through as distributions exempt from self-employment tax.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            The calculator compares total tax liability under a standard Sole Proprietorship/LLC structure against an S-Corporation tax election. For sole proprietors, the model calculates Schedule C net profit and applies the 15.3% self-employment tax rate (comprising 12.4% Social Security up to the wage base limit and 2.9% Medicare tax), alongside federal income tax adjustments.
+          </p>
+          <p>
+            For S-Corporation status, the calculator splits net profit into two components: W-2 officer compensation and shareholder distributions. FICA payroll tax is calculated exclusively on the W-2 salary portion, while both salary and distributions flow through to personal income tax returns. Net savings are adjusted for estimated annual payroll and compliance expenses.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS S Corporation Compensation & Wage Guidance →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a professional certified public accountant (CPA) for reasonable salary determinations and tax elections.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/qbi-deduction-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Pass-Through Tax</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">QBI Deduction Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate your 20% Section 199A Qualified Business Income deduction and wage caps.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Tax Optimization</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset capital gains and taxable income using realized investment losses.</p>
+          </a>
+          <a href="/salt-cap-deduction-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">State Taxes</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">SALT Cap Deduction Calculator</h4>
+            <p class="text-xs text-slate-400">Evaluate state and local tax deduction limits and PTET business workarounds.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

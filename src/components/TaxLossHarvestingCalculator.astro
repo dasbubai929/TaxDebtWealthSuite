@@ -57,6 +57,17 @@ const currentInfo = countryInfo[defaultCountry];
     </button>
   </div>
 
+  <!-- Country Selector Nav -->
+  <div>
+    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Country / Jurisdiction</label>
+    <div class="flex flex-wrap gap-2 mb-2">
+      <a href="/tax-loss-harvesting-calculator/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'us' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tlh)s.tlh={};s.tlh.country='us';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">United States</a>
+      <a href="/tax-loss-harvesting-calculator/uk/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'uk' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tlh)s.tlh={};s.tlh.country='uk';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">United Kingdom</a>
+      <a href="/tax-loss-harvesting-calculator/canada/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'canada' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tlh)s.tlh={};s.tlh.country='canada';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Canada</a>
+      <a href="/tax-loss-harvesting-calculator/australia/" class={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${defaultCountry === 'australia' ? 'bg-[#00F5D4]/10 text-[#00F5D4] border-[#00F5D4]/30' : 'bg-slate-900 text-slate-400 border-slate-700 hover:text-white hover:bg-slate-800'}`} onclick="try{const s=JSON.parse(localStorage.getItem('financial_hub_state')||'{}');if(!s.tlh)s.tlh={};s.tlh.country='australia';localStorage.setItem('financial_hub_state',JSON.stringify(s))}catch(e){}">Australia</a>
+    </div>
+  </div>
+
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     <!-- INPUTS -->
     <div class="lg:col-span-1 space-y-6">

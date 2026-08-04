@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import RothConversionCalculator from "../../components/RothConversionCalculator.astro";
 ---
@@ -30,6 +30,22 @@ import RothConversionCalculator from "../../components/RothConversionCalculator.
               "@type": "Answer",
               "text": "A Roth conversion transfers pre-tax traditional IRA or 401(k) funds to a Roth IRA. Income tax is paid on the converted amount now, allowing future growth and withdrawals to be 100% tax-free."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "When does a Roth IRA conversion make the most financial sense?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A Roth conversion is most advantageous when your current marginal tax rate is lower than your expected tax rate in retirement, or during market downturns when asset values are depressed, allowing you to convert more shares for lower upfront tax."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do Roth conversions affect Required Minimum Distributions (RMDs) and Medicare IRMAA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Roth IRAs are not subject to RMDs during the original owner's lifetime. Converting pre-tax funds reduces future traditional IRA balances, lowering future taxable RMDs and helping prevent income-related monthly adjustment amount (IRMAA) surcharges on Medicare Part B and D."
+            }
           }
         ]
       }
@@ -48,5 +64,156 @@ import RothConversionCalculator from "../../components/RothConversionCalculator.
     </div>
 
     <RothConversionCalculator />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Retirement Tax Optimization</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          A Roth IRA conversion involves transferring pre-tax retirement assets from a Traditional IRA or 401(k) into a Roth IRA, triggering immediate ordinary income tax on the converted amount in exchange for permanent tax-free future growth and withdrawals. Converting during lower-income years allows investors to lock in historically low tax rates, eliminate future Required Minimum Distributions (RMDs), and protect retirement wealth from future tax increases. This calculator models current conversion tax liabilities, projects tax-free compounding over time, and identifies your breakeven retirement tax rate to determine if a conversion strategy enhances long-term net wealth.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Conversion Tax Liability</strong>
+              <span class="text-sm text-slate-400">Estimate the exact federal and state income tax cost incurred in the year of conversion.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Find Your Breakeven Retirement Tax Rate</strong>
+              <span class="text-sm text-slate-400">Compare your current marginal tax rate against anticipated future tax rates to verify conversion math.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Project Tax-Free Compound Growth</strong>
+              <span class="text-sm text-slate-400">Model the long-term wealth accumulation of non-taxable Roth growth versus taxable Traditional accounts.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate RMD & IRMAA Mitigation</strong>
+              <span class="text-sm text-slate-400">Assess how reducing pre-tax IRA balances lowers future Required Minimum Distributions and avoids Medicare premium surcharges.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is a Roth IRA conversion?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A Roth conversion transfers pre-tax traditional IRA or 401(k) funds to a Roth IRA. Income tax is paid on the converted amount now, allowing future growth and withdrawals to be 100% tax-free.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When does a Roth IRA conversion make the most financial sense?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              A Roth conversion is most advantageous when your current marginal tax rate is lower than your expected tax rate in retirement, or during market downturns when asset values are depressed, allowing you to convert more shares for lower upfront tax.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How do Roth conversions affect Required Minimum Distributions (RMDs) and Medicare IRMAA?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Roth IRAs are not subject to RMDs during the original owner's lifetime. Converting pre-tax funds reduces future traditional IRA balances, lowering future taxable RMDs and helping prevent income-related monthly adjustment amount (IRMAA) surcharges on Medicare Part B and D.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator models conversion taxation by adding the converted pre-tax amount to your current annual taxable income, applying federal and state progressive marginal tax brackets to calculate upfront conversion tax.
+          </p>
+          <p>
+            The model projects future growth over your retirement horizon, comparing a Traditional IRA (which grows tax-deferred but incurs ordinary income tax upon withdrawal) against a Roth IRA (which compounds 100% tax-free). It computes the breakeven retirement tax rate where both strategies yield equal after-tax net wealth.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/retirement-plans/roth-iras" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Official Guidance on Roth IRAs & Conversions →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a certified financial planner (CFP) or CPA prior to executing IRA conversions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Retirement Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RMD Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate mandatory RMD withdrawals and IRS life expectancy factors.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Wealth Retention</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model portfolio borrowing strategies vs asset liquidation taxes.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Tax Optimization</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate short and long-term capital gains taxes across income brackets.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

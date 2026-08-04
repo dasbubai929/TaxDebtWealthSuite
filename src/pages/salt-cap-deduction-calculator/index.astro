@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import SaltCapCalculator from "../../components/SaltCapCalculator.astro";
 ---
@@ -30,6 +30,22 @@ import SaltCapCalculator from "../../components/SaltCapCalculator.astro";
               "@type": "Answer",
               "text": "The SALT cap limits federal itemized deductions for State and Local Taxes (income, sales, and property taxes). For 2026, the cap is $40,400 with a phase-down for high earners."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Pass-Through Entity Tax (PTET) workaround help bypass the SALT cap?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PTET allows pass-through businesses (S-Corps, Partnerships, LLCs) to pay state income tax at the entity level as a deductible business expense, reducing federal taxable income before profit passes to owners, effectively bypassing the individual SALT deduction cap."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which taxes count toward the SALT itemized deduction limit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The SALT cap applies to state and local personal income taxes (or general sales taxes if elected), personal property taxes, and real estate property taxes paid during the tax year."
+            }
           }
         ]
       }
@@ -48,5 +64,156 @@ import SaltCapCalculator from "../../components/SaltCapCalculator.astro";
     </div>
 
     <SaltCapCalculator />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>State & Local Tax Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          The State and Local Tax (SALT) deduction limit caps the amount of state income, sales, and real estate property taxes that individuals can deduct on their federal itemized tax return. For high-tax state residents and homeowners, understanding the SALT cap is essential for evaluating whether itemizing deductions yields greater tax savings than taking the standard deduction. This calculator models allowable SALT deductions, evaluates high-income phase-down thresholds, and calculates potential tax savings from Pass-Through Entity Tax (PTET) workarounds available to business owners.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Determine Allowable SALT Deductions</strong>
+              <span class="text-sm text-slate-400">Calculate your deduction limit for state income tax, local property taxes, and sales taxes.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Itemized vs. Standard Deduction</strong>
+              <span class="text-sm text-slate-400">See whether your total itemized deductions exceed federal standard deduction thresholds.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate High-Income SALT Phase-Downs</strong>
+              <span class="text-sm text-slate-400">Model how elevated Adjusted Gross Income (AGI) levels affect allowable state tax write-offs.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate PTET Workaround Savings</strong>
+              <span class="text-sm text-slate-400">Estimate tax benefits of utilizing state-level Pass-Through Entity Tax elections to bypass personal SALT limits.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the SALT cap limit?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The SALT cap limits federal itemized deductions for State and Local Taxes (income, sales, and property taxes). For 2026, the cap is $40,400 with a phase-down for high earners.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does the Pass-Through Entity Tax (PTET) workaround help bypass the SALT cap?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              PTET allows pass-through businesses (S-Corps, Partnerships, LLCs) to pay state income tax at the entity level as a deductible business expense, reducing federal taxable income before profit passes to owners, effectively bypassing the individual SALT deduction cap.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Which taxes count toward the SALT itemized deduction limit?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The SALT cap applies to state and local personal income taxes (or general sales taxes if elected), personal property taxes, and real estate property taxes paid during the tax year.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator sums eligible state income tax (or sales tax) and real estate property taxes paid, capping the combined total at the statutory ceiling. It evaluates high-income phase-down reductions based on Adjusted Gross Income (AGI).
+          </p>
+          <p>
+            The model then compares capped SALT deductions alongside mortgage interest and charitable gifts against federal standard deduction baselines. For business owners, it simulates Pass-Through Entity Tax (PTET) credits to quantify federal tax relief achieved by paying state taxes at the entity level.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/taxtopics/tc503" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Topic No. 503 - Deductible Taxes →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a CPA or licensed tax advisor to evaluate itemized deduction strategies and state PTET elections.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate short and long-term federal and state capital gains tax rates.</p>
+          </a>
+          <a href="/qbi-deduction-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Pass-Through Tax</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">QBI Deduction Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate 20% Section 199A pass-through business income deductions.</p>
+          </a>
+          <a href="/mortgage-recast-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Housing & Mortgages</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Mortgage Recast Calculator</h4>
+            <p class="text-xs text-slate-400">Model payment reductions and interest savings from mortgage principal prepayments.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

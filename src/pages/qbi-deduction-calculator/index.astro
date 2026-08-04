@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import QBIDeductionCalculator from "../../components/QBIDeductionCalculator.astro";
 ---
@@ -30,6 +30,22 @@ import QBIDeductionCalculator from "../../components/QBIDeductionCalculator.astr
               "@type": "Answer",
               "text": "The QBI deduction allows eligible pass-through business owners to deduct up to 20% of qualified business income, subject to wage and property limits above certain income thresholds."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What qualifies as a Specified Service Trade or Business (SSTB) under QBI rules?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "An SSTB is any business involving the performance of services in health, law, accounting, actuarial science, performing arts, consulting, athletics, financial services, or brokerage services. Once taxable income exceeds upper threshold limits, SSTB owners lose the QBI deduction entirely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do W-2 wages and qualified property limit the QBI deduction for high earners?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For non-SSTB business owners with taxable income above the threshold, the QBI deduction is capped at the greater of 50% of W-2 wages paid by the business, or 25% of W-2 wages plus 2.5% of the unadjusted basis of qualified business property."
+            }
           }
         ]
       }
@@ -48,5 +64,156 @@ import QBIDeductionCalculator from "../../components/QBIDeductionCalculator.astr
     </div>
 
     <QBIDeductionCalculator />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Pass-Through Tax Strategy</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          The Section 199A Qualified Business Income (QBI) deduction allows eligible pass-through business owners, sole proprietors, and S-Corporation shareholders to deduct up to 20% of their net qualified business income from federal taxable income. Established under the Tax Cuts and Jobs Act, the QBI deduction reduces effective tax rates for small businesses, but its availability is governed by complex taxable income thresholds, Specified Service Trade or Business (SSTB) restrictions, and W-2 wage or property limitations. This calculator helps self-employed professionals and business owners estimate their QBI deduction, evaluate the impact of W-2 payroll allocations, and determine whether high-income SSTB phase-outs apply.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Maximum 20% Tax Deduction</strong>
+              <span class="text-sm text-slate-400">Determine your total Section 199A tax savings based on net qualified business income.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate W-2 Wage & Property Limitations</strong>
+              <span class="text-sm text-slate-400">Test how business W-2 wages paid and qualified property basis impact deductions above income thresholds.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Analyze SSTB Phase-Out Boundaries</strong>
+              <span class="text-sm text-slate-400">Identify if your field (law, healthcare, consulting, finance) faces SSTB deduction phase-outs.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Optimize Entity Payroll Allocations</strong>
+              <span class="text-sm text-slate-400">Model how adjusting W-2 officer salary versus pass-through profit maximizes your net QBI tax benefit.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the Section 199A QBI deduction limit?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The QBI deduction allows eligible pass-through business owners to deduct up to 20% of qualified business income, subject to wage and property limits above certain income thresholds.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What qualifies as a Specified Service Trade or Business (SSTB) under QBI rules?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              An SSTB is any business involving the performance of services in health, law, accounting, actuarial science, performing arts, consulting, athletics, financial services, or brokerage services. Once taxable income exceeds upper threshold limits, SSTB owners lose the QBI deduction entirely.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How do W-2 wages and qualified property limit the QBI deduction for high earners?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For non-SSTB business owners with taxable income above the threshold, the QBI deduction is capped at the greater of 50% of W-2 wages paid by the business, or 25% of W-2 wages plus 2.5% of the unadjusted basis of qualified business property.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator computes QBI savings by first determining net qualified business income from Schedule C or Form 1120-S profit distributions. Below annual taxable income threshold limits, the deduction equals 20% of net QBI (capped at 20% of total taxable income minus net capital gains).
+          </p>
+          <p>
+            Above threshold limits, the tool applies SSTB phase-out percentages and calculates the W-2 wage / UBIA property cap. For non-SSTB businesses, the allowable deduction is limited to the greater of 50% of W-2 wages or 25% of W-2 wages plus 2.5% of unadjusted basis of qualified property.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/newsroom/qualified-business-income-deduction" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Section 199A QBI Deduction Guidance →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a certified public accountant (CPA) or tax professional to confirm QBI eligibility and SSTB classifications.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/s-corp-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Corporate Tax</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">S-Corp Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Optimize W-2 salary vs distribution splits for self-employment tax savings.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Tax Reduction</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset business income and capital gains using realized investment losses.</p>
+          </a>
+          <a href="/salt-cap-deduction-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Itemized Taxes</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">SALT Cap Deduction Calculator</h4>
+            <p class="text-xs text-slate-400">Model state and local tax deduction limits and PTET business workarounds.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

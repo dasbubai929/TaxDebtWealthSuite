@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import RmdCalculator from "../../../components/RmdCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
               "@type": "Answer",
               "text": "You must convert your RRSP to a RRIF by December 31 of the year you turn 71. Minimum withdrawals begin the following year."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the CRA mandatory minimum RRIF withdrawal calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For individuals aged 71 and older, the CRA prescribes a specific percentage (starting at 5.28% at age 71 and rising to 20% at age 95+) applied to the account balance as of December 31 of the previous year. For those under 71 who open a RRIF early, the minimum formula is 1 divided by (90 minus your current age)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use a younger spouse's age to lower mandatory RRIF withdrawals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. When setting up your RRIF, you can elect to base the minimum withdrawal calculation on your spouse or common-law partner's age if they are younger, which permanently reduces your mandatory annual payout percentage."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
     </div>
 
     <RmdCalculator country="canada" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>CRA Mandatory Rules</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In Canada, individuals who hold a Registered Retirement Savings Plan (RRSP) are legally required to convert the account to a Registered Retirement Income Fund (RRIF) or annuity by December 31 of the year they turn 71. Once converted, the Canada Revenue Agency (CRA) mandates a compulsory minimum annual withdrawal starting the calendar year after conversion. The mandatory minimum is calculated as a prescribed percentage of the RRIF market value on December 31 of the preceding year, using an age-tiered CRA schedule that increases each year. Because RRIF minimum withdrawals are statutorily enforced, financial institutions automatically process these payments, and there is no option to waive the minimum amount.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Mandatory CRA RRIF Minimums</strong>
+              <span class="text-sm text-slate-400">Determine your exact annual required withdrawal percentage based on your age or your younger spouse's age.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand RRSP-to-RRIF Conversion Rules</strong>
+              <span class="text-sm text-slate-400">Learn the strict age 71 deadline for converting RRSPs into income funds under Canadian tax law.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Identify Tax Withholding Thresholds</strong>
+              <span class="text-sm text-slate-400">Know that CRA withholding tax applies only to withdrawals exceeding the statutory minimum amount.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Ensure CRA Regulatory Compliance</strong>
+              <span class="text-sm text-slate-400">Avoid administrative complications by verifying that your annual minimum payout meets CRA prescribed rates.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>When must I convert my RRSP to a RRIF?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              You must convert your RRSP to a RRIF by December 31 of the year you turn 71. Minimum withdrawals begin the following year.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is the CRA mandatory minimum RRIF withdrawal calculated?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For individuals aged 71 and older, the CRA prescribes a specific percentage (starting at 5.28% at age 71 and rising to 20% at age 95+) applied to the account balance as of December 31 of the previous year. For those under 71 who open a RRIF early, the minimum formula is 1 divided by (90 minus your current age).
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can I use a younger spouse's age to lower mandatory RRIF withdrawals?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Yes. When setting up your RRIF, you can elect to base the minimum withdrawal calculation on your spouse or common-law partner's age if they are younger, which permanently reduces your mandatory annual payout percentage.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator applies the official CRA prescribed RRIF minimum payout factor table. For account holders aged 71 and older, the minimum payout is calculated by multiplying the December 31 prior-year RRIF fair market value by the CRA statutory percentage (e.g., 5.28% at 71, 5.40% at 72, 7.38% at 80, capped at 20.00% at 95+).
+          </p>
+          <p>
+            If a RRIF is established prior to age 71, the tool utilizes the statutory pre-71 formula: <code>1 / (90 - Age)</code>. Minimum RRIF withdrawals are exempt from non-resident or domestic CRA withholding tax at source, though the full payment is declared as taxable income on line 11500 of the Canadian personal T1 tax return.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/registered-retirement-savings-plans-rrsp/registered-retirement-income-fund-rrif.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Guide to RRIF Minimum Payments →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Canadian CPA or QAFP/CFP professional for personal RRIF planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA capital gains tax inclusion amounts across provinces.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Loss Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canadian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Model capital loss carrybacks and superficial loss rules.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Strategy Tool</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian RRSP / RRIF Decumulation Strategy Calculator</h4>
+            <p class="text-xs text-slate-400">Note: While this calculator computes mandatory CRA RRIF minimum annual percentages, our Canadian Retirement Withdrawal Calculator evaluates multi-year decumulation strategy and tax-bracket optimization.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

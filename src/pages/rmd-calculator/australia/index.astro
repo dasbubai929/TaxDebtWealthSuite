@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import RmdCalculator from "../../../components/RmdCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
               "@type": "Answer",
               "text": "The ATO sets minimum drawdown percentages based on your age, starting at 4% for those under 65 and increasing to 14% for those aged 95 and over."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if an Australian super fund fails to pay the minimum drawdown amount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If a super fund fails to meet the ATO minimum drawdown requirement by June 30, the account loses its tax-exempt pension status for the entire financial year, subjecting fund earnings to standard 15% superannuation tax."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How are Australian super pension minimum drawdowns taxed after age 60?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For Australians aged 60 and over, all pension drawdown payments from a taxed super fund are completely tax-free and do not need to be declared on your individual ATO income tax return."
+            }
           }
         ]
       }
@@ -49,11 +65,162 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
       <h1 class="text-3xl font-extrabold text-white tracking-tight font-sans">
         Superannuation Minimum Drawdown Calculator (Australia)
       </h1>
-      <p class="mt-2 text-sm text-slate-400 max-w-3xl">
+      <p class="mt-2 text-sm text-[#94A3B8] max-w-3xl">
         Calculate your mandatory minimum superannuation pension drawdown under ATO rules based on your age and account balance.
       </p>
     </div>
 
     <RmdCalculator country="australia" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>ATO Pension Rules</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In Australia, once you transition your superannuation from the accumulation phase into an account-based pension, the Australian Taxation Office (ATO) enforces mandatory minimum annual drawdown rates. Designed to ensure superannuation is used to fund retirement rather than serve as a perpetual wealth transfer vehicle, these minimum percentages apply based on your age at July 1 of each financial year. Rates start at 4% for pension holders under age 65 and progressively increase across age brackets up to 14% for those aged 95 and older. Meeting or exceeding the ATO statutory minimum is required to maintain the 0% tax-free status on earnings within your super pension account.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate ATO Statutory Pension Drawdowns</strong>
+              <span class="text-sm text-slate-400">Determine your exact required minimum withdrawal amount based on your July 1 account balance and age bracket.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Preserve Tax-Free Super Pension Earnings</strong>
+              <span class="text-sm text-slate-400">Ensure compliance with ATO drawdown rules to maintain the 100% tax-free earnings concession on pension phase super.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Track Age-Tiered Drawdown Percentage Increases</strong>
+              <span class="text-sm text-slate-400">Understand how mandatory drawdown rates step up at ages 65, 75, 80, 85, 90, and 95+.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Plan Pro-Rata Pension Payments</strong>
+              <span class="text-sm text-slate-400">Accurately calculate pro-rata minimum drawdowns if starting an account-based pension mid-financial year.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the minimum pension drawdown rate in Australia?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The ATO sets minimum drawdown percentages based on your age, starting at 4% for those under 65 and increasing to 14% for those aged 95 and over.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What happens if an Australian super fund fails to pay the minimum drawdown amount?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              If a super fund fails to meet the ATO minimum drawdown requirement by June 30, the account loses its tax-exempt pension status for the entire financial year, subjecting fund earnings to standard 15% superannuation tax.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How are Australian super pension minimum drawdowns taxed after age 60?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For Australians aged 60 and over, all pension drawdown payments from a taxed super fund are completely tax-free and do not need to be declared on your individual ATO income tax return.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates mandatory minimum pension drawdowns under Schedule 7 of the Superannuation Industry (Supervision) Regulations 1994. The required annual drawdown is computed by multiplying the account's July 1 opening balance by the ATO statutory percentage matching your age on July 1 (Under 65: 4%; 65–74: 5%; 75–79: 6%; 80–84: 7%; 85–89: 9%; 90–94: 11%; 95+: 14%).
+          </p>
+          <p>
+            For account-based pensions commenced during the financial year, the minimum payout is calculated on a pro-rata basis based on the remaining days in the financial year. Meeting this statutory minimum ensures the account retains its 0% tax rate on investment earnings up to the Transfer Balance Cap.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/super/apra-regulated-funds/paying-benefits/minimum-pension-payment-standards/" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">ATO Minimum Pension Payment Standards →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an Australian Registered Tax Agent or SMSF specialist before adjusting super pension drawdowns.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate ATO CGT with 50% individual discount rules.</p>
+          </a>
+          <a href="/tax-loss-harvesting-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">ATO Tax Optimization</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australian Tax-Loss Harvesting Calculator</h4>
+            <p class="text-xs text-slate-400">Offset ASX capital gains with realized capital losses.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Australian Strategy Tool</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Superannuation Withdrawal Strategy Calculator</h4>
+            <p class="text-xs text-slate-400">Note: While this tool calculates statutory ATO mandatory minimum pension drawdown percentages, our Australian Superannuation Withdrawal Strategy Calculator models long-term capital preservation and withdrawal timing.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

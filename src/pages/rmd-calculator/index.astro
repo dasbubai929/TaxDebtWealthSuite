@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../layouts/Layout.astro";
 import RmdCalculator from "../../components/RmdCalculator.astro";
 ---
@@ -71,5 +71,156 @@ import RmdCalculator from "../../components/RmdCalculator.astro";
     </div>
 
     <RmdCalculator country="us" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>IRS Withdrawal Rules</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Under US tax law, Required Minimum Distributions (RMDs) mandate that owners of tax-deferred retirement accounts—such as Traditional IRAs, 401(k)s, 403(b)s, and SEP IRAs—must begin withdrawing a minimum annual amount once reaching a statutory age. Following the SECURE Act 2.0, the starting age for RMDs increased to age 73 for individuals turning 72 after December 31, 2022, and will rise to age 75 for those born in 1960 or later. The required withdrawal amount is calculated annually by dividing your December 31 prior-year account balance by your life expectancy factor from the IRS Uniform Lifetime Table. Failing to satisfy your annual RMD triggers a severe IRS excise tax penalty of 25% on the undistributed amount, highlighting the importance of accurate calculation.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Determine Mandatory RMD Amounts</strong>
+              <span class="text-sm text-slate-400">Calculate your exact annual required withdrawal based on SECURE Act 2.0 statutory rules.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Apply Correct IRS Life Expectancy Factors</strong>
+              <span class="text-sm text-slate-400">Use the official IRS Uniform Lifetime Table factors matching your exact age.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Identify RMD Start Dates & Deadlines</strong>
+              <span class="text-sm text-slate-400">Pinpoint your initial required distribution date (April 1 following RMD age) and subsequent December 31 deadlines.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Avoid 25% IRS Excise Tax Penalties</strong>
+              <span class="text-sm text-slate-400">Protect your retirement savings by ensuring full compliance to avoid the 25% penalty (or 10% if corrected in time).</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>At what age do RMDs start?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under the SECURE Act 2.0, RMDs generally start at age 73 for those born between 1951 and 1959, and age 75 for those born in 1960 or later.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is the RMD calculated?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Your RMD is calculated by dividing your tax-deferred retirement account balance as of December 31 of the previous year by a life expectancy factor from the IRS Uniform Lifetime Table.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What happens if I don't take my RMD?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              If you fail to take your full RMD on time, you may be subject to an excise tax (penalty) of 25% on the amount not withdrawn. This penalty can be reduced to 10% if corrected in a timely manner.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates statutory RMD mechanics by taking your prior-year December 31 account balance and dividing it by the applicable IRS distribution period factor. Most account owners use Table III (Uniform Lifetime Table), while married owners whose spouse is more than 10 years younger and sole beneficiary use Table I (Joint Life and Last Survivor Table).
+          </p>
+          <p>
+            RMD rules apply to Traditional IRAs, SEP IRAs, SIMPLE IRAs, 401(k)s, 403(b)s, and 457(b) plans (Roth IRAs are exempt during the original owner's lifetime). Under Internal Revenue Code Section 4974, failing to withdraw the required amount subjects the shortfall to a 25% excise tax penalty, which may be reduced to 10% if corrected within the statutory correction window.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Publication 590-B (Distributions from IRAs) →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a qualified CPA or financial advisor to verify statutory RMD compliance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/roth-conversion-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Tax-Free Conversion</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Roth Conversion Calculator</h4>
+            <p class="text-xs text-slate-400">Model tax costs of converting pre-tax IRA funds to eliminate future RMDs.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate short and long-term tax liabilities on taxable investment holdings.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Withdrawal Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Retirement Withdrawal Strategy Calculator</h4>
+            <p class="text-xs text-slate-400">Note: While this RMD tool calculates statutory mandatory IRS withdrawal minimums, our Retirement Withdrawal Strategy Calculator models long-term withdrawal rate strategies and portfolio drawdown longevity.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

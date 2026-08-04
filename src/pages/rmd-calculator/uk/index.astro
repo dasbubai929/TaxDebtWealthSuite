@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from "../../../layouts/Layout.astro";
 import RmdCalculator from "../../../components/RmdCalculator.astro";
 ---
@@ -37,6 +37,22 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
               "@type": "Answer",
               "text": "No. Unlike the US, the UK does not mandate minimum pension withdrawals. You can draw down as much or as little as you like from age 57 onwards under flexi-access drawdown rules."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How is taxable income calculated on UK pension drawdown?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under UK flexi-access rules, the first 25% of your pension drawdown (up to the £268,275 Lump Sum Allowance ceiling) is tax-free. The remaining 75% is treated as taxable income under PAYE and subject to your marginal UK income tax rate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens to remaining UK pension funds upon death?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If you pass away before age 75, remaining pension funds can generally be passed to beneficiaries 100% tax-free. If death occurs at or after age 75, beneficiaries pay income tax on withdrawals at their own marginal tax rates, outside of Inheritance Tax (IHT)."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import RmdCalculator from "../../../components/RmdCalculator.astro";
     </div>
 
     <RmdCalculator country="uk" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>UK Pension Rules</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In the United Kingdom, defined contribution pensions are <strong>not</strong> subject to mandatory Required Minimum Distributions (RMDs) as seen under US tax law. Following the removal of compulsory annuity purchase rules and the introduction of Pension Freedom regulations, UK pension holders aged 55 (rising to 57 in April 2028) can access their pension pots with full flexibility. Investors can draw down income as needed or leave funds invested tax-efficiently within a SIPP or workplace pension without facing statutory minimum withdrawal penalties. This calculator estimates a benchmark annual drawdown based on statutory-style life expectancy projections, helping UK pension holders model baseline income streams while maintaining full control over their retirement wealth.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Estimate Statutory Benchmark Income</strong>
+              <span class="text-sm text-slate-400">Calculate an annual pension income stream aligned with UK life expectancy tables.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model 25% Tax-Free Lump Sum</strong>
+              <span class="text-sm text-slate-400">Account for the UK pension tax-free allowance (PCLS) capped up to £268,275 under current rules.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand UK Flexibility vs. US RMDs</strong>
+              <span class="text-sm text-slate-400">Learn why UK defined contribution pensions have no forced minimum withdrawal age or penalty tax.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Income Tax Banding</strong>
+              <span class="text-sm text-slate-400">Assess how drawn taxable pension income sits alongside your Personal Allowance (£12,570) and higher tax bands.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Are there required minimum distributions in the UK?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. Unlike the US, the UK does not mandate minimum pension withdrawals. You can draw down as much or as little as you like from age 57 onwards under flexi-access drawdown rules.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is taxable income calculated on UK pension drawdown?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under UK flexi-access rules, the first 25% of your pension drawdown (up to the £268,275 Lump Sum Allowance ceiling) is tax-free. The remaining 75% is treated as taxable income under PAYE and subject to your marginal UK income tax rate.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What happens to remaining UK pension funds upon death?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              If you pass away before age 75, remaining pension funds can generally be passed to beneficiaries 100% tax-free. If death occurs at or after age 75, beneficiaries pay income tax on withdrawals at their own marginal tax rates, outside of Inheritance Tax (IHT).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator estimates UK defined contribution pension drawdown options by evaluating your total pension pot size, applying the 25% tax-free Pension Commencement Lump Sum (PCLS) allowance (subject to the £268,275 statutory ceiling), and projecting annual drawdown amounts.
+          </p>
+          <p>
+            Unlike North American statutory minimum tables, UK flexi-access drawdown allows complete freedom over drawdown amounts. The tool calculates illustrative life-expectancy benchmark rates to help UK pension holders evaluate sustainable withdrawal bounds while preserving tax-deferred investment growth.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/tax-on-your-private-pension" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK Tax on Your Private Pension Guide →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an FCA-regulated financial planner or tax specialist for individual UK pension advice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/social-security-pension-estimator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Pension Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK State Pension Estimator</h4>
+            <p class="text-xs text-slate-400">Estimate State Pension payments based on National Insurance qualifying years.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">UK Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">UK Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate HMRC CGT liabilities on taxable assets and property sales.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Strategy Tool</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Retirement Withdrawal Strategy Calculator</h4>
+            <p class="text-xs text-slate-400">Note: While this calculator models baseline statutory drawdown rates for UK pensions, our UK Retirement Withdrawal Strategy Calculator focuses on long-term portfolio tax efficiency and sequence-of-returns risk.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

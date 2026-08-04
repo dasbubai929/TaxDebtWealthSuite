@@ -41,7 +41,23 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
             "name": "How does the Centrelink Assets Test affect my Age Pension?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "For assets above the asset-free threshold, your Age Pension is reduced by $3.00 per fortnight for every $1,000 in excess assets."
+              "text": "For assets above the asset-free threshold, your Age Pension is reduced by $3.00 per fortnight for every $1,000 in excess assets. Different thresholds apply depending on whether you are a homeowner or non-homeowner, and whether you are single or part of a couple."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the Australian Age Pension different from US Social Security or UK State Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The Australian Age Pension is a means-tested welfare-style benefit — your payment is determined by your current income and assets, not by your lifetime earnings history (like US Social Security or Canada's CPP) or by years of contributions (like the UK State Pension). If you have significant savings, investments, or other income in retirement, your Age Pension is reduced or eliminated entirely. This makes it fundamentally a safety-net payment for those who need it, rather than a contributory entitlement you earn through working."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is deeming and how does it affect my Age Pension income test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under the deeming rules, Centrelink assumes your financial assets (bank accounts, shares, managed funds, super in account-based pensions) earn a set rate of return — regardless of what they actually earn. The first $60,400 of financial assets (single) is deemed to earn 0.25%, and anything above that is deemed at 2.25%. This deemed income is then assessed under the Income Test. Deeming means that even if your investments earn nothing, Centrelink still counts assumed income against your pension."
             }
           }
         ]
@@ -61,5 +77,166 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
     </div>
 
     <SocialSecurityPensionEstimator country="australia" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Australian Pension Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          The Australian Age Pension is structurally different from government pensions in the US, UK, and Canada: it is a <strong>means-tested welfare-style benefit</strong> administered by Services Australia (Centrelink), not a contributory entitlement earned through payroll taxes or years of work. Your Age Pension payment is determined by applying <strong>two separate means tests — the Income Test and the Assets Test — and whichever test produces the lower payment is the one that applies</strong>. Under the Income Test, your assessable income (including "deemed" returns on financial assets) reduces the pension beyond a free area. Under the Assets Test, your total assets above the asset-free threshold reduce the pension by $3.00 per fortnight for every $1,000 in excess assets. This dual-test structure means that even retirees with modest income can have their pension reduced if they hold significant assets, and vice versa. Unlike US Social Security (which rewards higher lifetime earnings with higher benefits) or the UK State Pension (which is a flat rate based on years of NI contributions), the Australian Age Pension is designed as a safety net — it pays the most to those with the least.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Apply Both Means Tests</strong>
+              <span class="text-sm text-slate-400">Run the Income Test and Assets Test side by side to determine which produces the lower — and therefore applicable — pension rate for your circumstances.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Deeming Rate Impact</strong>
+              <span class="text-sm text-slate-400">Understand how Centrelink's deeming rules convert your financial asset balances into assumed income, regardless of actual returns, and how this affects your pension.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Single vs. Couple Thresholds</strong>
+              <span class="text-sm text-slate-400">See how the different income-free areas, asset-free thresholds, and maximum pension rates for singles versus couples affect your household entitlement.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Homeowner vs. Non-Homeowner</strong>
+              <span class="text-sm text-slate-400">Non-homeowners receive a higher asset-free threshold, significantly affecting eligibility — model the impact of your housing status on your pension.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Coordinate with Super Drawdown Strategy</strong>
+              <span class="text-sm text-slate-400">Estimate how different superannuation drawdown rates affect your assessable assets and deemed income, optimising the balance between super income and pension entitlement.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does the Centrelink Assets Test affect my Age Pension?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For assets above the asset-free threshold, your Age Pension is reduced by $3.00 per fortnight for every $1,000 in excess assets. Different thresholds apply depending on whether you are a homeowner or non-homeowner, and whether you are single or part of a couple.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is the Australian Age Pension different from US Social Security or UK State Pension?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The Australian Age Pension is a means-tested welfare-style benefit — your payment is determined by your current income and assets, not by your lifetime earnings history (like US Social Security or Canada's CPP) or by years of contributions (like the UK State Pension). If you have significant savings, investments, or other income in retirement, your Age Pension is reduced or eliminated entirely. This makes it fundamentally a safety-net payment for those who need it, rather than a contributory entitlement you earn through working.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is deeming and how does it affect my Age Pension income test?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under the deeming rules, Centrelink assumes your financial assets (bank accounts, shares, managed funds, super in account-based pensions) earn a set rate of return — regardless of what they actually earn. The first $60,400 of financial assets (single) is deemed to earn 0.25%, and anything above that is deemed at 2.25%. This deemed income is then assessed under the Income Test. Deeming means that even if your investments earn nothing, Centrelink still counts assumed income against your pension.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator applies both of Centrelink's means tests independently and uses whichever produces the lower fortnightly payment. <strong>Income Test:</strong> Assessable income above the income-free area ($204 per fortnight for singles) reduces the maximum pension rate by 50 cents for every dollar of excess income. Financial assets are subject to deeming — the first $60,400 (single) is deemed to earn 0.25% p.a. and the remainder at 2.25% p.a. — and this deemed income is included in assessable income regardless of actual returns. Employment income has a separate Work Bonus of $300 per fortnight that is excluded before the income test applies.
+          </p>
+          <p>
+            <strong>Assets Test:</strong> Total assessable assets above the asset-free threshold reduce the pension by $3.00 per fortnight for every $1,000 in excess assets. Homeowners have lower asset-free thresholds ($301,750 for singles) because the family home is exempt from the assets test. Non-homeowners receive higher thresholds ($543,750 for singles) to compensate for the cost of housing. The principal family home, regardless of value, is not counted as an asset. The calculator evaluates both tests and applies the one producing the lower payment, which is the standard Centrelink assessment methodology.
+          </p>
+          <p>
+            Age Pension eligibility requires Australian residency and reaching Age Pension age (currently 67). The maximum fortnightly rate (including Pension Supplement and Energy Supplement) is approximately $1,116.30 for singles and $841.40 each for members of a couple. Rates are indexed twice yearly (March and September) in line with CPI, the Pensioner and Beneficiary Living Cost Index (PBLCI), and Male Total Average Weekly Earnings (MTAWE) benchmarks.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.servicesaustralia.gov.au/age-pension" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">Services Australia — Age Pension →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates based on current rates and thresholds. Consult Services Australia (Centrelink) or a licensed Australian financial adviser for a personalised assessment.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/superannuation-rrsp-withdrawal-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Australian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Superannuation Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model super drawdown strategies, preservation age rules, and tax-free components — and understand how super balances affect your Age Pension means tests.</p>
+          </a>
+          <a href="/rmd-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Australian Minimum Drawdown</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australia Super Minimum Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate minimum annual drawdown percentages for account-based super pensions and plan drawdown rates that optimise Age Pension entitlement.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Australian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australia Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate ATO CGT on investment sales and understand how realised capital gains affect your Age Pension income test assessment.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

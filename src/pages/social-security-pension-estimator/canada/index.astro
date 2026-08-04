@@ -43,6 +43,22 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
               "@type": "Answer",
               "text": "Taking CPP at age 60 reduces your monthly payment by 36% (-0.6% per month before age 65). Delaying to age 70 increases your CPP payment by 42% (+0.7% per month)."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between CPP and OAS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CPP (Canada Pension Plan) is an earnings-based benefit — your monthly payment depends on how much you contributed through payroll deductions over your working career. OAS (Old Age Security) is a completely separate residency-based benefit available to most Canadians aged 65+ who have lived in Canada for at least 10 years after age 18, regardless of work history. The two benefits are independent programs with different eligibility rules, funding sources, and clawback mechanisms."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the OAS clawback and when does it apply?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The OAS clawback (officially the OAS Recovery Tax) applies when your net income exceeds a threshold (approximately $90,997 for 2024). For every dollar of income above the threshold, 15 cents of your OAS is clawed back. If your income is high enough (approximately $148,065+), your entire OAS benefit is eliminated. This makes OAS a means-tested benefit at the higher end, unlike CPP which is paid regardless of other income."
+            }
           }
         ]
       }
@@ -61,5 +77,166 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
     </div>
 
     <SocialSecurityPensionEstimator country="canada" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Canadian Pension Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Canada's public retirement income system consists of <strong>two completely separate programs</strong> that this calculator estimates together: the <strong>Canada Pension Plan (CPP)</strong> and <strong>Old Age Security (OAS)</strong>. CPP is an <strong>earnings-based</strong> benefit — similar in concept to US Social Security — where your monthly payment reflects the contributions you made through payroll deductions over your working career, averaged across your contributory period with a dropout provision that excludes your lowest-earning years. You can take CPP as early as age 60 (with a permanent 0.6%-per-month reduction) or defer to age 70 (for a 0.7%-per-month increase). OAS is a <strong>completely different program</strong>: it is a residency-based flat benefit available to most Canadians aged 65 and older who have lived in Canada for at least 10 years after turning 18, regardless of whether they ever worked or contributed to CPP. However, OAS includes a clawback (the OAS Recovery Tax) that reduces or eliminates the benefit for higher-income retirees. This calculator models both programs and their claiming-age adjustments so you can see your combined monthly retirement income under different scenarios.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model CPP Claiming Age Trade-offs</strong>
+              <span class="text-sm text-slate-400">Quantify the 36% reduction for claiming CPP at 60 versus the 42% increase for deferring to 70, and find your personal break-even age.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Estimate Combined CPP + OAS Income</strong>
+              <span class="text-sm text-slate-400">See your total monthly government pension income from both programs combined, rather than evaluating each in isolation.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Assess OAS Clawback Risk</strong>
+              <span class="text-sm text-slate-400">Determine whether your projected retirement income will trigger the OAS Recovery Tax (15% clawback above ~$90,997) and how much OAS you'll actually receive.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate OAS Deferral Benefits</strong>
+              <span class="text-sm text-slate-400">Model the 0.6%-per-month increase (7.2% per year, up to 36% at age 70) for deferring OAS, and weigh it against the clawback threshold.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Coordinate with RRSP/RRIF Drawdowns</strong>
+              <span class="text-sm text-slate-400">Use CPP and OAS estimates alongside your RRSP withdrawal strategy to time RRIF conversions and manage overall taxable income in retirement.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does early CPP retirement affect my payment?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Taking CPP at age 60 reduces your monthly payment by 36% (-0.6% per month before age 65). Delaying to age 70 increases your CPP payment by 42% (+0.7% per month).
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the difference between CPP and OAS?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              CPP (Canada Pension Plan) is an earnings-based benefit — your monthly payment depends on how much you contributed through payroll deductions over your working career. OAS (Old Age Security) is a completely separate residency-based benefit available to most Canadians aged 65+ who have lived in Canada for at least 10 years after age 18, regardless of work history. The two benefits are independent programs with different eligibility rules, funding sources, and clawback mechanisms.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the OAS clawback and when does it apply?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The OAS clawback (officially the OAS Recovery Tax) applies when your net income exceeds a threshold (approximately $90,997 for 2024). For every dollar of income above the threshold, 15 cents of your OAS is clawed back. If your income is high enough (approximately $148,065+), your entire OAS benefit is eliminated. This makes OAS a means-tested benefit at the higher end, unlike CPP which is paid regardless of other income.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            <strong>CPP calculation:</strong> The Canada Pension Plan benefit is computed based on your contributory period — the years between age 18 (or 1966, whichever is later) and your claiming age — and your pensionable earnings in each year relative to the Year's Maximum Pensionable Earnings (YMPE). The CPP formula includes a general dropout provision (excluding up to 8 years of lowest earnings, or 17% of the contributory period) and child-rearing dropout provisions. Your average adjusted pensionable earnings are multiplied by the 25% replacement rate to produce the base CPP retirement pension at age 65 (maximum $1,364.60/month in 2024). Early claiming at age 60 applies a 0.6%-per-month reduction (36% total), while deferring to age 70 applies a 0.7%-per-month increase (42% total).
+          </p>
+          <p>
+            <strong>OAS calculation:</strong> Old Age Security is calculated independently from CPP. The full OAS pension (maximum $713.34/month at age 65 in 2024) requires 40 years of Canadian residence after age 18. With 10–39 years of residence, you receive a proportional amount (years ÷ 40 × full rate). OAS can also be deferred from age 65 to 70 for a 0.6%-per-month increase (up to 36%). The OAS Recovery Tax (clawback) then reduces the benefit by 15% of net income above the threshold (~$90,997), fully eliminating the benefit at approximately $148,065 of net income. The calculator models the net OAS after clawback.
+          </p>
+          <p>
+            CPP and OAS have different start ages, deferral bonuses, and eligibility criteria — this calculator combines both estimates so you can see total government pension income across different claiming scenarios. CPP2 (the enhanced CPP second ceiling introduced in 2024) is reflected in maximum benefit projections for future years. For the most accurate personal estimates, compare these results with your My Service Canada Account statement of contributions.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/services/benefits/publicpensions.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">Canada.ca — Public Pensions (CPP & OAS) →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Consult Service Canada or a qualified Canadian financial planner for personalised CPP and OAS projections.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/superannuation-rrsp-withdrawal-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Retirement</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RRSP Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model RRSP and RRIF withdrawals including withholding tax brackets to coordinate with CPP and OAS timing.</p>
+          </a>
+          <a href="/rmd-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian RRIF</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canada RRIF Minimum Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate minimum RRIF withdrawals and plan the conversion from RRSP to manage taxable income alongside CPP/OAS.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canada Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate CRA capital gains tax on investment dispositions and manage how realised gains affect your OAS clawback threshold.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

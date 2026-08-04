@@ -51,6 +51,22 @@ import SocialSecurityPensionEstimator from "../../components/SocialSecurityPensi
               "@type": "Answer",
               "text": "For each year you delay claiming Social Security past age 67 up to age 70, your benefit increases by 8% per year (up to a 24% permanent bonus)."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What are AIME and bend points in the Social Security formula?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AIME (Average Indexed Monthly Earnings) is the average of your highest 35 years of wage-indexed earnings divided by the number of months. The SSA then applies a progressive formula with two 'bend points' — specific dollar thresholds — that replace 90% of the first portion of AIME, 32% of the middle portion, and 15% of any amount above the second bend point, producing your Primary Insurance Amount (PIA)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I work while receiving Social Security benefits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, but if you claim before Full Retirement Age and earn above the annual earnings limit ($22,320 in 2024), Social Security withholds $1 for every $2 earned above the limit. In the year you reach FRA, the limit is higher and the reduction is $1 for every $3. Once you reach FRA, there is no earnings limit and no benefit reduction."
+            }
           }
         ]
       }
@@ -69,5 +85,182 @@ import SocialSecurityPensionEstimator from "../../components/SocialSecurityPensi
     </div>
 
     <SocialSecurityPensionEstimator country="us" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>US Social Security Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          US Social Security retirement benefits are fundamentally <strong>earnings-based</strong> — your monthly benefit is calculated from your actual lifetime work history, not simply from the number of years you contributed. The Social Security Administration (SSA) indexes your annual earnings for wage inflation, selects your highest 35 years, and averages them into a figure called <strong>AIME (Average Indexed Monthly Earnings)</strong>. Your AIME is then run through a progressive formula with two <strong>"bend points"</strong> — dollar thresholds that determine replacement rates of 90%, 32%, and 15% — to produce your <strong>Primary Insurance Amount (PIA)</strong>, the benefit you'd receive at Full Retirement Age (FRA). You can claim as early as age 62 for a permanently reduced benefit (up to 30% less) or delay until age 70 for delayed retirement credits worth 8% per year beyond FRA. This calculator models the full AIME → bend points → PIA pipeline and shows how your monthly benefit changes across every claiming age from 62 to 70.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model the AIME & Bend Points Formula</strong>
+              <span class="text-sm text-slate-400">See how your highest 35 years of indexed earnings translate into your Primary Insurance Amount through the SSA's progressive replacement-rate formula.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Compare Claiming Ages 62–70</strong>
+              <span class="text-sm text-slate-400">Quantify the permanent reduction for early claiming versus the 8%-per-year delayed retirement credits up to age 70.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Break-Even Ages</strong>
+              <span class="text-sm text-slate-400">Determine at what age the higher monthly benefit from delaying outweighs the cumulative payments you would have received by claiming earlier.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Estimate Lifetime Benefits</strong>
+              <span class="text-sm text-slate-400">Project total Social Security income over your expected lifetime at each claiming age to inform your overall retirement income plan.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Coordinate with Other Retirement Income</strong>
+              <span class="text-sm text-slate-400">Use results alongside RMD and Roth conversion planning to decide the optimal sequence for tapping Social Security, 401(k), and IRA accounts.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is Full Retirement Age (FRA) for Social Security?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For individuals born in 1960 or later, Full Retirement Age (FRA) is 67. Claiming before age 67 results in a permanent reduction of up to 30%.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does delaying Social Security to age 70 increase my payout?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              For each year you delay claiming Social Security past age 67 up to age 70, your benefit increases by 8% per year (up to a 24% permanent bonus).
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What are AIME and bend points in the Social Security formula?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              AIME (Average Indexed Monthly Earnings) is the average of your highest 35 years of wage-indexed earnings divided by the number of months. The SSA then applies a progressive formula with two "bend points" — specific dollar thresholds — that replace 90% of the first portion of AIME, 32% of the middle portion, and 15% of any amount above the second bend point, producing your Primary Insurance Amount (PIA).
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can I work while receiving Social Security benefits?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Yes, but if you claim before Full Retirement Age and earn above the annual earnings limit ($22,320 in 2024), Social Security withholds $1 for every $2 earned above the limit. In the year you reach FRA, the limit is higher and the reduction is $1 for every $3. Once you reach FRA, there is no earnings limit and no benefit reduction.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator follows the SSA's published benefit computation method. It takes your annual earnings history, indexes each year's wages using the SSA's national average wage index series, selects the highest 35 years, and divides the total by 420 months to produce your AIME. The AIME is then run through the current-year bend-point formula — 90% of the first $1,174, plus 32% of AIME between $1,174 and $7,078, plus 15% of any AIME above $7,078 (2024 bend points) — to compute your Primary Insurance Amount (PIA), which is your monthly benefit at Full Retirement Age.
+          </p>
+          <p>
+            For claiming ages other than FRA, the calculator applies the SSA's early-reduction and delayed-retirement-credit adjustments. Claiming before FRA reduces your PIA by 5/9 of 1% per month for up to 36 months early, and an additional 5/12 of 1% per month beyond 36 months. Delaying past FRA adds 2/3 of 1% per month (8% per year) in delayed retirement credits, up to age 70. The calculator also projects lifetime cumulative benefits at each claiming age so you can identify the break-even point.
+          </p>
+          <p>
+            This model uses the standard worker benefit formula and does not account for spousal, survivor, or disability benefits, WEP (Windfall Elimination Provision), or GPO (Government Pension Offset) adjustments. For workers with fewer than 35 years of earnings, the missing years are counted as zero, which significantly reduces AIME.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.ssa.gov/oact/cola/Benefits.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">SSA — Primary Insurance Amount Benefit Formula →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Consult the Social Security Administration or a qualified financial planner for personalised benefit projections.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">US Retirement Income</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RMD Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate Required Minimum Distributions from traditional IRAs and 401(k)s to coordinate withdrawal timing with Social Security claiming.</p>
+          </a>
+          <a href="/roth-conversion-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">US Tax Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Roth Conversion Calculator</h4>
+            <p class="text-xs text-slate-400">Model pre-RMD Roth conversions to reduce future taxable income and minimise Social Security benefit taxation.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated assets to supplement retirement income without triggering taxable events.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

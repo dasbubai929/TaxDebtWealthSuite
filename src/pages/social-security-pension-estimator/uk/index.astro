@@ -43,6 +43,22 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
               "@type": "Answer",
               "text": "You need 35 qualifying National Insurance years to receive the full New State Pension (£221.20 per week). At least 10 qualifying years are required to get any pension."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the UK State Pension different from the US Social Security system?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The UK New State Pension is fundamentally a years-based flat-rate system — your pension depends on how many qualifying National Insurance years you have, not on how much you earned. Once you reach 35 qualifying years, you get the full flat-rate pension regardless of whether you earned £20,000 or £200,000 per year. US Social Security, by contrast, is earnings-based: higher lifetime earnings produce a higher monthly benefit through the AIME and bend points formula."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens if I defer my UK State Pension?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can defer claiming your New State Pension beyond State Pension age. For every 9 weeks you defer, your pension increases by 1%, equivalent to approximately 5.8% per year. Unlike US Social Security, there is no upper age cap on deferral — you can continue deferring indefinitely for a higher weekly amount."
+            }
           }
         ]
       }
@@ -61,5 +77,159 @@ import SocialSecurityPensionEstimator from "../../../components/SocialSecurityPe
     </div>
 
     <SocialSecurityPensionEstimator country="uk" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>UK State Pension Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          The UK New State Pension works on a fundamentally different principle from the US Social Security system: it is a <strong>flat-rate, years-based</strong> benefit rather than an earnings-based one. Your pension amount depends entirely on how many <strong>qualifying National Insurance (NI) years</strong> you accumulate — not on how much you earned during those years. You need a minimum of 10 qualifying years to receive any State Pension at all, and 35 qualifying years to receive the full flat-rate pension of £221.20 per week. Between 10 and 35 years, you receive a proportional fraction (e.g., 20 years = 20/35 of the full amount). A qualifying year is any tax year in which you paid enough National Insurance contributions through employment, were credited NI credits (e.g., for claiming Child Benefit, Carer's Allowance, or Jobseeker's Allowance), or made voluntary Class 3 contributions. You can also defer your State Pension beyond State Pension age for a permanent increase of approximately 5.8% per year, with no upper cap on deferral age.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Check Qualifying Years Status</strong>
+              <span class="text-sm text-slate-400">Determine how many NI qualifying years you have and how many more you need to reach the full 35-year entitlement for the maximum weekly pension.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Evaluate Voluntary NI Contributions</strong>
+              <span class="text-sm text-slate-400">Calculate whether buying voluntary Class 3 NI years (currently £17.45/week per year) to fill gaps in your record is worthwhile based on the pension uplift.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Model Deferral Bonus</strong>
+              <span class="text-sm text-slate-400">See how deferring your State Pension claim increases your weekly amount by ~5.8% per year, and compare the break-even age against immediate claiming.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Plan Alongside Workplace Pensions</strong>
+              <span class="text-sm text-slate-400">Estimate your State Pension as the baseline floor, then layer workplace or personal pension income on top for total retirement income planning.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How many National Insurance years are needed for the full UK State Pension?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              You need 35 qualifying National Insurance years to receive the full New State Pension (£221.20 per week). At least 10 qualifying years are required to get any pension.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How is the UK State Pension different from the US Social Security system?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The UK New State Pension is fundamentally a years-based flat-rate system — your pension depends on how many qualifying National Insurance years you have, not on how much you earned. Once you reach 35 qualifying years, you get the full flat-rate pension regardless of whether you earned £20,000 or £200,000 per year. US Social Security, by contrast, is earnings-based: higher lifetime earnings produce a higher monthly benefit through the AIME and bend points formula.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What happens if I defer my UK State Pension?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              You can defer claiming your New State Pension beyond State Pension age. For every 9 weeks you defer, your pension increases by 1%, equivalent to approximately 5.8% per year. Unlike US Social Security, there is no upper age cap on deferral — you can continue deferring indefinitely for a higher weekly amount.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator estimates your UK New State Pension entitlement using the simple proportional formula mandated by the Pensions Act 2014. If you have 35 or more qualifying National Insurance years, you receive the full flat-rate New State Pension (currently £221.20 per week). If you have between 10 and 34 qualifying years, your weekly pension is calculated as <em>(qualifying years ÷ 35) × full rate</em>. Below 10 qualifying years, no State Pension is payable. This is fundamentally different from earnings-based systems like US Social Security — the UK calculation requires no earnings history, wage indexing, or progressive formula.
+          </p>
+          <p>
+            For deferral modelling, the calculator applies the New State Pension deferral rate of 1% for every 9 weeks deferred (approximately 5.8% per year). The increased pension is paid as a higher weekly amount for life — there is no lump-sum deferral option under the New State Pension rules (unlike the old Basic State Pension). The calculator also estimates break-even ages at which the cumulative benefit from a higher deferred pension overtakes the total that would have been received by claiming at State Pension age.
+          </p>
+          <p>
+            Note: if you reached State Pension age before 6 April 2016, you may be on the old Basic State Pension system with different rules. This calculator models the New State Pension only. Transitional arrangements (the "starting amount" for people with pre-2016 NI records) may produce a higher or lower actual entitlement than the simple 35-year formula suggests — check your personal State Pension forecast on GOV.UK for precision.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/new-state-pension" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK — The New State Pension →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates. Check your personal State Pension forecast at gov.uk/check-state-pension or consult an FCA-regulated financial adviser for personalised retirement planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/rmd-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Pension Drawdown</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Pension Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate flexible SIPP drawdown payments and 25% tax-free lump sum portions to complement your State Pension income.</p>
+          </a>
+          <a href="/superannuation-rrsp-withdrawal-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">UK Pension Withdrawals</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">UK Pension Withdrawal Calculator</h4>
+            <p class="text-xs text-slate-400">Model tax implications of pension withdrawals and coordinate with State Pension to optimise your total retirement income.</p>
+          </a>
+          <a href="/capital-gains-tax-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Tax Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate CGT on asset disposals in retirement, factoring in income band interactions with pension income.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

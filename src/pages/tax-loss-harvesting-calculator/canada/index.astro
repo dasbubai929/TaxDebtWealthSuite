@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../../layouts/Layout.astro';
 import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCalculator.astro';
 ---
@@ -37,6 +37,22 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
               "@type": "Answer",
               "text": "The superficial loss rule denies a capital loss if you or an affiliated person buys the identical property within 30 days before or after the sale."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Canadian Superficial Loss Rule differ from the US Wash-Sale Rule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unlike the US wash-sale rule, Canada's superficial loss rule explicitly includes purchases made by 'affiliated persons' (such as a spouse or spouse's RRSP/TFSA). Furthermore, the loss is only superficial if the affiliated person still owns the asset 30 days after the sale."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use Canadian capital losses to offset ordinary income?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Under the Canadian Income Tax Act, net capital losses can only be used to offset taxable capital gains, not employment, business, or investment income."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
     </div>
 
     <TaxLossHarvestingCalculator defaultCountry="canada" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>CRA Superficial Loss Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Tax-loss harvesting in Canada allows taxpayers to realize capital losses to offset taxable capital gains, taking advantage of Canada Revenue Agency (CRA) loss carryback and carryforward rules. However, the strategy must comply with the CRA <strong>Superficial Loss Rule</strong> (Income Tax Act s.54), which has a broader scope than US wash-sale rules. A superficial loss occurs if you <strong>or an affiliated person</strong> (such as your spouse, common-law partner, or a controlled corporation) acquire the same or identical property within 30 calendar days before or after the sale AND still own it 30 days after the disposition. When a loss is deemed superficial, the deduction is denied for current tax purposes and added to the Adjusted Cost Base (ACB) of the affiliated person's newly acquired asset.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Apply 50% Inclusion Rate Loss Offsets</strong>
+              <span class="text-sm text-slate-400">Calculate how allowable capital losses reduce taxable capital gains under CRA inclusion rate mechanics.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand Affiliated Person Scope</strong>
+              <span class="text-sm text-slate-400">Learn why purchases by a spouse, partner, or controlled company trigger CRA superficial loss disallowances.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Utilize 3-Year Carryback Rules</strong>
+              <span class="text-sm text-slate-400">Apply net capital losses against taxable capital gains reported in any of the 3 preceding tax years.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Manage Adjusted Cost Base (ACB) Transfers</strong>
+              <span class="text-sm text-slate-400">Correctly track denied superficial loss amounts as basis adjustments added to newly acquired assets.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the superficial loss rule in Canada?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The superficial loss rule denies a capital loss if you or an affiliated person buys the identical property within 30 days before or after the sale.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How does the Canadian Superficial Loss Rule differ from the US Wash-Sale Rule?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Unlike the US wash-sale rule, Canada's superficial loss rule explicitly includes purchases made by "affiliated persons" (such as a spouse or spouse's RRSP/TFSA). Furthermore, the loss is only superficial if the affiliated person still owns the asset 30 days after the sale.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can I use Canadian capital losses to offset ordinary income?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              No. Under the Canadian Income Tax Act, net capital losses can only be used to offset taxable capital gains, not employment, business, or investment income.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates Canadian net capital losses under Income Tax Act Section 54, applying the statutory 50% inclusion rate to determine allowable capital loss amounts.
+          </p>
+          <p>
+            It enforces the 61-day window (30 days before, day of sale, 30 days after) and 30-day ownership test governing superficial loss disallowances. Net capital losses can be reported on Form T1A for a 3-year loss carryback or carried forward indefinitely on line 25300.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/about-your-tax-return/tax-return/completing-a-tax-return/personal-income/line-12700-capital-gains/capital-losses-deductions.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Guide to Capital Losses & Deductions →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult a Canadian CPA or licensed tax professional for tax-loss harvesting execution.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian CGT Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Canadian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate CRA capital gains tax inclusion amounts across provinces.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">Canadian Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Canadian Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model asset-backed margin lending strategies to defer Canadian capital gains inclusion.</p>
+          </a>
+          <a href="/rmd-calculator/canada/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Canadian RRIF Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">RRIF Minimum Withdrawal Calculator (Canada)</h4>
+            <p class="text-xs text-slate-400">Calculate mandatory CRA annual RRIF minimum withdrawal percentages.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

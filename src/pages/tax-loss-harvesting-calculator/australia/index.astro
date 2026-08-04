@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../../layouts/Layout.astro';
 import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCalculator.astro';
 ---
@@ -37,6 +37,22 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
               "@type": "Answer",
               "text": "The ATO defines a wash sale as disposing of an asset to crystallize a capital loss, then reacquiring the same or substantially similar asset shortly after. If determined to be for tax benefit only, the loss can be denied under Part IVA."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does Australia enforce wash sales through Part IVA rather than a 30-day rule?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The ATO relies on Part IVA (General Anti-Avoidance) because it assesses the intent of the transaction. If an investor sells shares on June 29 and buys them back on July 2 with no market risk or economic change, the ATO can void the loss regardless of the number of days elapsed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Must Australian capital losses be applied before or after the 50% CGT discount?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Under ATO rules, capital losses MUST be applied against gross capital gains before applying the 50% CGT discount to any remaining long-term gains, reducing the effective benefit of the loss."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
     </div>
 
     <TaxLossHarvestingCalculator defaultCountry="australia" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>ATO Anti-Avoidance Framework</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          Tax-loss harvesting in Australia involves selling depressed assets before the end of the financial year (June 30) to generate capital losses that offset assessable capital gains. Unlike the US, UK, or Canada, Australia does <strong>not</strong> have a bright-line 30-day statutory window. Instead, the Australian Taxation Office (ATO) enforces wash sale rules under <strong>Part IVA</strong> (the General Anti-Avoidance Provision) as set out in Taxation Ruling TR 2008/1. An ATO wash sale occurs when an asset is disposed of for the dominant purpose of creating a tax loss while the taxpayer maintains economic exposure or reacquires the asset. If the ATO determines a transaction is a wash sale, the capital loss is disallowed and penalty tax may apply.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Calculate Gross Loss Offsets</strong>
+              <span class="text-sm text-slate-400">Subtract capital losses from gross capital gains before applying the 50% CGT discount on remaining gains.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Understand ATO Part IVA Anti-Avoidance</strong>
+              <span class="text-sm text-slate-400">Learn why Australia uses a "dominant purpose" test rather than a simple 30-day statutory window.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Carry Forward Capital Losses Indefinitely</strong>
+              <span class="text-sm text-slate-400">Track unapplied net capital losses to offset future ATO capital gains in subsequent financial years.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Structure Compliant Reinvestments</strong>
+              <span class="text-sm text-slate-400">Model switching into non-identical assets to maintain portfolio allocation without triggering ATO wash sale scrutiny.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is an ATO wash sale?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The ATO defines a wash sale as disposing of an asset to crystallize a capital loss, then reacquiring the same or substantially similar asset shortly after. If determined to be for tax benefit only, the loss can be denied under Part IVA.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Why does Australia enforce wash sales through Part IVA rather than a 30-day rule?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The ATO relies on Part IVA (General Anti-Avoidance) because it assesses the intent of the transaction. If an investor sells shares on June 29 and buys them back on July 2 with no market risk or economic change, the ATO can void the loss regardless of the number of days elapsed.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Must Australian capital losses be applied before or after the 50% CGT discount?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Under ATO rules, capital losses MUST be applied against gross capital gains before applying the 50% CGT discount to any remaining long-term gains, reducing the effective benefit of the loss.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator evaluates Australian capital loss harvesting under the Income Tax Assessment Act 1997. It computes net capital losses by subtracting reduced cost bases from capital proceeds.
+          </p>
+          <p>
+            Under ATO rules, net capital losses are subtracted from gross capital gains *before* applying the 50% CGT discount on remaining long-term gains. It applies Taxation Ruling TR 2008/1 enforcement criteria under Part IVA.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.ato.gov.au/individuals-and-families/investments-and-assets/capital-gains-tax" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">ATO Guide to Capital Losses & Wash Sales →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an Australian Registered Tax Agent or Chartered Accountant for tax-loss harvesting advice.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">ATO CGT Discount</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate ATO CGT with 50% individual discount rules.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">ATO Wealth Strategy</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">Australian Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model margin lending against ASX portfolios to avoid triggering ATO CGT disposal events.</p>
+          </a>
+          <a href="/rmd-calculator/australia/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">Super Rules</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">Australian Superannuation Minimum Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate mandatory ATO account-based pension minimum drawdown percentages.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../../../layouts/Layout.astro';
 import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCalculator.astro';
 ---
@@ -37,6 +37,22 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
               "@type": "Answer",
               "text": "The bed and breakfasting rule prevents UK investors from selling shares to crystallize a capital loss and buying them back within 30 days."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "How did HMRC modern share matching replace historical 'bed and breakfasting'?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Historically, investors sold shares at 4:30 PM and bought them back at 8:00 AM the next day ('bed and breakfasting'). HMRC replaced this with the 30-day rule: any shares bought within 30 days after a sale are matched to the sale first, effectively negating the loss."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can UK capital losses be used to offset ordinary Income Tax?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Generally, no. UK capital losses can only offset Capital Gains Tax liabilities, not employment or pension income. (Special exceptions exist for losses on unquoted trading company shares under Section 131)."
+            }
           }
         ]
       }
@@ -55,5 +71,156 @@ import TaxLossHarvestingCalculator from '../../../components/TaxLossHarvestingCa
     </div>
 
     <TaxLossHarvestingCalculator defaultCountry="uk" />
+
+    <!-- Explanatory Content Wrapper -->
+    <div class="mt-12 space-y-8 text-slate-300">
+      <!-- Introduction Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>HMRC Share Matching Rules</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Introduction</h2>
+        <p class="text-slate-300 leading-relaxed">
+          In the United Kingdom, tax-loss harvesting enables investors to crystallize allowable capital losses to reduce their HMRC Capital Gains Tax (CGT) liability. To prevent investors from selling shares at a loss and immediately repurchasing them—a historical practice known as <strong>"bed and breakfasting"</strong>—HMRC enforces strict <strong>30-day share matching rules</strong> (TCGA 1992 s.106A). Under current rules, shares acquired within 30 days after a sale are matched against that sale first, preventing the crystallization of a capital loss if you maintain continuous economic exposure to the exact same security. This calculator models allowable UK capital loss offsets, helping investors navigate HMRC share matching while remaining within statutory guidelines.
+        </p>
+      </section>
+
+      <!-- Key Benefits Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Strategic Value</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Key Benefits</h2>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Offset Allowable UK Capital Gains</strong>
+              <span class="text-sm text-slate-400">Reduce HMRC chargeable gains dollar-for-pound using realized capital losses.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Navigate HMRC 30-Day Share Matching</strong>
+              <span class="text-sm text-slate-400">Avoid disallowance of losses by adhering to modern bed-and-breakfasting rules when reacquiring shares.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Carry Forward Losses Indefinitely</strong>
+              <span class="text-sm text-slate-400">Register allowable losses with HMRC to offset future gains exceeding the £3,000 Annual Exempt Amount.</span>
+            </div>
+          </li>
+          <li class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] flex items-start gap-3">
+            <span class="text-[#00F5D4] font-bold mt-0.5">•</span>
+            <div>
+              <strong class="text-white block mb-1">Utilize Substitute Asset Strategies</strong>
+              <span class="text-sm text-slate-400">Model selling individual UK equities and purchasing non-identical ETFs to maintain market exposure without breaching 30-day rules.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00F5D4]/10 text-[#00F5D4] text-xs font-bold uppercase tracking-wider border border-[#00F5D4]/20">
+          <span>Common Questions</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>What is the bed and breakfasting rule?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              The bed and breakfasting rule prevents UK investors from selling shares to crystallize a capital loss and buying them back within 30 days.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>How did HMRC modern share matching replace historical "bed and breakfasting"?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Historically, investors sold shares at 4:30 PM and bought them back at 8:00 AM the next day ("bed and breakfasting"). HMRC replaced this with the 30-day rule: any shares bought within 30 days after a sale are matched to the sale first, effectively negating the loss.
+            </div>
+          </div>
+
+          <div class="rounded-xl bg-[#0A0F1D] border border-[#1E294B] overflow-hidden">
+            <button 
+              type="button"
+              onclick="this.nextElementSibling.classList.toggle('hidden'); this.querySelector('svg').classList.toggle('rotate-180');" 
+              class="w-full p-4 sm:p-5 text-left font-semibold text-white flex items-center justify-between gap-4 hover:bg-slate-900/50 transition-colors focus:outline-none"
+            >
+              <span>Can UK capital losses be used to offset ordinary Income Tax?</span>
+              <svg class="w-5 h-5 text-[#00F5D4] shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="hidden p-4 sm:p-5 pt-0 text-sm text-slate-300 border-t border-[#1E294B]/50 leading-relaxed">
+              Generally, no. UK capital losses can only offset Capital Gains Tax liabilities, not employment or pension income. (Special exceptions exist for losses on unquoted trading company shares under Section 131).
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology Section -->
+      <section class="glass-panel p-6 sm:p-8 rounded-2xl space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#7B61FF]/10 text-[#7B61FF] text-xs font-bold uppercase tracking-wider border border-[#7B61FF]/20">
+          <span>Calculation Logic</span>
+        </div>
+        <h2 class="text-2xl font-bold text-white tracking-tight">Methodology</h2>
+        <div class="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          <p>
+            This calculator estimates UK capital loss offsets by subtracting acquisition costs and disposal expenses from disposal proceeds under HMRC rules.
+          </p>
+          <p>
+            It applies TCGA 1992 s.106A share matching rules (same day acquisitions first, 30-day post-sale acquisitions second, Section 104 holding pool third) to verify allowable losses. Registered net capital losses carry forward indefinitely to reduce chargeable gains exceeding the £3,000 Annual Exempt Amount.
+          </p>
+          <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
+            <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/capital-gains-tax/losses" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK Capital Gains Tax - Tell HMRC About Losses →</a></p>
+            <p class="italic text-slate-500">Calculations are estimates, consult an FCA-regulated financial adviser or UK chartered tax adviser for personal CGT loss planning.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Related Calculators Section -->
+      <section class="space-y-4 pt-4">
+        <h3 class="text-xl font-bold text-white tracking-tight">Related Calculators & Tools</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/capital-gains-tax-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Tax Rates</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Capital Gains Tax Calculator</h4>
+            <p class="text-xs text-slate-400">Calculate HMRC CGT liabilities across Basic and Higher/Additional rate income bands.</p>
+          </a>
+          <a href="/buy-borrow-die-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#7B61FF]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#7B61FF] uppercase">UK Wealth Retention</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#7B61FF] transition-colors">UK Buy, Borrow, Die Calculator</h4>
+            <p class="text-xs text-slate-400">Model borrowing against appreciated UK portfolios to avoid triggering CGT disposal events.</p>
+          </a>
+          <a href="/rmd-calculator/uk/" class="p-5 rounded-xl bg-[#0A0F1D] border border-[#1E294B] hover:border-[#00F5D4]/40 transition-all space-y-2 group">
+            <span class="text-xs font-bold text-[#00F5D4] uppercase">UK Pension Planning</span>
+            <h4 class="text-base font-bold text-white group-hover:text-[#00F5D4] transition-colors">UK Pension Drawdown Calculator</h4>
+            <p class="text-xs text-slate-400">Estimate flexible SIPP drawdown payments and 25% tax-free lump sum portions.</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>

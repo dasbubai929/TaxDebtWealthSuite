@@ -8,7 +8,9 @@ export default defineConfig({
   site: 'https://taxdebtwealthsuite.com',
   trailingSlash: 'always',
   integrations: [
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/404') && !page.includes('/500'),
+    }),
     astroBrokenLinksChecker({
       checkExternalLinks: true,
       throwError: false,

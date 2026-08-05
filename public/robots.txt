@@ -61,4 +61,4 @@ User-agent: YandexBot
 Allow: /
 
 # Sitemap
-Sitemap: https://taxdebtwealthsuite.com/sitemap.xml
+Sitemap: https://taxdebtwealthsuite.com/sitemap-index.xml

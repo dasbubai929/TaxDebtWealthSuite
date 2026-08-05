@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Australia"
 relatedTool: "mortgage-recast-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-mortgage-recast-au.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Australian homeowners holding variable or fixed-rate home loans often ask how to deploy lump-sum funds to lower their monthly mortgage repayments. While the term "mortgage recast" is specific to US lending, Australia's banking system offers even more flexible structures—such as **100% Mortgage Offset Accounts** and **Redraw Facilities**—overseen by the Australian Prudential Regulation Authority (APRA) and ASIC Moneysmart.

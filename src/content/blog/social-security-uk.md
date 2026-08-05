@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "UK"
 relatedTool: "social-security-pension-estimator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-social-security-uk.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 The United Kingdom's State Pension system provides a critical foundation of guaranteed income for millions of UK retirees. Following major reforms in April 2016, the UK transitioned to the **New State Pension**—a single-tier system designed to be simpler and fairer. However, determining how much you will receive requires understanding National Insurance (NI) contribution records, State Pension age rules, and pension deferral mathematics.

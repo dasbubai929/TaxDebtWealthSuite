@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "US"
 relatedTool: "mortgage-recast-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-mortgage-recast.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 When homeowners in the United States receive a financial windfall—such as an inheritance, annual work bonus, or proceeds from selling an asset or previous home—they often wonder how to use that capital to reduce monthly living expenses. While refinancing is a common strategy, a **mortgage recast** offers a faster, cheaper alternative to lower monthly payments without changing interest rates or incurring closing costs.

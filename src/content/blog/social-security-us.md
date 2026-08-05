@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "US"
 relatedTool: "social-security-pension-estimator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-social-security.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Planning for retirement in the United States requires a deep understanding of how Social Security benefits are calculated, how income taxes apply, and how your chosen claiming age dramatically impacts your lifetime cash flow. Whether you plan to claim as early as age 62 or wait until the maximum delayed credit threshold at age 70, knowing the underlying mechanics empowers you to build an optimal retirement strategy.

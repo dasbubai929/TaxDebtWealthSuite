@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Australia"
 relatedTool: "social-security-pension-estimator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-social-security-au.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 The Australian retirement system stands on a unique "three-pillar" framework: Superannuation guarantee contributions, voluntary personal savings, and the government-funded **Age Pension** administered by Services Australia (Centrelink). Unlike retirement pension systems in the US, UK, or Canada which rely heavily on past wage contributions, Australia's Age Pension is a safety-net welfare payment tested strictly against your income and assets.

@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "UK"
 relatedTool: "superannuation-rrsp-withdrawal-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-uk.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Since the landmark **Pension Freedoms** reforms introduced in April 2015, individuals in the United Kingdom holding Defined Contribution (DC) pensions—such as Self-Invested Personal Pensions (SIPPs) and workplace pension schemes—enjoy total flexibility over how and when they access their retirement savings. However, with total freedom comes the responsibility of managing income tax liabilities, lifetime allowances, and sustainable withdrawal rates.

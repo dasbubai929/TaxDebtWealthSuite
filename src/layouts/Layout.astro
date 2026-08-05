@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import CookieConsent from "../components/CookieConsent.astro";
 
 interface Props {
   title?: string;
@@ -50,14 +51,30 @@ const breadcrumbSchema = breadcrumbs ? {
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) — config gated behind cookie consent -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7LV68K7PQR" is:inline></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-7LV68K7PQR');
+      // Only fire GA4 config if the user has already consented to analytics.
+      // On first visit (no consent yet), the CookieConsent component handles
+      // calling gtag('config',...) after the user clicks Accept.
+      (function() {
+        try {
+          var consent = localStorage.getItem('cookie_consent_choice');
+          if (consent === 'all') {
+            gtag('config', 'G-7LV68K7PQR');
+          } else if (consent && consent.charAt(0) === '{') {
+            var parsed = JSON.parse(consent);
+            if (parsed && parsed.analytics === true) {
+              gtag('config', 'G-7LV68K7PQR');
+            }
+          }
+          // If consent is 'essential', null, or analytics:false → don't config
+        } catch(e) {}
+      })();
     </script>
     
     <!-- SEO Meta Tags -->
@@ -475,3 +492,6 @@ const breadcrumbSchema = breadcrumbs ? {
     });
   })();
 </script>
+
+<!-- Cookie Consent Banner (sitewide) -->
+<CookieConsent />

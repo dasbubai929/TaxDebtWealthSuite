@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Australia"
 relatedTool: "superannuation-rrsp-withdrawal-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-au.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 The Australian Superannuation system requires APRA-regulated funds and Self-Managed Super Funds (SMSFs) to enforce statutory minimum annual drawdown limits once a member transfers their accumulation account into an **Account-Based Pension (ABP)** or **Transition to Retirement (TTR)** pension phase. Knowing how minimum drawdown percentage brackets scale with age ensures compliance with Australian Taxation Office (ATO) standards while maximizing tax-free income.

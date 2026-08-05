@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Canada"
 relatedTool: "mortgage-recast-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-mortgage-recast-ca.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Homeowners in Canada navigating 5-year fixed or variable-rate mortgage terms often seek ways to deploy lump-sum funds—such as annual employment bonuses, inheritance, or tax refunds—to lower their ongoing monthly financial commitments. While the term "mortgage recast" is an American tax term, Canadian financial institutions offer equivalent mechanisms under statutory **Prepayment Privileges** governed by the Financial Consumer Agency of Canada (FCAC).

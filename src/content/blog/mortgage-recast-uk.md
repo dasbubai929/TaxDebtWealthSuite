@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "UK"
 relatedTool: "mortgage-recast-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-mortgage-recast-uk.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Homeowners in the United Kingdom looking to lower monthly mortgage costs often hear about American "mortgage recasting" and wonder if similar options exist under UK banking rules. While formal recasting is rare in the UK market, UK mortgage borrowers have access to powerful overpayment mechanics, flexi-mortgage features, and remortgaging options regulated by the Financial Conduct Authority (FCA).

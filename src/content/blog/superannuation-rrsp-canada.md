@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Canada"
 relatedTool: "superannuation-rrsp-withdrawal-calculator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-superannuation-rrsp-ca.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 In Canada, Registered Retirement Savings Plans (RRSPs) are one of the most effective vehicles for building pre-tax retirement wealth. However, as you approach retirement, Canadian tax law mandates that all RRSPs must be closed or converted into an income stream by the end of the year you turn **age 71**. Most Canadians choose to convert their RRSPs into a **Registered Retirement Income Fund (RRIF)** to satisfy statutory minimum annual withdrawal requirements.

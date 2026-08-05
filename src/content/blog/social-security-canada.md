@@ -5,7 +5,7 @@ author: "Mrittunjoy Das"
 pubDate: 2026-07-23
 country: "Canada"
 relatedTool: "social-security-pension-estimator"
-ogImage: "https://taxdebtwealthsuite.com/images/og-social-security-ca.png"
+ogImage: "https://taxdebtwealthsuite.com/images/og-home.png"
 ---
 
 Public retirement income in Canada is built on two primary pillars administered by Service Canada: the **Canada Pension Plan (CPP)** and **Old Age Security (OAS)**. Together, CPP and OAS provide a predictable income baseline for Canadian retirees. However, because CPP is an earnings-based contribution scheme while OAS is a residency-based entitlement, optimizing your total payout requires understanding how claiming ages, residency years, and income clawbacks interact.

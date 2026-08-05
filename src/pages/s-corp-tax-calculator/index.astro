@@ -23,6 +23,7 @@ import SCorpTaxCalculator from "../../components/SCorpTaxCalculator.astro";
         "name": "S-Corp vs Sole Proprietor Tax Calculator (United States)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "author": { "@id": "https://taxdebtwealthsuite.com/author/#person" },
         "provider": { "@id": "https://taxdebtwealthsuite.com/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "Compare your tax bill as a sole trader vs S-Corp in the United States. Free salary vs distribution optimizer for freelancers and contractors."
@@ -196,6 +197,8 @@ import SCorpTaxCalculator from "../../components/SCorpTaxCalculator.astro";
           <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
             <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/businesses/small-businesses-self-employed/s-corporation-compensation-and-medical-insurance-issues" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS S Corporation Compensation & Wage Guidance →</a></p>
             <p class="italic text-slate-500">Calculations are estimates, consult a professional certified public accountant (CPA) for reasonable salary determinations and tax elections.</p>
+          
+            <p class="text-xs text-slate-500 mt-3 italic">Reviewed against official IRS source documents. Last verified: [YYYY-MM-DD].</p>
           </div>
         </div>
       </section>

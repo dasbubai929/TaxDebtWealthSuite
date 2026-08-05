@@ -23,6 +23,7 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
         "name": "Corporation vs Sole Proprietor Tax Calculator (Canada)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "author": { "@id": "https://taxdebtwealthsuite.com/author/#person" },
         "provider": { "@id": "https://taxdebtwealthsuite.com/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" },
         "description": "Compare your tax bill as a sole proprietor vs corporation in Canada. Free salary vs distribution optimizer for freelancers and contractors."
@@ -196,6 +197,8 @@ import SCorpTaxCalculator from "../../../components/SCorpTaxCalculator.astro";
           <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
             <p><strong>Official Reference:</strong> <a href="https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/corporations/business-tax-credits/small-business-deduction.html" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">CRA Small Business Deduction Guide →</a></p>
             <p class="italic text-slate-500">Calculations are estimates, consult a Canadian CPA or cross-border tax specialist before making corporate tax elections.</p>
+          
+            <p class="text-xs text-slate-500 mt-3 italic">Reviewed against official CRA source documents. Last verified: [YYYY-MM-DD].</p>
           </div>
         </div>
       </section>

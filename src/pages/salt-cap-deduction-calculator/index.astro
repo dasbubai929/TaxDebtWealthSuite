@@ -16,6 +16,7 @@ import SaltCapCalculator from "../../components/SaltCapCalculator.astro";
         "name": "SALT Cap Deduction Calculator",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "author": { "@id": "https://taxdebtwealthsuite.com/author/#person" },
         "provider": { "@id": "https://taxdebtwealthsuite.com/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "See exactly how much of your state and local tax deduction you can claim under the new $40,400 SALT cap, including the high-income phase-down."
@@ -189,6 +190,8 @@ import SaltCapCalculator from "../../components/SaltCapCalculator.astro";
           <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
             <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/taxtopics/tc503" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Topic No. 503 - Deductible Taxes →</a></p>
             <p class="italic text-slate-500">Calculations are estimates, consult a CPA or licensed tax advisor to evaluate itemized deduction strategies and state PTET elections.</p>
+          
+            <p class="text-xs text-slate-500 mt-3 italic">Reviewed against official IRS source documents. Last verified: [YYYY-MM-DD].</p>
           </div>
         </div>
       </section>

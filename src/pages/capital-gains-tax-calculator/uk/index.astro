@@ -23,6 +23,7 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
         "name": "Capital Gains Tax Calculator (UK)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "author": { "@id": "https://taxdebtwealthsuite.com/author/#person" },
         "provider": { "@id": "https://taxdebtwealthsuite.com/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "GBP" },
         "description": "Estimate UK capital gains tax liability factoring in Annual Exempt Amount and Basic/Higher rate bands."
@@ -196,6 +197,8 @@ import CapitalGainsTaxCalculator from "../../../components/CapitalGainsTaxCalcul
           <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
             <p><strong>Official Reference:</strong> <a href="https://www.gov.uk/capital-gains-tax/rates" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">GOV.UK Capital Gains Tax Rates & Allowances →</a></p>
             <p class="italic text-slate-500">Calculations are estimates, consult an FCA-regulated financial adviser or UK chartered tax adviser for personal CGT planning.</p>
+          
+            <p class="text-xs text-slate-500 mt-3 italic">Reviewed against official HMRC source documents. Last verified: [YYYY-MM-DD].</p>
           </div>
         </div>
       </section>

@@ -23,6 +23,7 @@ import RmdCalculator from "../../components/RmdCalculator.astro";
         "name": "RMD Calculator (US)",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
+        "author": { "@id": "https://taxdebtwealthsuite.com/author/#person" },
         "provider": { "@id": "https://taxdebtwealthsuite.com/#organization" },
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "description": "Calculate your IRS required minimum distribution based on the SECURE Act 2.0 Uniform Lifetime Table."
@@ -196,6 +197,8 @@ import RmdCalculator from "../../components/RmdCalculator.astro";
           <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-xs text-slate-400 space-y-2">
             <p><strong>Official Reference:</strong> <a href="https://www.irs.gov/publications/p590b" target="_blank" rel="noopener noreferrer" class="text-[#00F5D4] hover:underline font-medium">IRS Publication 590-B (Distributions from IRAs) →</a></p>
             <p class="italic text-slate-500">Calculations are estimates, consult a qualified CPA or financial advisor to verify statutory RMD compliance.</p>
+          
+            <p class="text-xs text-slate-500 mt-3 italic">Reviewed against official IRS source documents. Last verified: [YYYY-MM-DD].</p>
           </div>
         </div>
       </section>

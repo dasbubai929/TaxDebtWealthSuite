@@ -1,11 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://taxdebtwealthsuite.com/" },
+  { name: "About the Author", url: "https://taxdebtwealthsuite.com/author/" }
+];
 ---
 
 <Layout 
   title="About the Author | TaxDebtWealthSuite"
   description="Meet the financial experts and software architects behind TaxDebtWealthSuite's proprietary calculators and planning tools."
+  breadcrumbs={breadcrumbs}
 >
+  <!-- Person JSON-LD Schema -->
+  <script type="application/ld+json" is:inline slot="head">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://taxdebtwealthsuite.com/author/#person",
+    "name": "Mrittunjoy Das",
+    "jobTitle": "Finance Enthusiast & Tool Architect",
+    "url": "https://taxdebtwealthsuite.com/author/",
+    "image": "https://taxdebtwealthsuite.com/images/author-mrittunjoy.webp",
+    "worksFor": { "@id": "https://taxdebtwealthsuite.com/#organization" },
+    "sameAs": []
+  }
+  </script>
+
   <main class="flex-grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
     <div class="mb-12 text-center">
       <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#00F5D4]/10 text-[#00F5D4] border border-[#00F5D4]/20 mb-4">The Team</span>
@@ -30,8 +51,16 @@ import Layout from "../layouts/Layout.astro";
       <section class="space-y-4">
         <h3 class="text-xl font-bold text-white">Our Expertise</h3>
         <p>
-          The calculators on this site are built using official formulas provided by major global tax authorities, including the IRS (United States), HMRC (United Kingdom), CRA (Canada), and ATO (Australia). Our developers hold deep expertise in algorithmic finance, ensuring that complex compounding interest formulas and marginal tax brackets are calculated with exact precision.
+          Every calculator on this site implements formulas derived directly from published official source documents — IRS publications and revenue procedures (US), HMRC guidance notes and legislation (UK), CRA technical guides (Canada), and ATO rulings and rate schedules (Australia). Each calculator page links to its primary official source in the Methodology section so you can verify the logic yourself.
         </p>
+        <p>
+          The calculation engines are built to handle the specific rules of each jurisdiction: progressive marginal tax brackets, phase-out thresholds, surtaxes like the US Net Investment Income Tax (NIIT), National Insurance contribution bands in the UK, Canada's dividend gross-up and credit system, and Australia's Medicare levy. Where a formula involves compounding (debt payoff, mortgage recast, Roth conversion projections), standard time-value-of-money amortization is applied with month-by-month precision.
+        </p>
+        <div class="p-4 rounded-xl bg-[#0A0F1D] border border-[#1E294B] text-sm space-y-2">
+          <p class="text-slate-400">
+            <strong class="text-slate-300">Transparency note:</strong> Mrittunjoy Das is a software developer with a focus on algorithmic finance, not a CPA, EA, CFP, or licensed tax professional. No professional credential is claimed where none exists. These calculators are mathematical tools — they implement published formulas with precision, but they do not replace professional advice tailored to your individual circumstances.
+          </p>
+        </div>
       </section>
 
       <section class="space-y-4">

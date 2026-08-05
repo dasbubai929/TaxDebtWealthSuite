@@ -160,11 +160,11 @@ const searchDataJson = JSON.stringify({
   </section>
 
   <!-- Recent Articles — Swipeable Cards -->
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+  <section class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight font-sans">Recent Articles</h2>
       <div class="flex items-center gap-3">
-        <div class="hidden sm:flex items-center gap-1.5">
+        <div class="flex items-center gap-1.5">
           <button id="carousel-prev" class="carousel-nav-btn" aria-label="Previous articles">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -647,6 +647,7 @@ const searchDataJson = JSON.stringify({
       var dragThreshold = 6; // pixels before we consider it a drag gesture
 
       track.addEventListener('pointerdown', function(e) {
+        if (e.pointerType === 'touch') return;
         if (e.button !== 0) return;
         isPointerDown = true;
         isDragging = false;
@@ -820,12 +821,16 @@ const searchDataJson = JSON.stringify({
        ═══════════════════════════════════════════════ */
     .carousel-track {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
-      padding-bottom: 8px;
+      padding-top: 4px;
+      padding-bottom: 12px;
       cursor: grab;
+      width: 100%;
+      max-width: 100%;
       /* Hide scrollbar on all browsers */
       -ms-overflow-style: none;
       scrollbar-width: none;
@@ -838,8 +843,8 @@ const searchDataJson = JSON.stringify({
       cursor: grabbing;
     }
     .carousel-card {
-      flex-shrink: 0;
-      width: 280px;
+      flex: 0 0 auto;
+      width: min(280px, calc(100vw - 3rem));
       scroll-snap-align: start;
       background: #111827;
       border: 1px solid rgba(30,41,75,0.7);
@@ -853,8 +858,16 @@ const searchDataJson = JSON.stringify({
       -webkit-user-select: none;
     }
     @media (min-width: 640px) {
+      .carousel-track {
+        gap: 20px;
+      }
       .carousel-card {
         width: 300px;
+      }
+    }
+    @media (min-width: 1024px) {
+      .carousel-card {
+        width: 320px;
       }
     }
     .carousel-card:hover {
